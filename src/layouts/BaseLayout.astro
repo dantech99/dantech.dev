@@ -1,24 +1,27 @@
 ---
 import NavLayout from "./NavLayouts.astro";
+import '../styles/style.module.css';
+
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // You can also use <link> for styles
+// ..
+AOS.init();
 ---
 <html lang="es">
   <head>
     <meta charset="utf-8">
     <title>Mi website de Astro</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
+
+     <!-- iconos de boxicons -->
+     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+
   </head>
-  <body class="bg-body">
-
-    <NavLayout></NavLayout>
-
+  <body>
+    <NavLayout></NavLayout> 
     <main>
-      <slot /> <!-- su contenido es inyectado aquí -->
+      <slot />
     </main>
+
   </body>
 </html>
-<style>
-.bg-body{
-    background: linear-gradient(63deg, rgba(15,23,42,1) 46%, rgba(14,10,85,1) 100%);;
-}
-</style>
