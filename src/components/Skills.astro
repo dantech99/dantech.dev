@@ -1,0 +1,103 @@
+---
+import AboutHeader from "./AboutHeader.astro";
+import HeaderSkill from "./HeaderSkill.astro";
+
+const skills = [
+    {
+        name: "HTML5",
+        img_url: "../public/icons/html-5.svg",
+    },
+    {
+        name: "CSS3",
+        img_url: "../public/icons/css3.svg",
+    },
+    {
+        name: "JavaScript",
+        img_url: "../public/icons/javascript.svg",
+    },
+    {
+        name: "Bootstrap 5",
+        img_url: "../public/icons/bootstrap.svg",
+    },
+    {
+        name: "TailwindsCSS",
+        img_url: "../public/icons/tailwind-css.svg",
+    },
+    {
+        name: "ReactJS",
+        img_url: "../public/icons/react.svg",
+    },
+    
+]
+
+const skills2 = [
+    {
+        name: "PHP",
+        img_url: "../public/icons/php.svg"
+    },
+    {
+        name: "Laravel",
+        img_url: "../public/icons/laravel.svg"
+    },
+    {
+        name: "NodeJs",
+        img_url: "../public/icons/nodejs.svg"
+    },
+    {
+        name: "MySQL",
+        img_url: "../public/icons/mysql.svg"
+    },
+    {
+        name: "MongoDB",
+        img_url: "../public/icons/mongodb.svg"
+    }
+]
+
+const skills3 = [
+    {
+        name: "Git",
+        img_url: "../public/icons/git.svg"
+    },
+    {
+        name: "GitHub",
+        img_url: "../public/icons/github.svg"
+    },
+]
+---
+
+<!-- html  -->
+
+<div class="container w-full px-5">
+    <AboutHeader title="Skills"></AboutHeader>
+
+    <HeaderSkill title="Skill Front-End" description="Sitios asombrosos, receptivos y minimalistas" ></HeaderSkill>
+
+    <div class="grid grid-cols-6 py-4 mt-5 justify-center">
+        {skills.map((skill) => (
+        <div class="bg-white rounded-[50%]  shadow-[0px_3px_2px_2px_#d21717] w-[100px] p-4" aria-label={skill.name} data-microtip-position="bottom" role="tooltip">
+            <img src={skill.img_url} alt="" class="w-full">
+        </div>
+        ))}
+    </div>
+
+    <HeaderSkill title="Skill Back-End | DB" description="Pasion Naciente" ></HeaderSkill>
+
+    <div class="grid grid-cols-6 py-4 mt-5 justify-center">
+        {skills2.map((skill) => (
+        <div class="bg-white rounded-[50%]  shadow-[0px_3px_2px_2px_#d21717] w-[100px] p-4" aria-label={skill.name} data-microtip-position="bottom" role="tooltip">
+            <img src={skill.img_url} alt="" class="w-full">
+        </div>
+        ))}
+    </div>
+
+
+    <HeaderSkill title="Skill Tools" description="Habilidades Adicionales y Complementarias" ></HeaderSkill>
+
+    <div class="grid grid-cols-6 py-4 mt-5 justify-center">
+        {skills3.map((skill) => (
+        <div class="bg-white rounded-[50%]  shadow-[0px_3px_2px_2px_#d21717] w-[100px] p-4" aria-label={skill.name} data-microtip-position="bottom" role="tooltip">
+            <img src={skill.img_url} alt="" class="w-full">
+        </div>
+        ))}
+    </div>
+</div>

@@ -3,9 +3,10 @@ import  BaseLayout  from "../layouts/BaseLayout.astro";
 import LogoDandev from "../../public/img/logo-dandev.png";
 import AbourtHeader from "../components/AboutHeader.astro";
 import SocialContact from "../components/SocialContact.astro";
-
+import Skills from "../components/Skills.astro";
+import CardProyect from "../components/CardProyect.astro";
 ---
-<BaseLayout>
+<BaseLayout title="Portfolio DandevMS">
    <section class="container m-auto p-5">
       <div class="grid grid-cols-2 mid:grid-cols-1">
          <div class="container m-auto w-full px-5 col-span-1">
@@ -42,6 +43,17 @@ import SocialContact from "../components/SocialContact.astro";
 
          <SocialContact></SocialContact>
       </div>
+   </section>
+
+   <!-- skills, habilidades  -->
+
+   <section class="container m-auto p-5">
+      <Skills></Skills>
+   </section>
+
+   <!-- tarjetas de proyectos -->
+   <section class="container m-auto p-5">
+      <CardProyect></CardProyect>
    </section>
 </BaseLayout>
 

@@ -1,5 +1,29 @@
 ---
-const items = ["Home", "Sobre My", "Skills", "Proyects", "Contacts"];
+// const items = ["Home", "Sobre My", "Skills", "Proyects", "Contacts"];
+
+const items = [
+  {
+    name: "Home",
+    link: "/"
+  },
+  {
+    name: "Sobre My",
+    link: "/"
+  },
+  {
+    name: "Skills",
+    link: "/"
+  },
+  {
+    name:"Proyects",
+    link: "/"
+  },
+  {
+    name: "Contacts",
+    link:"/"
+  },
+ 
+]
 
 ---
     <!-- contenedor padre  -->
@@ -10,7 +34,7 @@ const items = ["Home", "Sobre My", "Skills", "Proyects", "Contacts"];
           <ul class="flex items-center">
             {items.map((item) => (
             <>
-            <li><a href="" class=" text-white text-[20px] ml-9">{item}</a></li>
+            <li><a href={item.link} class=" text-white text-[20px] ml-9">{item.name}</a></li>
             </>
             ))}
           </ul>

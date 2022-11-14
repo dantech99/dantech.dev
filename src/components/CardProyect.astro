@@ -1,0 +1,60 @@
+---
+import AboutHeader from "./AboutHeader.astro";
+
+const proyects = [
+    {
+        img_url: "imagen del proyecto",
+        name: "titulo del proyecto",
+        category: "categoria",
+        description: "descripcion",
+        link: "link del proyecto en git",
+        deploy: "link del proyecto desplegadp",
+
+    }
+]
+---
+
+<!-- html  -->
+
+<!-- tarjeta de proyecto -->
+<div class="container w-full px-4">
+    <AboutHeader title="Proyects"></AboutHeader>
+
+    <!-- componente btn more  -->
+
+    <!-- contenedor gri  -->
+    <div class="grid grid-cols-3">
+        <article class="container bg-primary rounded-sm overflow-hidden shadow-[0px_0px_3px_0px_#1707f3] hover:shadow-[2px_0px_5px_0px_#1707f3] h-auto w-auto">
+            <div class="w-full max-h-80 overflow-hidden">
+                <img src="../../public/img/pc.jpg" alt="" class="overflow-hidden opacity-[1] transition-all delay-75 hover:-translate-y-1 hover:scale-110 duration-300 hover:filter hover:brightness-50">
+            </div>
+            <div class="text-white p-6 h-[17rem] overflow-hidden ">
+                <h2 class="text-white text-3xl mb-3 font-bold">Proyect <span class="text-[10px] p-1 rounded-[10%] border border-[#666565] mr-10 text-[#bdb7b7] bottom-1 relative cursor-pointer">Empresa</span></h2>
+                <p class="font-normal text-lg">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta nobis beatae alias sequi voluptatibus, unde laborum aperiam in ducimus magni officiis illo? Ab laborum saepe in asperiores! Officia, tenetur odit!</p>
+            </div>
+            <div class="flex justify-between px-4 pb-3 content-center">
+                <div class="flex tec">
+                    <span class="text-white text-3xl flex p-1 rounded-[100%] bg-red-700 ml-1 hover:bg-[#0E0C4E]" ><i class='bx bxl-html5'></i></span>
+
+                    <span class="text-white text-3xl flex p-1 rounded-[100%] bg-red-700 ml-1 hover:bg-[#0E0C4E]" ><i class='bx bxl-javascript' ></i></span>
+
+                    <span class="text-white text-3xl flex p-1 rounded-[100%] bg-red-700 ml-1 hover:bg-[#0E0C4E]" ><i class='bx bxl-tailwind-css' ></i></span>
+                </div>
+                <div class="flex">
+                    <a href="" class="text-white text-3xl ml-[2px]"><i class='bx bx-link-external'></i></a>
+                    <a href="" class="text-white text-3xl ml-[2px]"><i class='bx bxl-github' ></i></a>
+                </div>
+            </div>
+        </article>
+    </div>
+
+</div>
+ <style>
+    .bg-primary{
+        background: linear-gradient(63deg, #0f172a 46%, #0e0a55 100%);
+    }
+
+    .tec span:not(:first-child){
+        margin-left: -.5rem;
+    }
+ </style>
