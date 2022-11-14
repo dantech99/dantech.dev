@@ -1,13 +1,15 @@
 ---
 import  BaseLayout  from "../layouts/BaseLayout.astro";
 import LogoDandev from "../../public/img/logo-dandev.png";
+import AbourtHeader from "../components/AboutHeader.astro";
+import SocialContact from "../components/SocialContact.astro";
 
 ---
 <BaseLayout>
-   <div class="container m-auto p-5">
+   <section class="container m-auto p-5">
       <div class="grid grid-cols-2 mid:grid-cols-1">
          <div class="container m-auto w-full px-5 col-span-1">
-            <div class="w-auto" data-aos="fade-in">
+            <div class="w-auto">
             <h2 class="text-white text-6xl font-bold mb-3 leading-normal ">Developer Web Front-End</h2>
             <p class="text-white text-xl mt-6 font-medium">
                Hola, Mi nombre es Danilo Antonio Macea
@@ -24,6 +26,22 @@ import LogoDandev from "../../public/img/logo-dandev.png";
             </div>
          </div>
       </div>
-   </div>
+   </section>
+
+   <!-- section about my -->
+   <section class="container m-auto p-5">
+      <div class="container w-full px-5 text-center">
+         <AbourtHeader title="About My"></AbourtHeader>
+
+         <div class="container p-5 mt-5 text-start">
+            <p class="text-white"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum, ut velit quibusdam inventore quis, obcaecati perspiciatis odit voluptatum deserunt hic nam. Provident consequuntur incidunt culpa beatae nam fugiat libero praesentium, non quisquam in possimus repellendus, dignissimos, vel rem tempore repellat ratione rerum ipsa sed saepe asperiores placeat impedit odio? Cupiditate perspiciatis ullam enim maxime. Error explicabo quaerat ut </p>
+            <p class="text-white"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum, ut velit quibusdam inventore quis, obcaecati perspiciatis odit voluptatum deserunt hic nam. Provident consequuntur incidunt culpa beatae nam fugiat libero praesentium, non quisquam in possimus repellendus, dignissimos, vel rem tempore repellat ratione rerum ipsa sed saepe asperiores placeat impedit odio? Cupiditate perspiciatis ullam enim maxime. Error explicabo quaerat ut </p>
+         </div>
+
+         <h1 class="text-white text-2xl my-5">Mis Redes</h1>
+
+         <SocialContact></SocialContact>
+      </div>
+   </section>
 </BaseLayout>
 
