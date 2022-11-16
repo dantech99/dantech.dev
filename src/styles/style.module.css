@@ -7,9 +7,10 @@
 :root {
     /*| FONTS VAR */
     --fonts-poppins: 'Poppins', sans-serif;
+    --bg-primary: linear-gradient(90deg, #0f172a 0%, #0e0a55 100%);
 }
 
 body{
-    background: linear-gradient(90deg, #0f172a 0%, #0e0a55 100%);
+    background: var(--bg-primary);
     font-family: var(--fonts-poppins);
   }

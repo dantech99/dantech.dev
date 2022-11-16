@@ -5,10 +5,11 @@ import AbourtHeader from "../components/AboutHeader.astro";
 import SocialContact from "../components/SocialContact.astro";
 import Skills from "../components/Skills.astro";
 import CardProyect from "../components/CardProyect.astro";
+import FormContact from "../components/FormContact.astro";
 ---
 <BaseLayout title="Portfolio DandevMS">
    <section class="container m-auto p-5">
-      <div class="grid grid-cols-2 mid:grid-cols-1">
+      <div class="grid grid-cols-1  md:grid-cols-2 mid:grid-cols-1">
          <div class="container m-auto w-full px-5 col-span-1">
             <div class="w-auto">
             <h2 class="text-white text-6xl font-bold mb-3 leading-normal ">Developer Web Front-End</h2>
@@ -33,7 +34,6 @@ import CardProyect from "../components/CardProyect.astro";
    <section class="container m-auto p-5">
       <div class="container w-full px-5 text-center">
          <AbourtHeader title="About My"></AbourtHeader>
-
          <div class="container p-5 mt-5 text-start">
             <p class="text-white"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum, ut velit quibusdam inventore quis, obcaecati perspiciatis odit voluptatum deserunt hic nam. Provident consequuntur incidunt culpa beatae nam fugiat libero praesentium, non quisquam in possimus repellendus, dignissimos, vel rem tempore repellat ratione rerum ipsa sed saepe asperiores placeat impedit odio? Cupiditate perspiciatis ullam enim maxime. Error explicabo quaerat ut </p>
             <p class="text-white"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum, ut velit quibusdam inventore quis, obcaecati perspiciatis odit voluptatum deserunt hic nam. Provident consequuntur incidunt culpa beatae nam fugiat libero praesentium, non quisquam in possimus repellendus, dignissimos, vel rem tempore repellat ratione rerum ipsa sed saepe asperiores placeat impedit odio? Cupiditate perspiciatis ullam enim maxime. Error explicabo quaerat ut </p>
@@ -55,5 +55,22 @@ import CardProyect from "../components/CardProyect.astro";
    <section class="container m-auto p-5">
       <CardProyect></CardProyect>
    </section>
+
+   <!-- formulario de contacto  -->
+   <section class="container-2xl m-auto p-5 mt-7 contact">
+      <FormContact></FormContact>
+   </section>
+
+   <!-- foooter o pie de pagina  -->
+
+   
 </BaseLayout>
+
+<style>
+   .contact{
+    background:linear-gradient(63deg, #0f172a 46%, #0e0a55 100%);
+}
+
+</style>
+
 
