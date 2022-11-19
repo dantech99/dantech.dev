@@ -84,17 +84,13 @@ const proyects = [
                 <img src="../../public/img/pc.jpg" alt="" class="overflow-hidden opacity-[1] transition-all delay-75 hover:-translate-y-1 hover:scale-110 duration-300 hover:filter hover:brightness-50">
             </div>
             <div class="text-white p-6 h-[17rem] overflow-hidden ">
-                <h2 class="text-white text-3xl mb-3 font-bold">{items.title}<span class="text-[10px] p-1 rounded-[10%] border border-[#666565] mr-10 text-[#bdb7b7] bottom-1 relative cursor-pointer">{items.type[1]}</span></h2>
+                <h2 class="text-white text-xl md:text-2xl mb-3 font-bold">{items.title} <span class="text-[10px] p-1 rounded-[10%] border border-[#666565] mr-10 text-[#bdb7b7] bottom-1 relative cursor-pointer"> {items.type[1]}</span></h2>
                 <p class="font-normal text-lg">{items.description}</p>
             </div>
-            <div class="flex justify-between px-4 pb-3 content-center">
+            <div class="flex justify-between p-3 md:p-5 content-center">
                 <div class="flex tec">
                     {items.tech.map((icon) => (
                     <span class="text-white text-3xl flex p-1 rounded-[100%] bg-red-700 ml-1 hover:bg-[#0E0C4E]" ><i class={icon.tec}></i></span>
-
-                    // <span class="text-white text-3xl flex p-1 rounded-[100%] bg-red-700 ml-1 hover:bg-[#0E0C4E]" ><i class='bx bxl-javascript' ></i></span>
-
-                    // <span class="text-white text-3xl flex p-1 rounded-[100%] bg-red-700 ml-1 hover:bg-[#0E0C4E]" ><i class='bx bxl-tailwind-css' ></i></span>
                 ))}
                 </div>
                 <div class="flex">

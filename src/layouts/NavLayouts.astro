@@ -1,43 +1,87 @@
 ---
-// const items = ["Home", "Sobre My", "Skills", "Proyects", "Contacts"];
-
 const items = [
   {
     name: "Home",
-    link: "/"
+    link: "/",
   },
   {
     name: "Sobre My",
-    link: "/"
+    link: "/",
   },
   {
     name: "Skills",
-    link: "/"
+    link: "/",
   },
   {
-    name:"Proyects",
-    link: "/"
+    name: "Proyects",
+    link: "/",
   },
   {
     name: "Contacts",
-    link:"/"
+    link: "/",
   },
- 
-]
-
+];
 ---
-    <!-- contenedor padre  -->
-    <section class="container-xl m-auto p-4" id="home">
-      <div class="sm:container m-auto">
-        <nav class="flex justify-between mx-auto content-center p-9">
-          <a href="#" class="p-2 text-white text-[30px]">D a n i l o  M a c e a</a>
-          <ul class="md:flex hidden items-center ">
-            {items.map((item) => (
+<section class="container-xl m-auto p-4" id="home">
+  <div class="sm:container m-auto">
+<nav class="p-4 fixed w-full z-20 top-0 left-0 bg-primary">
+  <div class="container flex flex-wrap items-center justify-between mx-auto">
+    <a
+      href="https://flowbite.com/"
+      class="flex items-center text-white md:text-[30px] text-[25px]"
+    >
+      <span class="self-center whitespace-nowrap">D a n i l o M a c e a</span>
+    </a>
+    <div class="flex">
+      <button
+        data-collapse-toggle="navbar-sticky"
+        type="button"
+        class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+        aria-controls="navbar-sticky"
+        aria-expanded="false"
+      >
+        <span class="sr-only">Open main menu</span>
+        <svg
+          class="w-6 h-6"
+          aria-hidden="true"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+          xmlns="http://www.w3.org/2000/svg"
+          ><path
+            fill-rule="evenodd"
+            d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+            clip-rule="evenodd"></path>
+        </svg>
+      </button>
+    </div>
+    <div class="items-center justify-between hidden w-full md:flex md:w-auto"
+      id="navbar-sticky">
+      <ul class="flex flex-col p-4 mt-4 rounded-lg md:flex-row items-center md:space-x-8 md:mt-0 text-xl md:text-1xl md:font-medium">
+        {items.map((item) => (
             <>
-            <li><a href={item.link} class=" text-white text-[20px] ml-9">{item.name}</a></li>
+              <li>
+                <a
+                  href="#"
+                  class="block py-2 pl-3 pr-4 text-white  rounded md:bg-transparent md:p-0 hover:text-blue-600 "
+                  aria-current="page">
+                  {item.name}
+                </a>
+              </li>
             </>
-            ))}
-          </ul>
-        </nav>
-      </div>
-    </section>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</nav>
+  </div>
+</section>
+<style>
+  .bg-primary {
+    background: linear-gradient(63deg, #0f172a 46%, #0e0a55 100%);
+  }
+
+  .tec span:not(:first-child) {
+    margin-left: -0.5rem;
+  }
+</style>
