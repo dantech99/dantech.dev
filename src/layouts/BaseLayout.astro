@@ -3,6 +3,7 @@ import NavLayout from "./NavLayouts.astro";
 import FooterLayout from "./FooterLayout.astro";
 import Navigation from "../components/Navigation.astro";
 import "../styles/style.module.css";
+import Logo from "../../public/img/logo-dandev.png";
 
 const { title } = Astro.props;
 ---
@@ -13,11 +14,7 @@ const { title } = Astro.props;
     <title>{title}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <link
-      rel="shortcut icon"
-      href="../public/img/logo-dandev.png"
-      type="image/x-icon"
-    />
+    <link rel="shortcut icon" href={Logo} type="image/x-icon" />
 
     <!-- iconos de boxicons -->
     <link
