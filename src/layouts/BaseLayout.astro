@@ -5,7 +5,6 @@ import Navigation from "../components/Navigation.astro";
 import "../styles/style.module.css";
 import Logo from "../../public/img/logo-dandev.png";
 import ButtonTopScroll from '../components/buttonScrollTop.astro';
-
 const { title } = Astro.props;
 ---
 
@@ -22,10 +21,6 @@ const { title } = Astro.props;
       href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css"
       rel="stylesheet"
     />
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/flowbite@1.5.4/dist/flowbite.min.css"
-    />
 
     <!-- toolstips  -->
     <link rel="stylesheet" href="https://unpkg.com/microtip/microtip.css" />
@@ -38,7 +33,7 @@ const { title } = Astro.props;
     </main>
     <FooterLayout />
 
-    <script src="https://unpkg.com/flowbite@1.5.4/dist/flowbite.js"></script>
+    <script src="https://unpkg.com/@themesberg/flowbite@1.1.1/dist/flowbite.bundle.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   </body>
 </html>
