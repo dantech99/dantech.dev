@@ -14,3 +14,7 @@ body{
     background: var(--bg-primary);
     font-family: var(--fonts-poppins);
   }
+
+  html{
+    scroll-behavior: smooth;
+}

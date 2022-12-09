@@ -4,6 +4,7 @@ import FooterLayout from "./FooterLayout.astro";
 import Navigation from "../components/Navigation.astro";
 import "../styles/style.module.css";
 import Logo from "../../public/img/logo-dandev.png";
+import ButtonTopScroll from '../components/buttonScrollTop.astro';
 
 const { title } = Astro.props;
 ---
@@ -30,6 +31,7 @@ const { title } = Astro.props;
     <link rel="stylesheet" href="https://unpkg.com/microtip/microtip.css" />
   </head>
   <body>
+    <ButtonTopScroll />
     <NavLayout />
     <main>
       <slot />
