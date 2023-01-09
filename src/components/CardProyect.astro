@@ -64,6 +64,7 @@ const proyects = [
         link_deploy: "",
     },
 ];
+
 ---
 
 <!-- html  --><!-- tarjeta de proyecto -->
@@ -86,9 +87,8 @@ const proyects = [
                         </div>
                         <div class="text-white p-6 h-[17rem] overflow-hidden ">
                             <h2 class="text-white text-xl md:text-2xl mb-3 font-bold">
-                                {items.title}{" "}
+                                {items.title}
                                 <span class="text-[10px] p-1 rounded-[10%] border border-[#666565] mr-10 text-[#bdb7b7] bottom-1 relative cursor-pointer">
-                                    {" "}
                                     {items.type[1]}
                                 </span>
                             </h2>
@@ -98,7 +98,7 @@ const proyects = [
                         </div>
                         <div class="flex justify-between p-3 md:p-5 content-center">
                             <div class="flex tec">
-                                {items.tech.map((icon) => (
+                             {items.tech.map((icon) => (
                                     <span class="text-white text-3xl flex p-1 rounded-[100%] bg-red-700 ml-1 hover:bg-[#0E0C4E]">
                                         <i class={icon.tec} />
                                     </span>
