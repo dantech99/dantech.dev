@@ -28,10 +28,10 @@ const items = [
   defer
 ></script>
 
-<div class="w-full text-gray-700 bg-primary m-auto">
+<div class="w-full text-gray-700 bg-primary shadow">
   <div
     x-data="{ open: false }"
-    class="flex flex-col m-auto px-4 container md:justify-between md:flex-row md:px-6 lg:px-8"
+    class="flex flex-col max-w-screen-xl px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8"
   >
     <div class="p-4 flex flex-row items-center justify-between">
       <a href="#" class="md:text-[30px] text-[22px] text-white"
@@ -57,14 +57,14 @@ const items = [
     </div>
 
     <nav
-      class="{'flex': open, 'hidden': !open}"
-      class="flex-col flex-grow p-4 md:pb-0 hidden md:flex md:justify-end md:flex-row text-base"
+      :class="{'flex': open, 'hidden': !open}"
+      class="flex-col flex-grow p-4 items-center hidden md:flex md:justify-end md:flex-row"
     >
       {
         items.map((item) => (
           <>
             <a
-              class="px-4 py-4 mt-2  font-semibold text-white md:mt-0 hover:text-blue-600 text-xl md:text-1xl"
+              class="px-4 py-4 font-semibold text-white  hover:text-blue-600 text-xl md:text-1xl"
               href="/"
             >
               {item.name}
