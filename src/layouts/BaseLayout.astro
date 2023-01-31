@@ -1,11 +1,9 @@
 ---
 import NavLayout from "./NavLayouts.astro";
 import FooterLayout from "./FooterLayout.astro";
-import Navigation from "../components/Navigation.astro";
-import NaviNew from "../components/NavNew.astro";
 import "../styles/style.module.css";
 import Logo from "../../public/img/logo-dandev.png";
-import ButtonTopScroll from '../components/buttonScrollTop.astro';
+import ButtonTopScroll from "../components/buttonScrollTop.astro";
 const { title } = Astro.props;
 ---
 
@@ -34,7 +32,9 @@ const { title } = Astro.props;
     </main>
     <FooterLayout />
 
-    <script src="https://unpkg.com/@themesberg/flowbite@1.1.1/dist/flowbite.bundle.js"></script>
+    <script
+      src="https://unpkg.com/@themesberg/flowbite@1.1.1/dist/flowbite.bundle.js"
+    ></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   </body>
 </html>

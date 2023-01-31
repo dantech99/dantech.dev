@@ -7,6 +7,7 @@ import SocialContact from "../components/SocialContact.astro";
 import Skills from "../components/Skills.astro";
 import CardProyect from "../components/CardProyect.astro";
 import FormContact from "../components/FormContact.astro";
+import ButtonCv from "../components/ButtonCv.astro";
 ---
 
 <!-- seccion principal -->
@@ -26,11 +27,20 @@ import FormContact from "../components/FormContact.astro";
                   apasiona la web, quiero vivirla y aportar mi talento para
                   mejorarla
                </p>
-               <a
-                  href="#"
-                  class="mt-5 text-white p-3 tracking-wide inline-block bg-[#D21717] rounded-3xl hover:bg-white hover:text-black"
-                  ><i class="bx bxs-download"></i> Dowload CV</a
-               >
+               <div class="flex md:justify-start justify-center content-center">
+                  <ButtonCv
+                     title="Dowload CV PDF"
+                     color="bg-red-600"
+                     link="https://drive.google.com/uc?export=download&id=1iPJDRCvGN-DxTMggI4hRt_9fAIzAuFt5&name=cv-danilo-macea.pdf"
+                     icon="bx bxs-download bx-sm"
+                  />
+                  <ButtonCv
+                     title="View CV"
+                     color="bg-[#0fb4d1]"
+                     link=""
+                     icon="bx bx-show bx-sm"
+                  />
+               </div>
             </div>
          </div>
 
