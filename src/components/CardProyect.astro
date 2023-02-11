@@ -3,66 +3,86 @@ import AboutHeader from "./AboutHeader.astro";
 import BtnMoreProyects from "./BtnMoreProyects.astro";
 import ImgProyect from "../../public/img/pc.jpg";
 
+// ICONO 
+import ImgHtml from "../../public/icons/html-5.svg";
+import ImgCSS from "../../public/icons/css3.svg";
+import ImgJS from "../../public/icons/javascript.svg";
+import ImgBTS from "../../public/icons/bootstrap.svg";
+import ImgTLW from "../../public/icons/tailwind-css.svg";
+import ImReact from "../../public/icons/react.svg";
+
+import ImgPHP from "../../public/icons/php.svg";
+import ImgLaravel from "../../public/icons/laravel.svg";
+import ImgNode from "../../public/icons/nodejs.svg";
+import ImgMysql from "../../public/icons/mysql.svg";
+import Imgmongo from "../../public/icons/mongodb.svg";
+import ImgGit from "../../public/icons/git.svg";
+import ImgHub from "../../public/icons/github.svg";
+
 // objetos para el componente
 
 const proyects = [
     {
-        img_link: "imagen del proyecto",
-        title: "titulo del proyecto",
-        description: "descripcion del proyecto",
+        img_link: "https://gesccol.gov.co/images/logo-gesccol.png",
+        title: "Gesccol App",
+        description: "Gesccol Web es un aplicativo diseñado para la divulgación de información pública de la empresa GESCCOL E.I.C.E. Con un panel administrativo para al administracion de la informacion publicada.",
         type: ["empresa", "personal"],
         tech: [
             {
-                tec: "bx bxl-html5",
+                tec: ImgLaravel,
             },
             {
-                tec: "bx bxl-javascript",
+                tec: ImgPHP,
             },
             {
-                tec: "bx bxl-tailwind-css",
+                tec: ImgMysql,
             },
+            {
+                tec: ImgTLW,
+            },
+            
         ],
         link_repo: "",
         link_deploy: "",
     },
-    {
-        img_link: "imagen del proyecto",
-        title: "titulo del proyecto",
-        description: "descripcion del proyecto",
-        type: ["empresa", "personal"],
-        tech: [
-            {
-                tec: "bx bxl-html5",
-            },
-            {
-                tec: "bx bxl-javascript",
-            },
-            {
-                tec: "bx bxl-tailwind-css",
-            },
-        ],
-        link_repo: "",
-        link_deploy: "",
-    },
-    {
-        img_link: "imagen del proyecto",
-        title: "titulo del proyecto",
-        description: "descripcion del proyecto",
-        type: ["empresa", "personal"],
-        tech: [
-            {
-                tec: "bx bxl-html5",
-            },
-            {
-                tec: "bx bxl-javascript",
-            },
-            {
-                tec: "bx bxl-tailwind-css",
-            },
-        ],
-        link_repo: "",
-        link_deploy: "",
-    },
+    // {
+    //     img_link: ImgProyect,
+    //     title: "titulo del proyecto",
+    //     description: "descripcion del proyecto",
+    //     type: ["empresa", "personal"],
+    //     tech: [
+    //         {
+    //             tec: "bx bxl-html5",
+    //         },
+    //         {
+    //             tec: "bx bxl-javascript",
+    //         },
+    //         {
+    //             tec: "bx bxl-tailwind-css",
+    //         },
+    //     ],
+    //     link_repo: "",
+    //     link_deploy: "",
+    // },
+    // {
+    //     img_link: ImgProyect,
+    //     title: "titulo del proyecto",
+    //     description: "descripcion del proyecto",
+    //     type: ["empresa", "personal"],
+    //     tech: [
+    //         {
+    //             tec: "bx bxl-html5",
+    //         },
+    //         {
+    //             tec: "bx bxl-javascript",
+    //         },
+    //         {
+    //             tec: "bx bxl-tailwind-css",
+    //         },
+    //     ],
+    //     link_repo: "",
+    //     link_deploy: "",
+    // },
 ];
 
 ---
@@ -74,16 +94,17 @@ const proyects = [
     <!-- componente btn more  -->
     <BtnMoreProyects />
     <!-- contenedor grid  -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 md:grid-cols-3">
+    <div class="flex justify-center content-center items-center flex-wrap">
         {
             proyects.map((items) => (
                 <>
-                    <article class="container bg-primary rounded-sm overflow-hidden shadow-[0px_0px_3px_0px_#1707f3] hover:shadow-[2px_0px_5px_0px_#1707f3] h-auto w-auto">
-                        <div class="w-full max-h-80 overflow-hidden">
+                    <article class="container bg-primary rounded-sm overflow-hidden shadow-[0px_0px_3px_0px_#1707f3] hover:shadow-[2px_0px_5px_0px_#1707f3] h-auto w-auto max-w-md">
+                        <div class="w-full h-80 overflow-hidden">
                             <img
-                                src={ImgProyect}
+                                src={items.img_link}
                                 alt=""
-                                class="overflow-hidden opacity-[1] transition-all delay-75 hover:-translate-y-1 hover:scale-110 duration-300 hover:filter hover:brightness-50"
+                                class="overflow-hidden opacity-[1] transition-all delay-75 hover:-translate-y-1 hover:scale-110 duration-300 hover:filter hover:brightness-50 h-full bg-white object-scale-down"
+
                             />
                         </div>
                         <div class="text-white p-6 h-[17rem] overflow-hidden ">
@@ -97,11 +118,12 @@ const proyects = [
                                 {items.description}
                             </p>
                         </div>
-                        <div class="flex justify-between p-3 md:p-5 content-center">
+                        <div class="flex justify-between p-3 md:p-5 content-center items-center">
                             <div class="flex tec">
                              {items.tech.map((icon) => (
-                                    <span class="text-white text-3xl flex p-1 rounded-[100%] bg-red-700 ml-1 hover:bg-[#0E0C4E]">
-                                        <i class={icon.tec} />
+                                    <span class="flex  rounded-[100%] p-1 ml-1 bg-white 
+                                    hover:bg-[#0E0C4E] shadow-[0px_3px_2px_2px_#d21717]">
+                                        <img src={icon.tec} class="w-10">
                                     </span>
                                 ))}
                             </div>
