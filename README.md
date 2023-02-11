@@ -8,7 +8,7 @@ Hace mucho tiempo que venia con esta idea en la cabeza, tener mi propio espacio 
 
 **Por supuesto no quería quedarme atrás y empecé este proyecto personal para desarrollar mi portafolio web.**
 
-
+***Construido con Astro***
 
 
 
