@@ -1,108 +1,31 @@
 ---
 // impotaciones de componentes
 import BaseLayout from "../layouts/BaseLayout.astro";
-import LogoDandev from "../../public/img/logo-dandev.png";
-import AbourtHeader from "../components/AboutHeader.astro";
-import SocialContact from "../components/SocialContact.astro";
 import Skills from "../components/Skills.astro";
 import CardProyect from "../components/CardProyect.astro";
 import FormContact from "../components/FormContact.astro";
-import ButtonCv from "../components/ButtonCv.astro";
+import Jumbotron from "../components/Jumbotron.astro";
+import AboutMe from "../components/AboutMe.astro";
 ---
 
 <!-- seccion principal -->
 <BaseLayout title="Dandev.tech">
-   <section class="container m-auto p-10 mt-10">
-      <div class="grid grid-cols-1 md:grid-cols-2 mid:grid-cols-1">
-         <div class="container m-auto w-full px-5 col-span-1">
-            <div class="w-auto text-center md:text-start">
-               <h2
-                  class="text-white text-5xl md:text-6xl font-bold mb-3 leading-normal"
-               >
-                  Developer Web Front-End
-               </h2>
-               <p class="text-white text-lg md:text-xl mt-6 font-medium">
-                  Hola ✌, Mi nombre es Danilo Antonio, soy orgullosamente de
-									colombia, actualmente dedicado al desarrollo web, mi area en
-									particular es el desarrollo FrontEnd, me preparo a dario para estar
-									a la par de los ultimos avances y me fascina estar surmegido en este
-									gran oceano de la web
-               </p>
-               <div
-                  class="flex md:justify-start justify-center content-center md:flex-row sm:flex-row flex-col"
-               >
-                  <ButtonCv
-                     title="Dowload CV PDF"
-                     color="bg-red-600"
-                     link="https://drive.google.com/uc?export=download&id=1iPJDRCvGN-DxTMggI4hRt_9fAIzAuFt5&name=cv-danilo-macea.pdf"
-                     icon="bx bxs-download bx-sm"
-                  />
-                  <ButtonCv
-                     title="View CV"
-                     color="bg-[#0fb4d1]"
-                     link=""
-                     icon="bx bx-show bx-sm"
-                  />
-               </div>
-            </div>
-         </div>
-
-         <div class="container m-auto w-full px-5">
-            <div class="flex justify-center items-center">
-               <img src={LogoDandev} alt="" class="w-96" />
-            </div>
-         </div>
-      </div>
-   </section>
+   
+   <!-- entrada y presentacion  -->
+   <Jumbotron />
 
    <!-- section about me -->
-   <section class="container m-auto p-5">
-      <div class="container w-full px-5 text-center">
-         <AbourtHeader title="About Me 🚀" />
-         <div class="container p-5 mt-5 text-start">
-            <p class="text-white">
-               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum, ut
-               velit quibusdam inventore quis, obcaecati perspiciatis odit
-               voluptatum deserunt hic nam. Provident consequuntur incidunt
-               culpa beatae nam fugiat libero praesentium, non quisquam in
-               possimus repellendus, dignissimos, vel rem tempore repellat
-               ratione rerum ipsa sed saepe asperiores placeat impedit odio?
-               Cupiditate perspiciatis ullam enim maxime. Error explicabo
-               quaerat ut
-            </p>
-            <p class="text-white">
-               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum, ut
-               velit quibusdam inventore quis, obcaecati perspiciatis odit
-               voluptatum deserunt hic nam. Provident consequuntur incidunt
-               culpa beatae nam fugiat libero praesentium, non quisquam in
-               possimus repellendus, dignissimos, vel rem tempore repellat
-               ratione rerum ipsa sed saepe asperiores placeat impedit odio?
-               Cupiditate perspiciatis ullam enim maxime. Error explicabo
-               quaerat ut
-            </p>
-         </div>
-         <h1 class="text-white text-2xl my-5">Mis Redes</h1>
-         <SocialContact />
-      </div>
-   </section>
+   <AboutMe />
 
    <!-- skills, habilidades  -->
-
-   <section class="container m-auto p-5">
-      <Skills />
-   </section>
+   <Skills />
 
    <!-- tarjetas de proyectos -->
-   <section class="container m-auto p-5">
-      <CardProyect />
-   </section>
+   <CardProyect />
 
    <!-- formulario de contacto  -->
-   <section class="container-2xl m-auto p-5 mt-7 contact">
-      <FormContact />
-   </section>
-
-   <!-- foooter o pie de pagina  -->
+   <FormContact />
+   
 </BaseLayout>
 <style>
    .contact {
