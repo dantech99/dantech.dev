@@ -39,7 +39,7 @@ const items = [
       >
       <button
         class="md:hidden rounded-lg focus:outline-none focus:shadow-outline text-white"
-        @click="open = !open"
+        x-on:click="open = !open"
       >
         <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
           <path
@@ -56,8 +56,7 @@ const items = [
       </button>
     </div>
 
-    <nav
-      :class="{'flex': open, 'hidden': !open}"
+    <nav :class="{'flex': open, 'hidden': !open}"
       class="flex-col flex-grow p-4 items-center hidden md:flex md:justify-end md:flex-row"
     >
       {
