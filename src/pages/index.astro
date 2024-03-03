@@ -1,15 +1,15 @@
 ---
 // impotaciones de componentes
-import BaseLayout from "../layouts/BaseLayout.astro";
+import Layout from "../layouts/Layout.astro";
 import Skills from "../components/Skills.astro";
 import CardProyect from "../components/CardProyect.astro";
 import FormContact from "../components/FormContact.astro";
 import Jumbotron from "../components/Jumbotron.astro";
-import AboutMe from "../components/AboutMe.astro";
+import AboutMe from "@/components/AboutMe.astro";
 ---
 
 <!-- seccion principal -->
-<BaseLayout title="Dandev.tech">
+<Layout>
    
    <!-- entrada y presentacion  -->
    <Jumbotron />
@@ -26,7 +26,11 @@ import AboutMe from "../components/AboutMe.astro";
    <!-- formulario de contacto  -->
    <FormContact />
    
-</BaseLayout>
+</Layout>
+
+
+
+
 <style>
    .contact {
       background: linear-gradient(63deg, #0f172a 46%, #0e0a55 100%);

@@ -1,0 +1,35 @@
+---
+import Nav from '../components/Nav.astro';
+import FooterLayout from './FooterLayout.astro';
+import '../styles/style.module.css';
+
+import ButtonTopScroll from '../components/buttonScrollTop.astro';
+import Head from '@/components/Head/Head.astro';
+
+const { content } = Astro.props;
+const { title, description, date, hero } = content;
+---
+
+<!doctype html>
+<html lang={content.lang || 'es'}>
+  <head>
+    <Head title={title} description={description} />
+  </head>
+
+  <body>
+    <ButtonTopScroll />
+
+    <Nav />
+
+    <main>
+      <slot />
+    </main>
+
+    <FooterLayout />
+
+    <script
+      src="https://unpkg.com/@themesberg/flowbite@1.1.1/dist/flowbite.bundle.js"
+    ></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  </body>
+</html>
