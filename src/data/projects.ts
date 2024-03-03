@@ -22,26 +22,26 @@ export type Project = {
 
 };
 
-// const projects: Project[] = [
-//     {
-//         image: ImgCardPorfolio,
-//         title: "Title Project",
-//         description: "lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum!",
-//         category: ["empresa", "personal"],
-//         tech: [
-//             {
-//                 name: "Nextjs"
-//                 icon: 
-//             }
-//         ]
+const projects: Project[] = [
+    {
+        image: ImgCardPorfolio,
+        title: "Title Project",
+        description: "lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum!",
+        category: ["empresa", "personal"],
+        tech: [
+            {
+                name: "Nextjs"
+                icon: 
+            }
+        ]
 
 
-//     },
+    },
     
         
 
     
-// ]
+]
 
 
 // export const projects = [
