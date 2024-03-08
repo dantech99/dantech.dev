@@ -1,0 +1,122 @@
+{
+  "introbasic": {
+    "label": "Hola, mi nombre es",
+    "name": "Danilo Macea S",
+    "image": "ruta de la image",
+    "url": "url de la pagina",
+    "description": "Desarrollador web con +2 años de experiencia en el área de frontend, especializado en el desarrollo de aplicaciones web modernas enfocadas en la experiencia de usuario.",
+    "social": [
+      {
+        "name": "GitHub",
+        "link": "link de github"
+      },
+      {
+        "name": "LinkInd",
+        "link": "enlace de linkdin"
+      }
+    ]
+  },
+  "work": [
+    {
+      "label": "2019-2020",
+      "title": "Developer Web in  Gesccol E.I.C.E",
+      "link": "/Learn More"
+    },
+    {
+      "label": "2019-2020",
+      "title": "Developer Web in  Gesccol E.I.C.E",
+      "link": "/Learn More"
+    },
+    {
+      "label": "2019-2020",
+      "title": "Developer Web in  Gesccol E.I.C.E",
+      "link": "/Learn More"
+    }
+  ],
+  "project": [
+    {
+      "title": "Aplicativo web para la empresa de gestion catastral Gesccol EICE",
+      "tech": [
+        {
+          "name": "Next.js",
+          "icon": [
+            "Nextjs", "Tailwindscss"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Aplicativo web para la empresa de gestion catastral Gesccol EICE",
+      "tech": [
+        {
+          "name": "Next.js",
+          "icon": [
+            "Nextjs", "Tailwindscss"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Aplicativo web para la empresa de gestion catastral Gesccol EICE",
+      "tech": [
+        {
+          "name": "Next.js",
+          "icon": [
+            "Nextjs", "Tailwindscss"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Aplicativo web para la empresa de gestion catastral Gesccol EICE",
+      "tech": [
+        {
+          "name": "Next.js",
+          "icon": [
+            "Nextjs", "Tailwindscss"
+          ]
+        }
+      ]
+    }
+  ],
+  "skill": [
+    {
+      "name": "Next,js"
+    },
+    {
+      "name": "React"
+    },
+    {
+      "name": "Astro"
+    },
+    {
+      "name": "Git"
+    },
+    {
+      "name": "GitHub"
+    },
+    {
+      "name": "Laravel"
+    },
+    {
+      "name": "Node"
+    },
+    {
+      "name": "JavaScript"
+    },
+    {
+      "name": "TypeScript"
+    },
+    {
+      "name": "Tailwindscss"
+    },
+    {
+      "name": "MySQL"
+    }
+  ],
+  "about": {
+    "title": "Sobre mi",
+    "description": "Desarrollador web con +2 años de experiencia en el área de frontend, especializado en el desarrollo de aplicaciones web modernas enfocadas en la experiencia de usuario.",
+    "image": "ruta de la imagen"
+  }
+}
