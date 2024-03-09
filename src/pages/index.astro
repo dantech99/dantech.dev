@@ -1,18 +1,19 @@
 ---
 // impotaciones de componentes
 import Layout from '../layouts/Layout.astro';
-import Header from '@/sections/Header.astro';
+import Presentation from '@/sections/Presentation.astro';
 import Experience from '@/sections/Experience.astro';
 import Projects from '@/sections/Projects.astro';
 import Skills from '@/sections/Skills.astro';
 import AboutMe from '@/sections/AboutMe.astro';
+import Nav from '@/components/Nav.astro';
 ---
 
 <!-- seccion principal -->
-<Layout>
-  <main>
+<Layout title={'Dantech ✨ - Portafolio Web'}>
+  <main class="flex flex-col gap-20">
     <!-- section for presentation and introduction  -->
-    <Header />
+    <Presentation />
 
     <!-- section for show experience in works -->
     <Experience />

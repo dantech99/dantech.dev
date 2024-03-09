@@ -1,0 +1,29 @@
+---
+import ButtonCv from '../components/ButtonCv.astro';
+import LogoDandev from '../../public/img/logo-dandev.png';
+import {introbasic} from '@/data/data.json'
+
+const {label, name, description, image} = introbasic
+---
+
+<section class="flex flex-col gap-8 md:flex-row-reverse md:justify-end md:gap-12">
+
+      <div class="flex flex-col order-1">
+        <span>
+          {label}
+        </span>
+        <h1 class="text-3xl">
+          {name}
+        </h1>
+        <p class="w-auto max-w-[60ch] leading-6">
+          {description}
+        </p>
+      </div>
+
+      <div>
+        <img src={image} alt="imagen personal para el portafolio">
+      </div>
+
+
+
+</section>
