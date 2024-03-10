@@ -1,18 +1,18 @@
 {
   "introbasic": {
-    "label": "Hola, mi nombre es",
-    "name": "Danilo Macea S",
-    "image": "ruta de la image",
+    "label": "Hola, Hi ✋",
+    "name": "Soy Danilo Macea",
+    "image": "../../public/img/logo-dantech.png",
     "url": "url de la pagina",
     "description": "Desarrollador web con +2 años de experiencia en el área de frontend, especializado en el desarrollo de aplicaciones web modernas enfocadas en la experiencia de usuario.",
     "social": [
       {
-        "name": "GitHub",
-        "link": "link de github"
+        "network": "GitHub",
+        "url": "link de github"
       },
       {
-        "name": "LinkInd",
-        "link": "enlace de linkdin"
+        "network": "LinkedInd",
+        "url": "enlace de linkdin"
       }
     ]
   },
