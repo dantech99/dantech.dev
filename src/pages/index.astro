@@ -1,34 +1,30 @@
 ---
 // impotaciones de componentes
-import BaseLayout from "../layouts/BaseLayout.astro";
-import Skills from "../components/Skills.astro";
-import CardProyect from "../components/CardProyect.astro";
-import FormContact from "../components/FormContact.astro";
-import Jumbotron from "../components/Jumbotron.astro";
-import AboutMe from "../components/AboutMe.astro";
+import Layout from '../layouts/Layout.astro';
+import Presentation from '@/sections/Presentation.astro';
+import Experience from '@/sections/Experience.astro';
+import Projects from '@/sections/Projects.astro';
+import Skills from '@/sections/Skills.astro';
+import AboutMe from '@/sections/AboutMe.astro';
+import Nav from '@/components/Nav.astro';
 ---
 
 <!-- seccion principal -->
-<BaseLayout title="Dandev.tech">
-   
-   <!-- entrada y presentacion  -->
-   <Jumbotron />
+<Layout title={'Dantech ✨ - Portafolio Web'}>
+  <main class="flex flex-col gap-20">
+    <!-- section for presentation and introduction  -->
+    <Presentation />
 
-   <!-- section about me -->
-   <AboutMe />
+    <!-- section for show experience in works -->
+    <Experience />
 
-   <!-- skills, habilidades  -->
-   <Skills />
+    <!-- section for show projects  -->
+    <Projects />
 
-   <!-- tarjetas de proyectos -->
-   <CardProyect />
+    <!-- section for show skills -->
+    <Skills />
 
-   <!-- formulario de contacto  -->
-   <FormContact />
-   
-</BaseLayout>
-<style>
-   .contact {
-      background: linear-gradient(63deg, #0f172a 46%, #0e0a55 100%);
-   }
-</style>
+    <!-- section for show about me  -->
+    <AboutMe />
+  </main>
+</Layout>

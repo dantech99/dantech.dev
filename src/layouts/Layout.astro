@@ -1,0 +1,76 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { introbasic } from '@/data/data.json';
+import "@/styles/tailwind.css";
+import LigthBg from '@/components/DarkBackground.astro'
+
+interface Props {
+  title: string;
+}
+
+const { description, url, image } = introbasic;
+
+const { title } = Astro.props;
+
+const DEFAULT_TITLE_PAGE = 'Dantech ✨ - Portafolio web';
+const DEFAULT_DESCRIPTION_PAGE = 'Mi portafolio personal';
+---
+
+<!doctype html>
+<html>
+  <head>
+    <!-- Global Metadata -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="sitemap" href="/sitemap.xml" />
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
+
+    <!-- Primary Meta Tags -->
+    <title>{title || DEFAULT_TITLE_PAGE}</title>
+    <meta name="title" content={title || DEFAULT_TITLE_PAGE} />
+    <meta
+      name="description"
+      content={description || DEFAULT_DESCRIPTION_PAGE}
+    />
+    <meta property="og:url" content={url} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="twitter:domain" content={url.split('//')[1] ?? ''} />
+    <meta property="twitter:url" content={url} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="" />
+  </head>
+  <body class="mx-auto flex min-h-screen max-w-[950px] flex-col gap-9 px-10 py-8 text-sm text-neutral-400 md:gap-20 md:py-16">
+
+    <Header />
+    <slot />
+    <!-- <Footer /> -->
+    <LigthBg />
+  </body>
+</html>
+
+<style is:global>
+  @font-face {
+    font-family: Geist;
+    src: url('../../public/fonst/GeistVariableVF.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+  html {
+    background: linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(11, 20, 41, 1) 0%,
+      rgba(11, 21, 40, 1) 100%
+    );
+  }
+
+  body {
+    font-family: 'Geist', sans-serif;
+  }
+</style>

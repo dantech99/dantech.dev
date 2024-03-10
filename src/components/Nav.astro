@@ -1,0 +1,51 @@
+---
+// import removeTrailingSlash from '@/utils/removeTrailingSlash';
+import Sun from '@/icons/Sun.astro'
+
+interface Items {
+  name: string;
+  link: string;
+}
+
+const items: Items[] = [
+  {
+    name: 'Experiencia',
+    link: '/',
+  },
+  {
+    name: 'Proyectos',
+    link: '/',
+  },
+  {
+    name: 'Habilidades',
+    link: '/',
+  },
+  {
+    name: 'Sobre mi',
+    link: '/',
+  },
+];
+
+// const pathname = removeTrailingSlash(Astro.url.pathname);
+---
+
+  <nav role="navigation">
+    <ul role="list" class="flex flex-row gap-4 justify-center items-center border-2 md:border-none p-2 rounded-3xl ">
+      {
+        items.map((item) => (
+          <li>
+            <a
+              href={item.link}
+              class="text-base text-white hover:text-yellow-200 font-medium">
+              {item.name}
+            </a>
+          </li>
+        ))
+      }
+      <li>
+        <button role="button">
+            <Sun />
+        </button>
+      </li>
+    </ul>
+  </nav>
