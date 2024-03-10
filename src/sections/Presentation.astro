@@ -1,7 +1,9 @@
 ---
-import ButtonSocial from '@/components/ButtonSocial.astro';
+import GitHub from '@/icons/GitHub.astro';
+import LinkedIn from '@/icons/LinkedIn.astro';
 import { introbasic } from '@/data/data.json';
 import ButtonStatus from '@/components/ButtonStatus.astro';
+import DividerLine from '@/components/DividerLine.astro'
 
 const { label, name, image } = introbasic;
 ---
@@ -12,8 +14,10 @@ const { label, name, image } = introbasic;
     <span class="text-xl text-white">
       {label}
     </span>
-    <h1 class="text-4xl font-semibold text-white">
+    <h1
+      class="text-4xl font-semibold text-white flex justify-start items-center gap-5">
       {name}
+      <ButtonStatus />
     </h1>
     <p class="w-auto max-w-[60ch] leading-6 text-xl text-white">
       <span class="text-[#FADB6F]"> Desarrollador web</span>
@@ -22,7 +26,17 @@ const { label, name, image } = introbasic;
     </p>
 
     <div class="flex justify-start items-center">
-      <ButtonSocial />
+      <a
+        href="/"
+        class="px-8 py-2 text-white text-sm rounded-3xl font-medium hover:bg-black/[0.8] hover:shadow-lg ml-2 border-white border flex flex-row justify-between items-center gap-3">
+        <GitHub /> GitHub
+      </a>
+
+      <a
+        href="/"
+        class="px-8 py-2 text-white text-sm rounded-3xl font-medium hover:bg-black/[0.8] hover:shadow-lg ml-2 border-white border flex flex-row justify-between items-center gap-3">
+        <LinkedIn /> LinkedIn
+      </a>
     </div>
   </div>
 
@@ -38,3 +52,5 @@ const { label, name, image } = introbasic;
     </div>
   </div>
 </section>
+
+<DividerLine />
