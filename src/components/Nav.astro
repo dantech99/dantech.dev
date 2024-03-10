@@ -1,5 +1,6 @@
 ---
-import removeTrailingSlash from '@/utils/removeTrailingSlash';
+// import removeTrailingSlash from '@/utils/removeTrailingSlash';
+import Sun from '@/icons/Sun.astro'
 
 interface Items {
   name: string;
@@ -25,21 +26,26 @@ const items: Items[] = [
   },
 ];
 
-const pathname = removeTrailingSlash(Astro.url.pathname);
+// const pathname = removeTrailingSlash(Astro.url.pathname);
 ---
 
   <nav role="navigation">
-    <ul role="list" class="flex flex-row gap-2">
+    <ul role="list" class="flex flex-row gap-4 justify-center items-center border-2 md:border-none p-2 rounded-3xl ">
       {
         items.map((item) => (
           <li>
             <a
               href={item.link}
-              class="text-base text-white font-medium">
+              class="text-base text-white hover:text-yellow-200 font-medium">
               {item.name}
             </a>
           </li>
         ))
       }
+      <li>
+        <button role="button">
+            <Sun />
+        </button>
+      </li>
     </ul>
   </nav>
