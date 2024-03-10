@@ -1,29 +1,40 @@
 ---
-import ButtonCv from '../components/ButtonCv.astro';
-import LogoDandev from '../../public/img/logo-dandev.png';
-import {introbasic} from '@/data/data.json'
+import ButtonSocial from '@/components/ButtonSocial.astro';
+import { introbasic } from '@/data/data.json';
+import ButtonStatus from '@/components/ButtonStatus.astro';
 
-const {label, name, description, image} = introbasic
+const { label, name, image } = introbasic;
 ---
 
-<section class="flex flex-col gap-8 md:flex-row-reverse md:justify-end md:gap-12">
+<section
+  class="flex gap-8 md:justify-end justify-between items-center md:gap-12">
+  <div class="flex flex-col gap-3">
+    <span class="text-xl text-white">
+      {label}
+    </span>
+    <h1 class="text-4xl font-semibold text-white">
+      {name}
+    </h1>
+    <p class="w-auto max-w-[60ch] leading-6 text-xl text-white">
+      <span class="text-[#FADB6F]"> Desarrollador web</span>
+      con +2 años de experiencia en el área de frontend, especializado en el desarrollo
+      de aplicaciones web modernas enfocadas en la experiencia de usuario.
+    </p>
 
-      <div class="flex flex-col order-1">
-        <span>
-          {label}
-        </span>
-        <h1 class="text-3xl">
-          {name}
-        </h1>
-        <p class="w-auto max-w-[60ch] leading-6">
-          {description}
-        </p>
-      </div>
+    <div class="flex justify-start items-center">
+      <ButtonSocial />
+    </div>
+  </div>
 
-      <div>
-        <img src={image} alt="imagen personal para el portafolio">
-      </div>
+  <div class="flex flex-col justify-center items-center">
+    <!--  -->
 
-
-
+    <div class="w-52 bg-white h-52 rounded-full">
+      <img
+        src={image}
+        alt="imagen personal para el portafolio"
+        class="w-full"
+      />
+    </div>
+  </div>
 </section>
