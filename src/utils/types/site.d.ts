@@ -13,13 +13,7 @@ interface IntroBasic {
   name: string
   url: string
   description: string
-  social: Array<Social>
 
-}
-
-interface Social {
-  name: string
-  link: string
 }
 
 interface Work {
