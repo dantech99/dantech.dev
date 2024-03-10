@@ -3,6 +3,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { introbasic } from '@/data/data.json';
 import "@/styles/tailwind.css";
+import LigthBg from '@/components/DarkBackground.astro'
 
 interface Props {
   title: string;
@@ -47,7 +48,8 @@ const DEFAULT_DESCRIPTION_PAGE = 'Mi portafolio personal';
 
     <Header />
     <slot />
-    <Footer />
+    <!-- <Footer /> -->
+    <LigthBg />
   </body>
 </html>
 
