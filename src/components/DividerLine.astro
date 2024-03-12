@@ -1,6 +1,10 @@
+---
+const {title} = Astro.props
+---
+
 <div class="divider-container">
   <fieldset>
-    <legend>proyectos</legend>
+    <legend>{title}</legend>
   </fieldset>
 </div>
 
@@ -17,7 +21,7 @@
   /* Estilos para el legend */
   legend {
     display: inline-block;
-    padding: 0 50px;
+    padding: 5px 50px;
     background-color: transparent; /* Color de fondo */
     border: 1px solid #27263b; /* Borde */
     border-radius: 5px; /* Bordes redondeados */

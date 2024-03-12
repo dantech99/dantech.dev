@@ -1,0 +1,59 @@
+---
+import Reactjs from '@/icons/Reactjs.astro';
+import Nextjs from '@/icons/Nextjs.astro';
+import AstroIcon from '@/icons/AstroIcon.astro';
+import Laravel from '@/icons/Laravel.astro';
+import Nodejs from '@/icons/Nodejs.astro';
+import Ts from '@/icons/ts.astro';
+import Js from '@/icons/js.astro';
+import Git from '@/icons/Git.astro';
+import GitHub from '@/icons/GitHub.astro';
+
+import DividerLine from '@/components/DividerLine.astro';
+---
+
+<div class="grid md:grid-cols-6 md:grid-rows-5 md:gap-4 md: md:gap-y-36 h-80">
+  <div class="col-span-2">
+    <h1 class="text-2xl font-bold">
+      Mi <span class="text-[#FF5D01]">Stack</span>
+    </h1>
+    <h1 class="text-2xl font-bold">De Tecnologias</h1>
+  </div>
+  <div
+    class="col-start-3 transition hover:scale-110 motion-reduce:transition-none motion-reduce:hover:scale-100">
+    <Nextjs
+      fillOne="#7D7B7B"
+      fillTwo="#000"
+      title="Next.js"
+      w="52"
+      w="52"
+    />
+  </div>
+  <div class="col-start-4">
+    <Reactjs fillOne="#7D7B7B" w="52" h="52" />
+  </div>
+  <div class="col-start-5">
+    <AstroIcon />
+  </div>
+  <div class="col-start-6">
+    <Git />
+  </div>
+  <div class="row-start-2">
+    <GitHub title="GitHub" fillOne="#7D7B7B" w="52" h="52" />
+  </div>
+  <div class="row-start-2">
+    <Laravel />
+  </div>
+  <div class="row-start-2">
+    <Nodejs />
+  </div>
+  <div class="row-start-2">
+    <Js />
+  </div>
+  <div class="row-start-2">
+    <Ts />
+  </div>
+  <div class="row-start-2"></div>
+</div>
+
+<DividerLine title="Sobre Mi" />
