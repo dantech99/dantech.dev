@@ -1,13 +1,17 @@
+---
+import DividerLine from '@/components/DividerLine.astro';
+---
+
 <section class="grid grid-cols-12 gap-4">
   <!-- Column -->
   <article
     class="col-span-12 md:col-span-7 w-full h-[470px] rounded-xl border-[1px] border-[#707070] bg-gradiente overflow-hidden">
-    <div class="h-full">
+    <div class="h-full w-full">
       <header class="w-full h-[50%]">
-        <div class="relative h-full rounded-xl overflow-hidden">
+        <div class="w-full rounded-xl overflow-hidden">
           <img
             alt="imagen del proyecto"
-            class="h-56 object-cover transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105"
+            class="w-full object-cover sm:w-full md:w-full transition hover:scale-105 motion-reduce:transition-none motion-reduce:hover:scale-50"
             loading="lazy"
             src="../../public/img/projects.png"
           />
@@ -33,10 +37,10 @@
     class="col-span-12 md:col-span-5 flex flex-1 w-full h-[470px] rounded-xl border-[1px] border-[#707070] bg-gradiente overflow-hidden">
     <div class="h-full">
       <header class="w-full h-[50%]">
-        <div class="relative h-full rounded-s-lg overflow-hidden">
+        <div class="w-full h-full rounded-s-lg overflow-hidden transition duration-500 ease-in-out transform">
           <img
             alt="imagen del proyecto"
-            class="h-56 object-cover transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105"
+            class="w-full object-cover h-full transition hover:scale-105 motion-reduce:transition-none motion-reduce:hover:scale-50"
             loading="lazy"
             src="../../public/img/projects.png"
           />
@@ -61,10 +65,10 @@
     class="col-span-12 md:col-span-5 flex flex-1 w-full h-[470px] rounded-xl border-[1px] border-[#707070] bg-gradiente overflow-hidden">
     <div class="h-full">
       <header class="w-full h-[50%]">
-        <div class="relative h-full rounded-s-lg overflow-hidden">
+        <div class="w-full h-full rounded-s-lg overflow-hidden">
           <img
             alt="imagen del proyecto"
-            class="h-56 object-cover transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105"
+            class="w-full object-cover h-full transition hover:scale-105 motion-reduce:transition-none motion-reduce:hover:scale-50"
             loading="lazy"
             src="../../public/img/projects.png"
           />
@@ -89,10 +93,10 @@
     class="col-span-12 md:col-span-7 flex flex-1 w-full h-[470px] rounded-xl border-[1px] border-[#707070] bg-gradiente overflow-hidden">
     <div class="h-full">
       <header class="w-full h-[50%]">
-        <div class="relative h-full rounded-s-lg overflow-hidden">
+        <div class="w-full rounded-s-lg overflow-hidden">
           <img
             alt="imagen del proyecto"
-            class="h-56 object-cover transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105"
+            class="w-full object-cover transition hover:scale-105 motion-reduce:transition-none motion-reduce:hover:scale-50"
             loading="lazy"
             src="../../public/img/projects.png"
           />
@@ -123,3 +127,5 @@
     }
   </style>
 </section>
+
+<DividerLine title="Skills/Habilidades" />
