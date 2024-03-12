@@ -1,11 +1,23 @@
 ---
 import GitHub from '@/icons/GitHub.astro';
 import LinkedIn from '@/icons/LinkedIn.astro';
-import { introbasic } from '@/data/data.json';
 import ButtonStatus from '@/components/ButtonStatus.astro';
 import DividerLine from '@/components/DividerLine.astro'
 
-const { label, name, image } = introbasic;
+const Info = [
+  {
+    label: "Hola, Hi ✋",
+    name: "Soy Danilo Macea",
+    image: "/img/logo-dantech.png",
+    url: "url de la pagina",
+    description: "Desarrollador web con +2 años de experiencia en el área de frontend, especializado en el desarrollo de aplicaciones web modernas enfocadas en la experiencia de usuario."
+  }
+]
+
+
+
+const {label, name, image, url, description} = Info[0]
+
 ---
 
 <section
