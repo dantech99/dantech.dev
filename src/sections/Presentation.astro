@@ -21,31 +21,33 @@ const { label, name, image, url, description } = Info[0];
 <section
   class="flex gap-8 md:justify-end justify-between items-center md:gap-12">
   <div class="flex flex-col gap-3">
-    <span class="text-xl text-white">
-      {label}
-    </span>
-    <h1
-      class="text-4xl font-semibold text-white flex justify-start items-center gap-5">
-      {name}
-      <ButtonStatus />
-    </h1>
-    <p class="w-auto max-w-[60ch] leading-6 text-xl text-white">
-      <span class="text-[#FADB6F]"> Desarrollador web</span>
-      con +2 años de experiencia en el área de frontend, especializado en el desarrollo
-      de aplicaciones web modernas enfocadas en la experiencia de usuario.
-    </p>
+    <div>
+      <span class="text-xl text-white">
+        {label}
+      </span>
+      <h1
+        class="text-4xl font-semibold text-white flex justify-start items-center gap-5">
+        {name}
+        <ButtonStatus />
+      </h1>
+      <p class="w-auto max-w-[60ch] leading-6 text-xl text-white">
+        <span class="text-[#FADB6F]"> Desarrollador web</span>
+        con +2 años de experiencia en el área de frontend, especializado en el desarrollo
+        de aplicaciones web modernas enfocadas en la experiencia de usuario.
+      </p>
+    </div>
 
-    <div class="flex justify-start items-center">
+    <div class="flex justify-start items-center pt-2">
       <a
         href="/"
-        class="px-8 py-2 text-white text-sm rounded-3xl font-medium hover:bg-black/[0.8] hover:shadow-lg ml-2 border-white border flex flex-row justify-between items-center gap-3">
-        <GitHub class="size-6" /> GitHub
+        class="px-8 py-1 text-white text-sm rounded-2xl font-medium hover:bg-black/[0.8] hover:shadow-lg  border-gray-600 border flex flex-row justify-between items-center gap-3">
+        <GitHub class="size-5" /> GitHub
       </a>
 
       <a
         href="/"
-        class="px-8 py-2 text-white text-sm rounded-3xl font-medium hover:bg-black/[0.8] hover:shadow-lg ml-2 border-white border flex flex-row justify-between items-center gap-3">
-        <LinkedIn class="size-6" /> LinkedIn
+        class="px-8 py-1 text-white text-sm rounded-2xl font-medium hover:bg-black/[0.8] hover:shadow-lg ml-2 border-gray-600 border flex flex-row justify-between items-center gap-3">
+        <LinkedIn class="size-5" /> LinkedIn
       </a>
     </div>
   </div>
