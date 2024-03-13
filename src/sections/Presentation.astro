@@ -2,22 +2,20 @@
 import GitHub from '@/icons/GitHub.astro';
 import LinkedIn from '@/icons/LinkedIn.astro';
 import ButtonStatus from '@/components/ButtonStatus.astro';
-import DividerLine from '@/components/DividerLine.astro'
+import DividerLine from '@/components/DividerLine.astro';
 
 const Info = [
   {
-    label: "Hola, Hi ✋",
-    name: "Soy Danilo Macea",
-    image: "/img/logo-dantech.png",
-    url: "url de la pagina",
-    description: "Desarrollador web con +2 años de experiencia en el área de frontend, especializado en el desarrollo de aplicaciones web modernas enfocadas en la experiencia de usuario."
-  }
-]
+    label: 'Hola, Hi ✋',
+    name: 'Soy Danilo Macea',
+    image: '/img/logo-dantech.png',
+    url: 'url de la pagina',
+    description:
+      'Desarrollador web con +2 años de experiencia en el área de frontend, especializado en el desarrollo de aplicaciones web modernas enfocadas en la experiencia de usuario.',
+  },
+];
 
-
-
-const {label, name, image, url, description} = Info[0]
-
+const { label, name, image, url, description } = Info[0];
 ---
 
 <section
@@ -41,13 +39,13 @@ const {label, name, image, url, description} = Info[0]
       <a
         href="/"
         class="px-8 py-2 text-white text-sm rounded-3xl font-medium hover:bg-black/[0.8] hover:shadow-lg ml-2 border-white border flex flex-row justify-between items-center gap-3">
-        <GitHub title="GitHub" fillOne="#fff" w="23" h="23"  /> GitHub
+        <GitHub class="size-6" /> GitHub
       </a>
 
       <a
         href="/"
         class="px-8 py-2 text-white text-sm rounded-3xl font-medium hover:bg-black/[0.8] hover:shadow-lg ml-2 border-white border flex flex-row justify-between items-center gap-3">
-        <LinkedIn title="LinkedIn" fillOne="#fff" w="23" h="23" /> LinkedIn
+        <LinkedIn class="size-6" /> LinkedIn
       </a>
     </div>
   </div>
