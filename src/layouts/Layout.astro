@@ -2,8 +2,8 @@
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { introbasic } from '@/data/data.json';
-import "@/styles/tailwind.css";
-import LigthBg from '@/components/DarkBackground.astro'
+import '@/styles/tailwind.css';
+import LigthBg from '@/components/DarkBackground.astro';
 
 interface Props {
   title: string;
@@ -44,8 +44,8 @@ const DEFAULT_DESCRIPTION_PAGE = 'Mi portafolio personal';
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content="" />
   </head>
-  <body class="mx-auto flex min-h-screen max-w-5xl flex-col gap-9 px-10 py-8 text-sm text-neutral-400 md:gap-20 md:py-16">
-
+  <body
+    class="mx-auto flex min-h-screen max-w-5xl flex-col gap-9 px-10 py-8 text-sm text-neutral-400 md:gap-20 md:py-16">
     <Header />
     <slot />
     <!-- <Footer /> -->
@@ -62,6 +62,7 @@ const DEFAULT_DESCRIPTION_PAGE = 'Mi portafolio personal';
     font-display: swap;
   }
   html {
+
     background: linear-gradient(
       90deg,
       rgba(0, 0, 0, 1) 0%,

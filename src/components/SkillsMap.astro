@@ -26,8 +26,8 @@ const skills = [
 
 {
   skills.map(({ name, icon: Icon }) => (
-    <div class="transition hover:scale-110 motion-reduce:transition-none motion-reduce:hover:scale-100 flex justify-center items-center">
-      <Icon class="size-14 "  />
+    <div class="transition hover:scale-110 motion-reduce:transition-none motion-reduce:hover:scale-100 flex justify-start items-center">
+      <Icon class="size-14 " title={name} />
     </div>
   ))
 }
