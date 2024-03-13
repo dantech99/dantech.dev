@@ -1,0 +1,33 @@
+---
+import Nextjs from '@/icons/Nextjs.astro';
+import Reactjs from '@/icons/Reactjs.astro';
+import AstroIcon from '@/icons/AstroIcon.astro';
+import Git from '@/icons/Git.astro';
+import GitHub from '@/icons/GitHub.astro';
+import Laravel from '@/icons/Laravel.astro';
+import Nodejs from '@/icons/Nodejs.astro';
+import Ts from '@/icons/ts.astro';
+import Js from '@/icons/js.astro';
+import Tailwindscss from '@/icons/tailwindscss.astro';
+
+const skills = [
+  { name: 'Next.js', icon: Nextjs },
+  { name: 'React.js', icon: Reactjs },
+  { name: 'Astro', icon: AstroIcon },
+  {name: 'Git', icon: Git},
+  {name: 'GitHub', icon: GitHub},
+  {name: 'Laravel', icon: Laravel},
+  {name: 'Node.js', icon: Nodejs},
+  {name: 'JavaScript', icon: Js},
+  {name: 'TypeScript', icon: Ts},
+  {name: 'TailwindCSS', icon: Tailwindscss}
+];
+---
+
+{
+  skills.map(({ name, icon: Icon }) => (
+    <div class="transition hover:scale-110 motion-reduce:transition-none motion-reduce:hover:scale-100 flex justify-center items-center">
+      <Icon class="size-14" />
+    </div>
+  ))
+}
