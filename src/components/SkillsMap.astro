@@ -10,7 +10,13 @@ import Ts from '@/icons/ts.astro';
 import Js from '@/icons/js.astro';
 import Tailwindscss from '@/icons/tailwindscss.astro';
 
-const skills = [
+
+interface Skills {
+  name: string
+  icon: any
+}
+
+const skills: Skills[] = [
   { name: 'Next.js', icon: Nextjs },
   { name: 'React.js', icon: Reactjs },
   { name: 'Astro', icon: AstroIcon },
