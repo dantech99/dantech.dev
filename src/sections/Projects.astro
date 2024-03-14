@@ -1,94 +1,12 @@
 ---
 import DividerLine from '@/components/DividerLine.astro';
-import Nextjs from '@/icons/Nextjs.astro';
+import CardProject from '@/components/CardProject.astro';
 ---
 
 <section class="grid grid-cols-12 gap-4">
   <!-- Column -->
-  <div
-    class="rounded-lg col-span-6 border-[1px] border-gray-600 bg-card text-card-foreground shadow-sm w-full max-w-xl overflow-hidden"
-    data-v0-t="card">
-    <!-- seccion de la imagen -->
-    <div class="h-70">
-      <img
-        class="w-full h-full object-cover"
-        alt="Logo"
-        src="/img/projects.png"
-      />
-    </div>
-
-    <div
-      class="flex-col p-6 grid grid-cols-[1fr_110px] items-start gap-4 space-y-0">
-      <div class="space-y-1">
-        <h3
-          class="text-2xl font-semibold whitespace-nowrap leading-none tracking-tight">
-          RecyclingBikes
-        </h3><p class="text-sm text-muted-foreground">
-          Beautifully designed components that you can copy and paste into your
-          apps.
-
-          <div
-            class="inline-flex items-center rounded-full whitespace-nowrap border px-2.5 py-0.5 w-fit text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80">
-            react
-          </div>
-        </p>
-      </div>
-
-      <div
-        class="flex items-center space-x-1 rounded-md bg-gray-100 text-gray-900 dark:bg-gray-800 dark:text-gray-50">
-        <button
-          class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-secondary text-secondary-foreground hover:bg-secondary/80 h-10 py-2 px-3 shadow-none"
-          ><svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="mr-2 h-4 w-4"
-            ><polygon
-              points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
-            ></polygon></svg
-          >
-          Star
-        </button>
-      </div>
-    </div>
-
-    <div class="p-6">
-      <div class="flex space-x-4 text-sm text-gray-500 dark:text-gray-400">
-        <div class="flex items-center">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="mr-1 h-3 w-3 fill-gray-900 text-gray-900">
-            <circle cx="12" cy="12" r="10"></circle><circle
-              cx="12"
-              cy="12"
-              r="1"></circle>
-          </svg>
-          React.js
-        </div>
-
-        <div class="flex items-center">
-          <Nextjs class="size-4 mr-1" />
-          Next.js
-        </div>
-
-        <div>Updated April 2023</div>
-      </div>
-    </div>
-  </div>
+  <CardProject />
+  
 </section>
 
 <style>
