@@ -2,7 +2,8 @@
 import Nextjs from "@/icons/Nextjs.astro";
 import Reactjs from "@/icons/Reactjs.astro";
 import Tailwindscss from "@/icons/tailwindscss.astro";
-import Stars from '@/icons/Stars.astro';
+import Link from '@/icons/Link.astro';
+import  CodeSvg from "@/icons/CodeSvg.astro"
 
 interface Projects {
   image: string;
@@ -109,27 +110,33 @@ const projects: Projects[] = [
       class="flex-col p-6 grid grid-cols-[1fr_110px] items-start gap-4 space-y-0">
       <div class="space-y-1">
         <h3
-          class="text-2xl font-semibold whitespace-nowrap leading-none tracking-tight">
+          class="text-2xl font-semibold whitespace-nowrap leading-none tracking-tight text-white">
           {project.title}
-        </h3><p class="text-sm text-muted-foreground">
-          {project.description}
+        </h3><p class="text-sm text-muted-foreground text-white">
+          {project.description}</p>
+          <div class=" mt-4">
 
           {project.badges.map((badgeIcon) =>(
             
-          <div
-            class="inline-flex items-center rounded-full whitespace-nowrap border px-2.5 py-0.5 w-fit text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-gray-600 bg-gray-800 gap-1">
-            {badgeIcon}
-          </div> 
-          ))}          
-        </p>
+            
+              <span
+              class="inline-flex items-center rounded-full whitespace-nowrap border px-2.5 py-0.5 w-fit text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-gray-600 bg-gray-800 mr-1 ">
+                {badgeIcon}
+              </span>
+          ))}  
+        </div>        
+        
       </div>
 
       <div
         class="flex items-center space-x-1 rounded-md bg-gray-100 text-gray-900 dark:bg-gray-800 dark:text-gray-50">
         <button
+          class="inline-flex items-center justify-center whitespace-nowrap  text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-secondary text-secondary-foreground hover:bg-secondary/80 h-10 py-2 px-3 shadow-none border-r-2 border-r-white"
+          > <Link  />
+        </button>
+        <button
           class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-secondary text-secondary-foreground hover:bg-secondary/80 h-10 py-2 px-3 shadow-none"
-          > <Stars />
-          Star
+          > <CodeSvg  />
         </button>
       </div>
     </div>
