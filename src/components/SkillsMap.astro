@@ -10,10 +10,9 @@ import Ts from '@/icons/ts.astro';
 import Js from '@/icons/js.astro';
 import Tailwindscss from '@/icons/tailwindscss.astro';
 
-
 interface Skills {
-  name: string
-  icon: any
+  name: string;
+  icon: any;
 }
 
 const skills: Skills[] = [
@@ -32,7 +31,7 @@ const skills: Skills[] = [
 
 {
   skills.map(({ name, icon: Icon }) => (
-    <div class="transition hover:scale-110 motion-reduce:transition-none motion-reduce:hover:scale-100 flex justify-start items-center">
+    <div class="transition hover:scale-110 motion-reduce:transition-none motion-reduce:hover:scale-100 flex items-center  justify-between w-1/6">
       <Icon class="size-14 " title={name} />
     </div>
   ))
