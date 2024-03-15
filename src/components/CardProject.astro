@@ -100,7 +100,7 @@ const projects: Projects[] = [
     <!-- seccion de la imagen -->
     <div class="h-70">
       <img
-        class="w-full h-full object-cover"
+        class="w-full h-full object-cover transition hover:scale-105 motion-reduce:transition-none motion-reduce:hover:scale-50"
         alt="Logo"
         src={project.image}
       />
@@ -129,13 +129,15 @@ const projects: Projects[] = [
       </div>
 
       <div
-        class="flex items-center space-x-1 rounded-md bg-gray-100 text-gray-900 dark:bg-gray-800 dark:text-gray-50">
+        class="flex justify-between items-center space-x-1 rounded-md bg-gray-100 text-gray-900 dark:bg-gray-800 dark:text-gray-50">
         <button
-          class="inline-flex items-center justify-center whitespace-nowrap  text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-secondary text-secondary-foreground hover:bg-secondary/80 h-10 py-2 px-3 shadow-none border-r-2 border-r-white"
+          class="inline-flex items-center justify-center whitespace-nowrap  text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-secondary text-secondary-foreground hover:bg-secondary/80 h-10 py-2 px-3 shadow-none rounded-md  hover:scale-110 motion-reduce:transition-none motion-reduce:hover:scale-100"
           > <Link  />
+          
         </button>
+        <div class="h-full bg-gray-600 text-[1px]">|</div>
         <button
-          class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-secondary text-secondary-foreground hover:bg-secondary/80 h-10 py-2 px-3 shadow-none"
+          class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-secondary text-secondary-foreground hover:bg-secondary/80 h-10 py-2 px-3 shadow-none hover:scale-110 motion-reduce:transition-none motion-reduce:hover:scale-100"
           > <CodeSvg  />
         </button>
       </div>
@@ -145,9 +147,9 @@ const projects: Projects[] = [
       <div class="flex space-x-4 text-sm text-gray-500 dark:text-gray-400">
         {
           project.tech.map(({name, icon: Icon}) =>(
-            <div class="flex items-center">
+          <div class="flex items-center gap-2">
             <Icon class="size-4"/>
-          {name}
+            {name}
         </div>
           ))
         }
