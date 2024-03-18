@@ -1,4 +1,6 @@
 ---
+import DividerLine from '@/components/DividerLine.astro';
+import ButtonCv from '@/components/ButtonCv.astro';
 interface About {
   title: string;
   desacription: string;
@@ -6,21 +8,38 @@ interface About {
 }
 ---
 
-<section class="flex justify-between items-center w-full h-96">
+<DividerLine title="Sobre Mi" id="sobre-mi" />
+
+<section class="grid grid-cols-6 w-full h-96 overflow-hidden">
   <!-- seccion de la imagen -->
-  <div class="flex justify-center items-center p-4">
-    <div class="border border-white w-full">
-      <img src="/img/logo-dantech.png" alt="imagen personal" class="w-full" />
+  <div class="col-span-2 w-full flex justify-center">
+    <div class="w-9/12 rounded-full">
+      <img
+        src="/img/logo-dantech.png"
+        alt="imagen personal"
+        class="w-full object-cover"
+      />
     </div>
   </div>
-  <div class="flex flex-col p-4">
-    <h1 class="text-2xl">Sobre Mi</h1>  
 
-    <p>
-      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Distinctio
-      provident natus dicta maxime fuga dolorem nobis corporis quidem
-      voluptatibus illo voluptatem porro quasi excepturi labore velit
-      architecto, deserunt qui? Corporis.
-    </p>
+  <div class="flex flex-col col-span-4 p-4 gap-3">
+    <header>
+      <h1 class="text-3xl text-white">Sobre Mi</h1>
+    </header>
+    <main>
+      <p class="text-balance text-lg">
+        Soy un un amante de la tecnología y me apasiona el mundo web, me gusta
+        sumergirme en este inmenso mar en donde se adquieren grandes
+        conocimientos y experiencia, en donde todos pueden colaborar y
+        contribuir sin ninguna limitaciónn en donde el trabajo en equipo se hace
+        notar y demuestra que los humanos logramos grandes cosas juntos. Tambien
+        quiero ser parte de este gran avance y contribuir para que la
+        imaginación de las ideas se hagan realidad.
+      </p>
+    </main>
+
+    <footer class="flex gap-3">
+      <ButtonCv />
+    </footer>
   </div>
 </section>

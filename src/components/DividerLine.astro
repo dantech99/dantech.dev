@@ -1,20 +1,15 @@
 ---
-const { title } = Astro.props;
+const { title, id } = Astro.props;
 ---
 
 <div class="divider-container">
   <fieldset>
     <legend
-      class="transition hover:scale-110 motion-reduce:transition-none motion-reduce:hover:scale-100 "
+      class="transition hover:scale-110 motion-reduce:transition-none motion-reduce:hover:scale-100" id={id}
       >{title}
-      
-      </legend
-    >
-    
+    </legend>
   </fieldset>
-  
 </div>
-
 
 <style>
   .divider-container {
@@ -30,13 +25,11 @@ const { title } = Astro.props;
   legend {
     display: inline-block;
     padding: 5px 50px;
-    background-color: #0B1528; /* Color de fondo */
+    background-color: #0b1528; /* Color de fondo */
     border: 1px solid #27263b; /* Borde */
     border-radius: 5px; /* Bordes redondeados */
     margin: 0;
     color: white;
     text-transform: uppercase;
   }
-
-
 </style>

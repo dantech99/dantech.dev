@@ -1,33 +1,31 @@
 ---
-import '../styles/ButtonScrollTop.css'
+import '../styles/ButtonScrollTop.css';
+import ArrowUp from '@/icons/ArrowUp.astro';
 ---
 
 <!-- Button scroll top click -->
-
 <a href="#" id="up" class="btn-up">
-	<i class='bx bxs-chevron-up'></i>
+<ArrowUp class="size-10" />
 </a>
-
-
-
 
 
 <!-- scrip for button top click -->
 <script type="text/javascript">
-	const button = document.querySelector("#up");
-button.addEventListener("click", () => {
-	if(window.scrollY){
-		window.scroll(0,100);
-	}
-});
+  const button = document.querySelector('#up');
+  button.addEventListener('click', () => {
+    if (window.scrollY) {
+      window.scroll(0, 100);
+    }
+  });
 
-
-window.onscroll = function(){scrollFuntion()}
-function scrollFuntion(){
-	if (document.documentElement.scrollTop > 350) {
-		button.classList.add('btn-show')
-	}else{
-		button.classList.remove('btn-show')
-	}
-}
+  window.onscroll = function () {
+    scrollFuntion();
+  };
+  function scrollFuntion() {
+    if (document.documentElement.scrollTop > 350) {
+      button.classList.add('btn-show');
+    } else {
+      button.classList.remove('btn-show');
+    }
+  }
 </script>

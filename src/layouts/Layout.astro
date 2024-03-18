@@ -1,6 +1,6 @@
 ---
 import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
+import ButtonScrollTop from '@/components/buttonScrollTop.astro';
 import { introbasic } from '@/data/data.json';
 import '@/styles/tailwind.css';
 import LigthBg from '@/components/DarkBackground.astro';
@@ -50,6 +50,7 @@ const DEFAULT_DESCRIPTION_PAGE = 'Mi portafolio personal';
     <slot />
     <!-- <Footer /> -->
     <LigthBg />
+    <ButtonScrollTop />
   </body>
 </html>
 
@@ -62,13 +63,13 @@ const DEFAULT_DESCRIPTION_PAGE = 'Mi portafolio personal';
     font-display: swap;
   }
   html {
-
     background: linear-gradient(
       90deg,
       rgba(0, 0, 0, 1) 0%,
       rgba(11, 20, 41, 1) 0%,
       rgba(11, 21, 40, 1) 100%
     );
+    scroll-behavior: smooth;
   }
 
   body {

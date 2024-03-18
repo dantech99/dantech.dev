@@ -1,51 +1,58 @@
 ---
 // import removeTrailingSlash from '@/utils/removeTrailingSlash';
-import Sun from '@/icons/Sun.astro'
+import Sun from '@/icons/Sun.astro';
 
 interface Items {
   name: string;
   link: string;
+  label: string
 }
 
 const items: Items[] = [
   {
     name: 'Experiencia',
-    link: '/',
+    link: '/#experiencia',
+    label: 'experiencia'
   },
   {
     name: 'Proyectos',
-    link: '/',
+    link: '/#proyectos',
+    label: 'proyectos'
   },
   {
     name: 'Habilidades',
-    link: '/',
+    link: '/#habilidades',
+    label: 'habilidades'
   },
   {
     name: 'Sobre mi',
-    link: '/',
+    link: '/#sobre-mi',
+    label: 'sobre-mi'
   },
 ];
 
 // const pathname = removeTrailingSlash(Astro.url.pathname);
 ---
 
-  <nav role="navigation">
-    <ul role="list" class="flex flex-row gap-4 justify-center items-center border-2 md:border-none p-2 rounded-3xl ">
-      {
-        items.map((item) => (
-          <li>
-            <a
-              href={item.link}
-              class="text-base text-white hover:text-yellow-200 font-medium">
-              {item.name}
-            </a>
-          </li>
-        ))
-      }
-      <li>
-        <button role="button">
-            <Sun />
-        </button>
-      </li>
-    </ul>
-  </nav>
+<nav role="navigation">
+  <ul
+    role="list"
+    class="flex flex-row gap-4 justify-center items-center border-2 md:border-none p-2 rounded-3xl">
+    {
+      items.map(({name, link, label}) => (
+        <li>
+          <a
+            href={link}
+            class="text-base text-white hover:text-yellow-200 font-medium" aria-label={label} >
+            {name}
+          </a>
+        </li>
+      ))
+    }
+    <li>
+      <button role="button">
+        <Sun />
+      </button>
+    </li>
+  </ul>
+</nav>
