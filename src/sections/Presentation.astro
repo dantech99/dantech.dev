@@ -4,7 +4,16 @@ import LinkedIn from '@/icons/LinkedIn.astro';
 import ButtonStatus from '@/components/ButtonStatus.astro';
 import DividerLine from '@/components/DividerLine.astro';
 
-const Info = [
+interface IntroBasic {
+  image: string
+  label: string
+  name: string
+  url: string
+  description: string
+
+}
+
+const Info: IntroBasic[] = [
   {
     label: 'Hola, Hi ✋',
     name: 'Soy Danilo Macea',
@@ -30,7 +39,7 @@ const { label, name, image, url, description } = Info[0];
         {name}
         <ButtonStatus />
       </h1>
-      <p class="w-auto max-w-[60ch] leading-6 text-xl text-white">
+      <p class="w-auto max-w-[60ch] leading-6 text-xl text-white text-balance">
         <span class="text-[#FADB6F]"> Desarrollador web</span>
         con +2 años de experiencia en el área de frontend, especializado en el desarrollo
         de aplicaciones web modernas enfocadas en la experiencia de usuario.
@@ -65,4 +74,3 @@ const { label, name, image, url, description } = Info[0];
   </div>
 </section>
 
-<DividerLine title="Experiencia" />
