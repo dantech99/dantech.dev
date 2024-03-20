@@ -32,6 +32,8 @@
     "tw-elements": "^1.0.0-alpha12"
   },
   "devDependencies": {
-    "@tailwindcss/typography": "^0.5.8"
+    "@tailwindcss/typography": "^0.5.8",
+    "prettier": "^3.2.5",
+    "prettier-plugin-astro": "^0.13.0"
   }
 }
