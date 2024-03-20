@@ -1,7 +1,8 @@
 ---
 import Nextjs from "@/icons/Nextjs.astro";
-import Reactjs from "@/icons/Reactjs.astro";
-import Tailwindscss from "@/icons/tailwindscss.astro";
+import Supabase from '@/icons/Supabase.astro'
+import Laravel from "@/icons/Laravel.astro";
+import Mysql from '@/icons/Mysql.astro'
 import Link from '@/icons/Link.astro';
 import  CodeSvg from "@/icons/CodeSvg.astro"
 
@@ -10,85 +11,72 @@ interface Projects {
   title: string;
   description: string;
   badges: Array<string>;
-  links: string;
+  links: Array<any>;
   tech: Array<any>;
   date: string;
 }
 
 const projects: Projects[] = [
   {
-    image: '/img/projects.png',
+    image: '/img/project-recycling.png',
     title: 'Recycling Bikes',
     description:
       'Aplicacion web e-commerce para la renta y compra de bicicletas usadas',
-    badges: ['empresa', 'web', 'freelance'],
-    links: '/enlace a gtihu',
+    badges: ['web', 'freelance', 'startup'],
+    links: [
+      {
+        name: 'Preview',
+        url: 'https://www.recyclingbikes.co/',
+        icon: CodeSvg
+      },
+      {
+        name: 'Code',
+        url: 'https://www.recyclingbikes.co/',
+        icon: Link
+      }
+    ],
     tech: [ {
       name: "Next.js",
       icon: Nextjs
     },
     {
-      name: "React.js",
-      icon: Reactjs
+      name: "Supabase",
+      icon: Supabase
     }
   ],
-    date: 'Updated April 2023',
+    date: 'Actualizado Marzo 2024',
   },
 
   {
-    image: '/img/projects.png',
-    title: 'Recyclin Bikes',
+    image: '/img/project-gesccol.png',
+    title: 'Gesccol E.I.C.E',
     description:
-      'Aplicacion web e-commerce para la renta y compra de bicicletas usadas',
+      'Aplicacion web del gestor catastral de sahagun - cordoba para la difucion de la informacion publica a la ciudadania',
     badges: ['empresa', 'web', 'freelance'],
-    links: '/enlace a gtihu',
+    links: [
+      {
+        name: 'Preview',
+        url: 'https://www.recyclingbikes.co/',
+        icon: CodeSvg
+      },
+      {
+        name: 'Code',
+        url: 'https://www.recyclingbikes.co/',
+        icon: Link
+      }
+    ],
     tech: [ {
-      name: "Next.js",
-      icon: Nextjs
+      name: "Laravel",
+      icon: Laravel
     },
     {
-      name: "React.js",
-      icon: Reactjs
+      name: "Mysql",
+      icon: Mysql
     }
   ],
     date: 'Updated April 2023',
   },
-  {
-    image: '/img/projects.png',
-    title: 'Recyclin Bikes',
-    description:
-      'Aplicacion web e-commerce para la renta y compra de bicicletas usadas',
-    badges: ['empresa', 'web', 'freelance'],
-    links: '/enlace a gtihu',
-    tech: [ {
-      name: "Next.js",
-      icon: Nextjs
-    },
-    {
-      name: "React.js",
-      icon: Reactjs
-    }
-  ],
-    date: 'Updated April 2023',
-  },
-  {
-    image: '/img/projects.png',
-    title: 'Recyclin Bikes',
-    description:
-      'Aplicacion web e-commerce para la renta y compra de bicicletas usadas',
-    badges: ['empresa', 'web', 'freelance'],
-    links: '/enlace a gtihu',
-    tech: [ {
-      name: "Next.js",
-      icon: Nextjs
-    },
-    {
-      name: "React.js",
-      icon: Reactjs
-    }
-  ],
-    date: 'Updated April 2023',
-  },
+  
 ];
 ---
 
@@ -98,49 +86,41 @@ const projects: Projects[] = [
     class="rounded-lg col-span-6 border-[1px] border-gray-600 bg-card text-card-foreground shadow-sm w-full max-w-xl overflow-hidden"
     data-v0-t="card">
     <!-- seccion de la imagen -->
-    <div class="h-70">
+    <div class="max-h-64 overflow-hidden">
       <img
-        class="w-full h-full object-cover transition hover:scale-105 motion-reduce:transition-none motion-reduce:hover:scale-50"
+        class="w-full object-cover transition hover:scale-105 motion-reduce:transition-none motion-reduce:hover:scale-50"
         alt="Logo"
         src={project.image}
       />
     </div>
 
     <div
-      class="flex-col p-6 grid grid-cols-[1fr_110px] items-start gap-4 space-y-0">
-      <div class="space-y-1">
+      class="flex justify-between p-5  items-start  space-y-0 h-40 max-h-52">
+      <div class="space-y-1 ">
         <h3
           class="text-2xl font-semibold whitespace-nowrap leading-none tracking-tight text-white">
           {project.title}
-        </h3><p class="text-sm text-muted-foreground ">
+        </h3><p class="text-sm text-muted-foreground text-balance">
           {project.description}</p>
-          <div class=" mt-4">
-
+          <div>
           {project.badges.map((badgeIcon) =>(
-            
-            
               <span
-              class="inline-flex items-center rounded-full whitespace-nowrap border px-2.5 py-0.5 w-fit text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-gray-600 bg-gray-800 mr-1 ">
+              class="inline-flex items-center rounded-full whitespace-nowrap border px-2.5 py-0.5 w-fit text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-gray-600 bg-gray-800 mr-1 mt-3">
                 {badgeIcon}
               </span>
           ))}  
-        </div>        
-        
+        </div>
       </div>
 
-      <div
-        class="flex justify-between items-center space-x-1 rounded-md bg-gray-100 text-gray-900 dark:bg-gray-800 dark:text-gray-50">
-        <button
-          class="inline-flex items-center justify-center whitespace-nowrap  text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-secondary text-secondary-foreground hover:bg-secondary/80 h-10 py-2 px-3 shadow-none rounded-md  hover:scale-110 motion-reduce:transition-none motion-reduce:hover:scale-100"
-          > <Link  />
+      <div class="flex flex-col gap-1">
+        {project.links.map(({name, url, icon: Icon}) => (
+
+          <a href={url} class="inline-flex rounded-lg  items-center py-1 px-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-200 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-700 gap-3" target="_blank">
+            <Icon class="size-4" /> {name}
+          </a>
+        ))}
           
-        </button>
-        <div class="h-full bg-gray-600 text-[1px]">|</div>
-        <button
-          class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-secondary text-secondary-foreground hover:bg-secondary/80 h-10 py-2 px-3 shadow-none hover:scale-110 motion-reduce:transition-none motion-reduce:hover:scale-100"
-          > <CodeSvg  />
-        </button>
-      </div>
+        </div>
     </div>
 
     <div class="p-6">
