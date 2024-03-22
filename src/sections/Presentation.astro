@@ -17,7 +17,7 @@ const Info: IntroBasic[] = [
   {
     label: 'Hola, Hi ✋',
     name: 'Soy Danilo Macea',
-    image: '/img/logo-dantech.png',
+    image: '/img/logo-dantech.webp',
     url: 'url de la pagina',
     description:
       'Desarrollador web con +2 años de experiencia en el área de frontend, especializado en el desarrollo de aplicaciones web modernas enfocadas en la experiencia de usuario.',
@@ -29,7 +29,7 @@ const { label, name, image, url, description } = Info[0];
 
 <section
   class="flex gap-8 md:justify-end justify-between items-center md:gap-12">
-  <div class="flex flex-col gap-3">
+  <main class="flex flex-col gap-3">
     <div>
       <span class="text-xl text-white">
         {label}
@@ -49,28 +49,28 @@ const { label, name, image, url, description } = Info[0];
     <div class="flex justify-start items-center pt-2">
       <a
         href="/"
-        class="px-8 py-1 text-white text-sm rounded-2xl font-medium hover:bg-black/[0.8] hover:shadow-lg  border-gray-600 border flex flex-row justify-between items-center gap-3">
+        class="px-8 py-1 text-white text-sm rounded-2xl font-medium hover:bg-black/[0.8] hover:shadow-lg  border-gray-600 border flex flex-row justify-between items-center gap-3" role="link">
         <GitHub class="size-5" /> GitHub
       </a>
 
       <a
         href="/"
-        class="px-8 py-1 text-white text-sm rounded-2xl font-medium hover:bg-black/[0.8] hover:shadow-lg ml-2 border-gray-600 border flex flex-row justify-between items-center gap-3">
+        class="px-8 py-1 text-white text-sm rounded-2xl font-medium hover:bg-black/[0.8] hover:shadow-lg ml-2 border-gray-600 border flex flex-row justify-between items-center gap-3" role="link">
         <LinkedIn class="size-5" /> LinkedIn
       </a>
     </div>
-  </div>
+  </main>
 
-  <div class="flex flex-col justify-center items-center">
+  <footer class="flex flex-col justify-center items-center">
     <!--  -->
 
     <div class="w-52 bg-white h-52 rounded-full">
       <img
         src={image}
         alt="imagen personal para el portafolio"
-        class="w-full"
+        class="w-full" loading="lazy"
       />
     </div>
-  </div>
+  </footer>
 </section>
 
