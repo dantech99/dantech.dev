@@ -15,18 +15,18 @@ interface About {
   <div class="col-span-2 w-full flex justify-center">
     <div class="border rounded-xl overflow-hidden border-white max-h-80">
       <img
-        src="/img/photo-profile.jpg"
+        src="/img/mifoto.jpg"
         alt="imagen personal"
-        class="w-full object-cover overflow-clip"
+        class="w-full object-cover overflow-clip" loading="lazy"
       />
     </div>
   </div>
 
   <div class="flex flex-col col-span-4 p-4 gap-3">
-    <header>
+    <header role="heading">
       <h1 class="text-3xl text-white">Sobre Mi</h1>
     </header>
-    <main>
+    <main role="main">
       <p class="text-balance text-lg">
         Soy un un amante de la tecnología y me apasiona el mundo web, me gusta
         sumergirme en este inmenso mar en donde se adquieren grandes
@@ -38,7 +38,7 @@ interface About {
       </p>
     </main>
 
-    <footer class="flex gap-3">
+    <footer class="flex gap-3" aria-label="botton para ir al cv">
       <ButtonCv />
     </footer>
   </div>

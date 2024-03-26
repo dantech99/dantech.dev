@@ -1,34 +1,36 @@
 ---
 const experience = [
   {
-    date: 'Febrero 2022',
-    title: 'Desarrollador de software - Gesccol EICE ',
-    description:
-      'Get access to over 20+ pages including a dashboard layout, charts, kanban board, calendar, and pre-order E-commerce & Marketing pages.',
-    link: '/',
-  },
-  {
-    date: 'Marzo 2022',
-    title: 'Desarrollador de software - Gesccol EICE ',
-    description:
-      'Get access to over 20+ pages including a dashboard layout, charts, kanban board, calendar, and pre-order E-commerce & Marketing pages.',
-    link: '/',
-  },
-  {
     date: 'Abril 2022',
     title: 'Desarrollador de software - Gesccol EICE ',
     description:
-      'Get access to over 20+ pages including a dashboard layout, charts, kanban board, calendar, and pre-order E-commerce & Marketing pages.',
-    link: '/',
+      'Desarrollo y mantenimiento del sitio web de la empresa de gestion catastral de colombia para la difusion de comunicados, informes y noticias datos abiertos para la ciudadania, utilizando  Laravel como framework de php, diseño con TailwindCSS ',
+    link: 'https://dandevms.notion.site/Documentaci-n-Gesccol-E-I-C-E-dfb69b196f454690891f56564fd7ca26?pvs=4',
+  },
+  {
+    date: 'Octubre 2023',
+    title: 'Desarrollador Web Full Stack - Recycling Bikes',
+    description:
+      'Desarrollo de nuevas funcionalidades, mejoras de rendimiento y optimizacion, en el sitio web de recycling bikes, una startupo enfocada en la compra, renta y mantenimiento de bicicletas usadas, utilizando Next.js, Bootstrap y supabase',
+    link: 'https://dandevms.notion.site/Recycling-Bikes-9b52e81486504779be710074e0611715?pvs=4',
+  },
+  {
+    date: 'Abril 2022',
+    title: 'Desarrollador Web Frontend - MINTIC ',
+    description:
+      ' Diseño y maquetación de la solución de software planteada durante el  diplomado ofrecido por el  ministerio de ciencia, tecnología e innovación MINTIC, usando tecnologías como Figma y React.Js para el desarrollo de una aplicacion de banca virtual',
+    link: 'https://dandevms.notion.site/MINTIC-Diplomado-0c982834487c4f07a7fcd069a1982f70?pvs=4',
   },
 ];
 ---
 
 {
-  experience.map(({date, title, description, link}) =>(
-  <li class="mb-10 ml-4">
+  experience.map(({ date, title, description, link }) => (
+    <li class="mb-10 ml-4" role="list">
       <div class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -left-1.5 border border-white dark:border-gray-900 dark:bg-gray-700" />
-      <time class="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
+      <time
+        class="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500"
+        role="timer">
         {date}
       </time>
       <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
@@ -37,10 +39,13 @@ const experience = [
       <p class="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">
         {description}
       </p>
+
       <a
         href={link}
-        class="inline-flex items-center py-2 px-4 text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-200 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-700">
-        Learn more{' '}
+        class="inline-flex items-center py-2 px-4 text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-200 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-700"
+        role="link"
+        target="_blank">
+        Leer mas{' '}
         <svg
           class="ml-2 w-3 h-3"
           fill="currentColor"

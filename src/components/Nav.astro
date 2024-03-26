@@ -43,14 +43,14 @@ const items: Items[] = [
         <li>
           <a
             href={link}
-            class="text-base text-white hover:text-yellow-200 font-medium" aria-label={label} >
+            class="text-base text-white hover:text-yellow-200 font-medium" role="link" aria-label={label} >
             {name}
           </a>
         </li>
       ))
     }
     <li>
-      <button role="button">
+      <button role="button" aria-label="button para cambiar de tema">
         <Sun />
       </button>
     </li>
