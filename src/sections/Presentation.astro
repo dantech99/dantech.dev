@@ -5,12 +5,11 @@ import ButtonStatus from '@/components/ButtonStatus.astro';
 import DividerLine from '@/components/DividerLine.astro';
 
 interface IntroBasic {
-  image: string
-  label: string
-  name: string
-  url: string
-  description: string
-
+  image: string;
+  label: string;
+  name: string;
+  url: string;
+  description: string;
 }
 
 const Info: IntroBasic[] = [
@@ -49,13 +48,15 @@ const { label, name, image, url, description } = Info[0];
     <div class="flex justify-start items-center pt-2">
       <a
         href="/"
-        class="px-8 py-1 text-white text-sm rounded-2xl font-medium hover:bg-black/[0.8] hover:shadow-lg  border-gray-600 border flex flex-row justify-between items-center gap-3" role="link">
+        class="px-8 py-1 text-white text-sm rounded-2xl font-medium hover:bg-black/[0.8] hover:shadow-lg border-gray-600 border flex flex-row justify-between items-center gap-3"
+        role="link">
         <GitHub class="size-5" /> GitHub
       </a>
 
       <a
         href="/"
-        class="px-8 py-1 text-white text-sm rounded-2xl font-medium hover:bg-black/[0.8] hover:shadow-lg ml-2 border-gray-600 border flex flex-row justify-between items-center gap-3" role="link">
+        class="px-8 py-1 text-white text-sm rounded-2xl font-medium hover:bg-black/[0.8] hover:shadow-lg ml-2 border-gray-600 border flex flex-row justify-between items-center gap-3"
+        role="link">
         <LinkedIn class="size-5" /> LinkedIn
       </a>
     </div>
@@ -68,9 +69,9 @@ const { label, name, image, url, description } = Info[0];
       <img
         src={image}
         alt="imagen personal para el portafolio"
-        class="w-full" loading="lazy"
+        class="w-full"
+        loading="lazy"
       />
     </div>
   </footer>
 </section>
-
