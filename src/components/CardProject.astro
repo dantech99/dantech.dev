@@ -86,9 +86,9 @@ const projects: Projects[] = [
     class="rounded-lg col-span-6 border-[1px] border-gray-600 bg-card text-card-foreground shadow-sm w-full max-w-xl overflow-hidden"
     data-v0-t="card" role="article">
     <!-- seccion de la imagen -->
-    <header class="max-h-64 overflow-hidden" role="heading">
+    <header class="max-h-64  relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip md:group-hover:-translate-y-1 md:group-hover:shadow-2xl " role="heading">
       <img
-        class="w-full object-cover transition hover:scale-105 motion-reduce:transition-none motion-reduce:hover:scale-50"
+        class="w-full h-56 object-cover object-top transition hover:scale-105 motion-reduce:transition-none motion-reduce:hover:scale-50 ease-in-out duration-500 sm:h-full md:scale-110 md:group-hover:scale-105"
         alt="Logo"
         src={project.image}
         role="img"
