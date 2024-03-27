@@ -1,0 +1,43 @@
+---
+import '../styles/ButtonScrollTop.css';
+import Sun from '@/icons/Sun.astro';
+import Moon from '@/icons/Moon.astro';
+---
+
+<button
+  role="button"
+  aria-label="button para cambiar de tema"
+  id="button"
+  class="flex justify-center items-center text-center bg-blue-200 dark:bg-gray-700 p-1 rounded-3xl btnTheme">
+  <Sun
+    class="fill-[#333333] dark:fill-white hidden dark:block icon-theme size-6"
+    id="dark"
+  />
+  <Moon
+    class="icon-theme fill-[#333333] dark:fill-white dark:hidden size-6"
+    id="light"
+  />
+</button>
+
+<script is:inline>
+  const htmlElement = document.querySelector('html');
+  const toggleButton = document.querySelector('#button');
+
+  const applySavedTheme = () => {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+      htmlElement.classList.toggle('dark', savedTheme === 'dark');
+    }
+  };
+
+  // change theme
+  const toggleTheme = () => {
+    htmlElement.classList.toggle('dark');
+    const isDarkMode = htmlElement.classList.contains('dark');
+    localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+  };
+
+  toggleButton.addEventListener('click', toggleTheme);
+
+  applySavedTheme();
+</script>
