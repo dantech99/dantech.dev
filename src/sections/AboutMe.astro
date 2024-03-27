@@ -13,21 +13,25 @@ interface About {
 <section class="grid grid-cols-6 w-full h-96 overflow-hidden">
   <!-- seccion de la imagen -->
   <div class="col-span-2 w-full flex justify-center">
-    <div class="border rounded-xl overflow-hidden border-white max-h-80">
+    <div
+      class="border rounded-xl overflow-hidden daark:border-white border-gray-800 max-h-80">
       <img
         src="/img/mifoto.jpg"
         alt="imagen personal"
-        class="w-full object-cover overflow-clip" loading="lazy"
+        class="w-full object-cover overflow-clip"
+        loading="lazy"
       />
     </div>
   </div>
 
   <div class="flex flex-col col-span-4 p-4 gap-3">
     <header role="heading">
-      <h1 class="text-3xl text-white">Sobre Mi</h1>
+      <h1 class="text-3xl dark:text-white text-[#333333] font-semibold">
+        Sobre Mi
+      </h1>
     </header>
     <main role="main">
-      <p class="text-balance text-lg">
+      <p class="text-balance text-lg dark:text-white text-gray-800">
         Soy un un amante de la tecnología y me apasiona el mundo web, me gusta
         sumergirme en este inmenso mar en donde se adquieren grandes
         conocimientos y experiencia, en donde todos pueden colaborar y

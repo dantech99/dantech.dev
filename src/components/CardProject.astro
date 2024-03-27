@@ -27,12 +27,12 @@ const projects: Projects[] = [
       {
         name: 'Preview',
         url: 'https://www.recyclingbikes.co/',
-        icon: CodeSvg
+        icon: Link
       },
       {
         name: 'Code',
         url: 'https://www.recyclingbikes.co/',
-        icon: Link
+        icon: CodeSvg
       }
     ],
     tech: [ {
@@ -57,12 +57,12 @@ const projects: Projects[] = [
       {
         name: 'Preview',
         url: 'https://www.recyclingbikes.co/',
-        icon: CodeSvg
+        icon: Link
       },
       {
         name: 'Code',
         url: 'https://www.recyclingbikes.co/',
-        icon: Link
+        icon: CodeSvg
       }
     ],
     tech: [ {
@@ -100,14 +100,14 @@ const projects: Projects[] = [
       class="flex justify-between p-5  items-start  space-y-0 h-40 max-h-52" role="main">
       <div class="space-y-1 ">
         <h3
-          class="text-2xl font-semibold whitespace-nowrap leading-none tracking-tight text-white">
+          class="text-2xl font-semibold whitespace-nowrap leading-none tracking-tight dark:text-white text-[#333333]">
           {project.title}
-        </h3><p class="text-sm text-muted-foreground text-balance">
+        </h3><p class="text-sm text-muted-foreground text-balance font-medium text-gray-500 dark:text-gray-400">
           {project.description}</p>
           <div>
           {project.badges.map((badgeIcon) =>(
               <span
-              class="inline-flex items-center rounded-full whitespace-nowrap border px-2.5 py-0.5 w-fit text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-gray-600 bg-gray-800 mr-1 mt-3" aria-label="badges de categorias">
+              class="inline-flex items-center rounded-full whitespace-nowrap border px-2.5 py-0.5 w-fit text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground dark:hover:bg-gray-600 hover:bg-gray-800 dark:bg-gray-800 bg-gray-700 mr-1 mt-3 text-white" aria-label="badges de categorias">
                 {badgeIcon}
               </span>
           ))}  
@@ -118,7 +118,7 @@ const projects: Projects[] = [
         {project.links.map(({name, url, icon: Icon}) => (
 
           <a href={url} class="inline-flex rounded-lg  items-center py-1 px-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-200 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-700 gap-3" target="_blank" role="link" aria-label="enlaces" >
-            <Icon class="size-4" /> {name}
+            <Icon class="size-4 fill-[#333333] dark:fill-white" /> {name}
           </a>
         ))}
           
@@ -129,8 +129,8 @@ const projects: Projects[] = [
       <div class="flex space-x-4 text-sm text-gray-500 dark:text-gray-400">
         {
           project.tech.map(({name, icon: Icon}) =>(
-          <div class="flex items-center gap-2">
-            <Icon class="size-4"/>
+          <div class="flex items-center gap-2 hover:text-blue-500 dark:hover:text-yellow-200">
+            <Icon class="size-4 icon"/>
             {name}
         </div>
           ))
