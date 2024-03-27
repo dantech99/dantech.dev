@@ -42,7 +42,7 @@ const items: Items[] = [
         <li>
           <a
             href={link}
-            class="text-base  hover:text-yellow-200 font-medium"
+            class="text-base  dark:hover:text-yellow-200 hover:text-blue-600  font-medium"
             role="link"
             aria-label={label}>
             {name}
@@ -55,7 +55,7 @@ const items: Items[] = [
         role="button"
         aria-label="button para cambiar de tema"
         id="button">
-        <Sun id="sun" />
+        <Sun class="fill-[#333333] dark:fill-white" />
       </button>
     </li>
   </ul>
@@ -66,8 +66,6 @@ const items: Items[] = [
 
   function toggleDarkMode() {
     document.documentElement.classList.toggle('dark');
-
-    console.log('cambiando a modo claro');
   }
 
   btn?.addEventListener('click', toggleDarkMode);

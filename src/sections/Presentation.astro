@@ -34,12 +34,15 @@ const { label, name, image, url, description } = Info[0];
         {label}
       </span>
       <h1
-        class="text-4xl font-semibold dark:text-white  text-[#083EB6] flex justify-start items-center gap-5">
+        class="text-4xl font-semibold dark:text-white text-[#083EB6] flex justify-start items-center gap-5">
         {name}
         <ButtonStatus />
       </h1>
-      <p class="w-auto max-w-[60ch] leading-6 text-xl dark:text-white text-[#333333] text-balance">
-        <span class="dark:text-[#FADB6F] text-[#083EB6]"> Desarrollador web</span>
+      <p
+        class="w-auto max-w-[60ch] leading-6 text-xl dark:text-white text-[#333333] text-balance">
+        <span class="dark:text-[#FADB6F] text-[#083EB6]">
+          Desarrollador web</span
+        >
         con +2 años de experiencia en el área de frontend, especializado en el desarrollo
         de aplicaciones web modernas enfocadas en la experiencia de usuario.
       </p>
@@ -48,16 +51,16 @@ const { label, name, image, url, description } = Info[0];
     <div class="flex justify-start items-center pt-2">
       <a
         href="/"
-        class="px-8 py-1 text-white text-sm rounded-2xl font-medium hover:bg-black/[0.8] hover:shadow-lg border-gray-600 border flex flex-row justify-between items-center gap-3"
+        class="px-8 py-1 dark:text-white text-[#333333] text-sm rounded-2xl font-medium dark:hover:bg-black/[0.8] hover:bg-white hover:shadow-lg border-gray-600 border flex flex-row justify-between items-center gap-3"
         role="link">
         <GitHub class="size-5" /> GitHub
       </a>
 
       <a
         href="/"
-        class="px-8 py-1 text-white text-sm rounded-2xl font-medium hover:bg-black/[0.8] hover:shadow-lg ml-2 border-gray-600 border flex flex-row justify-between items-center gap-3"
+        class="px-8 py-1 dark:text-white text-[#333333] text-sm rounded-2xl font-medium dark:bg-transparent dark:hover:bg-black/[0.8] bg-white hover:shadow-lg ml-2 border-gray-600 border flex flex-row justify-between items-center gap-3"
         role="link">
-        <LinkedIn class="size-5" /> LinkedIn
+        <LinkedIn class="size-5 fill-[#333333] dark:fill-white" /> LinkedIn
       </a>
     </div>
   </main>
