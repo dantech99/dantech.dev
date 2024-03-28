@@ -5,6 +5,7 @@ import { introbasic } from '@/data/data.json';
 import '@/styles/tailwind.css';
 import LigthBg from '@/components/DarkBackground.astro';
 import ButtonChangeTheme from '@/components/ButtonChangeTheme.astro';
+import 'aos/dist/aos.css'; // AOS styles
 
 interface Props {
   title: string;
@@ -44,6 +45,9 @@ const DEFAULT_DESCRIPTION_PAGE = 'Mi portafolio personal';
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content="" />
+
+      <!-- toolstips  -->
+    <link rel="stylesheet" href="https://unpkg.com/microtip/microtip.css">
   </head>
   <body
     class="mx-auto flex min-h-screen max-w-5xl flex-col gap-9 px-10 py-8 text-sm text-neutral-400 md:gap-20 md:py-16">
@@ -78,3 +82,9 @@ const DEFAULT_DESCRIPTION_PAGE = 'Mi portafolio personal';
     font-family: 'Geist', sans-serif;
   }
 </style>
+<script>
+  import { aosInit } from '@/js/aos';
+
+  // runs on initial page load
+  aosInit();
+</script>

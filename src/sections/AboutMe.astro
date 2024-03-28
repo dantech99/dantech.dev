@@ -10,40 +10,43 @@ interface About {
 
 <DividerLine title="Sobre Mi" id="sobre-mi" />
 
-<section class="grid grid-cols-6 w-full h-96 overflow-hidden">
+<section class="flex w-full overflow-hidden justify-center">
   <!-- seccion de la imagen -->
-  <div class="col-span-2 w-full flex justify-center">
+  <div class="flex-1 w-10 flex flex-col justify-center items-center">
     <div
-      class="border rounded-xl overflow-hidden daark:border-white border-gray-800 max-h-80">
+      class="border rounded-xl overflow-hidden daark:border-white border-gray-800 max-h-80 w-72 shadow-md">
       <img
-        src="/img/mifoto.jpg"
+        src="/img/myphoto.jpg"
         alt="imagen personal"
         class="w-full object-cover overflow-clip"
         loading="lazy"
       />
     </div>
+    <div class="flex justify-center items-center mt-3 gap-2">
+      <ButtonCv />
+    </div>
   </div>
 
-  <div class="flex flex-col col-span-4 p-4 gap-3">
+  <div class="flex-1 w-72">
     <header role="heading">
       <h1 class="text-3xl dark:text-white text-[#333333] font-semibold">
-        Sobre Mi
+        Me llamo Danilo Antonio Macea Santos
       </h1>
     </header>
     <main role="main">
-      <p class="text-balance text-lg dark:text-white text-gray-800">
-        Soy un un amante de la tecnología y me apasiona el mundo web, me gusta
-        sumergirme en este inmenso mar en donde se adquieren grandes
-        conocimientos y experiencia, en donde todos pueden colaborar y
-        contribuir sin ninguna limitaciónn en donde el trabajo en equipo se hace
-        notar y demuestra que los humanos logramos grandes cosas juntos. Tambien
-        quiero ser parte de este gran avance y contribuir para que la
-        imaginación de las ideas se hagan realidad.
+      <p class="text-pretty text-lg dark:text-white text-gray-700">
+        Soy un entusiasta de la tecnología y la web, empece a conocer la
+        porgramacion y el desarrollo de software desde hace casi cuatro años, me
+        he dedicado con pasión al mundo de la programación, sin límites en mi
+        interés por aprender y crecer constantemente
+      </p>
+      <br />
+      <p class="text-pretty text-lg dark:text-white text-gray-700">
+        He trabajado en varias empresas, destacándome por mi talento y
+        compromiso. Recientemente, colaboré con una startup, donde optimicé
+        procesos, implementé nuevas funcionalidades e integré redes sociales con
+        el sitio web.
       </p>
     </main>
-
-    <footer class="flex gap-3" aria-label="botton para ir al cv">
-      <ButtonCv />
-    </footer>
   </div>
 </section>

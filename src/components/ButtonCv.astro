@@ -1,5 +1,6 @@
 ---
 import Mail from '@/icons/Mail.astro';
+import DowloadCv from '@/icons/DowloadCv.astro';
 
 interface ButtonCv {
   name: string;
@@ -13,6 +14,11 @@ const buttoncv: ButtonCv[] = [
     url: 'mailto:antoniomcs21@hotmail.com',
     icon: Mail,
   },
+  {
+    name: 'CV',
+    url: '/',
+    icon: DowloadCv,
+  },
 ];
 ---
 
@@ -23,7 +29,7 @@ const buttoncv: ButtonCv[] = [
       class="inline-flex items-center py-2 px-4 text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-600 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-200 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-200 dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-700 gap-3"
       role="link"
       aria-label="Enlace al correo">
-      <Icon class="size-6 fill-[#333333]" />
+      <Icon class="size-6 fill-[#333333] " />
       {name}
     </a>
   ))

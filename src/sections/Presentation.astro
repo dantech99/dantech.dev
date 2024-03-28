@@ -14,12 +14,12 @@ interface IntroBasic {
 
 const Info: IntroBasic[] = [
   {
-    label: 'Hola, Hi ✋',
+    label: 'Hola/Hi ✋',
     name: 'Soy Danilo Macea',
     image: '/img/logo-dantech.webp',
     url: 'url de la pagina',
     description:
-      'Desarrollador web con +2 años de experiencia en el área de frontend, especializado en el desarrollo de aplicaciones web modernas enfocadas en la experiencia de usuario.',
+      'Desarrollador web frontend, amante de la web y autodidacta, me gusta enfocar mis proyectos en la experiencia de usuario y me encanta trabajar con gente apasionada como yo.',
   },
 ];
 
@@ -41,10 +41,12 @@ const { label, name, image, url, description } = Info[0];
       <p
         class="w-auto max-w-[60ch] leading-6 text-xl dark:text-white text-[#333333] text-balance">
         <span class="dark:text-[#FADB6F] text-[#083EB6]">
-          Desarrollador web</span
+          Desarrollador web,</span
         >
-        con +2 años de experiencia en el área de frontend, especializado en el desarrollo
-        de aplicaciones web modernas enfocadas en la experiencia de usuario.
+        amante de la web y autodidacta, me gusta enfocar mis proyectos en la experiencia
+        de usuario y me encanta trabajar con gente apasionada como yo. 
+        <p class="text-xl">Conecta conmigo 👇👇</p>
+        
       </p>
     </div>
 
@@ -52,14 +54,16 @@ const { label, name, image, url, description } = Info[0];
       <a
         href="https://github.com/dantech99"
         class="px-8 py-1 dark:text-white text-[#333333] text-sm rounded-2xl font-medium dark:hover:bg-black/[0.8] hover:bg-white hover:shadow-lg border-gray-600 border flex flex-row justify-between items-center gap-3"
-        role="link" target="_blank">
+        role="link"
+        target="_blank">
         <GitHub class="size-5" /> GitHub
       </a>
 
       <a
         href="https://www.linkedin.com/in/dantechdev/"
         class="px-8 py-1 dark:text-white text-[#333333] text-sm rounded-2xl font-medium dark:bg-transparent dark:hover:bg-black/[0.8] bg-white hover:shadow-lg ml-2 border-gray-600 border flex flex-row justify-between items-center gap-3"
-        role="link" target="_blank">
+        role="link"
+        target="_blank">
         <LinkedIn class="size-5 fill-[#333333] dark:fill-white" /> LinkedIn
       </a>
     </div>
