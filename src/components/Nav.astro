@@ -31,17 +31,17 @@ const items: Items[] = [
   },
 ];
 ---
-
-<nav role="navigation" class="dark:text-white text-[#333333]">
+<!-- navigate desktop  -->
+<nav role="navigation" class="dark:text-white text-[#333333] hidden md:block">
   <ul
     role="list"
-    class="flex flex-row gap-4 justify-center items-center border-2 md:border-none p-2 rounded-3xl">
+    class="flex flex-row gap-4 justify-center items-center border-[1px] md:border-none md:p-2 ">
     {
       items.map(({ name, link, label }) => (
         <li>
           <a
             href={link}
-            class="text-base  dark:hover:text-yellow-200 hover:text-blue-600  font-medium"
+            class="md:text-base text-xl  dark:hover:text-yellow-200 hover:text-blue-600  font-medium"
             role="link"
             aria-label={label}>
             {name}
@@ -51,4 +51,27 @@ const items: Items[] = [
     }
   </ul>
 </nav>
+
+
+<!-- navigate mobil -->
+<nav class="bg-[#020617] fixed bottom-0 left-0 right-0 h-28 flex justify-center items-center md:hidden z-50">
+  <ul
+    role="list"
+    class="flex flex-row gap-4 justify-center items-center p-5 ">
+    {
+      items.map(({ name, link, label }) => (
+        <li>
+          <a
+            href={link}
+            class="md:text-base text-xl  dark:hover:text-yellow-200 hover:text-blue-600  font-medium"
+            role="link"
+            aria-label={label}>
+            {name}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>
+
 

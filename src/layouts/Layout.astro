@@ -46,14 +46,13 @@ const DEFAULT_DESCRIPTION_PAGE = 'Mi portafolio personal';
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content="" />
 
-      <!-- toolstips  -->
-    <link rel="stylesheet" href="https://unpkg.com/microtip/microtip.css">
+    <!-- toolstips  -->
+    <link rel="stylesheet" href="https://unpkg.com/microtip/microtip.css" />
   </head>
   <body
-    class="mx-auto flex min-h-screen max-w-5xl flex-col gap-9 px-10 py-8 text-sm text-neutral-400 md:gap-20 md:py-16">
+    class="mx-auto flex md:max-w-5xl max-w-3xl absolute md:relative  flex-col gap-9 px-10 py-8 text-sm text-neutral-400 md:gap-20 md:py-16 -z-50 ">
     <Header />
     <slot />
-    <!-- <Footer /> -->
     <LigthBg />
     <ButtonScrollTop />
     <ButtonChangeTheme />
@@ -80,6 +79,9 @@ const DEFAULT_DESCRIPTION_PAGE = 'Mi portafolio personal';
 
   body {
     font-family: 'Geist', sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
   }
 </style>
 <script>

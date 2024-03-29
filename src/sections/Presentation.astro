@@ -27,14 +27,33 @@ const { label, name, image, url, description } = Info[0];
 ---
 
 <section
-  class="flex gap-8 md:justify-end justify-between items-center md:gap-12">
+  class="flex md:flex-row flex-col gap-8 md:justify-end justify-between items-center md:gap-12">
   <main class="flex flex-col gap-3">
+
+    <!-- section movil  -->
+    <div class="md:hidden flex flex-row items-center gap-6 mb-2">
+      <div class="w-20 bg-white h-20 rounded-full">
+        <img
+          src={image}
+          alt="imagen personal para el portafolio"
+          class="w-full"
+          loading="lazy"
+        />
+      </div>
+      <div class="md:hidden">
+        <h1
+          class="text-4xl font-semibold dark:text-white text-[#083EB6] flex justify-start items-center gap-5">
+          <ButtonStatus />
+        </h1>
+      </div>
+    </div>
+
     <div>
       <span class="text-xl dark:text-white text-[#333333]">
         {label}
       </span>
       <h1
-        class="text-4xl font-semibold dark:text-white text-[#083EB6] flex justify-start items-center gap-5">
+        class="text-4xl font-semibold dark:text-white text-[#083EB6] md:flex justify-start items-center gap-5 hidden">
         {name}
         <ButtonStatus />
       </h1>
@@ -44,9 +63,8 @@ const { label, name, image, url, description } = Info[0];
           Desarrollador web,</span
         >
         amante de la web y autodidacta, me gusta enfocar mis proyectos en la experiencia
-        de usuario y me encanta trabajar con gente apasionada como yo. 
+        de usuario y me encanta trabajar con gente apasionada como yo.
         <p class="text-xl">Conecta conmigo 👇👇</p>
-        
       </p>
     </div>
 
@@ -69,9 +87,7 @@ const { label, name, image, url, description } = Info[0];
     </div>
   </main>
 
-  <footer class="flex flex-col justify-center items-center">
-    <!--  -->
-
+  <div class="md:flex hidden flex-col justify-center items-center">
     <div class="w-52 bg-white h-52 rounded-full">
       <img
         src={image}
@@ -80,5 +96,5 @@ const { label, name, image, url, description } = Info[0];
         loading="lazy"
       />
     </div>
-  </footer>
+  </div>
 </section>
