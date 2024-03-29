@@ -8,36 +8,33 @@ import Moon from '@/icons/Moon.astro';
   role="button"
   aria-label="button para cambiar de tema"
   id="button"
-  class="md:flex hidden justify-center items-center text-center bg-blue-200 dark:bg-gray-700 p-1 rounded-3xl btnTheme">
+  class="md:flex  justify-center items-center text-center bg-[#0B1528]  md:bg-blue-200 md:dark:bg-gray-700 p-1 rounded-3xl md:fixed md:right-[25px] md:top-[10px]  right-4 top-6" onclick="toggleTheme()">
   <Sun
-    class="fill-[#333333] dark:fill-white hidden dark:block icon-theme md:size-6 size-10"
+    class="md:fill-[#333333] dark:fill-white hidden dark:block icon-theme md:size-6 size-8"
     id="dark"
   />
   <Moon
-    class="icon-theme fill-[#333333] dark:fill-white dark:hidden md:size-6 size-10"
+    class="icon-theme md:fill-[#333333] fill-white dark:fill-white dark:hidden md:size-6 size-8"
     id="light"
   />
 </button>
 
 <script is:inline>
-  const htmlElement = document.querySelector('html');
-  const toggleButton = document.querySelector('#button');
-
-  const applySavedTheme = () => {
+   // Función para aplicar el tema guardado
+   const applySavedTheme = () => {
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme) {
-      htmlElement.classList.toggle('dark', savedTheme === 'dark');
+      document.documentElement.classList.toggle('dark', savedTheme === 'dark');
     }
   };
 
-  // change theme
+  // Función para cambiar el tema y guardar la preferencia
   const toggleTheme = () => {
-    htmlElement.classList.toggle('dark');
-    const isDarkMode = htmlElement.classList.contains('dark');
+    document.documentElement.classList.toggle('dark');
+    const isDarkMode = document.documentElement.classList.contains('dark');
     localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
   };
 
-  toggleButton.addEventListener('click', toggleTheme);
-
-  applySavedTheme();
+  // Escuchar eventos para cambiar de tema
+  document.addEventListener('DOMContentLoaded', applySavedTheme);
 </script>

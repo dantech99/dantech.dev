@@ -1,9 +1,15 @@
 ---
+import ButtonChangeTheme from "./ButtonChangeTheme.astro";
+import WorkNav from '@/icons/WorkNav.astro'
+import ProjectNav from '@/icons/ProjectNav.astro'
+import SkillsNav from '@/icons/SkillsNav.astro'
+import AboutNav from '@/icons/AboutNav.astro'
 
 interface Items {
   name: string;
   link: string;
   label: string;
+  icon: any;
 }
 
 const THEMES = ['Light', 'Dark', 'System'];
@@ -13,21 +19,25 @@ const items: Items[] = [
     name: 'Experiencia',
     link: '/#experiencia',
     label: 'experiencia',
+    icon: WorkNav
   },
   {
     name: 'Proyectos',
     link: '/#proyectos',
     label: 'proyectos',
+    icon: ProjectNav,
   },
   {
     name: 'Habilidades',
     link: '/#habilidades',
     label: 'habilidades',
+    icon: SkillsNav
   },
   {
     name: 'Sobre mi',
     link: '/#sobre-mi',
     label: 'sobre-mi',
+    icon: AboutNav,
   },
 ];
 ---
@@ -37,7 +47,7 @@ const items: Items[] = [
     role="list"
     class="flex flex-row gap-4 justify-center items-center border-[1px] md:border-none md:p-2 ">
     {
-      items.map(({ name, link, label }) => (
+      items.map(({ name, link, label}) => (
         <li>
           <a
             href={link}
@@ -54,23 +64,27 @@ const items: Items[] = [
 
 
 <!-- navigate mobil -->
-<nav class="bg-[#020617] fixed bottom-0 left-0 right-0 h-28 flex justify-center items-center md:hidden z-50">
+<nav class="dark:bg-[#0B1528] bg-white fixed bottom-0 left-0 right-0 h-15 flex justify-center items-center md:hidden z-50 ">
   <ul
     role="list"
     class="flex flex-row gap-4 justify-center items-center p-5 ">
     {
-      items.map(({ name, link, label }) => (
-        <li>
+      items.map(({ name, link, label, icon:Icon }) => (
+        <li class="bg-gray-800 p-2 rounded-full ">
           <a
             href={link}
-            class="md:text-base text-xl  dark:hover:text-yellow-200 hover:text-blue-600  font-medium"
+            class="md:text-base text-sm  dark:hover:text-yellow-200 hover:text-blue-600  font-medium "
             role="link"
             aria-label={label}>
-            {name}
+
+            <Icon title={name} class="size-7 fill-white" />
           </a>
         </li>
       ))
     }
+    <li>
+      <ButtonChangeTheme />
+    </li>
   </ul>
 </nav>
 

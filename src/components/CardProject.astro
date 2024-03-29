@@ -44,7 +44,7 @@ const projects: Projects[] = [
       icon: Supabase
     }
   ],
-    date: 'Actualizado Marzo 2024',
+    date: 'Updated Marzo 2024',
   },
 
   {
@@ -97,12 +97,13 @@ const projects: Projects[] = [
     </header>
 
     <main
-      class="flex justify-between p-5  items-start  space-y-0 h-40 max-h-52" role="main">
+      class="flex justify-between p-5  items-start  space-y-0 md:h-40 h-auto max-h-52 flex-col md:flex-row" role="main">
       <div class="space-y-1 ">
         <h3
           class="text-2xl font-semibold whitespace-nowrap leading-none tracking-tight dark:text-white text-[#333333]">
           {project.title}
-        </h3><p class="text-sm text-muted-foreground text-balance font-medium text-gray-500 dark:text-gray-400">
+        </h3>
+        <p class="text-sm text-muted-foreground text-balance font-medium text-gray-500 dark:text-gray-400">
           {project.description}</p>
           <div>
           {project.badges.map((badgeIcon) =>(
@@ -114,10 +115,10 @@ const projects: Projects[] = [
         </div>
       </div>
 
-      <div class="flex flex-col gap-1">
+      <div class="flex md:flex-col flex-row  gap-1 ">
         {project.links.map(({name, url, icon: Icon}) => (
 
-          <a href={url} class="inline-flex rounded-lg  items-center py-1 px-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-200 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-700 gap-3" target="_blank" role="link" aria-label="enlaces" >
+          <a href={url} class="inline-flex rounded-lg  items-center py-1 px-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-200 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-700 gap-3 mt-5 md:mt-1" target="_blank" role="link" aria-label="enlaces" >
             <Icon class="size-4 fill-[#333333] dark:fill-white" /> {name}
           </a>
         ))}
@@ -135,7 +136,7 @@ const projects: Projects[] = [
         </div>
           ))
         }
-        <div>{project.date}</div>
+        <div class="text-xs">{project.date}</div>
       </div>
     </footer>
   </article>

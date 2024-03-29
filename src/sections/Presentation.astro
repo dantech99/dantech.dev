@@ -53,12 +53,15 @@ const { label, name, image, url, description } = Info[0];
         {label}
       </span>
       <h1
-        class="text-4xl font-semibold dark:text-white text-[#083EB6] md:flex justify-start items-center gap-5 hidden">
+        class="text-4xl font-semibold dark:text-white text-[#083EB6] md:flex justify-start items-center gap-5 ">
         {name}
-        <ButtonStatus />
+        <span class="hidden md:inline-flex">
+          <ButtonStatus />
+        </span>
+        
       </h1>
       <p
-        class="w-auto max-w-[60ch] leading-6 text-xl dark:text-white text-[#333333] text-balance">
+        class="w-auto max-w-[60ch]  text-xl dark:text-white text-[#333333] md:text-balance text-pretty">
         <span class="dark:text-[#FADB6F] text-[#083EB6]">
           Desarrollador web,</span
         >
@@ -71,10 +74,10 @@ const { label, name, image, url, description } = Info[0];
     <div class="flex justify-start items-center pt-2">
       <a
         href="https://github.com/dantech99"
-        class="px-8 py-1 dark:text-white text-[#333333] text-sm rounded-2xl font-medium dark:hover:bg-black/[0.8] hover:bg-white hover:shadow-lg border-gray-600 border flex flex-row justify-between items-center gap-3"
+        class="px-8 py-1 dark:text-white text-[#333333] text-sm rounded-2xl font-medium dark:hover:bg-black/[0.8] hover:bg-white hover:shadow-lg border-gray-600 border flex flex-row justify-between items-center gap-3 dark:bg-transparent bg-white"
         role="link"
         target="_blank">
-        <GitHub class="size-5" /> GitHub
+        <GitHub class="size-5 fill-[#333333] dark:fill-white" /> GitHub
       </a>
 
       <a
