@@ -32,11 +32,29 @@ const skills: Skills[] = [
 {
   skills.map(({ name, icon: Icon }) => (
     <div
-      class=" flex items-center  justify-between w-1/6 "
+      class=" hidden md:flex items-center  justify-between w-1/6 "
       aria-label={name}
       data-microtip-position="left"
       role="tooltip">
       <Icon class="size-14 transition hover:scale-110 " title={name} />
     </div>
   ))
-}
+}'
+
+<!-- vista mobil  -->
+
+<div class="md:hidden flex flex-row flex-wrap justify-center gap-6">
+
+  {
+    skills.map(({ name, icon: Icon }) => (
+      <div
+        class=" flex items-center  justify-center w-1/4 "
+        aria-label={name}
+        data-microtip-position="bottom"
+        role="tooltip">
+        <Icon class="size-14 transition hover:scale-110 " title={name} />
+      </div>
+    ))
+  }'
+
+</div>
