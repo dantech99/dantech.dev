@@ -25,8 +25,11 @@ const DEFAULT_DESCRIPTION_PAGE = 'Mi portafolio personal';
     <!-- Global Metadata -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="sitemap" href="/sitemap.xml" />
-    <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
 
     <!-- Primary Meta Tags -->
     <title>{title || DEFAULT_TITLE_PAGE}</title>
@@ -50,7 +53,7 @@ const DEFAULT_DESCRIPTION_PAGE = 'Mi portafolio personal';
     <link rel="stylesheet" href="https://unpkg.com/microtip/microtip.css" />
   </head>
   <body
-    class="mx-auto flex md:max-w-5xl max-w-3xl absolute md:relative  flex-col gap-9 px-3 py-8 text-sm text-neutral-400 md:gap-20 md:py-16 -z-50 ">
+    class="mx-auto flex md:max-w-5xl max-w-3xl absolute md:relative flex-col gap-9 px-3 py-8 text-sm text-neutral-400 md:gap-20 md:py-16 -z-50">
     <Header />
     <slot />
     <LigthBg />

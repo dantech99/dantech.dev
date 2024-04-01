@@ -36,15 +36,14 @@ const skills: Skills[] = [
       aria-label={name}
       data-microtip-position="left"
       role="tooltip">
-      <Icon class="size-14 transition hover:scale-110 " title={name} />
+      <Icon class="size-14 transition hover:scale-110  " title={name} />
     </div>
   ))
-}'
+}
 
 <!-- vista mobil  -->
 
 <div class="md:hidden flex flex-row flex-wrap justify-center gap-6">
-
   {
     skills.map(({ name, icon: Icon }) => (
       <div
@@ -55,6 +54,5 @@ const skills: Skills[] = [
         <Icon class="size-14 transition hover:scale-110 " title={name} />
       </div>
     ))
-  }'
-
+  }
 </div>
