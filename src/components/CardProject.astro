@@ -4,6 +4,7 @@ import Supabase from '@/icons/Supabase.astro'
 import Laravel from "@/icons/Laravel.astro";
 import Mysql from '@/icons/Mysql.astro'
 import Link from '@/icons/Link.astro';
+import Js from "@/icons/js.astro";
 import  CodeSvg from "@/icons/CodeSvg.astro"
 
 interface Projects {
@@ -76,7 +77,66 @@ const projects: Projects[] = [
   ],
     date: 'Updated April 2023',
   },
+
+  {
+    image: '/img/freedev-project.png',
+    title: 'FreedevTube',
+    description:
+      'Plataforma de cursos gratis impartidos por creadores de contenido sobre desarrollo de software, diseño, ciberseguridad y más.',
+    badges: ['personal', 'web', 'hackathon'],
+    links: [
+      {
+      name: 'Preview',
+      url: 'https://freedev-tube.vercel.app/',
+      icon: Link
+      },
+      {
+        name: 'Code',
+        url: 'https://github.com/dantech99/FreedevTube',
+        icon: CodeSvg
+      }
+    ],
+    tech: [ {
+      name: "Next.js",
+      icon:   Nextjs
+    },
+    {
+      name: "Supabase",
+      icon: Supabase
+    }
+  ],
+    date: 'Updated April 2024',
+  },
   
+  {
+    image: '/img/pat-attack-game.png',
+    title: 'Pat Attack',
+    description:
+      'Juego 2d de plataformas y acción, donde el jugador debe superar obstáculos y enemigos para llegar al final del nivel, fue desarrollador par auna hackathon de programacion y desarrollo de software',
+    badges: ['personal', 'web', 'game', 'hackathon'],
+    links: [
+      {
+      name: 'Preview',
+      url: 'https://pat-attack-three.vercel.app/',
+      icon: Link
+      },
+      {
+        name: 'Code',
+        url: 'https://github.com/dantech99/pat-Attack',
+        icon: CodeSvg
+      }
+    ],
+    tech: [ {
+      name: "Next.js",
+      icon:   Nextjs
+    },
+    {
+      name: "Javascript",
+      icon: Js
+    }
+  ],
+    date: 'Updated Aug 2023',
+  },
 ];
 ---
 
