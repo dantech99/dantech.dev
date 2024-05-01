@@ -4,7 +4,7 @@ import ButtonScrollTop from '@/components/buttonScrollTop.astro';
 import { introbasic } from '@/data/data.json';
 import '@/styles/tailwind.css';
 import LigthBg from '@/components/DarkBackground.astro';
-import ButtonChangeTheme from '@/components/ButtonChangeTheme.astro';
+import NavBar from '@/components/NavBar.astro';
 import 'aos/dist/aos.css'; // AOS styles
 
 interface Props {
@@ -25,10 +25,24 @@ const DEFAULT_DESCRIPTION_PAGE = 'Mi portafolio personal';
     <!-- Global Metadata -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    
-    <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png" />
+
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/img/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/img/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/img/favicon-16x16.png"
+    />
     <link rel="manifest" href="/site.webmanifest" />
 
     <!-- Primary Meta Tags -->
@@ -54,11 +68,11 @@ const DEFAULT_DESCRIPTION_PAGE = 'Mi portafolio personal';
   </head>
   <body
     class="mx-auto flex md:max-w-5xl max-w-3xl absolute md:relative flex-col gap-9 px-3 py-8 text-sm text-neutral-400 md:gap-20 md:py-16 -z-50">
+    <NavBar />
     <Header />
     <slot />
     <LigthBg />
     <ButtonScrollTop />
-    <ButtonChangeTheme />
   </body>
 </html>
 
