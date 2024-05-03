@@ -14,7 +14,6 @@ interface Projects {
   badges: Array<string>;
   links: Array<any>;
   tech: Array<any>;
-  date: string;
 }
 
 const projects: Projects[] = [
@@ -45,7 +44,6 @@ const projects: Projects[] = [
       icon: Supabase
     }
   ],
-    date: 'Updated Marzo 2024',
   },
 
   {
@@ -74,8 +72,7 @@ const projects: Projects[] = [
       name: "Mysql",
       icon: Mysql
     }
-  ],
-    date: 'Updated April 2023',
+  ]
   },
 
   {
@@ -104,15 +101,14 @@ const projects: Projects[] = [
       name: "Supabase",
       icon: Supabase
     }
-  ],
-    date: 'Updated April 2024',
+  ]
   },
   
   {
     image: '/img/pat-attack-game.png',
     title: 'Pat Attack',
     description:
-      'Juego 2d de plataformas y acción, donde el jugador debe superar obstáculos y enemigos para llegar al final del nivel, fue desarrollador par auna hackathon de programacion y desarrollo de software',
+      'Juego 2d desarrollado para web en donde emprenderás aventuras con Pat, un pato que viaja por el espacio en busca de su hogar.',
     badges: ['personal', 'web', 'game', 'hackathon'],
     links: [
       {
@@ -134,8 +130,7 @@ const projects: Projects[] = [
       name: "Javascript",
       icon: Js
     }
-  ],
-    date: 'Updated Aug 2023',
+  ]
   },
 ];
 ---
@@ -196,7 +191,6 @@ const projects: Projects[] = [
         </div>
           ))
         }
-        <div class="text-xs">{project.date}</div>
       </div>
     </footer>
   </article>
