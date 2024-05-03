@@ -2,7 +2,8 @@
 import GitHub from '@/icons/GitHub.astro';
 import LinkedIn from '@/icons/LinkedIn.astro';
 import ButtonStatus from '@/components/ButtonStatus.astro';
-import DividerLine from '@/components/DividerLine.astro';
+import BlogIcon from '@/icons/BlogIcon.astro';
+import Mail from '@/icons/Mail.astro';
 
 interface IntroBasic {
   image: string;
@@ -74,18 +75,42 @@ const { label, name, image, url, description } = Info[0];
     <div class="flex justify-start items-center pt-2">
       <a
         href="https://github.com/dantech99"
-        class="px-2 py-1   flex flex-row justify-between items-center  dark:bg-transparent bg-white"
+        class="px-2 py-1 flex flex-row justify-between items-center"
         role="link"
         target="_blank">
-        <GitHub class="size-8 fill-[#333333] dark:fill-white" />
+        <GitHub
+          class="size-8 fill-white stroke-gray-700 dark:stroke-gray-400 dark:fill-none"
+        />
       </a>
 
       <a
         href="https://www.linkedin.com/in/dantechdev/"
-        class="px-2 py-1  text-[#333333]  hover:shadow-lg ml-2  flex flex-row justify-between items-center"
+        class="px-2 py-1 text-[#333333] hover:shadow-lg ml-2 flex flex-row justify-between items-center"
         role="link"
         target="_blank">
-        <LinkedIn class="size-8 fill-[#333333] dark:fill-white" />
+        <LinkedIn
+          class="size-8 fill-white stroke-gray-700 dark:stroke-gray-400 dark:fill-none"
+        />
+      </a>
+
+      <a
+        href="/blog"
+        class="px-2 py-1 text-[#333333] hover:shadow-lg ml-2 flex flex-row justify-between items-center"
+        role="link"
+        target="_blank">
+        <BlogIcon
+          class="size-8 fill-white stroke-gray-700 dark:stroke-gray-400 dark:fill-none"
+        />
+      </a>
+
+      <a
+        href="mailto:dandevtech99@gmail.com"
+        class="px-2 py-1 text-[#333333] hover:shadow-lg ml-2 flex flex-row justify-between items-center"
+        role="link"
+        target="_blank">
+        <Mail
+          class="size-8 fill-white stroke-gray-700 dark:stroke-gray-400 dark:fill-none"
+        />
       </a>
     </div>
   </main>

@@ -1,9 +1,10 @@
 ---
 import ButtonChangeTheme from './ButtonChangeTheme.astro';
-import WorkNav from '@/icons/WorkNav.astro';
 import ProjectNav from '@/icons/ProjectNav.astro';
 import SkillsNav from '@/icons/SkillsNav.astro';
 import AboutNav from '@/icons/AboutNav.astro';
+import Home from '@/icons/Home.astro';
+import BlogIcon from '@/icons/BlogIcon.astro';
 
 interface Items {
   name: string;
@@ -11,8 +12,6 @@ interface Items {
   label: string;
   icon: any;
 }
-
-const THEMES = ['Light', 'Dark', 'System'];
 
 const items: Items[] = [
   {
@@ -37,7 +36,7 @@ const items: Items[] = [
     name: 'Blog',
     link: '/blog',
     label: 'blog',
-    icon: AboutNav,
+    icon: BlogIcon,
   },
 ];
 ---
@@ -63,35 +62,29 @@ const items: Items[] = [
       <ButtonChangeTheme />
     </li>
   </ul>
-</nav> -->
-
-<!-- navbar mobil -->
+</nav> --><!-- navbar mobil -->
 <div
   class="fixed bottom-0 left-0 right-0 flex justify-center items-center z-40 md:hidden w-full">
   <nav
     class="dark:bg-[#0B1528] bg-white flex justify-center items-center w-full border border-gray-600">
     <ul
       role="list"
-      class="flex flex-row gap-7 justify-center items-center p-3">
+      class="flex flex-row md:gap-7 gap-5 justify-center items-center p-3">
       <li
-        class="scale-100 hover:scale-150 transition-transform duration-300 ease-in-out"
+        class="dark:bg-[#1E2637] bg-white border border-gray-700 p-2 rounded-full scale-100 hover:scale-150 transition-transform duration-300 ease-in-out"
         data-microtip-position="top"
         role="tooltip"
         aria-label="Home">
         <a
           href="/"
           class="md:text-base text-sm dark:hover:text-yellow-200 hover:text-blue-600 font-medium">
-          <img
-            src="/img/logo-dantech.png"
-            alt="imagen de perfil en el menu"
-            class="md:w-10 md:h-10 w-8 h-8 rounded-full"
-          /></a
-        >
+          <Home class=" size-6 stroke-gray-700 dark:stroke-neutral-400" />
+        </a>
       </li>
       {
         items.map(({ name, link, label, icon: Icon }) => (
           <li
-            class="bg-gray-800 p-1 rounded-full scale-100 hover:scale-150 transition-transform duration-300 ease-in-out"
+            class="dark:bg-[#1E2637] bg-white border border-gray-700 p-2 rounded-full scale-100 hover:scale-150 transition-transform duration-300 ease-in-out"
             data-microtip-position="top"
             role="tooltip"
             aria-label={label}>
@@ -99,47 +92,39 @@ const items: Items[] = [
               href={link}
               class="md:text-base text-sm  dark:hover:text-yellow-200 hover:text-blue-600  font-medium "
               role="link">
-              <Icon title={name} class="md:size-7 size-5 fill-white" />
+              <Icon title={name} class="md:size-7 size-6 stroke-gray-700 dark:stroke-neutral-400 " />
             </a>
           </li>
         ))
       }
-      <li>
+      <li class="bg-[#1E2637] border border-gray-700 rounded-full">
         <ButtonChangeTheme />
       </li>
     </ul>
   </nav>
 </div>
 
-
-<!-- desktop mobil -->
+<!-- desktop  -->
 <div
   class="fixed bottom-5 left-0 right-0 md:flex justify-center items-center z-40 hidden">
   <nav
     class="dark:bg-[#0B1528] bg-white flex justify-center items-center rounded-full border border-gray-600">
-    <ul
-      role="list"
-      class="flex flex-row gap-7 justify-center items-center p-3">
+    <ul role="list" class="flex flex-row gap-7 justify-center items-center p-3">
       <li
-        class="scale-100 hover:scale-150 transition-transform duration-300 ease-in-out"
+        class="dark:bg-[#1E2637] bg-gray-200 border border-gray-700 p-2 rounded-full scale-100 hover:scale-150 transition-transform duration-300 ease-in-out"
         data-microtip-position="top"
         role="tooltip"
         aria-label="Home">
         <a
           href="/"
           class="md:text-base text-sm dark:hover:text-yellow-200 hover:text-blue-600 font-medium">
-          <img
-            src="/img/logo-dantech.png"
-            width="40"
-            height="40 "
-            alt=""
-          /></a
-        >
+          <Home class=" size-6 stroke-gray-700 dark:stroke-neutral-400" />
+        </a>
       </li>
       {
         items.map(({ name, link, label, icon: Icon }) => (
           <li
-            class="bg-[#1E2637] border border-gray-700 p-2 rounded-full scale-100 hover:scale-150 transition-transform duration-300 ease-in-out"
+            class="dark:bg-[#1E2637] bg-gray-200 border border-gray-700 p-2 rounded-full scale-100 hover:scale-150 transition-transform duration-300 ease-in-out"
             data-microtip-position="top"
             role="tooltip"
             aria-label={label}>
@@ -147,17 +132,18 @@ const items: Items[] = [
               href={link}
               class="md:text-base text-sm  dark:hover:text-yellow-200 hover:text-blue-600  font-medium "
               role="link">
-              <Icon title={name} class="size-6 fill-white" />
+              <Icon title={name} class="size-6 stroke-gray-700 dark:stroke-neutral-400  " />
             </a>
           </li>
         ))
       }
-      <li class="bg-[#1E2637] border border-gray-700 p-2 rounded-full scale-100 hover:scale-150 transition-transform duration-300 ease-in-out" data-microtip-position="top"
-      role="tooltip"
-      aria-label='Tema'>
+      <li
+        class="bg-[#1E2637] border border-gray-700 p-2 rounded-full scale-100 hover:scale-150 transition-transform duration-300 ease-in-out"
+        data-microtip-position="top"
+        role="tooltip"
+        aria-label="Tema">
         <ButtonChangeTheme />
       </li>
     </ul>
   </nav>
 </div>
-
