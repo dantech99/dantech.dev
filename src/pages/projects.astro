@@ -1,0 +1,13 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import CardProject from "@/components/CardProject.astro";
+import DividerLine from "@/components/DividerLine.astro";
+---
+
+<Layout title="Home">
+  <DividerLine title="Proyectos" />
+  <section class="grid grid-cols-14 md:grid-cols-12 gap-4">
+    <!-- Column -->
+    <CardProject />
+  </section>
+</Layout>
