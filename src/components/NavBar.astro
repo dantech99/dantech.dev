@@ -16,7 +16,7 @@ interface Items {
 const items: Items[] = [
   {
     name: 'Proyectos',
-    link: '/projects',
+    link: '/#proyectos',
     label: 'proyectos',
     icon: ProjectNav,
   },
@@ -28,35 +28,46 @@ const items: Items[] = [
   },
   {
     name: 'Blog',
-    link: '/',
+    link: 'https://notasdev.com/',
     label: 'blog',
     icon: BlogIcon,
   },
 ];
 ---
+<!-- desktop  -->
+<div class="md:flex justify-between items-center z-40 hidden">
+  <div class="flex flex-col justify-center content-center">
+    <a
+      href="/"
+      class="md:text-xl text-2xl dark:text-white text-[#333333] md:font-medium md:tracking-widest md:flex"
+      >Dantech.dev ✨</a
+    >
+    <a href="mailto:dandevtech99@gmail.com">dandevtech99@gmail.com | Colombia</a
+    >
+  </div>
 
-<!-- navigate desktop  --><!-- <nav role="navigation" class="dark:text-white text-[#333333] hidden md:block">
-  <ul
-    role="list"
-    class="flex flex-row gap-4 justify-center items-center border-[1px] md:border-none md:p-2 ">
-    {
-      items.map(({ name, link, label}) => (
-        <li>
-          <a
-            href={link}
-            class="md:text-base text-xl  dark:hover:text-yellow-200 hover:text-blue-600  font-medium"
-            role="link"
-            aria-label={label}>
-            {name}
-          </a>
-        </li>
-      ))
-    }
-    <li>
-      <ButtonChangeTheme />
-    </li>
-  </ul>
-</nav> --><!-- navbar mobil -->
+  <nav class="flex justify-center items-center">
+    <ul role="list" class="flex flex-row gap-7 justify-center items-center p-1">
+      {
+        items.map(({ name, link }) => (
+          <li class="p-1 rounded-full">
+            <a
+              href={link}
+              class="md:text-base text-sm  dark:hover:text-yellow-200 hover:text-blue-600  font-medium "
+              role="link">
+              {name}
+            </a>
+          </li>
+        ))
+      }
+      <li class="bg-[#1E2637] border border-gray-700 p-2 rounded-full">
+        <ButtonChangeTheme />
+      </li>
+    </ul>
+  </nav>
+</div>
+
+<!-- navbar mobil -->
 <div
   class="fixed bottom-0 left-0 right-0 flex justify-center items-center z-40 md:hidden w-full">
   <nav
@@ -72,7 +83,7 @@ const items: Items[] = [
         <a
           href="/"
           class="md:text-base text-sm dark:hover:text-yellow-200 hover:text-blue-600 font-medium">
-          <Home class=" size-6 stroke-gray-700 dark:stroke-neutral-400" />
+          <Home class="size-6 stroke-gray-700 dark:stroke-neutral-400" />
         </a>
       </li>
       {
@@ -86,56 +97,15 @@ const items: Items[] = [
               href={link}
               class="md:text-base text-sm  dark:hover:text-yellow-200 hover:text-blue-600  font-medium "
               role="link">
-              <Icon title={name} class="md:size-7 size-6 stroke-gray-700 dark:stroke-neutral-400 " />
+              <Icon
+                title={name}
+                class="md:size-7 size-6 stroke-gray-700 dark:stroke-neutral-400 "
+              />
             </a>
           </li>
         ))
       }
       <li class="bg-[#1E2637] border border-gray-700 rounded-full">
-        <ButtonChangeTheme />
-      </li>
-    </ul>
-  </nav>
-</div>
-
-<!-- desktop  -->
-<div
-  class="fixed bottom-5 left-0 right-0 md:flex justify-center items-center z-40 hidden ">
-  <nav
-    class="dark:bg-[#0B1528]  bg-white flex justify-center items-center rounded-full border border-gray-600">
-    <ul role="list" class="flex flex-row gap-7 justify-center items-center p-3">
-      <li
-        class="dark:bg-[#1E2637] bg-gray-200 border border-gray-700 p-2 rounded-full scale-100 hover:scale-150 transition-transform duration-300 ease-in-out"
-        data-microtip-position="top"
-        role="tooltip"
-        aria-label="Home">
-        <a
-          href="/"
-          class="md:text-base text-sm dark:hover:text-yellow-200 hover:text-blue-600 font-medium">
-          <Home class=" size-6 stroke-gray-700 dark:stroke-neutral-400" />
-        </a>
-      </li>
-      {
-        items.map(({ name, link, label, icon: Icon }) => (
-          <li
-            class="dark:bg-[#1E2637] bg-gray-200 border border-gray-700 p-2 rounded-full scale-100 hover:scale-150 transition-transform duration-300 ease-in-out"
-            data-microtip-position="top"
-            role="tooltip"
-            aria-label={label}>
-            <a
-              href={link}
-              class="md:text-base text-sm  dark:hover:text-yellow-200 hover:text-blue-600  font-medium "
-              role="link">
-              <Icon title={name} class="size-6 stroke-gray-700 dark:stroke-neutral-400  " />
-            </a>
-          </li>
-        ))
-      }
-      <li
-        class="bg-[#1E2637] border border-gray-700 p-2 rounded-full scale-100 hover:scale-150 transition-transform duration-300 ease-in-out"
-        data-microtip-position="top"
-        role="tooltip"
-        aria-label="Tema">
         <ButtonChangeTheme />
       </li>
     </ul>
