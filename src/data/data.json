@@ -4,8 +4,8 @@
   "introbasic": {
     "label": "Hola, Hi ✋",
     "name": "Soy Danilo Macea",
-    "image": "/img/logo-dantech.png",
-    "url": "url de la pagina",
+    "image": "/img/logo-dantech.webp",
+    "url": "https://dantech.dev",
     "description": "Desarrollador web con +2 años de experiencia en el área de frontend, especializado en el desarrollo de aplicaciones web modernas enfocadas en la experiencia de usuario."
   },
   "about": {
