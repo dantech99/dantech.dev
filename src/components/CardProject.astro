@@ -173,7 +173,7 @@ const projects: Projects[] = [
         </div>
       </div>
 
-      <div class="flex md:flex-col flex-row  gap-1 ">
+      <div class="hidden md:flex  md:flex-col flex-row  gap-1 ">
         {project.links.map(({name, url, icon: Icon}) => (
 
           <a href={url} class="inline-flex rounded-lg  items-center py-1 px-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-200 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-700 gap-3 mt-5 md:mt-1" target="_blank" role="link" aria-label="enlaces" >
@@ -184,7 +184,7 @@ const projects: Projects[] = [
         </div>
     </main>
 
-    <footer class="p-6">
+    <footer class="py-1 px-6 md:p-6">
       <div class="flex space-x-4 text-sm text-gray-500 dark:text-gray-400">
         {
           project.tech.map(({name, icon: Icon}) =>(
@@ -196,6 +196,23 @@ const projects: Projects[] = [
         }
       </div>
     </footer>
+
+
+    <!-- mobile -->
+    <div class="flex md:hidden justify-between p-5  items-start  space-y-0 md:h-40 h-auto max-h-52 flex-col md:flex-row">
+      <div class="flex md:flex-col flex-row  gap-1 ">
+              {project.links.map(({name, url, icon: Icon}) => (
+
+                <a href={url} class="inline-flex rounded-lg  items-center py-1 px-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-200 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-700 gap-3 mt-5 md:mt-1" target="_blank" role="link" aria-label="enlaces" >
+                  <Icon class="size-4 fill-[#333333] dark:fill-white" /> {name}
+                </a>
+              ))}
+                
+      </div>
+    </div>
+
+    
+
   </article>
   ))
     
