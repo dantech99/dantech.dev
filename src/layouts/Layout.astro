@@ -6,64 +6,50 @@ import '@/styles/tailwind.css';
 import LigthBg from '@/components/DarkBackground.astro';
 import NavBar from '@/components/NavBar.astro';
 import 'aos/dist/aos.css'; // AOS styles
+import { SEO } from 'astro-seo';
 
 interface Props {
   title: string;
 }
 
 const { description, url, image } = introbasic;
-
 const { title } = Astro.props;
 
 const DEFAULT_TITLE_PAGE = 'Dantech.dev ✨ - Mi Portafolio web';
-const DEFAULT_DESCRIPTION_PAGE = 'Hola, este es mi portafolio web personal donde muestro mis proyectos, habilidades y experiencias laborales.';
+const DEFAULT_DESCRIPTION_PAGE =
+  'Hola, este es mi portafolio web personal donde muestro mis proyectos, habilidades y experiencias laborales.';
 ---
 
-<!doctype html>
 <html lang="es" class="dark">
   <head>
-    <!-- Global Metadata -->
+    <SEO
+      title={title || DEFAULT_TITLE_PAGE}
+      description={description || DEFAULT_DESCRIPTION_PAGE}
+      openGraph={{
+        basic: {
+          title: title || DEFAULT_TITLE_PAGE,
+          type: 'website',
+          image: image || 'https://dantech.dev/img/logo-dantech.webp', // reemplaza con la URL correcta de tu imagen
+          url: url || 'https://dantech.dev/', // reemplaza con la URL de tu sitio
+        },
+      }}
+      twitter={{
+        card: 'summary_large_image',
+        title: title || DEFAULT_TITLE_PAGE,
+        description: description || DEFAULT_DESCRIPTION_PAGE,
+        image: image || 'https://dantech.dev/img/logo-dantech.webp',
+        creator: '@tu_usuario', // reemplaza con tu nombre de usuario de Twitter
+      }}
+      extend={{
+        link: [{ rel: 'icon', href: '/img/favicon-32x32.png' }],
+        meta: [
+          { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+          { name: 'robots', content: 'index, follow' },
+        ],
+      }}
+    />
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="/img/apple-touch-icon.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="/img/favicon-32x32.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="/img/favicon-16x16.png"
-    />
-    <link rel="manifest" href="/site.webmanifest" />
-
-    <!-- Primary Meta Tags -->
-    <title>{title || DEFAULT_TITLE_PAGE}</title>
-    <meta name="title" content={title || DEFAULT_TITLE_PAGE} />
-    <meta
-      name="description"
-      content={description || DEFAULT_DESCRIPTION_PAGE}
-    />
-    <meta property="og:url" content={url} />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="" />
-
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta property="twitter:domain" content={url.split('//')[1] ?? ''} />
-    <meta property="twitter:url" content={url} />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content="" />
-
-    <!-- toolstips  -->
+    <!-- toolstips -->
     <link rel="stylesheet" href="https://unpkg.com/microtip/microtip.css" />
   </head>
   <body
@@ -72,37 +58,32 @@ const DEFAULT_DESCRIPTION_PAGE = 'Hola, este es mi portafolio web personal donde
     <slot />
     <LigthBg />
     <ButtonScrollTop />
-  </body>
+  </body><style is:global>
+    @font-face {
+      font-family: Geist;
+      src: url('../../public/fonts/GeistVariableVF.woff2') format('woff2');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+    html {
+      background: linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 1) 0%,
+        rgba(11, 20, 41, 1) 0%,
+        rgba(11, 21, 40, 1) 100%
+      );
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Geist', sans-serif;
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+  </style>
+  <script>
+    import { aosInit } from '@/js/aos';
+    aosInit();
+  </script>
 </html>
-
-<style is:global>
-  @font-face {
-    font-family: Geist;
-    src: url('../../public/fonst/GeistVariableVF.woff2') format('woff2');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-  }
-  html {
-    background: linear-gradient(
-      90deg,
-      rgba(0, 0, 0, 1) 0%,
-      rgba(11, 20, 41, 1) 0%,
-      rgba(11, 21, 40, 1) 100%
-    );
-    scroll-behavior: smooth;
-  }
-
-  body {
-    font-family: 'Geist', sans-serif;
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-  }
-</style>
-<script>
-  import { aosInit } from '@/js/aos';
-
-  // runs on initial page load
-  aosInit();
-</script>
