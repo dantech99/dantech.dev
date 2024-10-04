@@ -21,7 +21,7 @@ import Moon from '@/icons/Moon.astro';
 
 <script is:inline>
    // Función para aplicar el tema guardado
-   let applySavedTheme = () => {
+   const applySavedTheme = () => {
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme) {
       document.documentElement.classList.toggle('dark', savedTheme === 'dark');
