@@ -1,13 +1,32 @@
----
+<div class="flex items-center justify-center">
+  <button
+    class="flex justify-center items-center gap-3 cursor-pointer text-white font-semibold bg-gradient-to-r from-gray-800 to-black px-7 py-1 rounded-lg border border-gray-600 hover:scale-105 duration-200 hover:text-gray-500 hover:border-gray-800 hover:from-black hover:to-gray-900">
+    Ver mas Proyectos
+    <svg
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+      width="30"
+      height="30"
+      fill="none"
+      viewBox="0 0 24 24">
+      <style>
+        .slide-6 {
+          animation: slide-6 1s infinite alternate both
+            cubic-bezier(1, -0.01, 0, 0.98);
+        }
+        @keyframes slide-6 {
+          100% {
+            transform: translateX(2px);
+          }
+        }
+      </style>
 
----
-
-<!-- html -->
-
-
-<div class="contaier flex justify-end p-3" >
-    <a href="" class="text-white bg-red-700 p-2 rounded-md items-center inline-flex hover:bg-white hover:text-black" role="link" aria-label="Button more project">
-        <span>More Proyects</span>
-        <i class='bx bx-plus bx-sm' ></i>
-    </a>
+      <path
+        class="slide-6"
+        fill="#fff"
+        fill-rule="evenodd"
+        d="M13.155 16.834a.714.714 0 001.006-.091l3.564-4.277a.711.711 0 000-.932L14.16 7.257a.714.714 0 00-1.097.915l2.565 3.078H7.9a.75.75 0 000 1.5h7.73l-2.565 3.078a.714.714 0 00.091 1.006z"
+        clip-rule="evenodd"></path>
+    </svg>
+  </button>
 </div>
