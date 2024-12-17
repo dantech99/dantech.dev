@@ -1,219 +1,114 @@
 ---
-import Nextjs from "@/icons/Nextjs.astro";
-import Supabase from '@/icons/Supabase.astro'
-import Laravel from "@/icons/Laravel.astro";
-import Mysql from '@/icons/Mysql.astro'
-import Link from '@/icons/Link.astro';
-import Js from "@/icons/js.astro";
-import  CodeSvg from "@/icons/CodeSvg.astro"
-
-interface Projects {
-  image: string;
-  title: string;
-  description: string;
-  badges: Array<string>;
-  links: Array<any>;
-  tech: Array<any>;
-}
-
-
-
-const projects: Projects[] = [
-  {
-    image: '/img/recycling.jpg',
-    title: 'Recycling Bikes',
-    description:
-      'Aplicación web de comercio electrónico para la renta y compra de bicicletas usadas.',
-    badges: ['web', 'freelance', 'startup'],
-    links: [
-      {
-        name: 'Preview',
-        url: 'https://www.recyclingbikes.co/',
-        icon: Link
-      },
-      {
-        name: 'Code',
-        url: 'https://github.com/Recycling-Bikes/recycling-web',
-        icon: CodeSvg
-      }
-    ],
-    tech: [ {
-      name: "Next.js",
-      icon: Nextjs
-    },
-    {
-      name: "Supabase",
-      icon: Supabase
-    }
-  ],
-  },
-
-  {
-    image: '/img/nutriasoft.jpg',
-    title: 'NutriaSoft.dev',
-    description:
-      'Landing page para la startup nutriasoft que ofrece servicios software',
-    badges: ['empresa', 'web', 'freelance'],
-    links: [
-      {
-        name: 'Preview',
-        url: 'https://nutriasoft.dev/',
-        icon: Link
-      },
-      {
-        name: 'Code',
-        url: 'https://github.com/NutriaSoft/nutriasoft.dev',
-        icon: CodeSvg
-      }
-    ],
-    tech: [ {
-      name: "Laravel",
-      icon: Laravel
-    },
-    {
-      name: "Mysql",
-      icon: Mysql
-    }
-  ]
-  },
-
-  {
-    image: '/img/freedeves.jpg',
-    title: 'FreedevTube',
-    description:
-      'Plataforma de cursos gratis impartidos por creadores de contenido sobre desarrollo de software, diseño, ciberseguridad y más.',
-    badges: ['personal', 'web', 'hackathon'],
-    links: [
-      {
-      name: 'Preview',
-      url: 'https://freedev-tube.vercel.app/',
-      icon: Link
-      },
-      {
-        name: 'Code',
-        url: 'https://github.com/dantech99/FreedevTube',
-        icon: CodeSvg
-      }
-    ],
-    tech: [ {
-      name: "Next.js",
-      icon:   Nextjs
-    },
-    {
-      name: "Supabase",
-      icon: Supabase
-    }
-  ]
-  },
-  
-  {
-    image: '/img/gesccol.jpg',
-    title: 'Gesccol E.I.C.E',
-    description:
-      'Sitio web del gestor catastral de Sahagún, Córdoba, para la difusión de información pública a la ciudadanía.',
-    badges: ['personal', 'web', 'game', 'hackathon'],
-    links: [
-      // {
-      // name: 'Preview',
-      // url: 'https://pat-attack-three.vercel.app/',
-      // icon: Link
-      // },
-      {
-        name: 'Code',
-        url: 'https://github.com/dantech99/Gesccol-Web-App',
-        icon: CodeSvg
-      }
-    ],
-    tech: [ {
-      name: "Next.js",
-      icon:   Nextjs
-    },
-    {
-      name: "Javascript",
-      icon: Js
-    }
-  ]
-  },
-];
+const project = Astro.props.project;
 ---
 
-{
-  projects.slice(0,4).map((project) => (
-    <article
-    class="rounded-lg col-span-6 border-[1px] border-gray-600 bg-card text-card-foreground shadow-sm w-full max-w-xl overflow-hidden" data-aos="fade-up"
-    data-v0-t="card">
-    <!-- seccion de la imagen -->
-    <header class="max-h-64  flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip md:group-hover:-translate-y-1 md:group-hover:shadow-2xl">
-      <img
-        class="w-[90%] md:left-14  relative mt-8 object-top transition hover:scale-105 motion-reduce:transition-none motion-reduce:hover:scale-50 ease-in-out duration-500 sm:h-full md:scale-110 md:group-hover:scale-105 "
-        alt="Logo"
-        src={project.image}
-        aria-label="imagen del proyecto"
-        loading="lazy"
+<article
+  class="rounded-lg col-span-6 border-[1px] border-gray-600 bg-card text-card-foreground shadow-sm w-full max-w-xl overflow-hidden"
+  data-aos="fade-up"
+  data-v0-t="card">
+  <!-- seccion de la imagen -->
+  <header
+    class="max-h-64 flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip md:group-hover:-translate-y-1 md:group-hover:shadow-2xl">
+    <img
+      class="w-[90%] md:left-14 relative mt-8 object-top transition hover:scale-105 motion-reduce:transition-none motion-reduce:hover:scale-50 ease-in-out duration-500 sm:h-full md:scale-110 md:group-hover:scale-105"
+      alt="Logo"
+      src={project.image}
+      aria-label="imagen del proyecto"
+      loading="lazy"
+    />
+  </header>
 
-      />
-    </header>
-
-    <main
-      class="flex justify-between p-5  items-start  space-y-0 md:h-40 h-auto max-h-52 flex-col md:flex-row">
-      <div class="space-y-1 ">
-        <h3
-          class="text-2xl font-semibold whitespace-nowrap leading-none tracking-tight dark:text-white text-[#333333]">
-          {project.title}
-        </h3>
-        <p class="text-sm text-muted-foreground text-balance font-medium text-gray-500 dark:text-gray-400">
-          {project.description}</p>
-          <div>
-          {project.badges.map((badgeIcon) =>(
-              <span
-              class="inline-flex items-center rounded-full whitespace-nowrap border px-2.5 py-0.5 w-fit text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground dark:hover:bg-gray-600 hover:bg-gray-800 dark:bg-gray-800 bg-gray-700 mr-1 mt-3 text-white" aria-label="badges de categorias">
-                {badgeIcon}
-              </span>
-          ))}  
-        </div>
-      </div>
-
-      <div class="hidden md:flex  md:flex-col flex-row  gap-1 ">
-        {project.links.map(({name, url, icon: Icon}) => (
-
-          <a href={url} class="inline-flex rounded-lg  items-center py-1 px-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-200 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-700 gap-3 mt-5 md:mt-1" target="_blank" role="link" aria-label="enlaces" >
-            <Icon class="size-4 fill-[#333333] dark:fill-white" /> {name}
-          </a>
-        ))}
-          
-        </div>
-    </main>
-
-    <footer class="py-1 px-6 md:p-6">
-      <div class="flex space-x-4 text-sm text-gray-500 dark:text-gray-400">
+  <main
+    class="flex justify-between p-5 items-start space-y-0 md:h-40 h-auto max-h-52 flex-col md:flex-row">
+    <div class="space-y-1">
+      <h3
+        class="text-2xl font-semibold whitespace-nowrap leading-none tracking-tight dark:text-white text-[#333333]">
+        {project.title}
+      </h3>
+      <p
+        class="text-sm text-muted-foreground text-balance font-medium text-gray-500 dark:text-gray-400">
+        {project.description}
+      </p>
+      <div>
         {
-          project.tech.map(({name, icon: Icon}) =>(
-          <div class="flex items-center gap-2 hover:text-blue-500 dark:hover:text-yellow-200">
-            <Icon class="size-4 icon"/>
-            {name}
-        </div>
+          project.badges.map((badgeIcon: string) => (
+            <span
+              class="inline-flex items-center rounded-full whitespace-nowrap border px-2.5 py-0.5 w-fit text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground dark:hover:bg-gray-600 hover:bg-gray-800 dark:bg-gray-800 bg-gray-700 mr-1 mt-3 text-white"
+              aria-label="badges de categorias">
+              {badgeIcon}
+            </span>
           ))
         }
       </div>
-    </footer>
-
-
-    <!-- mobile -->
-    <div class="flex md:hidden justify-between p-5  items-start  space-y-0 md:h-40 h-auto max-h-52 flex-col md:flex-row">
-      <div class="flex md:flex-col flex-row  gap-1 ">
-              {project.links.map(({name, url, icon: Icon}) => (
-
-                <a href={url} class="inline-flex rounded-lg  items-center py-1 px-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-200 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-700 gap-3 mt-5 md:mt-1" target="_blank" role="link" aria-label="enlaces" >
-                  <Icon class="size-4 fill-[#333333] dark:fill-white" /> {name}
-                </a>
-              ))}
-                
-      </div>
     </div>
 
-    
+    <div class="hidden md:flex md:flex-col flex-row gap-1">
+      {
+        project.links.map(
+          ({
+            name,
+            url,
+            icon: Icon,
+          }: {
+            name: string;
+            url: string;
+            icon: any;
+          }) => (
+            <a
+              href={url}
+              class="inline-flex rounded-lg  items-center py-1 px-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-200 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-700 gap-3 mt-5 md:mt-1"
+              target="_blank"
+              role="link"
+              aria-label="enlaces">
+              <Icon class="size-4 fill-[#333333] dark:fill-white" /> {name}
+            </a>
+          )
+        )
+      }
+    </div>
+  </main>
 
-  </article>
-  ))
-    
-}
+  <footer class="py-1 px-6 md:p-6">
+    <div class="flex space-x-4 text-sm text-gray-500 dark:text-gray-400">
+      {
+        project.tech.map(
+          ({ name, icon: Icon }: { name: string; icon: any }) => (
+            <div class="flex items-center gap-2 hover:text-blue-500 dark:hover:text-yellow-200">
+              <Icon class="size-4 icon" />
+              {name}
+            </div>
+          )
+        )
+      }
+    </div>
+  </footer>
+
+  <!-- mobile -->
+  <div
+    class="flex md:hidden justify-between p-5 items-start space-y-0 md:h-40 h-auto max-h-52 flex-col md:flex-row">
+    <div class="flex md:flex-col flex-row gap-1">
+      {
+        project.links.map(
+          ({
+            name,
+            url,
+            icon: Icon,
+          }: {
+            name: string;
+            url: string;
+            icon: any;
+          }) => (
+            <a
+              href={url}
+              class="inline-flex rounded-lg  items-center py-1 px-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-200 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-700 gap-3 mt-5 md:mt-1"
+              target="_blank"
+              role="link"
+              aria-label="enlaces">
+              <Icon class="size-4 fill-[#333333] dark:fill-white" /> {name}
+            </a>
+          )
+        )
+      }
+    </div>
+  </div>
+</article>
