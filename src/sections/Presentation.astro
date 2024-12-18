@@ -4,27 +4,6 @@ import LinkedIn from '@/icons/LinkedIn.astro';
 import ButtonStatus from '@/components/ButtonStatus.astro';
 import BlogIcon from '@/icons/BlogIcon.astro';
 import Mail from '@/icons/Mail.astro';
-
-interface IntroBasic {
-  image: string;
-  label: string;
-  name: string;
-  url: string;
-  description: string;
-}
-
-const Info: IntroBasic[] = [
-  {
-    label: 'Hola/Hi ✋',
-    name: 'Soy Danilo Macea',
-    image: '/img/logo-dantech.webp',
-    url: 'url de la pagina',
-    description:
-      'Desarrollador web frontend, amante de la web y autodidacta, me gusta enfocar mis proyectos en la experiencia de usuario y me encanta trabajar con gente apasionada como yo.',
-  },
-];
-
-const { label, name, image, url, description } = Info[0];
 ---
 
 <section
@@ -34,7 +13,7 @@ const { label, name, image, url, description } = Info[0];
     <div class="md:hidden flex flex-row items-center gap-6 mb-2">
       <div class="w-20 bg-white h-20 rounded-full">
         <img
-          src={image}
+          src='/img/logo-dantech.webp'
           alt="imagen personal para el portafolio"
           class="w-full"
           loading="lazy"
@@ -50,11 +29,11 @@ const { label, name, image, url, description } = Info[0];
 
     <div>
       <span class="text-xl dark:text-white text-[#333333]">
-        {label}
+        Hola/Hi ✋
       </span>
       <h1
         class="text-4xl font-semibold dark:text-white text-[#083EB6] md:flex justify-start items-center gap-5">
-        {name}
+        Soy Danilo Macea
         <span class="hidden md:inline-flex">
           <ButtonStatus />
         </span>
@@ -118,7 +97,7 @@ const { label, name, image, url, description } = Info[0];
   <div class="md:flex hidden flex-col justify-center items-center">
     <div class="w-52 bg-white h-52 rounded-full">
       <img
-        src={image}
+        src='/img/logo-dantech.webp'
         alt="imagen personal para el portafolio"
         class="w-full"
         loading="lazy"

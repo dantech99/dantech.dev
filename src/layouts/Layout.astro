@@ -1,44 +1,38 @@
 ---
 import Header from '../components/Header.astro';
 import ButtonScrollTop from '@/components/buttonScrollTop.astro';
-import { introbasic } from '@/data/data.json';
+import {
+  SITE_URL,
+  SITE_DESCRIPTION,
+  SITE_TITLE,
+  SITE_IMAGE,
+} from '../constants';
 import '@/styles/tailwind.css';
 import LigthBg from '@/components/DarkBackground.astro';
 import NavBar from '@/components/NavBar.astro';
 import 'aos/dist/aos.css'; // AOS styles
 import { SEO } from 'astro-seo';
-
-interface Props {
-  title: string;
-}
-
-const { description, url, image } = introbasic;
-const { title } = Astro.props;
-
-const DEFAULT_TITLE_PAGE = 'Dantech.dev ✨ - Mi Portafolio web';
-const DEFAULT_DESCRIPTION_PAGE =
-  'Hola, este es mi portafolio web personal donde muestro mis proyectos, habilidades y experiencias laborales.';
 ---
 
 <html lang="es" class="dark">
   <head>
     <SEO
-      title={title || DEFAULT_TITLE_PAGE}
-      description={description || DEFAULT_DESCRIPTION_PAGE}
+      title={SITE_TITLE}
+      description={SITE_DESCRIPTION}
       openGraph={{
         basic: {
-          title: title || DEFAULT_TITLE_PAGE,
+          title: SITE_TITLE,
           type: 'website',
-          image: 'https://i.postimg.cc/wjRLXzrQ/logo-dantech.png', 
-          url: url || 'https://dantech.dev/', 
+          image: SITE_IMAGE,
+          url: SITE_URL,
         },
       }}
       twitter={{
         card: 'summary_large_image',
-        title: title || DEFAULT_TITLE_PAGE,
-        description: description || DEFAULT_DESCRIPTION_PAGE,
-        image: image || 'https://i.postimg.cc/wjRLXzrQ/logo-dantech.png',
-        creator: '@DanTech_99', 
+        title: SITE_TITLE,
+        description: SITE_DESCRIPTION,
+        image: SITE_IMAGE,
+        creator: '@DanTech_99',
       }}
       extend={{
         link: [{ rel: 'icon', href: '/img/favicon-32x32.png' }],
@@ -58,32 +52,33 @@ const DEFAULT_DESCRIPTION_PAGE =
     <slot />
     <LigthBg />
     <ButtonScrollTop />
-  </body><style is:global>
-    @font-face {
-      font-family: Geist;
-      src: url('/public/fonst/GeistVariableVF.woff2') format('woff2');
-      font-weight: normal;
-      font-style: normal;
-      font-display: swap;
-    }
-    html {
-      background: linear-gradient(
-        90deg,
-        rgba(0, 0, 0, 1) 0%,
-        rgba(11, 20, 41, 1) 0%,
-        rgba(11, 21, 40, 1) 100%
-      );
-      scroll-behavior: smooth;
-    }
-    body {
-      font-family: 'Geist', sans-serif;
-      padding: 0;
-      margin: 0;
-      box-sizing: border-box;
-    }
-  </style>
-  <script>
-    import { aosInit } from '@/js/aos';
-    aosInit();
-  </script>
+    <style is:global>
+      @font-face {
+        font-family: Geist;
+        src: url('/public/fonst/GeistVariableVF.woff2') format('woff2');
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+      }
+      html {
+        background: linear-gradient(
+          90deg,
+          rgba(0, 0, 0, 1) 0%,
+          rgba(11, 20, 41, 1) 0%,
+          rgba(11, 21, 40, 1) 100%
+        );
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: 'Geist', sans-serif;
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+    </style>
+    <script>
+      import { aosInit } from '@/js/aos';
+      aosInit();
+    </script>
+  </body>
 </html>
