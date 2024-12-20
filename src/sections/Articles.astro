@@ -1,10 +1,23 @@
 ---
 import CardArticles from "@/components/CardArticles.astro";
 import DividerLine from "@/components/DividerLine.astro";
+import { getCollection } from "astro:content"
+const articles = await getCollection('articles')
+
 ---
 <DividerLine title="Articulos" />
 
 <section class="grid grid-cols-14 md:grid-cols-12 gap-4">
   <!-- Column -->
-   <CardArticles />
+   {
+    articles.map((articulo) => {
+      const {slug, data} = articulo
+      const {title, description, author} = data
+
+      return(
+        <CardArticles title={title} description={description} author={author} />
+      )
+    })
+   }
+   
 </section>

@@ -1,5 +1,7 @@
 ---
 
+const {title, description, author} = Astro.props
+
 ---
 
 <article
@@ -12,20 +14,20 @@
       <a href="">
         <h3
           class="text-2xl font-semibold whitespace-nowrap leading-none tracking-tight dark:text-white text-[#333333]">
-          titulo
+          {title}
         </h3>
       </a>
 
       <p
         class="text-sm text-muted-foreground text-balance font-medium text-gray-500 dark:text-gray-400">
-        description
+        {description}
       </p>
     </div>
   </main>
 
   <footer class="py-1 px-6 md:p-6">
     <div class="flex space-x-4 text-sm text-gray-500 dark:text-gray-400">
-      author
+      {author}
     </div>
   </footer>
 </article>

@@ -3,6 +3,7 @@ import Layout from "@/layouts/Layout.astro"
 import { getCollection } from "astro:content"
 const articles = await getCollection('articles')
 import DividerLine from "@/components/DividerLine.astro"
+import CardArticles from "@/components/CardArticles.astro"
 ---
 
 <Layout title="Dantech.dev | Blog">
@@ -19,17 +20,7 @@ import DividerLine from "@/components/DividerLine.astro"
             const {title, description, author} = data
 
             return (
-              <article class="flex flex-col gap-5 border border-gray-600 p-4 rounded-md">
-                <header>
-                  <a href="" class="">
-                    <h2 class="text-3xl text-white hover:text-yellow-300">{title}</h2>
-                  </a>
-                  
-                </header>
-                <main>
-                  <p class="text-balance text-xl">{description}</p>
-                </main>
-              </article>
+              <CardArticles title={title} description={description} author={author} />
             )
           })
         }
