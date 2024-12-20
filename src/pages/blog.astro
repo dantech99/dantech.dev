@@ -1,8 +1,40 @@
 ---
 import Layout from "@/layouts/Layout.astro"
+import { getCollection } from "astro:content"
+const articles = await getCollection('articles')
+import DividerLine from "@/components/DividerLine.astro"
 ---
 
 <Layout title="Dantech.dev | Blog">
-  <h1 class="text-4xl">Bienvenido a Mi Blog</h1>
-  <p>Muy pronto estare publicando cositas por aquí ✨</p>
+  <main class="gap-20 flex flex-col">
+  <header class="py-10">
+    <DividerLine  title="Articulos 📑" />
+  </header>
+
+    <section aria-label="articulos de mi blog">
+      <div class="grid grid-cols-1">
+        {
+          articles.map((article) => {
+            const {slug, data} = article
+            const {title, description, author} = data
+
+            return (
+              <article class="flex flex-col gap-5 border border-gray-600 p-4 rounded-md">
+                <header>
+                  <a href="" class="">
+                    <h2 class="text-3xl text-white hover:text-yellow-300">{title}</h2>
+                  </a>
+                  
+                </header>
+                <main>
+                  <p class="text-balance text-xl">{description}</p>
+                </main>
+              </article>
+            )
+          })
+        }
+      </div>
+    </section>
+  </main>
+  
 </Layout>

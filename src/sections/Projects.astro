@@ -1,8 +1,8 @@
 ---
 import DividerLine from '@/components/DividerLine.astro';
 import CardProject from '@/components/CardProject.astro';
-import BtnMoreProyects from '@/components/BtnMoreProyects.astro';
 import projects from '@/data/projects.ts'
+import ButtonMore from '@/components/ButtonMore.astro';
 ---
 <DividerLine title="Proyectos" id="proyectos" />
 
@@ -15,7 +15,7 @@ import projects from '@/data/projects.ts'
    }
 </section>
 
-<BtnMoreProyects />
+<ButtonMore title="Ver mas proyectos" link="/projects" />
 <style>
   .bg-gradiente {
     background-image: linear-gradient(

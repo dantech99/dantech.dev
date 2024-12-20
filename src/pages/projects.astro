@@ -6,8 +6,10 @@ import projects from '@/data/projects.ts'
 ---
 
 <Layout title="Dantech.dev | Proyectos">
-  <DividerLine title="Proyectos" />
-  <section class="grid grid-cols-14 md:grid-cols-12 gap-4">
+  <DividerLine title="Proyectos"  class:list={'separator'} customClass={'mt-10'} />
+
+
+  <section class="grid grid-cols-14 md:grid-cols-12 gap-4 my-10">
     <!-- Column -->
      {
        projects.map((project) => (
@@ -16,3 +18,9 @@ import projects from '@/data/projects.ts'
      }
   </section>
 </Layout>
+
+<style is:inline>
+  .separator {
+    margin-top: 3rem;
+  }
+</style>
