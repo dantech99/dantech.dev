@@ -1,6 +1,7 @@
 ---
 import { getCollection , render} from "astro:content";
 import Layout from "@/layouts/Layout.astro";
+import DividerLine from "@/components/DividerLine.astro";
 
 
 export async function getStaticPaths() {
@@ -23,7 +24,8 @@ export const prerender = true
 
 <Layout title=`${title}`>
   <header class="my-10">
-    <img src={img} alt="" class="rounded w-full h-auto">
+    <DividerLine title={title} />
+    <img src={img} alt="" class="rounded w-full h-72 object-cover">
     <h1 class="text-3xl">{title}</h1>
   </header>
   

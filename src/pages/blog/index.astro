@@ -1,0 +1,35 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+const articles = await getCollection('articles');
+import DividerLine from '@/components/DividerLine.astro';
+import CardArticles from '@/components/CardArticles.astro';
+---
+
+<Layout title="Dantech.dev | Blog">
+  <main class="gap-20 flex flex-col">
+    <header class="py-10">
+      <DividerLine title="Articulos 📑" />
+    </header>
+
+    <section aria-label="articulos de mi blog">
+      <div class="grid grid-cols-1 gap-4">
+        {
+          articles.map((article) => {
+            const { slug, data } = article;
+            const { title, description, author } = data;
+
+            return (
+              <CardArticles
+                title={title}
+                description={description}
+                author={author}
+                slug={slug}
+              />
+            );
+          })
+        }
+      </div>
+    </section>
+  </main>
+</Layout>

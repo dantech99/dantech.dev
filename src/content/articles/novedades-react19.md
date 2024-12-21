@@ -1,8 +1,8 @@
 ---
-title: "Novedades de la nueva version de ReactJs"
+title: "Novedades de la nueva version de Reactjs V19"
 author: Danilo A. Macea
 img: https://i.postimg.cc/FRDvtxL9/react-js-logo-no-1280x720.jpg
-description: conoce las novedades de reactjs en su nueva version
+description: La version 19 de reactjs ya se encuentra disponible y trajo un monton de novedades, acompañame a explorar todas las nuevas mejoras y cambios que se implementaron
 ---
 
 ## Cambios
