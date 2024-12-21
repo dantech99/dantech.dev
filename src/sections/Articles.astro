@@ -10,12 +10,12 @@ const articles = await getCollection('articles')
 <section class="grid grid-cols-14 md:grid-cols-12 gap-4">
   <!-- Column -->
    {
-    articles.map((articulo) => {
+    articles.slice(0,4).map((articulo) => {
       const {slug, data} = articulo
       const {title, description, author} = data
 
       return(
-        <CardArticles title={title} description={description} author={author} />
+        <CardArticles title={title} description={description} author={author} slug={slug} />
       )
     })
    }

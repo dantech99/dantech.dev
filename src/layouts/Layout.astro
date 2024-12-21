@@ -12,12 +12,13 @@ import LigthBg from '@/components/DarkBackground.astro';
 import NavBar from '@/components/NavBar.astro';
 import 'aos/dist/aos.css'; // AOS styles
 import { SEO } from 'astro-seo';
+const {title} = Astro.props
 ---
 
 <html lang="es" class="dark">
   <head>
     <SEO
-      title={SITE_TITLE}
+      title={title || SITE_TITLE}
       description={SITE_DESCRIPTION}
       openGraph={{
         basic: {

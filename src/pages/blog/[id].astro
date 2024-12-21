@@ -1,0 +1,35 @@
+---
+import { getCollection , render} from "astro:content";
+import Layout from "@/layouts/Layout.astro";
+
+
+export async function getStaticPaths() {
+  const articles = await getCollection('articles')
+
+  return articles.map((article) => ({
+    params: {id: article.slug},
+    props: {article}
+  }))
+
+}
+
+const {article} = Astro.props
+const {data, slug} = article
+const {title, description, author, img} = data
+const {Content} = await  render(article)
+
+export const prerender = true
+---
+
+<Layout title=`${title}`>
+  <header class="my-10">
+    <img src={img} alt="" class="rounded w-full h-auto">
+    <h1 class="text-3xl">{title}</h1>
+  </header>
+  
+  <main>
+    <div class="prose prose-invert">
+      <Content />
+    </div>
+  </main>
+</Layout>
