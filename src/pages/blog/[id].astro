@@ -1,37 +1,44 @@
 ---
-import { getCollection , render} from "astro:content";
-import Layout from "@/layouts/Layout.astro";
-import DividerLine from "@/components/DividerLine.astro";
-
+import { getCollection, render } from 'astro:content';
+import Layout from '@/layouts/Layout.astro';
+import DividerLine from '@/components/DividerLine.astro';
 
 export async function getStaticPaths() {
-  const articles = await getCollection('articles')
+  const articles = await getCollection('articles');
 
   return articles.map((article) => ({
-    params: {id: article.slug},
-    props: {article}
-  }))
-
+    params: { id: article.slug },
+    props: { article },
+  }));
 }
 
-const {article} = Astro.props
-const {data, slug} = article
-const {title, description, author, img} = data
-const {Content} = await  render(article)
+const { article } = Astro.props;
+const { data, slug } = article;
 
-export const prerender = true
+const date = data.date && data.date !== '__DATE__' ? data.date : new Date().toISOString();
+
+const { title, description, author, img } = data;
+const { Content } = await render(article);
+
+
+export const prerender = true;
+
+
 ---
 
 <Layout title=`${title}`>
-  <header class="my-10">
-    <DividerLine title={title} />
-    <img src={img} alt="" class="rounded w-full h-72 object-cover">
-    <h1 class="text-3xl">{title}</h1>
-  </header>
-  
-  <main>
-    <div class="prose prose-invert">
-      <Content />
-    </div>
-  </main>
+  <section class="my-20" >
+    <header class="flex flex-col gap-5" >
+      
+      <h1 class="text-4xl font-semibold dark:text-white text-gray-800">{title}</h1>
+      <p>Por: {author} | Publicado el: {new Date(date).toLocaleDateString()}</p>
+      <img src={img} alt="" class="rounded w-full h-72 object-cover">
+    </header>
+
+    <main class=" max-w-2xl  m-auto my-10 text-pretty">
+      <div class="prose dark:prose-invert dark:prose-a:text-yellow-300 prose-a:text-blue-700 prose-blockquote:border-blue-700 ">
+        <Content />
+      </div>
+    </main>
+  </section>
 </Layout>

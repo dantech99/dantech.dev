@@ -1,0 +1,10 @@
+{
+  "callout-integrator:callout-integrate": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "]"
+    }
+  ]
+}
