@@ -17,6 +17,9 @@
         "description": {
           "type": "string"
         },
+        "date": {
+          "type": "string"
+        },
         "$schema": {
           "type": "string"
         }
@@ -25,7 +28,8 @@
         "title",
         "author",
         "img",
-        "description"
+        "description",
+        "date"
       ],
       "additionalProperties": false
     }
