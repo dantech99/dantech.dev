@@ -30,7 +30,7 @@ export const prerender = true;
   <section class="my-20" >
     <header class="flex flex-col gap-5" >
       
-      <h1 class="text-4xl font-semibold dark:text-white text-gray-800" transition:name={`article-${slug}`}>{title}</h1>
+      <h1 class="text-4xl font-semibold dark:text-white text-gray-800" transition:name={`article-${title}`}>{title}</h1>
       <p>Por: {author} | Publicado el: {new Date(date).toLocaleDateString()}</p>
       <img src={img} alt="" class="rounded w-full h-72 object-cover">
     </header>
