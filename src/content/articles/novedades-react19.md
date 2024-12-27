@@ -14,19 +14,10 @@ Visita el blog oficial de reactjs para enterarte de todo lo nuevo de la bibliote
 
 ---
 
-## 📌Lo nuevo 
+## 📌Lo nuevo
 
 ### Un nuevo compilador para React (fase de pruebas 🧪)
 
 Este mismo año 2024 se ha anunciando por parte del mismo equipo de reactjs, la creación de un nuevo y mejor compilador para esta biblioteca, sabemos que el actual no es que sea de mucha utilidad, obligando a muchos desarrolladores a implementar malas practicas y a realizar cosas raras en sus proyectos 
 
-
-
-
-
-
-
-
-
-
-
+hola mundo, bienvenidos
