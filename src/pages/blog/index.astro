@@ -7,7 +7,7 @@ import CardArticles from '@/components/CardArticles.astro';
 ---
 
 <Layout title="Dantech.dev | Blog">
-  <main class=" flex flex-col">
+  <main class="flex flex-col">
     <header class="py-10">
       <DividerLine title="Articulos 📑" />
     </header>
@@ -17,7 +17,7 @@ import CardArticles from '@/components/CardArticles.astro';
         {
           articles.map((article) => {
             const { slug, data } = article;
-            const { title, description, author } = data;
+            const { title, description, author} = data;
 
             return (
               <CardArticles

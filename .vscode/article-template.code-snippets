@@ -1,0 +1,16 @@
+{
+  "EcmaScript Post Template": {
+    "prefix": "ecmascript-post",
+    "body": [
+      "---",
+      "slug: $1",
+      "title: $2",
+      "img: $3",
+      "author: $4",
+      "description: $5",
+      "date: __DATE__",
+      "---"
+    ],
+    "description": "Plantilla para posts sobre ECMAScript"
+  }
+}

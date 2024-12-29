@@ -12,7 +12,7 @@ import LigthBg from '@/components/DarkBackground.astro';
 import NavBar from '@/components/NavBar.astro';
 import 'aos/dist/aos.css'; // AOS styles
 import { SEO } from 'astro-seo';
-const {title} = Astro.props
+const {title, description} = Astro.props
 import { ClientRouter } from 'astro:transitions';
 ---
 
@@ -20,7 +20,7 @@ import { ClientRouter } from 'astro:transitions';
   <head>
     <SEO
       title={title || SITE_TITLE}
-      description={SITE_DESCRIPTION}
+      description={description || SITE_DESCRIPTION}
       openGraph={{
         basic: {
           title: SITE_TITLE,
