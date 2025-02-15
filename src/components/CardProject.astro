@@ -1,5 +1,41 @@
 ---
 const project = Astro.props.project;
+import Nextjs from '@/icons/Nextjs.astro';
+import Supabase from '@/icons/Supabase.astro';
+import Laravel from '@/icons/Laravel.astro';
+import Mysql from '@/icons/Mysql.astro';
+import Link from '@/icons/Link.astro';
+import Js from '@/icons/js.astro';
+import Tailwind from '@/icons/tailwindscss.astro';
+import Php from '@/icons/php.astro';
+import React from '@/icons/reactjs.astro';
+import CodeSvg from '@/icons/CodeSvg.astro';
+const { data } = project;
+const {
+  title,
+  description,
+  img,
+  date,
+  links,
+  tags,
+  tech,
+  author,
+  authorImg,
+  authorUrl,
+} = data;
+
+const iconComponents = {
+  Nextjs,
+  Supabase,
+  Laravel,
+  Tailwind,
+  Mysql,
+  Link,
+  Js,
+  CodeSvg,
+  Php,
+  React,
+};
 ---
 
 <article
@@ -12,7 +48,7 @@ const project = Astro.props.project;
     <img
       class="w-[90%] md:left-14 relative mt-8 object-top transition hover:scale-105 motion-reduce:transition-none motion-reduce:hover:scale-50 ease-in-out duration-500 sm:h-full md:scale-110 md:group-hover:scale-105"
       alt="Logo"
-      src={project.image}
+      src={img}
       aria-label="imagen del proyecto"
       loading="lazy"
     />
@@ -23,19 +59,19 @@ const project = Astro.props.project;
     <div class="space-y-1">
       <h3
         class="text-2xl font-semibold whitespace-nowrap leading-none tracking-tight dark:text-white text-[#333333]">
-        {project.title}
+        {title}
       </h3>
       <p
         class="text-sm text-muted-foreground text-balance font-medium text-gray-500 dark:text-gray-400">
-        {project.description}
+        {description}
       </p>
       <div>
         {
-          project.badges.map((badgeIcon: string) => (
+          tags.map((tag: string) => (
             <span
               class="inline-flex items-center rounded-full whitespace-nowrap border px-2.5 py-0.5 w-fit text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground dark:hover:bg-gray-600 hover:bg-gray-800 dark:bg-gray-800 bg-gray-700 mr-1 mt-3 text-white"
               aria-label="badges de categorias">
-              {badgeIcon}
+              {tag}
             </span>
           ))
         }
@@ -44,25 +80,30 @@ const project = Astro.props.project;
 
     <div class="hidden md:flex md:flex-col flex-row gap-1">
       {
-        project.links.map(
+        links.map(
           ({
             name,
             url,
-            icon: Icon,
+            icon,
           }: {
             name: string;
             url: string;
-            icon: any;
-          }) => (
-            <a
-              href={url}
-              class="inline-flex rounded-lg  items-center py-1 px-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-200 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-700 gap-3 mt-5 md:mt-1"
-              target="_blank"
-              role="link"
-              aria-label="enlaces">
-              <Icon class="size-4 fill-[#333333] dark:fill-white" /> {name}
-            </a>
-          )
+            icon: string;
+          }) => {
+            const IconComponent =
+              iconComponents[icon as keyof typeof iconComponents];
+            return (
+              <a
+                href={url}
+                class="inline-flex rounded-lg  items-center py-1 px-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-200 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-700 gap-3 mt-5 md:mt-1"
+                target="_blank"
+                role="link"
+                aria-label="enlaces">
+                <IconComponent class="size-4 fill-[#333333] dark:fill-white" />{' '}
+                {name}
+              </a>
+            );
+          },
         )
       }
     </div>
@@ -71,14 +112,16 @@ const project = Astro.props.project;
   <footer class="py-1 px-6 md:p-6">
     <div class="flex space-x-4 text-sm text-gray-500 dark:text-gray-400">
       {
-        project.tech.map(
-          ({ name, icon: Icon }: { name: string; icon: any }) => (
-            <div class="flex items-center gap-2 hover:text-blue-500 dark:hover:text-yellow-200">
-              <Icon class="size-4 icon" />
+        tech.map(({ name, icon }: { name: string; icon: string }) => {
+          const IconComponent =
+            iconComponents[icon as keyof typeof iconComponents];
+          return (
+            <div class="flex items-center gap-2  ">
+              <IconComponent class="size-4 icon" />
               {name}
             </div>
-          )
-        )
+          );
+        })
       }
     </div>
   </footer>
@@ -88,25 +131,30 @@ const project = Astro.props.project;
     class="flex md:hidden justify-between p-5 items-start space-y-0 md:h-40 h-auto max-h-52 flex-col md:flex-row">
     <div class="flex md:flex-col flex-row gap-1">
       {
-        project.links.map(
+        links.map(
           ({
             name,
             url,
-            icon: Icon,
+            icon,
           }: {
             name: string;
             url: string;
-            icon: any;
-          }) => (
-            <a
-              href={url}
-              class="inline-flex rounded-lg  items-center py-1 px-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-200 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-700 gap-3 mt-5 md:mt-1"
-              target="_blank"
-              role="link"
-              aria-label="enlaces">
-              <Icon class="size-4 fill-[#333333] dark:fill-white" /> {name}
-            </a>
-          )
+            icon: string;
+          }) => {
+            const IconComponent =
+              iconComponents[icon as keyof typeof iconComponents];
+            return (
+              <a
+                href={url}
+                class="inline-flex rounded-lg  items-center py-1 px-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-200 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-700 gap-3 mt-5 md:mt-1"
+                target="_blank"
+                role="link"
+                aria-label="enlaces">
+                <IconComponent class="size-4 fill-[#333333] dark:fill-white" />{' '}
+                {name}
+              </a>
+            );
+          },
         )
       }
     </div>

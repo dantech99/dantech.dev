@@ -1,7 +1,11 @@
 ---
-import { getCollection, render } from 'astro:content';
+import { getCollection, type CollectionEntry } from 'astro:content';
 import Layout from '@/layouts/Layout.astro';
 import DividerLine from '@/components/DividerLine.astro';
+
+interface Props {
+  article: CollectionEntry<'articles'>;
+}
 
 export async function getStaticPaths() {
   const articles = await getCollection('articles');
@@ -12,31 +16,33 @@ export async function getStaticPaths() {
   }));
 }
 
-const { article } = Astro.props;
-const { data, slug } = article;
+const { article } = Astro.props as { article: CollectionEntry<'articles'> };
+const { data} = article;
 
-const date = data.date && data.date !== '__DATE__' ? data.date : new Date().toISOString();
+const date =
+  data.date && data.date !== '__DATE__' ? data.date : new Date().toISOString();
 
 const { title, description, author, img } = data;
-const { Content } = await render(article);
-
+const { Content } = await article.render();
 
 export const prerender = true;
-
-
 ---
 
 <Layout title=`${title}` description={description}>
-  <section class="my-20" >
-    <header class="flex flex-col gap-5" >
-      
-      <h1 class="text-4xl font-semibold dark:text-white text-gray-800" transition:name={`article-${title}`}>{title}</h1>
+  <section class="my-20">
+    <header class="flex flex-col gap-5">
+      <h1
+        class="text-4xl font-semibold dark:text-white text-gray-800"
+        transition:name={`article-${title}`}>
+        {title}
+      </h1>
       <p>Por: {author} | Publicado el: {new Date(date).toLocaleDateString()}</p>
-      <img src={img} alt="" class="rounded w-full h-72 object-cover">
+      <img src={img} alt="" class="rounded w-full h-72 object-cover" />
     </header>
 
-    <main class=" max-w-2xl  m-auto my-10 text-pretty">
-      <div class="prose dark:prose-invert dark:prose-a:text-yellow-300 prose-a:text-blue-700 prose-blockquote:border-blue-700 ">
+    <main class="max-w-2xl m-auto my-10 text-pretty">
+      <div
+        class="prose dark:prose-invert dark:prose-a:text-yellow-300 prose-a:text-blue-700 prose-blockquote:border-blue-700">
         <Content />
       </div>
     </main>

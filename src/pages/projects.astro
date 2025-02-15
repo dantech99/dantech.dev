@@ -2,7 +2,11 @@
 import Layout from "@/layouts/Layout.astro";
 import CardProject from "@/components/CardProject.astro";
 import DividerLine from "@/components/DividerLine.astro";
-import projects from '@/data/projects.ts'
+
+import { getCollection } from "astro:content";
+
+const projects = await getCollection('projects');
+
 ---
 
 <Layout title="Dantech.dev | Proyectos">

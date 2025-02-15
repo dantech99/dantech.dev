@@ -1,24 +1,27 @@
 ---
 import DividerLine from '@/components/DividerLine.astro';
 import CardProject from '@/components/CardProject.astro';
-import projects from '@/data/projects.ts'
 import ButtonMore from '@/components/ButtonMore.astro';
+
+import { getCollection, type CollectionEntry } from 'astro:content';
+
+const projects = await getCollection('projects');
+
+interface Props {
+  project: CollectionEntry<'projects'>;
+}
 ---
+
 <DividerLine title="Proyectos" id="proyectos" />
 
 <section class="grid grid-cols-14 md:grid-cols-12 gap-4">
   <!-- Column -->
-   {
-     projects.slice(0,4).map((project) => (
-      <CardProject project={project} />
-    ))
-   }
+  {projects.slice(0, 4).map((project) => <CardProject project={project} />)}
 </section>
 
 <div class="flex justify-end">
   <ButtonMore title="Ver mas proyectos" link="/projects" />
 </div>
-
 
 <style>
   .bg-gradiente {
@@ -29,5 +32,3 @@ import ButtonMore from '@/components/ButtonMore.astro';
     );
   }
 </style>
-
-

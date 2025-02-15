@@ -1,9 +1,14 @@
 ---
 import Layout from '@/layouts/Layout.astro';
-import { getCollection } from 'astro:content';
-const articles = await getCollection('articles');
+import { getCollection, type CollectionEntry } from 'astro:content';
 import DividerLine from '@/components/DividerLine.astro';
 import CardArticles from '@/components/CardArticles.astro';
+
+const articles = await getCollection('articles');
+
+interface Props {
+  article: CollectionEntry<'articles'>;
+}
 ---
 
 <Layout title="Dantech.dev | Blog">
@@ -17,7 +22,7 @@ import CardArticles from '@/components/CardArticles.astro';
         {
           articles.map((article) => {
             const { slug, data } = article;
-            const { title, description, author} = data;
+            const { title, description, author } = data;
 
             return (
               <CardArticles
