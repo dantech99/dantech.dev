@@ -1,0 +1,28 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import CardProject from '@/components/CardProject.astro';
+import DividerLine from '@/components/DividerLine.astro';
+
+import { getCollection } from 'astro:content';
+
+const projects = await getCollection('projects');
+---
+
+<Layout title="Dantech.dev | Proyectos">
+  <DividerLine
+    title="Proyectos"
+    class:list={'separator'}
+    customClass={'mt-10'}
+  />
+
+  <section class="grid grid-cols-14 md:grid-cols-12 gap-4 my-10">
+    <!-- Column -->
+    {projects.map((project) => <CardProject project={project} />)}
+  </section>
+</Layout>
+
+<style is:inline>
+  .separator {
+    margin-top: 3rem;
+  }
+</style>
