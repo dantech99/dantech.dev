@@ -1,28 +1,14 @@
 ---
-const project = Astro.props.project;
-import Nextjs from '@/icons/Nextjs.astro';
-import Supabase from '@/icons/Supabase.astro';
-import Laravel from '@/icons/Laravel.astro';
-import Mysql from '@/icons/Mysql.astro';
-import Link from '@/icons/Link.astro';
-import Js from '@/icons/js.astro';
-import Tailwind from '@/icons/tailwindscss.astro';
-import Php from '@/icons/php.astro';
-import React from '@/icons/reactjs.astro';
-import CodeSvg from '@/icons/CodeSvg.astro';
-const { data } = project;
-const {
-  title,
-  description,
-  img,
-  date,
-  links,
-  tags,
-  tech,
-  author,
-  authorImg,
-  authorUrl,
-} = data;
+import Nextjs from "@/icons/Nextjs.astro";
+import Supabase from "@/icons/Supabase.astro";
+import Laravel from "@/icons/Laravel.astro";
+import Mysql from "@/icons/Mysql.astro";
+import Link from "@/icons/Link.astro";
+import Js from "@/icons/js.astro";
+import Tailwind from "@/icons/tailwindscss.astro";
+import Php from "@/icons/php.astro";
+import React from "@/icons/reactjs.astro";
+import CodeSvg from "@/icons/CodeSvg.astro";
 
 const iconComponents = {
   Nextjs,
@@ -36,15 +22,27 @@ const iconComponents = {
   Php,
   React,
 };
+
+const {
+  title,
+  description,
+  img,
+  tags = [] as string[],
+  links = [] as { name: string; url: string; icon: string }[],
+  tech = [] as { name: string; icon: string }[],
+  slug,
+} = Astro.props;
 ---
 
 <article
   class="rounded-lg col-span-6 border-[1px] border-gray-600 bg-card text-card-foreground shadow-sm w-full max-w-xl overflow-hidden"
   data-aos="fade-up"
-  data-v0-t="card">
+  data-v0-t="card"
+>
   <!-- seccion de la imagen -->
   <header
-    class="max-h-64 flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip md:group-hover:-translate-y-1 md:group-hover:shadow-2xl">
+    class="max-h-64 flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip md:group-hover:-translate-y-1 md:group-hover:shadow-2xl"
+  >
     <img
       class="w-[90%] md:left-14 relative mt-8 object-top transition hover:scale-105 motion-reduce:transition-none motion-reduce:hover:scale-50 ease-in-out duration-500 sm:h-full md:scale-110 md:group-hover:scale-105"
       alt="Logo"
@@ -55,14 +53,17 @@ const iconComponents = {
   </header>
 
   <main
-    class="flex justify-between p-5 items-start space-y-0 md:h-40 h-auto max-h-52 flex-col md:flex-row">
+    class="flex justify-between p-5 items-start space-y-0 md:h-40 h-auto max-h-52 flex-col md:flex-row"
+  >
     <div class="space-y-1">
       <h3
-        class="text-2xl font-semibold whitespace-nowrap leading-none tracking-tight dark:text-white text-[#333333]">
-        {title}
+        class="text-2xl font-semibold whitespace-nowrap leading-none tracking-tight dark:text-white text-[#333333]"
+      >
+        <a href={`projects/${slug}`}>{title}</a>
       </h3>
       <p
-        class="text-sm text-muted-foreground text-balance font-medium text-gray-500 dark:text-gray-400">
+        class="text-sm text-muted-foreground text-balance font-medium text-gray-500 dark:text-gray-400"
+      >
         {description}
       </p>
       <div>
@@ -70,7 +71,8 @@ const iconComponents = {
           tags.map((tag: string) => (
             <span
               class="inline-flex items-center rounded-full whitespace-nowrap border px-2.5 py-0.5 w-fit text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground dark:hover:bg-gray-600 hover:bg-gray-800 dark:bg-gray-800 bg-gray-700 mr-1 mt-3 text-white"
-              aria-label="badges de categorias">
+              aria-label="badges de categorias"
+            >
               {tag}
             </span>
           ))
@@ -98,12 +100,13 @@ const iconComponents = {
                 class="inline-flex rounded-lg  items-center py-1 px-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-200 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-700 gap-3 mt-5 md:mt-1"
                 target="_blank"
                 role="link"
-                aria-label="enlaces">
-                <IconComponent class="size-4 fill-[#333333] dark:fill-white" />{' '}
+                aria-label="enlaces"
+              >
+                <IconComponent class="size-4 fill-[#333333] dark:fill-white" />{" "}
                 {name}
               </a>
             );
-          },
+          }
         )
       }
     </div>
@@ -128,7 +131,8 @@ const iconComponents = {
 
   <!-- mobile -->
   <div
-    class="flex md:hidden justify-between p-5 items-start space-y-0 md:h-40 h-auto max-h-52 flex-col md:flex-row">
+    class="flex md:hidden justify-between p-5 items-start space-y-0 md:h-40 h-auto max-h-52 flex-col md:flex-row"
+  >
     <div class="flex md:flex-col flex-row gap-1">
       {
         links.map(
@@ -149,12 +153,13 @@ const iconComponents = {
                 class="inline-flex rounded-lg  items-center py-1 px-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-200 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-700 gap-3 mt-5 md:mt-1"
                 target="_blank"
                 role="link"
-                aria-label="enlaces">
-                <IconComponent class="size-4 fill-[#333333] dark:fill-white" />{' '}
+                aria-label="enlaces"
+              >
+                <IconComponent class="size-4 fill-[#333333] dark:fill-white" />{" "}
                 {name}
               </a>
             );
-          },
+          }
         )
       }
     </div>

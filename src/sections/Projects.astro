@@ -1,14 +1,14 @@
 ---
-import DividerLine from '@/components/DividerLine.astro';
-import CardProject from '@/components/CardProject.astro';
-import ButtonMore from '@/components/ButtonMore.astro';
+import DividerLine from "@/components/DividerLine.astro";
+import CardProject from "@/components/CardProject.astro";
+import ButtonMore from "@/components/ButtonMore.astro";
 
-import { getCollection, type CollectionEntry } from 'astro:content';
+import { getCollection, type CollectionEntry } from "astro:content";
 
-const projects = await getCollection('projects');
+const projects = await getCollection("projects");
 
 interface Props {
-  project: CollectionEntry<'projects'>;
+  project?: CollectionEntry<"projects">;
 }
 ---
 
@@ -16,7 +16,23 @@ interface Props {
 
 <section class="grid grid-cols-14 md:grid-cols-12 gap-4">
   <!-- Column -->
-  {projects.slice(0, 4).map((project) => <CardProject project={project} />)}
+  {
+    projects.slice(0, 4).map((project) => {
+      const { slug, data } = project;
+      const { title, description, img, tags, links, tech } = data;
+      return (
+        <CardProject
+          title={title}
+          description={description}
+          img={img}
+          tags={tags}
+          links={links}
+          tech={tech}
+          slug={slug}
+        />
+      );
+    })
+  }
 </section>
 
 <div class="flex justify-end">
