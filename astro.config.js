@@ -10,11 +10,11 @@ import vercel from "@astrojs/vercel/serverless";
 // mdx integration
 import mdx from '@astrojs/mdx';
 
-import sanity from "@sanity/astro";
+
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [react(), tailwind(), mdx(), sanity()],
+  integrations: [react(), tailwind(), mdx()],
   output: "server",
   adapter: vercel()
 });

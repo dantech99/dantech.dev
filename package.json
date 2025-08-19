@@ -22,8 +22,6 @@
     "@astrojs/vue": "^5.0.2",
     "@emailjs/browser": "^3.9.1",
     "@midudev/tailwind-animations": "^0.0.7",
-    "@sanity/astro": "^3.2.5",
-    "@sanity/client": "^6.28.1",
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",
     "astro": "^5.0.9",
@@ -33,7 +31,6 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-is": "^19.0.0",
-    "sanity": "^3.77.0",
     "styled-components": "^6.1.15",
     "tw-elements": "^1.0.0-alpha12"
   },
