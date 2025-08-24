@@ -5,5 +5,6 @@ export default new Map([
 ["src/content/projects/nutriasoft.mdx", () => import("astro:content-layer-deferred-module?astro%3Acontent-layer-deferred-module=&fileName=src%2Fcontent%2Fprojects%2Fnutriasoft.mdx&astroContentModuleFlag=true")],
 ["src/content/projects/gesccol.mdx", () => import("astro:content-layer-deferred-module?astro%3Acontent-layer-deferred-module=&fileName=src%2Fcontent%2Fprojects%2Fgesccol.mdx&astroContentModuleFlag=true")],
 ["src/content/projects/freedeves.mdx", () => import("astro:content-layer-deferred-module?astro%3Acontent-layer-deferred-module=&fileName=src%2Fcontent%2Fprojects%2Ffreedeves.mdx&astroContentModuleFlag=true")],
-["src/content/articles/EcmaScript-y-sus-versiones.mdx", () => import("astro:content-layer-deferred-module?astro%3Acontent-layer-deferred-module=&fileName=src%2Fcontent%2Farticles%2FEcmaScript-y-sus-versiones.mdx&astroContentModuleFlag=true")]]);
+["src/content/articles/EcmaScript-y-sus-versiones.mdx", () => import("astro:content-layer-deferred-module?astro%3Acontent-layer-deferred-module=&fileName=src%2Fcontent%2Farticles%2FEcmaScript-y-sus-versiones.mdx&astroContentModuleFlag=true")],
+["src/content/projects/archive/freedeves.mdx", () => import("astro:content-layer-deferred-module?astro%3Acontent-layer-deferred-module=&fileName=src%2Fcontent%2Fprojects%2Farchive%2Ffreedeves.mdx&astroContentModuleFlag=true")]]);
 		
