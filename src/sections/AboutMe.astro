@@ -1,6 +1,6 @@
 ---
-import DividerLine from '@/components/DividerLine.astro';
-import ButtonCv from '@/components/ButtonCv.astro';
+import DividerLine from "@/components/DividerLine.astro";
+import ButtonCv from "@/components/ButtonCv.astro";
 interface About {
   title: string;
   desacription: string;
@@ -10,54 +10,254 @@ interface About {
 
 <DividerLine title="Sobre Mi" id="sobre-mi" />
 
-<section class="flex w-full md:flex-row flex-col justify-center gap-10 mb-10 py-10">
-  <div class="basis-1/4 md:basis-1/5 flex flex-col justify-center items-center">
-    <div
-      class="border rounded-xl overflow-hidden daark:border-white border-gray-800 md:w-full shadow-md">
-      <img
-        src="/img/myphoto.jpg"
-        alt="imagen personal"
-        class="w-full object-cover overflow-clip"
-        loading="lazy"
-      />
-    </div>
-    <div class="flex justify-center items-center mt-3 gap-2">
-      <ButtonCv />
-    </div>
-  </div>
+<section
+  class="flex w-full md:flex-row flex-col justify-center gap-10 mb-10 py-10"
+>
+  <div class="min-h-screen text-white">
+    <div class="container mx-auto px-4 py-8">
+      <div class="grid grid-cols-1 lg:grid-cols-5 gap-6">
+        <!-- Sidebar Profile -->
+        <div class="lg:col-span-2">
+          <div class="border border-[#30363d] rounded-lg p-6">
+            <!-- Avatar -->
+            <div class="relative mb-4 w-full flex justify-center">
+              <img
+                src="/img/myphoto.jpg"
+                alt="Danilo Macea"
+                class="w-60 h-60 rounded-full border-2 border-[#30363d] object-cover"
+              />
+            </div>
 
-  <div class="basis-4/5">
-    <header role="heading">
-      <h1 class="text-3xl dark:text-white text-[#333333] font-semibold">
-        Me llamo Danilo Antonio Macea Santos
-      </h1>
-    </header>
-    <main role="main" class="gap-3 flex flex-col mt-3">
-      <p class="text-pretty text-lg md:text-base dark:text-white text-gray-700">
-        Vivo en Colombia y soy un entusiasta de la tecnología y la web, empecé a
-        conocer la programación y el desarrollo de software desde hace casi
-        cuatro años, desde entonces me he dedicado con pasión al mundo de la
-        programación, sin límites en mi interés por aprender y crecer
-        constantemente.
-      </p>
-      <p class="text-pretty text-lg md:text-base dark:text-white text-gray-700">
-        He trabajado en varias empresas, destacándome por mi talento y
-        compromiso. Recientemente, colaboré con un startup, donde optimicé
-        procesos, implementé nuevas funcionalidades e integré redes sociales con
-        el sitio web. Uno de los logros que también alcance en mi etapa de
-        pasantías, fue lograr brindar una solución de software para la empresa
-        de gestión catastral de Colombia, en la cual les desarrolle un sitio web
-        autoadministrable con el cual se llevaron a cabo las publicaciones de
-        los comunicados e informes hacia la ciudadanía.
-      </p>
+            <!-- Name and Title -->
+            <div class="mb-4">
+              <h1 class="text-xl font-semibold mb-1">Danilo Antonio M.</h1>
+              <p class="text-[#7d8590] text-sm">Developer Web Front End</p>
+            </div>
 
-      <p class="text-pretty text-lg md:text-base dark:text-white text-gray-700">
-        Actualmente soy Técnico en desarrollo de software el cual logre obtener
-        en una institución pública en mi país, también obtuve diplomados en
-        desarrollo de aplicaciones web en la universidad del norte Colombia,
-        pero casi todo mis conocimientos y estudios los he logrado de forma
-        autodidacta, aprendiendo por mi cuenta y aumentando mis skills.
-      </p>
-    </main>
+            <!-- Edit Profile Button -->
+            <button
+              class="w-full bg-[#21262d] border border-[#30363d] text-white py-2 px-4 rounded-md text-sm font-medium hover:bg-[#30363d] transition-colors mb-4"
+            >
+             CV
+            </button>
+
+           
+
+            <!-- Contact Info -->
+            <div class="space-y-2 text-sm">
+              <div class="flex items-center gap-2">
+                <svg
+                  class="w-4 h-4 text-[#7d8590]"
+                  fill="currentColor"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"
+                  ></path>
+                </svg>
+                <span class="text-[#7d8590]">dantech.dev@hotmail.com</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <svg
+                  class="w-4 h-4 text-[#7d8590]"
+                  fill="currentColor"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="m7.539.746 4.299.925c.256.055.445.295.445.55v5.387a4.357 4.357 0 0 1-.11.963l-1.48 4.44c-.152.456-.648.663-1.07.454A6.97 6.97 0 0 1 8 12.5 6.97 6.97 0 0 1 6.377 13.465c-.422.209-.918.002-1.07-.454l-1.48-4.44A4.357 4.357 0 0 1 3.716 7.608V2.221c0-.255.189-.495.445-.55L8.46.746a1.125 1.125 0 0 0-.921 0ZM8 1.5c-.434 0-.852.08-1.238.23l-.57.122.902.914c.07.07.17.106.27.106.1 0 .2-.036.27-.106l.902-.914-.57-.122A4.5 4.5 0 0 0 8 1.5Z"
+                  ></path>
+                </svg>
+                <span class="text-[#7d8590]">https://dantech.dev/</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <svg
+                  class="w-4 h-4 text-[#7d8590]"
+                  fill="currentColor"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M11.536 3.464a5 5 0 0 1 0 7.072L8 14.07l-3.536-3.535a5 5 0 1 1 7.072-7.072v.001Zm-4.95 8.485a5.023 5.023 0 0 0 3.393 0L8 13.928l-1.414-1.414Z"
+                  ></path>
+                  <path d="M8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"></path>
+                </svg>
+                <span class="text-[#7d8590]"
+                  >Sahagun - Cordoba - Colombia</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="lg:col-span-3">
+          <div class="border border-[#30363d] rounded-lg p-6">
+            <!-- Header -->
+            <div class="flex items-center justify-between mb-6">
+              <div class="flex items-center gap-3">
+                <span class="text-2xl">👋</span>
+                <h2 class="text-xl font-semibold">
+                  Hi, My name is Danilo Macea ✨
+                </h2>
+              </div>
+              <button
+                class="p-2 hover:bg-[#30363d] rounded-md transition-colors"
+              >
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 16 16">
+                  <path
+                    d="M11.013 1.427a1.75 1.75 0 0 1 2.474 0l1.086 1.086a1.75 1.75 0 0 1 0 2.474l-8.61 8.61c-.21.21-.47.364-.756.445l-3.251.93a.75.75 0 0 1-.927-.928l.929-3.25c.081-.286.235-.547.445-.758l8.61-8.61Zm.176 4.823L9.75 4.81l-6.286 6.287a.253.253 0 0 0-.064.108l-.558 1.953 1.953-.558a.253.253 0 0 0 .108-.064Zm1.238-3.763a.25.25 0 0 0-.354 0L10.811 3.75l1.439 1.44 1.263-1.263a.25.25 0 0 0 0-.354Z"
+                  ></path>
+                </svg>
+              </button>
+            </div>
+
+            <!-- Subtitle -->
+            <h3 class="text-lg font-medium mb-4 text-[#7d8590]">
+              Web developer FrontEnd
+            </h3>
+
+            <!-- Description in Spanish -->
+            <p class="text-[#e6edf3] mb-4 leading-relaxed">
+              Soy un amante de la tecnología y me apasiona el mundo web, me
+              gusta sumergirme en este hermoso mar donde se adquieren
+              conocimientos, experiencias y habilidades, así como también
+              colaborar y contribuir en proyectos innovadores donde el trabajo
+              en equipo se hace notar y demostrar que las hermanas lograron
+              grandes cosas juntas. También quiero ser parte de este gran mundo
+              y contribuir de la mejor manera a la mejor realidad.
+            </p>
+
+            <!-- Description in English -->
+            <p class="text-[#e6edf3] mb-6 leading-relaxed">
+              I am a lover of technology and I am passionate about the web
+              world, I like to immerse myself in this immense sea where great
+              knowledge and experience are acquired, where everyone can
+              collaborate and contribute without any limitation where teamwork
+              is noticed and demonstrate that human beings achieve great things
+              together. I also want to be part of this great world and
+              contribute in the best way to making the enjoyment of class come
+              true.
+            </p>
+
+            <!-- Bullet Points -->
+            <ul class="space-y-2 mb-6">
+              <li class="flex items-center gap-2">
+                <span class="text-green-400">🌱</span>
+                <span class="text-[#e6edf3]"
+                  >I'm currently learning <strong>React.js</strong></span
+                >
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="text-blue-400">👀</span>
+                <span class="text-[#e6edf3]"
+                  >See my portfolio at <a
+                    href="#"
+                    class="text-blue-400 hover:underline">Danilo.dev</a
+                  ></span
+                >
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="text-purple-400">📫</span>
+                <span class="text-[#e6edf3]"
+                  >You can contact me at <a
+                    href="mailto:dantech.dev@hotmail.com"
+                    class="text-blue-400 hover:underline"
+                    >dantech.dev@hotmail.com</a
+                  ></span
+                >
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="text-yellow-400">⚡</span>
+                <span class="text-[#e6edf3]"
+                  >Fun fact: <strong>I love video games</strong></span
+                >
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="text-orange-400">🤔</span>
+                <span class="text-[#e6edf3]"
+                  >I'm open to collaborating on Apps web, new ideas</span
+                >
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="text-red-400">💬</span>
+                <span class="text-[#e6edf3]">Interested in this world</span>
+              </li>
+            </ul>
+
+            <!-- Followers Badge -->
+
+            <!-- Skills Section -->
+            <div class="mb-6">
+              <h4 class="text-lg font-semibold mb-4">Skills</h4>
+              <div class="flex flex-wrap gap-3">
+                <img
+                  src="/placeholder.svg?height=32&width=32"
+                  alt="JavaScript"
+                  class="w-8 h-8"
+                />
+                <img
+                  src="/placeholder.svg?height=32&width=32"
+                  alt="HTML5"
+                  class="w-8 h-8"
+                />
+                <img
+                  src="/placeholder.svg?height=32&width=32"
+                  alt="CSS3"
+                  class="w-8 h-8"
+                />
+                <img
+                  src="/placeholder.svg?height=32&width=32"
+                  alt="React"
+                  class="w-8 h-8"
+                />
+                <img
+                  src="/placeholder.svg?height=32&width=32"
+                  alt="Node.js"
+                  class="w-8 h-8"
+                />
+                <img
+                  src="/placeholder.svg?height=32&width=32"
+                  alt="Bootstrap"
+                  class="w-8 h-8"
+                />
+                <img
+                  src="/placeholder.svg?height=32&width=32"
+                  alt="Figma"
+                  class="w-8 h-8"
+                />
+              </div>
+            </div>
+
+            <!-- Socials Section -->
+            <div>
+              <h4 class="text-lg font-semibold mb-4">Socials</h4>
+              <div class="flex gap-3">
+                <a
+                  href="#"
+                  class="text-[#5865f2] hover:text-[#4752c4] transition-colors"
+                >
+                  <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                      d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"
+                    ></path>
+                  </svg>
+                </a>
+                <a
+                  href="#"
+                  class="text-[#0077b5] hover:text-[#005885] transition-colors"
+                >
+                  <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                      d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                    ></path>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
