@@ -1,18 +1,18 @@
 ---
-import Header from '../components/Header.astro';
-import ButtonScrollTop from '@/components/buttonScrollTop.astro';
+import Header from "../components/Header.astro";
+import ButtonScrollTop from "@/components/buttonScrollTop.astro";
 import {
   SITE_URL,
   SITE_DESCRIPTION,
   SITE_TITLE,
   SITE_IMAGE,
-} from '../constants';
-import '@/styles/tailwind.css'; 
-import LigthBg from '@/components/DarkBackground.astro';
-import NavBar from '@/components/NavBar.astro';
-import { SEO } from 'astro-seo';
-const {title, description} = Astro.props
-import { ClientRouter } from 'astro:transitions';
+} from "../constants";
+import "@/styles/tailwind.css";
+import LigthBg from "@/components/DarkBackground.astro";
+import NavBar from "@/components/NavBar.astro";
+import { SEO } from "astro-seo";
+const { title, description } = Astro.props;
+import { ClientRouter } from "astro:transitions";
 ---
 
 <html lang="es" class="dark">
@@ -23,23 +23,23 @@ import { ClientRouter } from 'astro:transitions';
       openGraph={{
         basic: {
           title: SITE_TITLE,
-          type: 'website',
+          type: "website",
           image: SITE_IMAGE,
           url: SITE_URL,
         },
       }}
       twitter={{
-        card: 'summary_large_image',
+        card: "summary_large_image",
         title: SITE_TITLE,
         description: SITE_DESCRIPTION,
         image: SITE_IMAGE,
-        creator: '@DanTech_99',
+        creator: "@DanTech_99",
       }}
       extend={{
-        link: [{ rel: 'icon', href: '/img/favicon-32x32.png' }],
+        link: [{ rel: "icon", href: "/img/favicon-32x32.png" }],
         meta: [
-          { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-          { name: 'robots', content: 'index, follow' },
+          { name: "viewport", content: "width=device-width, initial-scale=1" },
+          { name: "robots", content: "index, follow" },
         ],
       }}
     />
@@ -49,7 +49,8 @@ import { ClientRouter } from 'astro:transitions';
     <ClientRouter />
   </head>
   <body
-    class="mx-auto flex md:max-w-5xl max-w-3xl absolute md:relative flex-col px-3 py-8 text-sm text-neutral-400 md:py-16 -z-50">
+    class="mx-auto flex md:max-w-5xl max-w-3xl absolute md:relative flex-col px-3 py-8 text-sm text-neutral-400 md:py-16 -z-50"
+  >
     <NavBar />
     <slot />
     <LigthBg />
@@ -57,28 +58,26 @@ import { ClientRouter } from 'astro:transitions';
     <style is:global>
       @font-face {
         font-family: Geist;
-        src: url('/public/fonst/GeistVariableVF.woff2') format('woff2');
+        src: url("/public/fonst/GeistVariableVF.woff2") format("woff2");
         font-weight: normal;
         font-style: normal;
         font-display: swap;
       }
-      html {  
+      /* html {
         background: linear-gradient(
           90deg,
-          rgba(0, 0, 0, 1) 0%,  
+          rgba(0, 0, 0, 1) 0%,
           rgba(11, 20, 41, 1) 0%,
           rgba(11, 21, 40, 1) 100%
-        ); 
+        );
         scroll-behavior: smooth;
-        
-      }
+      } */
       body {
-        font-family: 'Geist', sans-serif;
+        font-family: "Geist", sans-serif;
         padding: 0;
         margin: 0;
         box-sizing: border-box;
       }
     </style>
-
   </body>
 </html>

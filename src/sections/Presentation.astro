@@ -1,19 +1,20 @@
 ---
-import GitHub from '@/icons/GitHub.astro';
-import LinkedIn from '@/icons/LinkedIn.astro';
-import ButtonStatus from '@/components/ButtonStatus.astro';
-import BlogIcon from '@/icons/BlogIcon.astro';
-import Mail from '@/icons/Mail.astro';
+import GitHub from "@/icons/GitHub.astro";
+import LinkedIn from "@/icons/LinkedIn.astro";
+import ButtonStatus from "@/components/ButtonStatus.astro";
+import BlogIcon from "@/icons/BlogIcon.astro";
+import Mail from "@/icons/Mail.astro";
 ---
 
 <section
-  class="flex md:flex-row flex-col gap-8 md:justify-end justify-between items-center md:gap-12 mt-10">
+  class="flex md:flex-row flex-col gap-8 md:justify-end justify-between items-center md:gap-12 mt-10"
+>
   <main class="flex flex-col gap-3">
     <!-- section movil  -->
     <div class="md:hidden flex flex-row items-center gap-6 mb-2">
-      <div class="w-20 bg-white h-20 rounded-full">
+      <div class="w-20 bg-white h-20 rounded-full overflow-hidden">
         <img
-          src='/img/logo-dantech.webp'
+          src="/img/dantech-pixel.jpg"
           alt="imagen personal para el portafolio"
           class="w-full"
           loading="lazy"
@@ -21,25 +22,26 @@ import Mail from '@/icons/Mail.astro';
       </div>
       <div class="md:hidden">
         <h1
-          class="text-4xl font-semibold dark:text-white text-[#083EB6] flex justify-start items-center gap-5">
+          class="text-4xl font-semibold dark:text-white text-[#083EB6] flex justify-start items-center gap-5"
+        >
           <ButtonStatus />
         </h1>
       </div>
     </div>
 
     <div>
-      <span class="text-xl dark:text-white text-[#333333]">
-        Hola/Hi ✋
-      </span>
+      <span class="text-xl dark:text-white text-[#333333]"> Hola/Hi ✋ </span>
       <h1
-        class="text-4xl font-semibold dark:text-white text-[#083EB6] md:flex justify-start items-center gap-5">
+        class="text-4xl font-semibold dark:text-white text-[#083EB6] md:flex justify-start items-center gap-5"
+      >
         Soy Danilo Macea
         <span class="hidden md:inline-flex">
           <ButtonStatus />
         </span>
       </h1>
       <p
-        class="w-auto max-w-[60ch] text-xl dark:text-white text-[#333333] md:text-balance text-pretty">
+        class="w-auto max-w-[60ch] text-xl dark:text-white text-[#333333] md:text-balance text-pretty"
+      >
         <span class="dark:text-[#FADB6F] text-[#083EB6]">
           Desarrollador web,</span
         >
@@ -56,7 +58,8 @@ import Mail from '@/icons/Mail.astro';
         href="https://github.com/dantech99"
         class="px-2 py-1 flex flex-row justify-between items-center scale-100 hover:scale-150 transition-transform duration-300 ease-in-out"
         role="link"
-        target="_blank">
+        target="_blank"
+      >
         <GitHub
           class="size-8 fill-white stroke-gray-700 dark:stroke-gray-400 dark:fill-none"
         />
@@ -66,7 +69,8 @@ import Mail from '@/icons/Mail.astro';
         href="https://www.linkedin.com/in/dantechdev/"
         class="px-2 py-1 text-[#333333] hover:shadow-lg ml-2 flex flex-row justify-between items-center scale-100 hover:scale-150 transition-transform duration-300 ease-in-out"
         role="link"
-        target="_blank">
+        target="_blank"
+      >
         <LinkedIn
           class="size-8 fill-white stroke-gray-700 dark:stroke-gray-400 dark:fill-none"
         />
@@ -76,7 +80,7 @@ import Mail from '@/icons/Mail.astro';
         href="/blog"
         class="px-2 py-1 text-[#333333] hover:shadow-lg ml-2 flex flex-row justify-between items-center scale-100 hover:scale-150 transition-transform duration-300 ease-in-out"
         role="link"
-        >
+      >
         <BlogIcon
           class="size-8 fill-white stroke-gray-700 dark:stroke-gray-400 dark:fill-none"
         />
@@ -86,7 +90,7 @@ import Mail from '@/icons/Mail.astro';
         href="mailto:dandevtech99@gmail.com"
         class="px-2 py-1 text-[#333333] hover:shadow-lg ml-2 flex flex-row justify-between items-center scale-100 hover:scale-150 transition-transform duration-300 ease-in-out"
         role="link"
-        >
+      >
         <Mail
           class="size-8 fill-white stroke-gray-700 dark:stroke-gray-400 dark:fill-none"
         />
@@ -95,9 +99,9 @@ import Mail from '@/icons/Mail.astro';
   </main>
 
   <div class="md:flex hidden flex-col justify-center items-center">
-    <div class="w-52 bg-white h-52 rounded-full">
+    <div class="w-52 bg-white h-52 rounded-full overflow-hidden">
       <img
-        src='/img/logo-dantech.webp'
+        src="/img/dantech-pixel.jpg"
         alt="imagen personal para el portafolio"
         class="w-full"
         loading="lazy"
