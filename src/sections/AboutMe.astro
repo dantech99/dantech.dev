@@ -1,6 +1,7 @@
 ---
 import DividerLine from "@/components/DividerLine.astro";
 import ButtonCv from "@/components/ButtonCv.astro";
+import SkillsMap from "@/components/SkillsMap";
 interface About {
   title: string;
   desacription: string;
@@ -13,12 +14,12 @@ interface About {
 <section
   class="flex w-full md:flex-row flex-col justify-center gap-10 mb-10 py-10"
 >
-  <div class="min-h-screen text-white">
+
     <div class="container mx-auto px-4 py-8">
       <div class="grid grid-cols-1 lg:grid-cols-5 gap-6">
         <!-- Sidebar Profile -->
         <div class="lg:col-span-2">
-          <div class="border border-[#30363d] rounded-lg p-6">
+          <div class="border border-[#30363d] rounded-lg p-6 h-full">
             <!-- Avatar -->
             <div class="relative mb-4 w-full flex justify-center">
               <img
@@ -34,15 +35,6 @@ interface About {
               <p class="text-[#7d8590] text-sm">Developer Web Front End</p>
             </div>
 
-            <!-- Edit Profile Button -->
-            <button
-              class="w-full bg-[#21262d] border border-[#30363d] text-white py-2 px-4 rounded-md text-sm font-medium hover:bg-[#30363d] transition-colors mb-4"
-            >
-             CV
-            </button>
-
-           
-
             <!-- Contact Info -->
             <div class="space-y-2 text-sm">
               <div class="flex items-center gap-2">
@@ -57,18 +49,70 @@ interface About {
                 </svg>
                 <span class="text-[#7d8590]">dantech.dev@hotmail.com</span>
               </div>
+              <!-- Redes sociales -->
               <div class="flex items-center gap-2">
                 <svg
                   class="w-4 h-4 text-[#7d8590]"
                   fill="currentColor"
-                  viewBox="0 0 16 16"
+                  viewBox="0 0 24 24"
+                  ><path
+                    d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.334 3.608 1.308.974.974 1.246 2.241 1.308 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.334 2.633-1.308 3.608-.974.974-2.241 1.246-3.608 1.308-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.334-3.608-1.308-.974-.974-1.246-2.241-1.308-3.608C2.175 15.647 2.163 15.267 2.163 12s.012-3.584.07-4.85c.062-1.366.334-2.633 1.308-3.608C4.515 2.497 5.782 2.225 7.148 2.163 8.414 2.105 8.794 2.163 12 2.163zm0-2.163C8.741 0 8.332.013 7.052.072 5.771.131 4.659.425 3.678 1.406c-.98.98-1.274 2.092-1.333 3.373C2.013 5.668 2 6.077 2 12c0 5.923.013 6.332.072 7.611.059 1.281.353 2.393 1.333 3.373.981.981 2.093 1.274 3.374 1.333C8.332 23.987 8.741 24 12 24s3.668-.013 4.948-.072c1.281-.059 2.393-.353 3.374-1.333.98-.98 1.274-2.092 1.333-3.373.059-1.279.072-1.688.072-7.611 0-5.923-.013-6.332-.072-7.611-.059-1.281-.353-2.393-1.333-3.373-.981-.981-2.093-1.274-3.374-1.333C15.668.013 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a3.999 3.999 0 1 1 0-7.998 3.999 3.999 0 0 1 0 7.998zm6.406-11.845a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88z"
+                  ></path></svg
                 >
-                  <path
-                    fill-rule="evenodd"
-                    d="m7.539.746 4.299.925c.256.055.445.295.445.55v5.387a4.357 4.357 0 0 1-.11.963l-1.48 4.44c-.152.456-.648.663-1.07.454A6.97 6.97 0 0 1 8 12.5 6.97 6.97 0 0 1 6.377 13.465c-.422.209-.918.002-1.07-.454l-1.48-4.44A4.357 4.357 0 0 1 3.716 7.608V2.221c0-.255.189-.495.445-.55L8.46.746a1.125 1.125 0 0 0-.921 0ZM8 1.5c-.434 0-.852.08-1.238.23l-.57.122.902.914c.07.07.17.106.27.106.1 0 .2-.036.27-.106l.902-.914-.57-.122A4.5 4.5 0 0 0 8 1.5Z"
-                  ></path>
-                </svg>
-                <span class="text-[#7d8590]">https://dantech.dev/</span>
+                <a
+                  href="https://instagram.com/dantech.dev"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-[#7d8590] hover:underline">Instagram</a
+                >
+              </div>
+              <div class="flex items-center gap-2">
+                <svg
+                  class="w-4 h-4 text-[#7d8590]"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                  ><path
+                    d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11.5 19h-3v-9h3v9zm-1.5-10.29c-.97 0-1.75-.79-1.75-1.75s.78-1.75 1.75-1.75 1.75.79 1.75 1.75-.78 1.75-1.75 1.75zm15.5 10.29h-3v-4.5c0-1.08-.02-2.47-1.5-2.47-1.5 0-1.73 1.17-1.73 2.39v4.58h-3v-9h2.89v1.23h.04c.4-.76 1.38-1.56 2.84-1.56 3.04 0 3.6 2 3.6 4.59v5.74z"
+                  ></path></svg
+                >
+                <a
+                  href="https://linkedin.com/in/dantech99"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-[#7d8590] hover:underline">LinkedIn</a
+                >
+              </div>
+              <div class="flex items-center gap-2">
+                <svg
+                  class="w-4 h-4 text-[#7d8590]"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                  ><path
+                    d="M12 0C5.371 0 0 5.371 0 12c0 5.303 3.438 9.8 8.205 11.387.6.111.82-.261.82-.577 0-.285-.011-1.04-.017-2.042-3.338.726-4.042-1.611-4.042-1.611-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.085 1.84 1.237 1.84 1.237 1.07 1.834 2.809 1.304 3.495.997.108-.775.418-1.305.762-1.605-2.665-.304-5.466-1.332-5.466-5.931 0-1.31.469-2.381 1.236-3.221-.124-.303-.535-1.523.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.984-.399 3.003-.404 1.018.005 2.045.138 3.003.404 2.291-1.553 3.297-1.23 3.297-1.23.653 1.653.242 2.873.119 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.803 5.625-5.475 5.921.43.371.823 1.102.823 2.222 0 1.606-.015 2.898-.015 3.293 0 .319.216.694.825.576C20.565 21.796 24 17.299 24 12c0-6.629-5.371-12-12-12z"
+                  ></path></svg
+                >
+                <a
+                  href="https://github.com/dantech99"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-[#7d8590] hover:underline">GitHub</a
+                >
+              </div>
+              <div class="flex items-center gap-2">
+                <svg
+                  class="w-4 h-4 text-[#7d8590]"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                  ><path
+                    d="M22.162 5.656c-.793.352-1.645.59-2.538.697a4.48 4.48 0 0 0 1.962-2.475 8.94 8.94 0 0 1-2.828 1.082A4.48 4.48 0 0 0 16.616 4c-2.485 0-4.5 2.015-4.5 4.5 0 .353.04.697.116 1.027C8.09 9.36 5.1 7.884 3.067 5.684c-.388.666-.61 1.44-.61 2.267 0 1.563.796 2.942 2.008 3.753a4.48 4.48 0 0 1-2.037-.563v.057c0 2.185 1.555 4.008 3.623 4.426-.379.104-.779.16-1.192.16-.292 0-.573-.028-.849-.08.574 1.792 2.24 3.093 4.213 3.128A8.987 8.987 0 0 1 2 19.54a12.69 12.69 0 0 0 6.88 2.017c8.253 0 12.77-6.837 12.77-12.77 0-.195-.004-.39-.013-.583A9.14 9.14 0 0 0 24 4.59a8.93 8.93 0 0 1-2.538.697z"
+                  ></path></svg
+                >
+                <a
+                  href="https://x.com/dantech99"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-[#7d8590] hover:underline">X (Twitter)</a
+                >
               </div>
               <div class="flex items-center gap-2">
                 <svg
@@ -82,9 +126,7 @@ interface About {
                   ></path>
                   <path d="M8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"></path>
                 </svg>
-                <span class="text-[#7d8590]"
-                  >Sahagun - Cordoba - Colombia</span
-                >
+                <span class="text-[#7d8590]">Sahagun - Cordoba - Colombia</span>
               </div>
             </div>
           </div>
@@ -101,15 +143,6 @@ interface About {
                   Hi, My name is Danilo Macea ✨
                 </h2>
               </div>
-              <button
-                class="p-2 hover:bg-[#30363d] rounded-md transition-colors"
-              >
-                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 16 16">
-                  <path
-                    d="M11.013 1.427a1.75 1.75 0 0 1 2.474 0l1.086 1.086a1.75 1.75 0 0 1 0 2.474l-8.61 8.61c-.21.21-.47.364-.756.445l-3.251.93a.75.75 0 0 1-.927-.928l.929-3.25c.081-.286.235-.547.445-.758l8.61-8.61Zm.176 4.823L9.75 4.81l-6.286 6.287a.253.253 0 0 0-.064.108l-.558 1.953 1.953-.558a.253.253 0 0 0 .108-.064Zm1.238-3.763a.25.25 0 0 0-.354 0L10.811 3.75l1.439 1.44 1.263-1.263a.25.25 0 0 0 0-.354Z"
-                  ></path>
-                </svg>
-              </button>
             </div>
 
             <!-- Subtitle -->
@@ -143,20 +176,12 @@ interface About {
             <!-- Bullet Points -->
             <ul class="space-y-2 mb-6">
               <li class="flex items-center gap-2">
-                <span class="text-green-400">🌱</span>
+                <span class="text-green-400">🚀</span>
                 <span class="text-[#e6edf3]"
-                  >I'm currently learning <strong>React.js</strong></span
+                  ><strong>on the way to software engineer ⚡</strong></span
                 >
               </li>
-              <li class="flex items-center gap-2">
-                <span class="text-blue-400">👀</span>
-                <span class="text-[#e6edf3]"
-                  >See my portfolio at <a
-                    href="#"
-                    class="text-blue-400 hover:underline">Danilo.dev</a
-                  ></span
-                >
-              </li>
+
               <li class="flex items-center gap-2">
                 <span class="text-purple-400">📫</span>
                 <span class="text-[#e6edf3]"
@@ -184,80 +209,15 @@ interface About {
                 <span class="text-[#e6edf3]">Interested in this world</span>
               </li>
             </ul>
-
-            <!-- Followers Badge -->
-
-            <!-- Skills Section -->
-            <div class="mb-6">
-              <h4 class="text-lg font-semibold mb-4">Skills</h4>
-              <div class="flex flex-wrap gap-3">
-                <img
-                  src="/placeholder.svg?height=32&width=32"
-                  alt="JavaScript"
-                  class="w-8 h-8"
-                />
-                <img
-                  src="/placeholder.svg?height=32&width=32"
-                  alt="HTML5"
-                  class="w-8 h-8"
-                />
-                <img
-                  src="/placeholder.svg?height=32&width=32"
-                  alt="CSS3"
-                  class="w-8 h-8"
-                />
-                <img
-                  src="/placeholder.svg?height=32&width=32"
-                  alt="React"
-                  class="w-8 h-8"
-                />
-                <img
-                  src="/placeholder.svg?height=32&width=32"
-                  alt="Node.js"
-                  class="w-8 h-8"
-                />
-                <img
-                  src="/placeholder.svg?height=32&width=32"
-                  alt="Bootstrap"
-                  class="w-8 h-8"
-                />
-                <img
-                  src="/placeholder.svg?height=32&width=32"
-                  alt="Figma"
-                  class="w-8 h-8"
-                />
-              </div>
-            </div>
-
-            <!-- Socials Section -->
-            <div>
-              <h4 class="text-lg font-semibold mb-4">Socials</h4>
-              <div class="flex gap-3">
-                <a
-                  href="#"
-                  class="text-[#5865f2] hover:text-[#4752c4] transition-colors"
-                >
-                  <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                    <path
-                      d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"
-                    ></path>
-                  </svg>
-                </a>
-                <a
-                  href="#"
-                  class="text-[#0077b5] hover:text-[#005885] transition-colors"
-                >
-                  <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                    <path
-                      d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
-                    ></path>
-                  </svg>
-                </a>
-              </div>
-            </div>
           </div>
         </div>
       </div>
+      <!-- Skills Section -->
+      <div class="mt-6 border border-[#30363d] rounded-lg p-6 ">
+        <h3 class="text-lg font-medium mb-4 text-[#7d8590]">
+          Skills & Technologies
+        </h3>
+        <SkillsMap client:load />
+      </div>
     </div>
-  </div>
 </section>

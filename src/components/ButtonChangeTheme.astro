@@ -1,40 +1,44 @@
 ---
-import '../styles/ButtonScrollTop.css';
-import Sun from '@/icons/Sun.astro';
-import Moon from '@/icons/Moon.astro';
+import "../styles/ButtonScrollTop.css";
+import Sun from "@/icons/Sun.astro";
+import Moon from "@/icons/Moon.astro";
 ---
 
 <button
   role="button"
   aria-label="button para cambiar de tema"
   id="button"
-  class="md:flex  justify-center items-center text-center   p-2 md:p-1 rounded-3xl " onclick="toggleTheme()">
+  class="md:flex justify-center items-center text-center p-2 md:p-1 rounded-3xl"
+  onclick="toggleTheme()"
+>
   <Sun
     class="md:fill-[#333333] dark:fill-white hidden dark:block icon-theme md:size-6 size-6"
     id="dark"
   />
-  <Moon
-    class="icon-theme fill-white  dark:hidden md:size-6 size-6"
-    id="light"
-  />
+  <Moon class="icon-theme fill-white dark:hidden md:size-6 size-6" id="light" />
 </button>
 
 <script is:inline>
-   // Función para aplicar el tema guardado
-   const applySavedTheme = () => {
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-      document.documentElement.classList.toggle('dark', savedTheme === 'dark');
+  // Aplica el tema guardado lo antes posible (antes de render)
+  (function () {
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "dark") {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  })();
+
+  // Cambia el tema y guarda la preferencia
+  const toggleTheme = () => {
+    const isDark = document.documentElement.classList.toggle("dark");
+    localStorage.setItem("theme", isDark ? "dark" : "light");
+    // Opcional: Forzar repaint de iconos si hay problemas
+    const sun = document.getElementById("dark");
+    const moon = document.getElementById("light");
+    if (sun && moon) {
+      sun.style.display = isDark ? "block" : "none";
+      moon.style.display = isDark ? "none" : "block";
     }
   };
-
-  // Función para cambiar el tema y guardar la preferencia
-  const toggleTheme = () => {
-    document.documentElement.classList.toggle('dark');
-    const isDarkMode = document.documentElement.classList.contains('dark');
-    localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
-  };
-
-  // Escuchar eventos para cambiar de tema
-  document.addEventListener('DOMContentLoaded', applySavedTheme);
 </script>
