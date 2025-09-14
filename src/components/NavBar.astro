@@ -1,10 +1,11 @@
 ---
-import ButtonChangeTheme from './ButtonChangeTheme.astro';
-import ProjectNav from '@/icons/ProjectNav.astro';
-import SkillsNav from '@/icons/SkillsNav.astro';
-import AboutNav from '@/icons/AboutNav.astro';
-import Home from '@/icons/Home.astro';
-import BlogIcon from '@/icons/BlogIcon.astro';
+import ButtonChangeTheme from "./ButtonChangeTheme.astro";
+import ProjectNav from "@/icons/ProjectNav.astro";
+import SkillsNav from "@/icons/SkillsNav.astro";
+import AboutNav from "@/icons/AboutNav.astro";
+import Home from "@/icons/Home.astro";
+import BlogIcon from "@/icons/BlogIcon.astro";
+import { AnimatedThemeToggler } from "./magicui/animated-theme-toggler";
 
 interface Items {
   name: string;
@@ -15,25 +16,26 @@ interface Items {
 
 const items: Items[] = [
   {
-    name: 'Proyectos',
-    link: '/#proyectos',
-    label: 'proyectos',
+    name: "Proyectos",
+    link: "/#proyectos",
+    label: "proyectos",
     icon: ProjectNav,
   },
   {
-    name: 'Sobre mi',
-    link: '/aboutme',
-    label: 'sobre-mi',
+    name: "Sobre mi",
+    link: "/aboutme",
+    label: "sobre-mi",
     icon: AboutNav,
   },
   {
-    name: 'Blog',
-    link: '/blog',
-    label: 'blog',
+    name: "Blog",
+    link: "/blog",
+    label: "blog",
     icon: BlogIcon,
   },
 ];
 ---
+
 <!-- desktop  -->
 <div class="md:flex justify-between items-center z-40 hidden">
   <div class="flex flex-col justify-center content-center">
@@ -54,14 +56,15 @@ const items: Items[] = [
             <a
               href={link}
               class="md:text-base text-sm  dark:hover:text-yellow-200 hover:text-blue-600  font-medium "
-              role="link">
+              role="link"
+            >
               {name}
             </a>
           </li>
         ))
       }
-      <li class="bg-[#1E2637] border border-gray-700 p-2 rounded-full">
-        <ButtonChangeTheme />
+      <li class=" flex justify-center">
+        <AnimatedThemeToggler client:load />
       </li>
     </ul>
   </nav>
@@ -69,20 +72,25 @@ const items: Items[] = [
 
 <!-- navbar mobil -->
 <div
-  class="fixed bottom-0 left-0 right-0 flex justify-center items-center z-40 md:hidden w-full">
+  class="fixed bottom-0 left-0 right-0 flex justify-center items-center z-40 md:hidden w-full"
+>
   <nav
-    class="dark:bg-[#0B1528] bg-white flex justify-center items-center w-full border border-gray-600">
+    class="dark:bg-[#0B1528] bg-white flex justify-center items-center w-full border border-gray-600"
+  >
     <ul
       role="list"
-      class="flex flex-row md:gap-7 gap-5 justify-center items-center p-3">
+      class="flex flex-row md:gap-7 gap-5 justify-center items-center p-3"
+    >
       <li
         class="dark:bg-[#1E2637] bg-white border border-gray-700 p-2 rounded-full scale-100 hover:scale-150 transition-transform duration-300 ease-in-out"
         data-microtip-position="top"
         role="tooltip"
-        aria-label="Home">
+        aria-label="Home"
+      >
         <a
           href="/"
-          class="md:text-base text-sm dark:hover:text-yellow-200 hover:text-blue-600 font-medium">
+          class="md:text-base text-sm dark:hover:text-yellow-200 hover:text-blue-600 font-medium"
+        >
           <Home class="size-6 stroke-gray-700 dark:stroke-neutral-400" />
         </a>
       </li>
@@ -92,11 +100,13 @@ const items: Items[] = [
             class="dark:bg-[#1E2637] bg-white border border-gray-700 p-2 rounded-full scale-100 hover:scale-150 transition-transform duration-300 ease-in-out"
             data-microtip-position="top"
             role="tooltip"
-            aria-label={label}>
+            aria-label={label}
+          >
             <a
               href={link}
               class="md:text-base text-sm  dark:hover:text-yellow-200 hover:text-blue-600  font-medium "
-              role="link">
+              role="link"
+            >
               <Icon
                 title={name}
                 class="md:size-7 size-6 stroke-gray-700 dark:stroke-neutral-400 "
@@ -106,7 +116,7 @@ const items: Items[] = [
         ))
       }
       <li class="bg-[#1E2637] border border-gray-700 rounded-full">
-        <ButtonChangeTheme />
+        <AnimatedThemeToggler client:load />
       </li>
     </ul>
   </nav>

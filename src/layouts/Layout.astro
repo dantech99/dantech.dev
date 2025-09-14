@@ -47,6 +47,16 @@ import { ClientRouter } from "astro:transitions";
     <!-- toolstips -->
     <link rel="stylesheet" href="https://unpkg.com/microtip/microtip.css" />
     <ClientRouter />
+    <script>
+      try {
+        const theme = localStorage.getItem("theme");
+        if (theme === "dark") {
+          document.documentElement.classList.add("dark");
+        } else {
+          document.documentElement.classList.remove("dark");
+        }
+      } catch (e) {}
+    </script>
   </head>
   <body
     class="mx-auto flex md:max-w-5xl max-w-3xl absolute md:relative flex-col px-3 py-8 text-sm text-neutral-400 md:py-16 -z-50"
