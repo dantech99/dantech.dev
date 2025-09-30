@@ -11,8 +11,7 @@
           "type": "string"
         },
         "img": {
-          "type": "string",
-          "format": "uri"
+          "type": "string"
         },
         "description": {
           "type": "string"

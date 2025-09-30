@@ -1,10 +1,145 @@
 ---
 slug: ecmascript-versiones
 title: ¿Qué Trajo Cada Versión de ECMAScript? Un Viaje Cronológico
-img: https://i.postimg.cc/NFWHSKHV/ES-ILUSTRATION.jpg
+img: /img/articles/cronologia-es.png
 author: Danilo A. Macea
 description: Vamos a explorar cada una de las versiones de ecmascript hasta nuestros días, conoceremos cada uno de los cambios que se introdujeron y como aportaron al mejoramiento del lenguaje de programacion mas usado hoy dia JavaScript
 date: "__DATE__"
 ---
 
-Escribiendo este articulo...
+
+## Un viaje a Traves del tiempo: La evolución de ECMAScript que dio Forma a JavaScript
+
+### Introducción
+
+JavaScript es uno de los lenguajes de programación mas utilizados en el desarrollo web, fundamental para crear interfaces de usuario interactivas y dinámicas. Creado en 1995 por brendan Eich, paso por varios nombres (mocha, luego LiveScript) antes de establecerse como JavaScript.
+
+Pero, ¿que es ECMAScrip? Es el estándar sobre el cual se basa JavaScript. Desarrollado y mantenido por la organización de estándares ECMA International, su designación oficial es ECMA-262. Cada nueva version de este estándar influye directamente en la evolución del lenguaje. En este articulo, exploraremos la cronología de ECMAScript y las actualizaciones clave que han mejorado JavaScript a lo largo de los años.
+
+---
+
+### ECMAScript 1 (1997)
+
+La primera edición del estándar conocida como ES1, se lanzo en 1997. Se baso en el lenguaje JavaScript existente e incluyo sus características fundamentales como **variables, funciones y sentencias de control de flujo básicas.**
+
+```jsx
+// Ejemplo de una varaible en ES1
+var nombre = "Dantech.dev";
+console.log(nombre); // Salida: "Dantech.dev"
+
+//Ejemplo de una funcion en ES1
+function sumar(a,b) {
+	return a + b;
+}
+console.log(sumar(1,2)); // salida: 3
+```
+
+### ECMAScript 2 (1998) y ECMAScript 3 (1999)
+
+La segunda version, ES2, fue una actualización menor lanzada en 1998 que se centro principalmente en hacer el estándar mas consistente.
+
+Un años después, en 1999, llego ES3, que introdujo varias características importantes que hoy son fundamentales, como las expresiones regulares, las declaraciones  `try-catch` para el manejo de errores y un manejo de cadenas de texto mejorado.
+
+```jsx
+var texto = "Hola, mundo!";
+var regex = /hola/;
+console.log(regex.test(texto)); // salida: true
+
+//Ejemplo de una declaracion try-catch en ES3
+try {
+	var x = y + 1 // 'y' no esta definida, lo que causara un error
+} catch (error) {
+	console.log(error) // Salida: ReferenceError: y es not defined
+}
+```
+
+### ECMAScript 4 (Nunca lanzado)
+
+Se planeo una cuarta version con cambios muy significativos, como clases, interfaces y espacios de nombres (namespaces). sin embargo, la propuesta genero una gran oposición y su desarrollo fue finalmente abandonado, por lo que ES4 nunca vio la luz.
+
+### ECMAScript 5 (2009)
+
+Tras una parga pausa, ES5 se lanzo en 2009. Esta version introdujo mejoras cruciales como:
+
+- Modo estricto `“use strict”`, una forma de optar por una variante restringida de JavaScript para una escritura de código mas segura
+- Soporte nativo para JSON, permitiendo analizar y convertir datos en este formato de manera sencilla
+- Mejora en la manipulación de arrays, con nuevos métodos como `indexOf()` y `map()`
+
+```jsx
+// Ejemplo de modo estricto en ES5
+function sumar(a, b){
+	"use strict";
+	return a + b;
+}
+console.log(sumar(1,2)); // salida: 3
+
+// ejemplo de soporte para JSON en ES5
+var jsonTexto = '{"nombre":"dantech", "edad":26}';
+var jsonData = JSON.parce(jsonTexto);
+
+// Ejemplo de manipulacion de arrays mejorada en ES5
+var numeros = [1,2,3,4,5];
+console.log(numeros.indexOf(3)) // Salida: 2
+console.log(numeros.map(function(numero){
+	return numero * 2;
+})); // salida: [2,4,6,8,10]
+```
+
+En 2011, se lanzo ES5.1 una actualización menor enfocada en corregir errores y mejorar la consistencia del estándar.
+
+### ECMAScript 6 (2015) - La gran Renovación
+
+Conocido popularmente como ES6, su lanzamiento en 2015 marco la mayor actualización del lenguaje hasta la fecha. Introdujo una sintaxis mas moderna y potente con características como:
+
+- Arrow Functions
+- template literals para una mejor interpolación de cadenas
+- clases, que ofrecen una sintaxis mas clara para la programación orientada a objetos
+
+```jsx
+// Ejemplo de let y const en ES6
+let nombre = "Dantech.dev"
+const edad = 26
+
+// Ejemplo de function de flecha o arrow function
+let sumar = (a, b) => a + b;
+console.log(sumar(1, 2)); // Salida: 3
+
+// Ejemplo de plantillas literales en ES6
+let mensaje = `¡Hola, ${nombre}!`;
+console.log(mensaje); // Salida: "¡Hola, John Doe!"
+
+// Ejemplo de una clase en ES6
+class Persona {
+  constructor(nombre, edad) {
+    this.nombre = nombre;
+    this.edad = edad;
+  }
+  saludar() {
+    return `¡Hola, ${this.nombre}!`;
+  }
+}
+let john = new Persona("John Doe", 30);
+console.log(john.saludar()); // Salida: "¡Hola, John Doe!"
+```
+
+Otras características importantes de ES6 incluyen parámetros por defecto, desestructuración, y nuevas estructuras de datos como `Map` y `Set`
+
+### ECMAScript 2017 (ES8)
+
+Esta version de 2017 trajo consigo mejorar importantes para la programación asíncrona y a manipulación de objetos.
+
+- `async/await`: Una sintaxis mas limpia para trabajar promesas
+- `object.values()` y `object.entries()`: Método para obtener los valores o los pares [clave, valor] de un objeto.
+- Relleno de cadenas `(padStart` y `padEnd`)
+
+```jsx
+// Ejemplo de Object.values() y Object.entries() en ES8
+let persona = { nombre: "John Doe", edad: 30 };
+console.log(Object.values(persona)); // Salida: ["John Doe", 30]
+console.log(Object.entries(persona)); // Salida: [["nombre", "John Doe"], ["age", 30]]
+
+// Ejemplo de relleno de cadenas en ES8
+let texto = "Hola";
+console.log(texto.padStart(10, '-')); // Salida: "-----Hola"
+console.log(texto.padEnd(10, '-'));   // Salida: "Hola-----"
+```
