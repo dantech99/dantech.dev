@@ -7,7 +7,6 @@ description: Vamos a explorar cada una de las versiones de ecmascript hasta nues
 date: "__DATE__"
 ---
 
-
 ## Un viaje a Traves del tiempo: La evolución de ECMAScript que dio Forma a JavaScript
 
 ### Introducción
@@ -143,3 +142,139 @@ let texto = "Hola";
 console.log(texto.padStart(10, '-')); // Salida: "-----Hola"
 console.log(texto.padEnd(10, '-'));   // Salida: "Hola-----"
 ```
+
+### ECMAScript 20218 (ES9)
+
+ES9, lanzada en 2018, continuo mejorando la asincronía y ma manipulación de objetos:
+
+- **iteración asíncrona** con `for-await-of`
+- `Promise.prototype.finally()`, que ejecuta código sin importar si una promesa se resolvió o fue rechazada
+- Propiedades `rest/spread` para objetos
+
+```jsx
+// Ejemplo de propeidades rest/spread en ES9
+let persona = {nombre: "danilo macea", edad: 26, pais: "colombia"};
+let {nombre, ...resto} = persona
+
+// ejemplo de Promise.prototype.finally() en ES9
+fetch('https://api.example.com/data')
+	.then(data => console.log(data))
+	.catch(error => console.log(error))
+	.finally(() => console.log("!terminado"));
+```
+
+### **ECMAScript 2019 (ES10)**
+
+En 2019, ES10 añadió métodos útiles para trabajar con arrays y objetos
+
+- **`Array.prototype.flatMap()`**, una combinación de `map()` y `flat()`
+- `**Object.fromEntries()**`, que crea un objeto a partir de una lista de pares [clave, valor]
+
+```jsx
+// Ejemplo de flat() y flatMap() en ES10
+let array = [1, 2, [3, 4]];
+console.log(array.flat()); // Salida: [1-4]
+
+let numeros = [1-4];
+console.log(numeros.flatMap(x => [x, x * 2])); // Salida: [1, 2, 2-4, 4, 6, 7]
+
+// Ejemplo de Object.fromEntries() en ES10
+let entradas = [['nombre', 'John Doe'], ['edad', 30]];
+console.log(Object.fromEntries(entradas)); // Salida: { nombre: "John Doe", edad: 30 }
+```
+
+## ECMAScript 2020 (ES11)
+
+ES11 introdujo características para manejar números grandes y valores nulos de forma mas segura
+
+- `BigInt` para enteros de tamaño arbitrario
+- `Promise.allSettled()`
+- **Operador de coalescencia nula** `(??)`
+- **Encadenamiento opcional** `(?.)`
+- Campos privados en clases usando `#`
+
+```jsx
+class Persona {
+  #nombre = "danilo macea"
+  #edad = 26;
+  
+  getNombre(){
+    return this.#nombre
+  }
+  getEdad(){
+    return this.#edad
+  }
+}
+let persona = new Persona()
+console.log(persona.getNombre()) // Salida: "Danilo macea"
+
+// Ejmplo de coalescencia nula es ES11
+let valor = null;
+console.log(valor  ?? "default") // Salida: Default
+```
+
+## ECMAScript 2021 (ES12)
+
+Lanzada en 2021, esta version incluyo
+
+- Operadores de asignación lógica (`&&=`, `||=`)
+- Separadores numéricos (_) para mejorar la legibilidad de números grandes
+- `Primise.any(`), que se resuelve en cuanto una de las promesas del literal se cumple
+- `String.prototype.replaceAll()` para reemplazar todas las ocurrencias de una sub Cadena
+
+```jsx
+// Ejemplo de separadores numericos en ES12
+let billon = 1_000_000_000;
+console.log(billon) // Salida  1000000000
+
+//Ejemplo de String.prototype.replaceAll() en ES12
+let cadena = "foo foo foo";
+console.log(cadena.replaceAll("foo", "bar")) // Salida: "bar, bar, bar"
+```
+
+## ECMAScript 2022 (ES13)
+
+La decimotercera edición trajo varias adiciones significativas, incluyendo:
+
+- La capacidad de usar `await` en el nivel superior (fuera de una función `async`)
+- Nuevos elementos de clase como campos y métodos privados y estáticos
+- Bloques estáticos dentro de las clases para inicialización
+- El método `at()` para String  y Arrays, que permite indexación relativa (por ejemplo, `array.at(1)` para obtener el ultimo elemento
+- `Object.hasOwn`, una alternativa mas conveniente a `objetc.prototye.hasOwnProperty`
+- La propiedad `cause` en los objetos `Error` para registrar una cadena de casualidad en los errores
+
+## ECMAScript 2023 (ES14)
+
+La version mas reciente, ES14, se centra en la inmutabilidad y la manipulación de arrays
+
+- Nuevos métodos en `Array.prototype` que devuelven una nueva copia del array en lugar de modificar el original, como `toSorted()`, `toReversed()` y `with()`
+- Métodos para buscar desde el final de un array: `finLast()` y `findLastIndex()`
+- Soporte para comentarios `#!` (**(hashbang/shebang),** permitiendo que los archivos ECMAScript sean directamente ejecutables desde la Linea de comandos
+- Permite el uso de la mayoría de los Símbolos como claves en colecciones débiles
+
+```jsx
+// ejemplo del metodo toSorted() devuleve un nuevo array ordenado, dejando el original sin cambios
+let arr = [1,2,3];
+let sotedArr = arr.toSorted()
+console.log(sotedArr)
+
+// el metodo with() permite modificar un elemnto por su indice y devielve un nuevo array
+let arr2 = ['manzana', 'banana','cereza']
+let newArr2 = arr2.with(1, 'arandano')
+
+console.log(newArr2) // Salida: [ 'manzana', 'arandano', 'cereza' ]
+```
+
+Existen mas versiones como las ES15 y la ES16 que salieron recientemente y comprenden los años 2024 y 2025, hablare sobre las novedades que se introdujeron en estas ultimas versiones en un proximo articulo, así Tambien como las propuestas que están abiertas para posibles implementaciones al lenguaje.
+
+## ¿Como evoluciona ECMAScript?
+
+El desarrollo de las especificaciones de ECMAScript es supervisado por el comité Ecma TC39
+
+Sigue en proceso estructurado donde las propuestas avanzan por varias etapas, desde una idea inicial hasta convertirse en una característica finalizada, probada e implementada. Este proceso es transparente y permite la participación tanto de los miembros del comité como de la comunidad en general
+
+---
+
+Como hemos visto, la evolución de ECMAScript es un proceso riguroso de prueba y validación. Cada avance, como los de ECMAScript 2023, juega un papel crucial en hacer de JavaScript un lenguaje mas robusto, dinámico y capaz de enfrentar las cambiantes demandas del mundo digital.
+
+En
