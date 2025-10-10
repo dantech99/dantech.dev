@@ -19,6 +19,7 @@ const projects = defineCollection({
     description: z.string(),
     img: z.string(),
     date: z.date(),
+    status: z.enum(['Completado', 'En desarrollo', 'Planificado']).optional().default('Completado'),
     links: z.array(z.object({
       name: z.string(),
       url: z.string().url(),
@@ -35,7 +36,19 @@ const projects = defineCollection({
   })
 })
 
+const certificates = defineCollection({
+  type: 'content',
+  schema: z.object({
+    id: z.string(),
+    title: z.string(),
+    description: z.string(),
+    image: z.string(),
+    date: z.string()
+  })
+})
+
 export const collections = {
   'articles': articles,
-  'projects': projects
+  'projects': projects,
+  'certificates': certificates
 }

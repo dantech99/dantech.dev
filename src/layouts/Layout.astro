@@ -40,6 +40,11 @@ import { ClientRouter } from "astro:transitions";
         meta: [
           { name: "viewport", content: "width=device-width, initial-scale=1" },
           { name: "robots", content: "index, follow" },
+          { name: "author", content: "Danilo Antonio Macea" },
+          { name: "keywords", content: "desarrollador web, frontend, React, Next.js, TypeScript, JavaScript, portafolio, desarrollador frontend Colombia" },
+          { name: "language", content: "es" },
+          { name: "geo.region", content: "CO" },
+          { name: "geo.placename", content: "Sahagún, Córdoba" },
         ],
       }}
     />
@@ -47,6 +52,41 @@ import { ClientRouter } from "astro:transitions";
     <!-- toolstips -->
     <link rel="stylesheet" href="https://unpkg.com/microtip/microtip.css" />
     <ClientRouter />
+    
+    <!-- JSON-LD Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Danilo Antonio Macea",
+      "jobTitle": "Desarrollador Web Frontend",
+      "description": "Desarrollador web frontend especializado en React, Next.js y TypeScript con más de 2 años de experiencia",
+      "url": "https://dantech.dev",
+      "image": "https://i.postimg.cc/wjRLXzrQ/logo-dantech.png",
+      "sameAs": [
+        "https://github.com/dantech99",
+        "https://linkedin.com/in/dantech99",
+        "https://instagram.com/dantech.dev",
+        "https://x.com/dantech99"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Sahagún",
+        "addressRegion": "Córdoba",
+        "addressCountry": "Colombia"
+      },
+      "email": "dantech.dev@hotmail.com",
+      "knowsAbout": [
+        "React",
+        "Next.js",
+        "TypeScript",
+        "JavaScript",
+        "Tailwind CSS",
+        "Web Development",
+        "Frontend Development"
+      ]
+    }
+    </script>
     <script>
       try {
         const theme = localStorage.getItem("theme");

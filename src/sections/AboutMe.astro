@@ -2,6 +2,12 @@
 import DividerLine from "@/components/DividerLine.astro";
 import ButtonCv from "@/components/ButtonCv.astro";
 import SkillsMap from "@/components/SkillsMap";
+import CertificatesSlider from "@/components/CertificatesSlider.jsx";
+import { getCollection } from 'astro:content';
+
+// Obtener los certificados
+const certificates = await getCollection('certificates');
+
 interface About {
   title: string;
   desacription: string;
@@ -19,27 +25,27 @@ interface About {
       <div class="grid grid-cols-1 lg:grid-cols-5 gap-6">
         <!-- Sidebar Profile -->
         <div class="lg:col-span-2">
-          <div class="border border-[#30363d] rounded-lg p-6 h-full">
+          <div class="border border-gray-300 dark:border-[#30363d] rounded-lg p-6 h-full bg-white dark:bg-gray-900">
             <!-- Avatar -->
             <div class="relative mb-4 w-full flex justify-center">
               <img
                 src="/img/myphoto.jpg"
                 alt="Danilo Macea"
-                class="w-60 h-60 rounded-full border-2 border-[#30363d] object-cover"
+                class="w-60 h-60 rounded-full border-2 border-gray-300 dark:border-[#30363d] object-cover"
               />
             </div>
 
             <!-- Name and Title -->
             <div class="mb-4">
-              <h1 class="text-xl font-semibold mb-1">Danilo Antonio M.</h1>
-              <p class="text-[#7d8590] text-sm">Developer Web Front End</p>
+              <h1 class="text-xl font-semibold mb-1 text-gray-900 dark:text-white">Danilo Antonio M.</h1>
+              <p class="text-gray-600 dark:text-[#7d8590] text-sm">Developer Web Front End</p>
             </div>
 
             <!-- Contact Info -->
             <div class="space-y-2 text-sm">
               <div class="flex items-center gap-2">
                 <svg
-                  class="w-4 h-4 text-[#7d8590]"
+                  class="w-4 h-4 text-gray-600 dark:text-[#7d8590]"
                   fill="currentColor"
                   viewBox="0 0 16 16"
                 >
@@ -47,12 +53,12 @@ interface About {
                     d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"
                   ></path>
                 </svg>
-                <span class="text-[#7d8590]">dantech.dev@hotmail.com</span>
+                <span class="text-gray-600 dark:text-[#7d8590]">dantech.dev@hotmail.com</span>
               </div>
               <!-- Redes sociales -->
               <div class="flex items-center gap-2">
                 <svg
-                  class="w-4 h-4 text-[#7d8590]"
+                  class="w-4 h-4 text-gray-600 dark:text-[#7d8590]"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                   ><path
@@ -63,12 +69,12 @@ interface About {
                   href="https://instagram.com/dantech.dev"
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="text-[#7d8590] hover:underline">Instagram</a
+                  class="text-gray-600 dark:text-[#7d8590] hover:underline">Instagram</a
                 >
               </div>
               <div class="flex items-center gap-2">
                 <svg
-                  class="w-4 h-4 text-[#7d8590]"
+                  class="w-4 h-4 text-gray-600 dark:text-[#7d8590]"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                   ><path
@@ -79,12 +85,12 @@ interface About {
                   href="https://linkedin.com/in/dantech99"
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="text-[#7d8590] hover:underline">LinkedIn</a
+                  class="text-gray-600 dark:text-[#7d8590] hover:underline">LinkedIn</a
                 >
               </div>
               <div class="flex items-center gap-2">
                 <svg
-                  class="w-4 h-4 text-[#7d8590]"
+                  class="w-4 h-4 text-gray-600 dark:text-[#7d8590]"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                   ><path
@@ -95,12 +101,12 @@ interface About {
                   href="https://github.com/dantech99"
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="text-[#7d8590] hover:underline">GitHub</a
+                  class="text-gray-600 dark:text-[#7d8590] hover:underline">GitHub</a
                 >
               </div>
               <div class="flex items-center gap-2">
                 <svg
-                  class="w-4 h-4 text-[#7d8590]"
+                  class="w-4 h-4 text-gray-600 dark:text-[#7d8590]"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                   ><path
@@ -111,12 +117,12 @@ interface About {
                   href="https://x.com/dantech99"
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="text-[#7d8590] hover:underline">X (Twitter)</a
+                  class="text-gray-600 dark:text-[#7d8590] hover:underline">X (Twitter)</a
                 >
               </div>
               <div class="flex items-center gap-2">
                 <svg
-                  class="w-4 h-4 text-[#7d8590]"
+                  class="w-4 h-4 text-gray-600 dark:text-[#7d8590]"
                   fill="currentColor"
                   viewBox="0 0 16 16"
                 >
@@ -126,7 +132,7 @@ interface About {
                   ></path>
                   <path d="M8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"></path>
                 </svg>
-                <span class="text-[#7d8590]">Sahagun - Cordoba - Colombia</span>
+                <span class="text-gray-600 dark:text-[#7d8590]">Sahagun - Cordoba - Colombia</span>
               </div>
             </div>
           </div>
@@ -134,24 +140,24 @@ interface About {
 
         <!-- Main Content -->
         <div class="lg:col-span-3">
-          <div class="border border-[#30363d] rounded-lg p-6">
+          <div class="border border-gray-300 dark:border-[#30363d] rounded-lg p-6 bg-white dark:bg-gray-900">
             <!-- Header -->
             <div class="flex items-center justify-between mb-6">
               <div class="flex items-center gap-3">
                 <span class="text-2xl">👋</span>
-                <h2 class="text-xl font-semibold">
+                <h2 class="text-xl font-semibold text-gray-900 dark:text-white">
                   Hi, My name is Danilo Macea ✨
                 </h2>
               </div>
             </div>
 
             <!-- Subtitle -->
-            <h3 class="text-lg font-medium mb-4 text-[#7d8590]">
+            <h3 class="text-lg font-medium mb-4 text-gray-600 dark:text-[#7d8590]">
               Web developer FrontEnd
             </h3>
 
             <!-- Description in Spanish -->
-            <p class="text-[#e6edf3] mb-4 leading-relaxed">
+            <p class="text-gray-700 dark:text-[#e6edf3] mb-4 leading-relaxed">
               Soy un amante de la tecnología y me apasiona el mundo web, me
               gusta sumergirme en este hermoso mar donde se adquieren
               conocimientos, experiencias y habilidades, así como también
@@ -162,7 +168,7 @@ interface About {
             </p>
 
             <!-- Description in English -->
-            <p class="text-[#e6edf3] mb-6 leading-relaxed">
+            <p class="text-gray-700 dark:text-[#e6edf3] mb-6 leading-relaxed">
               I am a lover of technology and I am passionate about the web
               world, I like to immerse myself in this immense sea where great
               knowledge and experience are acquired, where everyone can
@@ -176,48 +182,56 @@ interface About {
             <!-- Bullet Points -->
             <ul class="space-y-2 mb-6">
               <li class="flex items-center gap-2">
-                <span class="text-green-400">🚀</span>
-                <span class="text-[#e6edf3]"
+                <span class="text-green-500 dark:text-green-400">🚀</span>
+                <span class="text-gray-700 dark:text-[#e6edf3]"
                   ><strong>on the way to software engineer ⚡</strong></span
                 >
               </li>
 
               <li class="flex items-center gap-2">
-                <span class="text-purple-400">📫</span>
-                <span class="text-[#e6edf3]"
+                <span class="text-purple-500 dark:text-purple-400">📫</span>
+                <span class="text-gray-700 dark:text-[#e6edf3]"
                   >You can contact me at <a
                     href="mailto:dantech.dev@hotmail.com"
-                    class="text-blue-400 hover:underline"
+                    class="text-blue-600 dark:text-blue-400 hover:underline"
                     >dantech.dev@hotmail.com</a
                   ></span
                 >
               </li>
               <li class="flex items-center gap-2">
-                <span class="text-yellow-400">⚡</span>
-                <span class="text-[#e6edf3]"
+                <span class="text-yellow-500 dark:text-yellow-400">⚡</span>
+                <span class="text-gray-700 dark:text-[#e6edf3]"
                   >Fun fact: <strong>I love video games</strong></span
                 >
               </li>
               <li class="flex items-center gap-2">
-                <span class="text-orange-400">🤔</span>
-                <span class="text-[#e6edf3]"
+                <span class="text-orange-500 dark:text-orange-400">🤔</span>
+                <span class="text-gray-700 dark:text-[#e6edf3]"
                   >I'm open to collaborating on Apps web, new ideas</span
                 >
               </li>
               <li class="flex items-center gap-2">
-                <span class="text-red-400">💬</span>
-                <span class="text-[#e6edf3]">Interested in this world</span>
+                <span class="text-red-500 dark:text-red-400">💬</span>
+                <span class="text-gray-700 dark:text-[#e6edf3]">Interested in this world</span>
               </li>
             </ul>
           </div>
         </div>
       </div>
       <!-- Skills Section -->
-      <div class="mt-6 border border-[#30363d] rounded-lg p-6 ">
-        <h3 class="text-lg font-medium mb-4 text-[#7d8590]">
+      <div class="mt-6 border border-gray-300 dark:border-[#30363d] rounded-lg p-6 bg-white dark:bg-gray-900">
+        <h3 class="text-lg font-medium mb-4 text-gray-700 dark:text-[#7d8590]">
           Skills & Technologies
         </h3>
         <SkillsMap client:load />
+      </div>
+
+      <!-- Certificates Section -->
+      <div class="mt-6 border border-gray-300 dark:border-[#30363d] rounded-lg p-6 bg-white dark:bg-gray-900">
+        <h3 class="text-lg font-medium mb-4 text-gray-700 dark:text-[#7d8590]">
+          Certificados y Formación Educativa
+        </h3>
+        <CertificatesSlider certificates={certificates} client:load />
       </div>
     </div>
 </section>

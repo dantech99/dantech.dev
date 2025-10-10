@@ -1,14 +1,14 @@
 ---
-import DividerLine from "@/components/DividerLine.astro";
-import CardProject from "@/components/CardProject.astro";
-import ButtonMore from "@/components/ButtonMore.astro";
+import DividerLine from '@/components/DividerLine.astro';
+import CardProject from '@/components/CardProject.astro';
+import ButtonMore from '@/components/ButtonMore.astro';
 
-import { getCollection, type CollectionEntry } from "astro:content";
+import { getCollection, type CollectionEntry } from 'astro:content';
 
-const projects = await getCollection("projects");
+const projects = await getCollection('projects');
 
 interface Props {
-  project?: CollectionEntry<"projects">;
+  project?: CollectionEntry<'projects'>;
 }
 ---
 
@@ -19,7 +19,7 @@ interface Props {
   {
     projects.slice(0, 4).map((project) => {
       const { slug, data } = project;
-      const { title, description, img, tags, links, tech } = data;
+      const { title, description, img, tags, links, tech, status } = data;
       return (
         <CardProject
           title={title}
@@ -29,6 +29,7 @@ interface Props {
           links={links}
           tech={tech}
           slug={slug}
+          status={status}
         />
       );
     })
