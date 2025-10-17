@@ -100,6 +100,42 @@
   }
 }
 
+/* Estilos específicos para artículos responsive */
+@layer components {
+  .prose {
+    /* Asegurar que el contenido no se desborde horizontalmente */
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+  
+  .prose pre {
+    /* Hacer que los bloques de código sean responsive */
+    overflow-x: auto;
+    white-space: pre;
+  }
+  
+  .prose img {
+    /* Asegurar que las imágenes sean responsive */
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .prose table {
+    /* Hacer que las tablas sean responsive */
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  
+  @media (min-width: 768px) {
+    .prose table {
+      display: table;
+      white-space: normal;
+    }
+  }
+}
+
 ::view-transition-old(root), ::view-transition-new(root) {
     animation: none;
     mix-blend-mode: normal;

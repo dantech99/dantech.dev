@@ -1,18 +1,18 @@
 ---
-import Header from "../components/Header.astro";
-import ButtonScrollTop from "@/components/buttonScrollTop.astro";
+import Header from '../components/Header.astro';
+import ButtonScrollTop from '@/components/buttonScrollTop.astro';
 import {
   SITE_URL,
   SITE_DESCRIPTION,
   SITE_TITLE,
   SITE_IMAGE,
-} from "../constants";
-import "@/styles/tailwind.css";
-import LigthBg from "@/components/DarkBackground.astro";
-import NavBar from "@/components/NavBar.astro";
-import { SEO } from "astro-seo";
+} from '../constants';
+import '@/styles/tailwind.css';
+import LigthBg from '@/components/DarkBackground.astro';
+import NavBar from '@/components/NavBar.astro';
+import { SEO } from 'astro-seo';
 const { title, description } = Astro.props;
-import { ClientRouter } from "astro:transitions";
+import { ClientRouter } from 'astro:transitions';
 ---
 
 <html lang="es" class="dark">
@@ -23,28 +23,32 @@ import { ClientRouter } from "astro:transitions";
       openGraph={{
         basic: {
           title: SITE_TITLE,
-          type: "website",
+          type: 'website',
           image: SITE_IMAGE,
           url: SITE_URL,
         },
       }}
       twitter={{
-        card: "summary_large_image",
+        card: 'summary_large_image',
         title: SITE_TITLE,
         description: SITE_DESCRIPTION,
         image: SITE_IMAGE,
-        creator: "@DanTech_99",
+        creator: '@DanTech_99',
       }}
       extend={{
-        link: [{ rel: "icon", href: "/img/favicon-32x32.png" }],
+        link: [{ rel: 'icon', href: '/img/favicon-32x32.png' }],
         meta: [
-          { name: "viewport", content: "width=device-width, initial-scale=1" },
-          { name: "robots", content: "index, follow" },
-          { name: "author", content: "Danilo Antonio Macea" },
-          { name: "keywords", content: "desarrollador web, frontend, React, Next.js, TypeScript, JavaScript, portafolio, desarrollador frontend Colombia" },
-          { name: "language", content: "es" },
-          { name: "geo.region", content: "CO" },
-          { name: "geo.placename", content: "Sahagún, Córdoba" },
+          { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+          { name: 'robots', content: 'index, follow' },
+          { name: 'author', content: 'Danilo Antonio Macea' },
+          {
+            name: 'keywords',
+            content:
+              'desarrollador web, frontend, React, Next.js, TypeScript, JavaScript, portafolio, desarrollador frontend Colombia',
+          },
+          { name: 'language', content: 'es' },
+          { name: 'geo.region', content: 'CO' },
+          { name: 'geo.placename', content: 'Sahagún, Córdoba' },
         ],
       }}
     />
@@ -52,55 +56,54 @@ import { ClientRouter } from "astro:transitions";
     <!-- toolstips -->
     <link rel="stylesheet" href="https://unpkg.com/microtip/microtip.css" />
     <ClientRouter />
-    
+
     <!-- JSON-LD Schema -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Danilo Antonio Macea",
-      "jobTitle": "Desarrollador Web Frontend",
-      "description": "Desarrollador web frontend especializado en React, Next.js y TypeScript con más de 2 años de experiencia",
-      "url": "https://dantech.dev",
-      "image": "https://i.postimg.cc/wjRLXzrQ/logo-dantech.png",
-      "sameAs": [
-        "https://github.com/dantech99",
-        "https://linkedin.com/in/dantech99",
-        "https://instagram.com/dantech.dev",
-        "https://x.com/dantech99"
-      ],
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Sahagún",
-        "addressRegion": "Córdoba",
-        "addressCountry": "Colombia"
-      },
-      "email": "dantech.dev@hotmail.com",
-      "knowsAbout": [
-        "React",
-        "Next.js",
-        "TypeScript",
-        "JavaScript",
-        "Tailwind CSS",
-        "Web Development",
-        "Frontend Development"
-      ]
-    }
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Danilo Antonio Macea",
+        "jobTitle": "Desarrollador Web Frontend",
+        "description": "Desarrollador web frontend especializado en React, Next.js y TypeScript con más de 2 años de experiencia",
+        "url": "https://dantech.dev",
+        "image": "https://i.postimg.cc/wjRLXzrQ/logo-dantech.png",
+        "sameAs": [
+          "https://github.com/dantech99",
+          "https://linkedin.com/in/dantech99",
+          "https://instagram.com/dantech.dev",
+          "https://x.com/dantech99"
+        ],
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Sahagún",
+          "addressRegion": "Córdoba",
+          "addressCountry": "Colombia"
+        },
+        "email": "dantech.dev@hotmail.com",
+        "knowsAbout": [
+          "React",
+          "Next.js",
+          "TypeScript",
+          "JavaScript",
+          "Tailwind CSS",
+          "Web Development",
+          "Frontend Development"
+        ]
+      }
     </script>
     <script>
       try {
-        const theme = localStorage.getItem("theme");
-        if (theme === "dark") {
-          document.documentElement.classList.add("dark");
+        const theme = localStorage.getItem('theme');
+        if (theme === 'dark') {
+          document.documentElement.classList.add('dark');
         } else {
-          document.documentElement.classList.remove("dark");
+          document.documentElement.classList.remove('dark');
         }
       } catch (e) {}
     </script>
   </head>
   <body
-    class="mx-auto flex md:max-w-5xl max-w-3xl absolute md:relative flex-col px-3 py-8 text-sm text-neutral-400 md:py-16 -z-50"
-  >
+    class="mx-auto flex md:max-w-5xl max-w-full absolute md:relative flex-col px-4 py-8 text-sm text-neutral-400 md:py-16 -z-50">
     <NavBar />
     <slot />
     <LigthBg />
@@ -108,7 +111,7 @@ import { ClientRouter } from "astro:transitions";
     <style is:global>
       @font-face {
         font-family: Geist;
-        src: url("/public/fonst/GeistVariableVF.woff2") format("woff2");
+        src: url('/public/fonst/GeistVariableVF.woff2') format('woff2');
         font-weight: normal;
         font-style: normal;
         font-display: swap;
@@ -123,7 +126,7 @@ import { ClientRouter } from "astro:transitions";
         scroll-behavior: smooth;
       } */
       body {
-        font-family: "Geist", sans-serif;
+        font-family: 'Geist', sans-serif;
         padding: 0;
         margin: 0;
         box-sizing: border-box;

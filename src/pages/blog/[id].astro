@@ -1,14 +1,14 @@
 ---
-import { getCollection, type CollectionEntry } from "astro:content";
-import Layout from "@/layouts/Layout.astro";
-import DividerLine from "@/components/DividerLine.astro";
+import { getCollection, type CollectionEntry } from 'astro:content';
+import Layout from '@/layouts/Layout.astro';
+import DividerLine from '@/components/DividerLine.astro';
 
 interface Props {
-  article: CollectionEntry<"articles">;
+  article: CollectionEntry<'articles'>;
 }
 
 export async function getStaticPaths() {
-  const articles = await getCollection("articles");
+  const articles = await getCollection('articles');
 
   return articles.map((article) => ({
     params: { id: article.slug },
@@ -16,11 +16,11 @@ export async function getStaticPaths() {
   }));
 }
 
-const { article } = Astro.props as { article: CollectionEntry<"articles"> };
+const { article } = Astro.props as { article: CollectionEntry<'articles'> };
 const { data } = article;
 
 const date =
-  data.date && data.date !== "__DATE__" ? data.date : new Date().toISOString();
+  data.date && data.date !== '__DATE__' ? data.date : new Date().toISOString();
 
 const { title, description, author, img } = data;
 const { Content } = await article.render();
@@ -29,22 +29,22 @@ export const prerender = true;
 ---
 
 <Layout title=`${title}` description={description}>
-  <section class="my-20">
+  <section class="my-20 px-4 md:px-0">
     <header class="flex flex-col gap-5">
       <h1
-        class="text-4xl font-semibold dark:text-white text-gray-800"
-        transition:name={`article-${title}`}
-      >
+        class="text-3xl md:text-4xl font-semibold dark:text-white text-gray-800 break-words"
+        transition:name={`article-${title}`}>
         {title}
       </h1>
-      <p>Por: {author} | Publicado el: {new Date(date).toLocaleDateString()}</p>
-      <img src={img} alt="" class="rounded w-full h-72 object-cover" />
+      <p class="text-sm md:text-base text-gray-600 dark:text-gray-400">
+        Por: {author} | Publicado el: {new Date(date).toLocaleDateString()}
+      </p>
+      <img src={img} alt="" class="rounded w-full h-48 md:h-72 object-cover" />
     </header>
 
-    <main class="max-w-2xl m-auto my-10 text-pretty">
+    <main class="max-w-4xl m-auto my-10 text-pretty px-4 md:px-0">
       <div
-        class="prose dark:prose-invert dark:prose-a:text-yellow-300 prose-a:text-blue-700 prose-blockquote:border-blue-700"
-      >
+        class="prose prose-sm md:prose-base dark:prose-invert dark:prose-a:text-yellow-300 prose-a:text-blue-700 prose-blockquote:border-blue-700 max-w-none">
         <Content />
       </div>
     </main>
