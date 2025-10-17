@@ -29,6 +29,15 @@
             }
           ]
         },
+        "status": {
+          "type": "string",
+          "enum": [
+            "Completado",
+            "En desarrollo",
+            "Planificado"
+          ],
+          "default": "Completado"
+        },
         "links": {
           "type": "array",
           "items": {
