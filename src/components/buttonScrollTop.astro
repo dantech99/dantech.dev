@@ -1,6 +1,6 @@
 ---
-import '../styles/ButtonScrollTop.css';
-import ArrowUp from '@/icons/ArrowUp.astro';
+import "../styles/ButtonScrollTop.css";
+import ArrowUp from "@/icons/ArrowUp.astro";
 ---
 
 <!-- Button scroll top click -->
@@ -9,16 +9,16 @@ import ArrowUp from '@/icons/ArrowUp.astro';
   id="up"
   class="btn-up"
   role="button"
-  aria-label="subir hacia arriba">
+  aria-label="subir hacia arriba"
+>
   <ArrowUp class="size-10" />
 </a>
 
 <!-- scrip for button top click -->
-<script type="text/javascript">
+<script is:inline>
+  const button = document.querySelector("#up");
 
-  const button = document.querySelector('#up');
-
-  button.addEventListener('click', () => {
+  button.addEventListener("click", () => {
     if (window.scrollY) {
       window.scroll(0, 100);
     }
@@ -28,12 +28,11 @@ import ArrowUp from '@/icons/ArrowUp.astro';
     scrollFuntion();
   };
 
-
   function scrollFuntion() {
     if (document.documentElement.scrollTop > 350) {
-      button.classList.add('btn-show');
+      button.classList.add("btn-show");
     } else {
-      button.classList.remove('btn-show');
+      button.classList.remove("btn-show");
     }
   }
 </script>
