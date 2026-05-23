@@ -1,0 +1,6 @@
+allowBuilds:
+  '@parcel/watcher': true
+  esbuild: true
+  sharp: true
+patchedDependencies:
+  '@astrojs/react@4.4.2': patches/@astrojs__react@4.4.2.patch
