@@ -5,7 +5,9 @@ import DividerLine from '@/components/DividerLine.astro';
 
 import { getCollection } from 'astro:content';
 
-const projects = await getCollection('projects');
+const projects = (await getCollection('projects')).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
 ---
 
 <Layout title="Danilo Macea - Desarrollador Web Frontend | Proyectos">

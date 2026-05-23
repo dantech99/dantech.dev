@@ -5,7 +5,9 @@ import ButtonMore from '@/components/ButtonMore.astro';
 
 import { getCollection, type CollectionEntry } from 'astro:content';
 
-const projects = await getCollection('projects');
+const projects = (await getCollection('projects')).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
 
 interface Props {
   project?: CollectionEntry<'projects'>;

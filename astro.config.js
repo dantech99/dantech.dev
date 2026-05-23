@@ -5,7 +5,7 @@ import react from "@astrojs/react";
 import tailwind from "@astrojs/tailwind";
 
 // https://astro.build/config
-import vercel from "@astrojs/vercel/serverless";
+import vercel from "@astrojs/vercel";
 
 // mdx integration
 import mdx from '@astrojs/mdx';

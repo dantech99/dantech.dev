@@ -1,0 +1,48 @@
+---
+title: Joyerodigital
+slug: joyero-digital
+description: Plataforma e-commerce full-stack para joyería,tienda online, marketplace de modelos 3D, módulo de capacitación con cursos grupales y dashboard administrativo.
+img: https://pub-959e68ee8847444fb959495bb3c8962c.r2.dev/portfolio/joyero-digital-web.png
+date: 2026-02-15
+status: 'Completado'
+links: [
+  {
+    name: 'Preview',
+    url: 'https://beta.joyerodigital.com/',
+    icon: Link
+  },
+] 
+tags: ['web', 'freelance', 'startup']
+tech: [
+  {
+    name: 'Next.js',
+    icon: Nextjs
+  },
+  {
+    name: 'React.js',
+    icon: React,
+  },
+  {
+    name: 'Node.js',
+    icon: Nodejs,
+  },
+]
+author: 'Danilo A. Macea'
+authorImg: 'https://i.postimg.cc/NFWHSKHV/ES-ILUSTRATION.jpg'
+authorUrl: 'https://www.recyclingbikes.co/'
+---
+
+- Arquitecté un monorepo TypeScript con Turborepo (Next.js 15 + Elysia + PostgreSQL),
+  estableciendo separación de capas (route / service / module) y type-safety end-to-end
+  via Eden Treaty.
+- Integré dos pasarelas de pago simultáneas — Bold (COP) y PayPal (USD) — con
+  detección automática de moneda por geolocalización y confirmación de pagos via
+  webhook.
+- Implementé autenticación completa con Better Auth: email/password, Google OAuth,
+  sesiones cross-subdomain y sistema de roles y permisos granular (RBAC).
+- Desarrollé el flujo completo de inscripción a cursos: carrito → pago → webhook →
+  confirmación → envío automático de email con enlace de acceso (Nodemailer/SMTP).
+- Construí dashboard administrativo con gestión de productos, cursos, modelos 3D
+  (Dropbox API), usuarios, pedidos e inscripciones.
+- Integré visualización de modelos 3D en navegador con @google/model-viewer y descarga
+   protegida de archivos STL via token

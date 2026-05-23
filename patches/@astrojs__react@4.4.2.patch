@@ -1,0 +1,13 @@
+diff --git a/dist/server.js b/dist/server.js
+index 5d8d8a4a41bd7b8e6ed10a56eb064231deba2e96..944c482089440dd41ea7c4db39340907c13bc6c6 100644
+--- a/dist/server.js
++++ b/dist/server.js
+@@ -8,7 +8,7 @@ const reactTypeof = Symbol.for("react.element");
+ const reactTransitionalTypeof = Symbol.for("react.transitional.element");
+ async function check(Component, props, children) {
+   if (typeof Component === "object") {
+-    return Component["$$typeof"].toString().slice("Symbol(".length).startsWith("react");
++    return Component["$$typeof"] != null && Component["$$typeof"].toString().slice("Symbol(".length).startsWith("react");
+   }
+   if (typeof Component !== "function") return false;
+   if (Component.name === "QwikComponent") return false;
