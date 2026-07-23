@@ -4,29 +4,26 @@ import ArrowUp from "@/icons/ArrowUp.astro";
 ---
 
 <!-- Button scroll top click -->
-<a
-  href="#"
+<button
+  type="button"
   id="up"
   class="btn-up"
-  role="button"
   aria-label="subir hacia arriba"
+  transition:persist
 >
   <ArrowUp class="size-10" />
-</a>
+</button>
 
 <!-- scrip for button top click -->
 <script is:inline>
   const button = document.querySelector("#up");
 
   button.addEventListener("click", () => {
-    if (window.scrollY) {
-      window.scroll(0, 100);
-    }
+    window.scrollTo({ top: 0, behavior: "smooth" });
   });
 
-  window.onscroll = function () {
-    scrollFuntion();
-  };
+  document.addEventListener("scroll", scrollFuntion);
+  scrollFuntion();
 
   function scrollFuntion() {
     if (document.documentElement.scrollTop > 350) {
