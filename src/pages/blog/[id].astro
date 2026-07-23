@@ -2,6 +2,7 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
 import Layout from '@/layouts/Layout.astro';
 import DividerLine from '@/components/DividerLine.astro';
+import NextArticle from '@/components/NextArticle.astro';
 
 interface Props {
   article: CollectionEntry<'articles'>;
@@ -47,6 +48,12 @@ export const prerender = true;
         class="prose prose-sm md:prose-base dark:prose-invert dark:prose-a:text-yellow-300 prose-a:text-blue-700 prose-blockquote:border-blue-700 max-w-none">
         <Content />
       </div>
+
+      {data.nextSlug && (
+        <div class="mt-10">
+          <NextArticle slug={data.nextSlug} />
+        </div>
+      )}
     </main>
   </section>
 </Layout>

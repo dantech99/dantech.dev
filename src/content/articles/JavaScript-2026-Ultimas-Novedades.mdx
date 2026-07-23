@@ -1,0 +1,221 @@
+---
+slug: javascript-2026-ultimas-novedades
+title: "JavaScript en 2026: Lo Nuevo en ECMAScript 2024, 2025 y 2026 (Parte 2)"
+img: /img/articles/javascript-2026-novedades.png
+author: Danilo A. Macea
+description: Segunda parte del recorrido por ECMAScript. Repasamos todo lo que trajeron ES2024 y ES2025, lo confirmado para ES2026 y lo que ya se cocina para ES2027 con Temporal y la gestión explícita de recursos.
+date: "__DATE__"
+---
+
+## De donde quedamos: ES2024, ES2025 y lo que viene en ES2026
+
+En [¿Qué Trajo Cada Versión de ECMAScript?](/blog/ecmascript-versiones) recorrimos la historia del lenguaje hasta ES2023, y quedé debiendo un artículo sobre las novedades de ES2024 y ES2025, además de las propuestas que seguían en camino. Toca cumplir esa promesa.
+
+El comité **TC39** sigue publicando una edición nueva de ECMAScript cada año, en junio. Cada propuesta recorre un proceso de cuatro etapas (Stage 0 a Stage 4) antes de entrar en la especificación oficial, y solo lo que llega a **Stage 4** antes del corte anual se incluye en la edición de ese año. Con eso claro, vamos con lo que trajeron las últimas tres ediciones.
+
+---
+
+### ECMAScript 2024 (ES15)
+
+Publicada en 2024, esta edición se centró en el manejo de datos, buffers binarios y utilidades para trabajar con `Promise`.
+
+- **Array Grouping**: `Object.groupBy()` y `Map.groupBy()` agrupan los elementos de un iterable según el resultado de una función callback.
+
+```jsx
+const inventario = [
+  { nombre: "manzanas", tipo: "fruta" },
+  { nombre: "zanahorias", tipo: "vegetal" },
+  { nombre: "peras", tipo: "fruta" },
+];
+
+const porTipo = Object.groupBy(inventario, ({ tipo }) => tipo);
+console.log(porTipo);
+// Salida: { fruta: [ {...}, {...} ], vegetal: [ {...} ] }
+```
+
+- **`Promise.withResolvers()`**: crea una promesa junto con sus funciones `resolve` y `reject` ya extraídas, evitando declarar variables externas a mano.
+
+```jsx
+const { promise, resolve, reject } = Promise.withResolvers();
+
+setTimeout(() => resolve("listo"), 1000);
+promise.then(console.log); // Salida (tras 1s): "listo"
+```
+
+- **ArrayBuffers redimensionables**: `new ArrayBuffer(8, { maxByteLength: 16 })` permite hacer crecer o encoger un buffer con `resize()`, sin tener que crear uno nuevo y copiar los datos.
+
+- **Well-Formed Unicode Strings**: `string.isWellFormed()` y `string.toWellFormed()` detectan y corrigen pares subrogados sueltos, algo útil antes de pasar texto a APIs como `encodeURIComponent` que lanzan error con cadenas mal formadas.
+
+```jsx
+const cadenaInvalida = "Hola \uD800 mundo";
+console.log(cadenaInvalida.isWellFormed()); // Salida: false
+console.log(cadenaInvalida.toWellFormed()); // Salida: "Hola � mundo"
+```
+
+- Otras adiciones: el flag `v` en RegExp (unión e intersección de clases de caracteres Unicode), `Atomics.waitAsync()` para esperar cambios en memoria compartida sin bloquear el hilo principal, y `ArrayBuffer.prototype.transfer()` para mover memoria de un buffer a otro.
+
+### ECMAScript 2025 (ES16)
+
+Publicada en junio de 2025, esta edición apostó fuerte por los iteradores y las operaciones de conjuntos.
+
+- **Iterator Helpers**: métodos como `.map()`, `.filter()`, `.take()`, `.drop()`, `.reduce()` y `.toArray()` ahora existen directamente sobre cualquier iterador, sin necesidad de convertirlo antes a un array.
+
+```jsx
+function* numerosInfinitos() {
+  let n = 1;
+  while (true) yield n++;
+}
+
+const primerosPares = numerosInfinitos()
+  .filter((n) => n % 2 === 0)
+  .take(5)
+  .toArray();
+
+console.log(primerosPares); // Salida: [2, 4, 6, 8, 10]
+```
+
+- **Nuevos métodos de `Set`**: operaciones de teoría de conjuntos nativas: `union()`, `intersection()`, `difference()`, `symmetricDifference()`, `isSubsetOf()`, `isSupersetOf()` e `isDisjointFrom()`.
+
+```jsx
+const backend = new Set(["node", "go", "python"]);
+const frontend = new Set(["javascript", "python"]);
+
+console.log(backend.intersection(frontend)); // Salida: Set(1) { 'python' }
+console.log(backend.union(frontend)); // Salida: Set(4) { 'node', 'go', 'python', 'javascript' }
+```
+
+- **`Promise.try()`**: ejecuta cualquier función, sincrónica o asíncrona, dentro de una cadena de promesas, capturando los errores lanzados de forma síncrona sin necesitar un `try/catch` adicional.
+
+```jsx
+function leerConfiguracion() {
+  // puede lanzar un error de forma sincrónica
+  return JSON.parse(configuracionCruda);
+}
+
+Promise.try(leerConfiguracion)
+  .then((config) => console.log(config))
+  .catch((error) => console.log("Error controlado:", error));
+```
+
+- **Módulos JSON con Import Attributes**: importar un archivo JSON como módulo usando la sintaxis `with`.
+
+```jsx
+import datos from "./config.json" with { type: "json" };
+console.log(datos);
+```
+
+- **`RegExp.escape()`**: escapa los caracteres especiales de una cadena para poder usarla de forma segura dentro de un patrón de expresión regular construido dinámicamente.
+
+```jsx
+const busqueda = "precio: $10 (oferta)";
+const patron = new RegExp(RegExp.escape(busqueda));
+```
+
+- Otras adiciones: modificadores inline en RegExp (`(?i:...)`), grupos de captura con nombres duplicados entre alternativas separadas por `|`, `Float16Array` para trabajar con precisión de 16 bits, y `var` redeclarable dentro de un `eval` global.
+
+### ECMAScript 2026 (ES17): lo que ya está confirmado
+
+ES2026 se publica oficialmente en junio de 2026, pero varias de sus propuestas ya llegaron a Stage 4 y algunos motores (Firefox, Safari, Bun) ya las implementan antes de la publicación formal.
+
+- **Upsert para `Map`**: `getOrInsert()` y `getOrInsertComputed()` resuelven en una sola línea el patrón "si no existe, créalo", sin hacer dos accesos al `Map`.
+
+```jsx
+const cache = new Map();
+
+// Antes: comprobar existencia y luego insertar
+if (!cache.has("usuario:1")) cache.set("usuario:1", []);
+cache.get("usuario:1").push("login");
+
+// Con Upsert (ES2026)
+cache.getOrInsertComputed("usuario:1", () => []).push("login");
+```
+
+- **`Array.fromAsync()`**: convierte un iterable asíncrono (o un iterable de promesas) en un array, esperando a que todos sus valores se resuelvan.
+
+```jsx
+async function* generarAsync() {
+  yield 1;
+  yield 2;
+  yield 3;
+}
+
+const resultado = await Array.fromAsync(generarAsync());
+console.log(resultado); // Salida: [1, 2, 3]
+```
+
+- **`Error.isError()`**: comprobación fiable de si un valor es un `Error`, incluso si proviene de otro realm (un iframe, un worker), caso en el que `instanceof` puede fallar.
+
+```jsx
+console.log(Error.isError(new TypeError("algo salió mal"))); // Salida: true
+console.log(Error.isError({ message: "no soy un error real" })); // Salida: false
+```
+
+- **`Math.sumPrecise()`**: suma un iterable de números evitando la pérdida de precisión de punto flotante que arrastra el clásico `reduce((a, b) => a + b)`.
+
+```jsx
+const numeros = [0.1, 0.2, 0.3, 1e20, -1e20];
+console.log(numeros.reduce((a, b) => a + b)); // Impreciso
+console.log(Math.sumPrecise(numeros)); // Matemáticamente correcto
+```
+
+- **`Uint8Array` a/desde Base64 y Hex**: `toBase64()`, `fromBase64()`, `toHex()` y `fromHex()` nativos, sin depender de `btoa`/`atob` ni de librerías externas.
+
+```jsx
+const bytes = new Uint8Array([72, 111, 108, 97]);
+console.log(bytes.toBase64()); // Salida: "SG9sYQ=="
+console.log(Uint8Array.fromBase64("SG9sYQ==")); // Salida: Uint8Array(4) [72, 111, 108, 97]
+```
+
+- **`Iterator.concat()`**: encadena varios iterables en un único iterador perezoso, el equivalente estático de `Array.prototype.concat`.
+
+```jsx
+const combinado = Iterator.concat([1, 2], new Set([3, 4]), "ab");
+console.log([...combinado]); // Salida: [1, 2, 3, 4, 'a', 'b']
+```
+
+---
+
+## Lo que viene: Temporal y ES2027 en el horizonte
+
+En marzo de 2026, TC39 avanzó a Stage 4 la propuesta más esperada de los últimos años: **Temporal**, el reemplazo moderno de `Date`. Junto con **Explicit Resource Management** (`using` / `await using`), `Atomics.pause()` y Joint Iteration, ya tiene fecha de publicación fijada para **ES2027**. 2026 termina, pero el estándar no se detiene.
+
+- **Temporal**: tipos inmutables para fechas, horas, zonas horarias y calendarios, resolviendo problemas históricos de `Date` como la mutabilidad, el parsing ambiguo y los meses indexados en 0.
+
+```jsx
+const ahora = Temporal.Now.zonedDateTimeISO("America/Bogota");
+const cumple = Temporal.PlainDate.from("2026-12-25");
+
+console.log(ahora.toString());
+console.log(cumple.dayOfWeek);
+```
+
+- **Explicit Resource Management**: las palabras clave `using` y `await using` liberan recursos (conexiones, archivos, locks) automáticamente al salir del bloque, de forma similar a `using` en C# o los context managers de Python.
+
+```jsx
+function abrirConexion() {
+  return {
+    valor: "conexión-bd",
+    [Symbol.dispose]() {
+      console.log("conexión cerrada automáticamente");
+    },
+  };
+}
+
+function usarRecurso() {
+  using conexion = abrirConexion();
+  console.log(conexion.valor);
+} // <- aquí se libera automáticamente, incluso si hubo un error antes
+```
+
+---
+
+Como ves, ECMAScript no dejó de moverse entre 2024 y 2026: pasamos de resolver problemas puntuales (agrupar arrays, sumar con precisión) a repensar piezas fundamentales del lenguaje como el manejo de fechas y de recursos. El proceso de TC39 sigue siendo el mismo de siempre: transparente, lento a propósito, y abierto a que cualquiera siga el avance de cada propuesta en su [repositorio de propuestas](https://github.com/tc39/proposals).
+
+### Referencias
+
+- [tc39/proposals — Finished Proposals](https://github.com/tc39/proposals/blob/main/finished-proposals.md)
+- [ECMA-262, 16th edition (ES2025)](https://262.ecma-international.org/)
+- [ECMAScript 2026 Language Specification](https://tc39.es/ecma262/2026/multipage/)
+- [TC39 Advances 11 Proposals for Math Precision, Binary APIs, and More — Socket](https://socket.dev/blog/tc39-advances-11-proposals-for-math-precision-binary-apis-and-more)
+- [TC39 Advances Temporal to Stage 4 — Socket](https://socket.dev/blog/tc39-advances-temporal-to-stage-4)
+- [Summary of the May 2025 TC39 plenary — Igalia](https://blogs.igalia.com/compilers/2025/07/03/summary-of-the-may-2025-tc39-plenary/)

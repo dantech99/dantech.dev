@@ -19,6 +19,9 @@
         "date": {
           "type": "string"
         },
+        "nextSlug": {
+          "type": "string"
+        },
         "$schema": {
           "type": "string"
         }
