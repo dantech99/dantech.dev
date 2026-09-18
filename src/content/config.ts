@@ -44,12 +44,25 @@ const certificates = defineCollection({
     title: z.string(),
     description: z.string(),
     image: z.string(),
-    date: z.string()
+    date: z.string(),
+    issuer: z.string().optional(),
+    url: z.string().url().optional()
+  })
+})
+
+const education = defineCollection({
+  type: 'data',
+  schema: z.object({
+    title: z.string(),
+    institution: z.string(),
+    year: z.string(),
+    order: z.number().default(0)
   })
 })
 
 export const collections = {
   'articles': articles,
   'projects': projects,
-  'certificates': certificates
+  'certificates': certificates,
+  'education': education
 }
