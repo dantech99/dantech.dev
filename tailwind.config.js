@@ -4,6 +4,10 @@ module.exports = {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
   	extend: {
+  		fontFamily: {
+  			sans: ['Geist', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+  			mono: ['Geist Mono', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace']
+  		},
   		borderRadius: {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',

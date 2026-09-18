@@ -1,237 +1,229 @@
 ---
-import DividerLine from "@/components/DividerLine.astro";
-import ButtonCv from "@/components/ButtonCv.astro";
-import SkillsMap from "@/components/SkillsMap";
-import CertificatesSlider from "@/components/CertificatesSlider.jsx";
-import { getCollection } from 'astro:content';
+import { getCollection } from "astro:content";
+import ArrowLink from "@/components/ArrowLink.astro";
 
-// Obtener los certificados
-const certificates = await getCollection('certificates');
+const certificates = (await getCollection("certificates")).sort(
+  (a, b) => a.data.date.localeCompare(b.data.date),
+);
+const education = (await getCollection("education")).sort(
+  (a, b) => a.data.order - b.data.order,
+);
 
-interface About {
-  title: string;
-  desacription: string;
-  img: string;
+interface ContactRow {
+  label: string;
+  value: string;
+  href: string;
 }
+
+const contact: ContactRow[] = [
+  {
+    label: "email",
+    value: "dantech.dev@hotmail.com",
+    href: "mailto:dantech.dev@hotmail.com",
+  },
+  { label: "github", value: "dantech99", href: "https://github.com/dantech99" },
+  {
+    label: "linkedin",
+    value: "in/dantech99",
+    href: "https://linkedin.com/in/dantech99",
+  },
+  { label: "x", value: "@dantech99", href: "https://x.com/dantech99" },
+  {
+    label: "instagram",
+    value: "@dantech.dev",
+    href: "https://instagram.com/dantech.dev",
+  },
+  {
+    label: "ubicación",
+    value: "Sahagún, Córdoba",
+    href: "https://maps.google.com/?q=Sahag%C3%BAn,+C%C3%B3rdoba,+Colombia",
+  },
+];
+
+const stack: { label: string; value: string }[] = [
+  { label: "Frontend", value: "React, Next.js, TypeScript, Tailwind CSS, Astro" },
+  { label: "Backend", value: "Node.js, Elysia, PostgreSQL" },
+  { label: "Infra", value: "Docker, Dokploy, VPS Linux" },
+  { label: "Herramientas", value: "Git, Figma, Claude Code" },
+];
+
+const labelClass =
+  "font-mono text-xs uppercase tracking-wider text-text-secondary";
+const rowBorder = "border-b border-border";
 ---
 
-<DividerLine title="Sobre Mi" id="sobre-mi" />
-
 <section
-  class="flex w-full md:flex-row flex-col justify-center gap-10 mb-10 py-10"
+  id="sobre-mi"
+  class="grid grid-cols-1 gap-12 pt-10 md:grid-cols-[minmax(0,5fr)_minmax(0,8fr)] md:gap-x-20 md:pt-16"
 >
-
-    <div class="container mx-auto px-4 py-8">
-      <div class="grid grid-cols-1 lg:grid-cols-5 gap-6">
-        <!-- Sidebar Profile -->
-        <div class="lg:col-span-2">
-          <div class="border border-gray-300 dark:border-[#30363d] rounded-lg p-6 h-full bg-white dark:bg-gray-900">
-            <!-- Avatar -->
-            <div class="relative mb-4 w-full flex justify-center">
-              <img
-                src="/img/myphoto.jpg"
-                alt="Danilo Macea"
-                class="w-60 h-60 rounded-full border-2 border-gray-300 dark:border-[#30363d] object-cover"
-              />
-            </div>
-
-            <!-- Name and Title -->
-            <div class="mb-4">
-              <h1 class="text-xl font-semibold mb-1 text-gray-900 dark:text-white">Danilo Antonio M.</h1>
-              <p class="text-gray-600 dark:text-[#7d8590] text-sm">Developer Web Front End</p>
-            </div>
-
-            <!-- Contact Info -->
-            <div class="space-y-2 text-sm">
-              <div class="flex items-center gap-2">
-                <svg
-                  class="w-4 h-4 text-gray-600 dark:text-[#7d8590]"
-                  fill="currentColor"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"
-                  ></path>
-                </svg>
-                <span class="text-gray-600 dark:text-[#7d8590]">dantech.dev@hotmail.com</span>
-              </div>
-              <!-- Redes sociales -->
-              <div class="flex items-center gap-2">
-                <svg
-                  class="w-4 h-4 text-gray-600 dark:text-[#7d8590]"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                  ><path
-                    d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.334 3.608 1.308.974.974 1.246 2.241 1.308 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.334 2.633-1.308 3.608-.974.974-2.241 1.246-3.608 1.308-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.334-3.608-1.308-.974-.974-1.246-2.241-1.308-3.608C2.175 15.647 2.163 15.267 2.163 12s.012-3.584.07-4.85c.062-1.366.334-2.633 1.308-3.608C4.515 2.497 5.782 2.225 7.148 2.163 8.414 2.105 8.794 2.163 12 2.163zm0-2.163C8.741 0 8.332.013 7.052.072 5.771.131 4.659.425 3.678 1.406c-.98.98-1.274 2.092-1.333 3.373C2.013 5.668 2 6.077 2 12c0 5.923.013 6.332.072 7.611.059 1.281.353 2.393 1.333 3.373.981.981 2.093 1.274 3.374 1.333C8.332 23.987 8.741 24 12 24s3.668-.013 4.948-.072c1.281-.059 2.393-.353 3.374-1.333.98-.98 1.274-2.092 1.333-3.373.059-1.279.072-1.688.072-7.611 0-5.923-.013-6.332-.072-7.611-.059-1.281-.353-2.393-1.333-3.373-.981-.981-2.093-1.274-3.374-1.333C15.668.013 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a3.999 3.999 0 1 1 0-7.998 3.999 3.999 0 0 1 0 7.998zm6.406-11.845a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88z"
-                  ></path></svg
-                >
-                <a
-                  href="https://instagram.com/dantech.dev"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="text-gray-600 dark:text-[#7d8590] hover:underline">Instagram</a
-                >
-              </div>
-              <div class="flex items-center gap-2">
-                <svg
-                  class="w-4 h-4 text-gray-600 dark:text-[#7d8590]"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                  ><path
-                    d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11.5 19h-3v-9h3v9zm-1.5-10.29c-.97 0-1.75-.79-1.75-1.75s.78-1.75 1.75-1.75 1.75.79 1.75 1.75-.78 1.75-1.75 1.75zm15.5 10.29h-3v-4.5c0-1.08-.02-2.47-1.5-2.47-1.5 0-1.73 1.17-1.73 2.39v4.58h-3v-9h2.89v1.23h.04c.4-.76 1.38-1.56 2.84-1.56 3.04 0 3.6 2 3.6 4.59v5.74z"
-                  ></path></svg
-                >
-                <a
-                  href="https://linkedin.com/in/dantech99"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="text-gray-600 dark:text-[#7d8590] hover:underline">LinkedIn</a
-                >
-              </div>
-              <div class="flex items-center gap-2">
-                <svg
-                  class="w-4 h-4 text-gray-600 dark:text-[#7d8590]"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                  ><path
-                    d="M12 0C5.371 0 0 5.371 0 12c0 5.303 3.438 9.8 8.205 11.387.6.111.82-.261.82-.577 0-.285-.011-1.04-.017-2.042-3.338.726-4.042-1.611-4.042-1.611-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.085 1.84 1.237 1.84 1.237 1.07 1.834 2.809 1.304 3.495.997.108-.775.418-1.305.762-1.605-2.665-.304-5.466-1.332-5.466-5.931 0-1.31.469-2.381 1.236-3.221-.124-.303-.535-1.523.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.984-.399 3.003-.404 1.018.005 2.045.138 3.003.404 2.291-1.553 3.297-1.23 3.297-1.23.653 1.653.242 2.873.119 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.803 5.625-5.475 5.921.43.371.823 1.102.823 2.222 0 1.606-.015 2.898-.015 3.293 0 .319.216.694.825.576C20.565 21.796 24 17.299 24 12c0-6.629-5.371-12-12-12z"
-                  ></path></svg
-                >
-                <a
-                  href="https://github.com/dantech99"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="text-gray-600 dark:text-[#7d8590] hover:underline">GitHub</a
-                >
-              </div>
-              <div class="flex items-center gap-2">
-                <svg
-                  class="w-4 h-4 text-gray-600 dark:text-[#7d8590]"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                  ><path
-                    d="M22.162 5.656c-.793.352-1.645.59-2.538.697a4.48 4.48 0 0 0 1.962-2.475 8.94 8.94 0 0 1-2.828 1.082A4.48 4.48 0 0 0 16.616 4c-2.485 0-4.5 2.015-4.5 4.5 0 .353.04.697.116 1.027C8.09 9.36 5.1 7.884 3.067 5.684c-.388.666-.61 1.44-.61 2.267 0 1.563.796 2.942 2.008 3.753a4.48 4.48 0 0 1-2.037-.563v.057c0 2.185 1.555 4.008 3.623 4.426-.379.104-.779.16-1.192.16-.292 0-.573-.028-.849-.08.574 1.792 2.24 3.093 4.213 3.128A8.987 8.987 0 0 1 2 19.54a12.69 12.69 0 0 0 6.88 2.017c8.253 0 12.77-6.837 12.77-12.77 0-.195-.004-.39-.013-.583A9.14 9.14 0 0 0 24 4.59a8.93 8.93 0 0 1-2.538.697z"
-                  ></path></svg
-                >
-                <a
-                  href="https://x.com/dantech99"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="text-gray-600 dark:text-[#7d8590] hover:underline">X (Twitter)</a
-                >
-              </div>
-              <div class="flex items-center gap-2">
-                <svg
-                  class="w-4 h-4 text-gray-600 dark:text-[#7d8590]"
-                  fill="currentColor"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M11.536 3.464a5 5 0 0 1 0 7.072L8 14.07l-3.536-3.535a5 5 0 1 1 7.072-7.072v.001Zm-4.95 8.485a5.023 5.023 0 0 0 3.393 0L8 13.928l-1.414-1.414Z"
-                  ></path>
-                  <path d="M8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"></path>
-                </svg>
-                <span class="text-gray-600 dark:text-[#7d8590]">Sahagun - Cordoba - Colombia</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Main Content -->
-        <div class="lg:col-span-3">
-          <div class="border border-gray-300 dark:border-[#30363d] rounded-lg p-6 bg-white dark:bg-gray-900">
-            <!-- Header -->
-            <div class="flex items-center justify-between mb-6">
-              <div class="flex items-center gap-3">
-                <span class="text-2xl">👋</span>
-                <h2 class="text-xl font-semibold text-gray-900 dark:text-white">
-                  Hi, My name is Danilo Macea ✨
-                </h2>
-              </div>
-            </div>
-
-            <!-- Subtitle -->
-            <h3 class="text-lg font-medium mb-4 text-gray-600 dark:text-[#7d8590]">
-              Web developer FrontEnd
-            </h3>
-
-            <!-- Description in Spanish -->
-            <p class="text-gray-700 dark:text-[#e6edf3] mb-4 leading-relaxed">
-              Soy un amante de la tecnología y me apasiona el mundo web, me
-              gusta sumergirme en este hermoso mar donde se adquieren
-              conocimientos, experiencias y habilidades, así como también
-              colaborar y contribuir en proyectos innovadores donde el trabajo
-              en equipo se hace notar y demostrar que las hermanas lograron
-              grandes cosas juntas. También quiero ser parte de este gran mundo
-              y contribuir de la mejor manera a la mejor realidad.
-            </p>
-
-            <!-- Description in English -->
-            <p class="text-gray-700 dark:text-[#e6edf3] mb-6 leading-relaxed">
-              I am a lover of technology and I am passionate about the web
-              world, I like to immerse myself in this immense sea where great
-              knowledge and experience are acquired, where everyone can
-              collaborate and contribute without any limitation where teamwork
-              is noticed and demonstrate that human beings achieve great things
-              together. I also want to be part of this great world and
-              contribute in the best way to making the enjoyment of class come
-              true.
-            </p>
-
-            <!-- Bullet Points -->
-            <ul class="space-y-2 mb-6">
-              <li class="flex items-center gap-2">
-                <span class="text-green-500 dark:text-green-400">🚀</span>
-                <span class="text-gray-700 dark:text-[#e6edf3]"
-                  ><strong>on the way to software engineer ⚡</strong></span
-                >
-              </li>
-
-              <li class="flex items-center gap-2">
-                <span class="text-purple-500 dark:text-purple-400">📫</span>
-                <span class="text-gray-700 dark:text-[#e6edf3]"
-                  >You can contact me at <a
-                    href="mailto:dantech.dev@hotmail.com"
-                    class="text-blue-600 dark:text-blue-400 hover:underline"
-                    >dantech.dev@hotmail.com</a
-                  ></span
-                >
-              </li>
-              <li class="flex items-center gap-2">
-                <span class="text-yellow-500 dark:text-yellow-400">⚡</span>
-                <span class="text-gray-700 dark:text-[#e6edf3]"
-                  >Fun fact: <strong>I love video games</strong></span
-                >
-              </li>
-              <li class="flex items-center gap-2">
-                <span class="text-orange-500 dark:text-orange-400">🤔</span>
-                <span class="text-gray-700 dark:text-[#e6edf3]"
-                  >I'm open to collaborating on Apps web, new ideas</span
-                >
-              </li>
-              <li class="flex items-center gap-2">
-                <span class="text-red-500 dark:text-red-400">💬</span>
-                <span class="text-gray-700 dark:text-[#e6edf3]">Interested in this world</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <!-- Skills Section -->
-      <div class="mt-6 border border-gray-300 dark:border-[#30363d] rounded-lg p-6 bg-white dark:bg-gray-900">
-        <h3 class="text-lg font-medium mb-4 text-gray-700 dark:text-[#7d8590]">
-          Skills & Technologies
-        </h3>
-        <SkillsMap client:load />
-      </div>
-
-      <!-- Certificates Section -->
-      <div class="mt-6 border border-gray-300 dark:border-[#30363d] rounded-lg p-6 bg-white dark:bg-gray-900">
-        <h3 class="text-lg font-medium mb-4 text-gray-700 dark:text-[#7d8590]">
-          Certificados y Formación Educativa
-        </h3>
-        <CertificatesSlider certificates={certificates} client:load />
-      </div>
+  <!-- Sidebar -->
+  <aside class="flex flex-col self-start md:sticky md:top-10">
+    <div
+      class="flex size-28 items-center justify-center rounded-xl border border-border bg-bg-secondary dark:bg-[#111420]"
+      aria-hidden="true"
+    >
+      <span class="font-mono text-3xl text-primary dark:text-secondary">DM</span>
     </div>
+
+    <h1 class="mt-8 text-3xl font-semibold tracking-tight text-text-primary">
+      Danilo Antonio Macea
+    </h1>
+    <p class="mt-2 font-mono text-sm text-text-secondary">
+      full stack · freelance · CO
+    </p>
+
+    <p class="mt-6 text-base leading-relaxed text-text-secondary">
+      Cerca de 4 años construyendo aplicaciones web. Actualmente freelance en
+      e-commerce con Next.js, Node y PostgreSQL.
+    </p>
+
+    <ul class="mt-6 border-t border-border" role="list">
+      {
+        contact.map(({ label, value, href }) => (
+          <li class={rowBorder}>
+            <a
+              href={href}
+              target={href.startsWith("mailto:") ? undefined : "_blank"}
+              rel="noopener noreferrer"
+              class="group grid grid-cols-[6.5rem_1fr_auto] items-center gap-3 py-3.5 transition-colors hover:text-primary dark:hover:text-secondary"
+            >
+              <span class={labelClass}>{label}</span>
+              <span class="truncate text-sm text-text-primary group-hover:text-inherit">
+                {value}
+              </span>
+              <ArrowLink />
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+
+    <p class="mt-6 flex items-center gap-2 font-mono text-xs text-text-secondary">
+      <span class="relative flex size-2">
+        <span
+          class="absolute inline-flex size-full animate-ping rounded-full bg-green-400 opacity-60"
+        ></span>
+        <span class="relative inline-flex size-2 rounded-full bg-green-500"></span>
+      </span>
+      disponible para nuevos proyectos
+    </p>
+  </aside>
+
+  <!-- Main content -->
+  <main class="flex flex-col gap-16">
+    <!-- 01 Sobre mí -->
+    <article>
+      <h2 class={`${labelClass} flex items-center gap-3`}>
+        <span class="text-primary dark:text-secondary">01</span>
+        <span>Sobre mí</span>
+      </h2>
+      <p
+        class="mt-4 text-3xl font-semibold leading-tight tracking-tight text-text-primary md:text-[2.5rem] md:leading-[1.1]"
+      >
+        Diseño interfaces claras y las conecto con backends que aguantan.
+      </p>
+      <p class="mt-6 text-base leading-relaxed text-text-secondary md:text-lg">
+        Trabajo desde Sahagún, Córdoba, para clientes en Colombia y remoto. Me
+        muevo con soltura entre el frontend en React y TypeScript y el backend
+        en Node, y me encargo también del despliegue en VPS con Docker.
+        Prefiero soluciones simples que se puedan mantener a soluciones
+        brillantes que nadie entiende.
+      </p>
+    </article>
+
+    <!-- 02 Stack -->
+    <article>
+      <h2 class={`${labelClass} flex items-center gap-3`}>
+        <span class="text-primary dark:text-secondary">02</span>
+        <span>Stack</span>
+      </h2>
+      <dl class="mt-4 border-t border-border">
+        {
+          stack.map(({ label, value }) => (
+            <div
+              class={`${rowBorder} grid grid-cols-1 gap-1 py-4 sm:grid-cols-[11.5rem_1fr] sm:items-center sm:gap-4`}
+            >
+              <dt class="font-mono text-sm text-text-secondary">{label}</dt>
+              <dd class="text-base text-text-primary">{value}</dd>
+            </div>
+          ))
+        }
+      </dl>
+    </article>
+
+    <!-- 03 Certificados -->
+    <article>
+      <h2 class={`${labelClass} flex items-center gap-3`}>
+        <span class="text-primary dark:text-secondary">03</span>
+        <span>Certificados</span>
+      </h2>
+      <ul class="mt-4 border-t border-border" role="list">
+        {
+          certificates.map(({ data }) => (
+            <li class={rowBorder}>
+              <a
+                href={data.url ?? data.image}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="group grid grid-cols-[4rem_1fr_auto] items-center gap-4 py-4 transition-colors hover:text-primary dark:hover:text-secondary sm:grid-cols-[4rem_1fr_auto_auto]"
+              >
+                <span class="flex h-12 w-16 items-center justify-center overflow-hidden rounded-md border border-dashed border-border-secondary/60 bg-bg-secondary dark:bg-[#111420]">
+                  <img
+                    src={data.image}
+                    alt={`Certificado: ${data.title}`}
+                    class="h-full w-full object-cover"
+                    loading="lazy"
+                    width="64"
+                    height="48"
+                    onerror="this.remove()"
+                  />
+                </span>
+                <span class="flex min-w-0 flex-col">
+                  <span class="truncate text-base text-text-primary group-hover:text-inherit">
+                    {data.title}
+                  </span>
+                  {data.issuer && (
+                    <span class="font-mono text-xs text-text-secondary sm:hidden">
+                      {data.issuer}
+                    </span>
+                  )}
+                </span>
+                {data.issuer && (
+                  <span class="hidden font-mono text-sm text-text-secondary sm:block">
+                    {data.issuer}
+                  </span>
+                )}
+                <ArrowLink />
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </article>
+
+    <!-- 04 Formación -->
+    <article>
+      <h2 class={`${labelClass} flex items-center gap-3`}>
+        <span class="text-primary dark:text-secondary">04</span>
+        <span>Formación</span>
+      </h2>
+      <ul class="mt-4 border-t border-border" role="list">
+        {
+          education.map(({ data }) => (
+            <li
+              class={`${rowBorder} grid grid-cols-[1fr_auto] items-center gap-x-4 gap-y-1 py-4 sm:grid-cols-[1fr_auto_auto] sm:gap-x-8`}
+            >
+              <span class="text-base text-text-primary">{data.title}</span>
+              <span class="col-start-1 font-mono text-xs text-text-secondary sm:col-start-auto sm:text-sm">
+                {data.institution}
+              </span>
+              <span class="col-start-2 row-start-1 font-mono text-xs text-text-secondary sm:col-start-auto sm:row-start-auto sm:text-sm">
+                {data.year}
+              </span>
+            </li>
+          ))
+        }
+      </ul>
+    </article>
+  </main>
 </section>

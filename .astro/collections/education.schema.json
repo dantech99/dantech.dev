@@ -1,41 +1,30 @@
 {
-  "$ref": "#/definitions/certificates",
+  "$ref": "#/definitions/education",
   "definitions": {
-    "certificates": {
+    "education": {
       "type": "object",
       "properties": {
-        "id": {
-          "type": "string"
-        },
         "title": {
           "type": "string"
         },
-        "description": {
+        "institution": {
           "type": "string"
         },
-        "image": {
+        "year": {
           "type": "string"
         },
-        "date": {
-          "type": "string"
-        },
-        "issuer": {
-          "type": "string"
-        },
-        "url": {
-          "type": "string",
-          "format": "uri"
+        "order": {
+          "type": "number",
+          "default": 0
         },
         "$schema": {
           "type": "string"
         }
       },
       "required": [
-        "id",
         "title",
-        "description",
-        "image",
-        "date"
+        "institution",
+        "year"
       ],
       "additionalProperties": false
     }

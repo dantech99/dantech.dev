@@ -1,0 +1,18 @@
+---
+const { class: className = "" } = Astro.props;
+---
+
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.75"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  aria-hidden="true"
+  class={`size-4 shrink-0 text-text-secondary transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-inherit ${className}`}
+>
+  <path d="M7 17 17 7"></path>
+  <path d="M8 7h9v9"></path>
+</svg>
