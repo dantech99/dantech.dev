@@ -1,0 +1,190 @@
+---
+slug: react-19-3-novedades
+title: "React 19.3: View Transitions Estables, Fragment Refs y Más"
+img: /img/articles/react-19-3-novedades.png
+author: Danilo A. Macea
+description: React 19.3 llegó con View Transitions y Fragment Refs ya estables, la nueva API browser() de React DOM, soporte para Trusted Types y Context directo en Server Components. Repaso con ejemplos de cada novedad.
+date: "__DATE__"
+---
+
+## Qué trae React 19.3
+
+El equipo de React publicó la versión 19.3 el 9 de septiembre de 2026. No es un cambio de versión mayor, pero estabiliza dos APIs que llevaban tiempo en experimental (`ViewTransition` y `Fragment` refs) y suma piezas nuevas en React DOM y React Server Components. Vamos feature por feature.
+
+---
+
+### `<ViewTransition>` ya es estable
+
+`ViewTransition` envuelve elementos y anima automáticamente sus cambios de entrada, salida, movimiento y tamaño, apoyándose en la [View Transition API](https://developer.mozilla.org/en-US/docs/Web/API/View_Transition_API) del navegador.
+
+```jsx
+import { ViewTransition } from "react";
+
+function Modal({ isShowing }) {
+  return isShowing && (
+    <ViewTransition>
+      <Dialog />
+    </ViewTransition>
+  );
+}
+```
+
+Solo anima dentro de una **Transition**: `startTransition`, la revelación de un `<Suspense>`, o `useDeferredValue`. Fuera de ese contexto no hace nada.
+
+React reconoce cuatro tipos de animación automática:
+
+- `enter`: el `<ViewTransition>` se agrega al árbol.
+- `exit`: se elimina del árbol.
+- `update`: sus hijos cambian de estilo o contenido.
+- `share`: un `<ViewTransition>` con nombre se mueve de un lugar a otro (por ejemplo, una imagen que pasa de una lista de tarjetas a una vista de detalle).
+
+Con `addTransitionType()` puedes distinguir la causa de la transición y aplicar una animación distinta según el caso, por ejemplo para diferenciar "siguiente" de "anterior" en un carrusel:
+
+```jsx
+function irASiguiente() {
+  startTransition(() => {
+    addTransitionType("next");
+    setSlideActual((s) => s + 1);
+  });
+}
+
+<ViewTransition
+  enter={{ next: "from-right", previous: "from-left" }}
+  exit={{ next: "to-left", previous: "to-right" }}
+>
+  <Slide />
+</ViewTransition>;
+```
+
+También se integra con `<Suspense>` para animar el paso del fallback al contenido final:
+
+```jsx
+<ViewTransition update="auto" default="none">
+  <Suspense fallback={<Cargando />}>
+    <Perfil />
+  </Suspense>
+</ViewTransition>
+```
+
+Por defecto los fallbacks aparecen sin animación y solo se anima la actualización final, evitando que un spinner "salte" en pantalla.
+
+---
+
+### Fragment refs, también estable
+
+Hasta ahora, para controlar un grupo de nodos DOM sin envolverlos en un contenedor extra había que recurrir a hacks. `Fragment` ahora acepta un `ref` que expone una `FragmentInstance` con control real sobre ese grupo de nodos.
+
+```jsx
+import { Fragment, useRef, useEffect } from "react";
+
+function Lista({ posts }) {
+  const fragmentRef = useRef(null);
+
+  useEffect(() => {
+    fragmentRef.current.focus();
+  }, []);
+
+  return (
+    <Fragment ref={fragmentRef}>
+      {posts.map((post) => (
+        <Heading key={post.id}>{post.title}</Heading>
+      ))}
+    </Fragment>
+  );
+}
+```
+
+La `FragmentInstance` expone métodos que antes solo existían por nodo:
+
+- Eventos: `addEventListener()`, `removeEventListener()`, `dispatchEvent()`.
+- Foco: `focus()`, `focusLast()`, `blur()`.
+- Observadores: `observeUsing()` / `unobserveUsing()`, compatibles con `IntersectionObserver` y `ResizeObserver`.
+- Medidas y posición: `getClientRects()`, `getRootNode()`, `compareDocumentPosition()`, `scrollIntoView()`.
+
+---
+
+### `browser()`, la nueva API de React DOM
+
+`browser()` marca código que solo puede correr en el navegador (acceso a `localStorage`, zona horaria, APIs del DOM), sin tener que escribir un `useEffect` para evitarlo en el servidor.
+
+```jsx
+import { use } from "react";
+import { browser } from "react-dom";
+
+function ZonaHoraria({ defaultValue }) {
+  if (defaultValue) {
+    return <p>{defaultValue}</p>;
+  }
+
+  use(browser());
+  const zonaLocal = new Intl.DateTimeFormat().resolvedOptions().timeZone;
+  return <p>{zonaLocal}</p>;
+}
+```
+
+En el servidor, `use(browser())` dispara Suspense y muestra el fallback correspondiente. En el cliente no suspende: el componente renderiza directo. A diferencia de los Hooks normales, funciona dentro de condicionales y después de un `return` temprano, como se ve en el ejemplo.
+
+---
+
+### Trusted Types
+
+React 19.3 soporta la [Trusted Types API](https://developer.mozilla.org/en-US/docs/Web/API/Trusted_Types_API): ahora pasa los objetos de Trusted Types tal cual, sin forzarlos a `string`. Esto permite que aplicaciones con `Content-Security-Policy: require-trusted-types-for 'script'` usen React sin romper esa política, cerrando una vía común de ataques XSS.
+
+---
+
+### `<Context>` directo en Server Components
+
+Antes había que envolver un `Provider` explícito para propagar contexto desde un Server Component. Ahora el propio `Context` se puede renderizar directamente:
+
+```jsx
+// user-context.js ('use client')
+"use client";
+import { createContext } from "react";
+export const UserContext = createContext(null);
+```
+
+```jsx
+// layout.js (Server Component)
+import { UserContext } from "./user-context";
+
+export async function Layout({ children }) {
+  const currentUser = await getCurrentUser();
+  return <UserContext value={currentUser}>{children}</UserContext>;
+}
+```
+
+---
+
+### Otros cambios que vale la pena conocer
+
+**React DOM**
+
+- Eventos nuevos: `onFullscreenChange` y `onFullscreenError`.
+- Soporte para la propiedad SVG `maskType`.
+- `fetchPriority` aplicable a recursos de módulos.
+- `onReset` cuando React resetea un formulario tras una Server Action.
+- El evento `submit` ahora incluye `submitter`.
+- `credentialless` disponible como atributo booleano en `<iframe>`.
+- Los updates disparados por `resize` ahora se agrupan (batching) hasta el siguiente frame.
+
+**React** (comportamiento interno)
+
+- Las Transitions se renderizan de forma independiente entre sí, evitando que una lenta bloquee a las demás.
+- Los Effects se invocan dos veces en Strict Mode también durante la hidratación.
+- Nuevo warning cuando `use` se llama de forma incorrecta dentro de condicionales.
+- Renombrado: "form state" pasa a llamarse "action state" en `useActionState`.
+
+**React Server**
+
+- `Error.cause` y `AggregateError.errors` ahora viajan hasta el cliente.
+- `<Activity>` es compatible con Flight (React Server Components).
+
+---
+
+React 19.3 confirma algo que ya se veía venir con `<ViewTransition>` y `Fragment` refs en experimental: React sigue empujando control de bajo nivel sobre el DOM y animaciones nativas del navegador, sin salir del modelo declarativo. Si ya estabas probando estas APIs en canary, esta es la versión para pasarlas a producción.
+
+### Referencias
+
+- [React 19.3 — react.dev](https://react.dev/blog/2026/09/09/react-19-3)
+- [View Transition API — MDN](https://developer.mozilla.org/en-US/docs/Web/API/View_Transition_API)
+- [Trusted Types API — MDN](https://developer.mozilla.org/en-US/docs/Web/API/Trusted_Types_API)

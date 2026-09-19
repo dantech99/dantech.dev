@@ -1,10 +1,11 @@
 
 export default new Map([
-["src/content/articles/JavaScript-2026-Ultimas-Novedades.mdx", () => import("astro:content-layer-deferred-module?astro%3Acontent-layer-deferred-module=&fileName=src%2Fcontent%2Farticles%2FJavaScript-2026-Ultimas-Novedades.mdx&astroContentModuleFlag=true")],
-["src/content/articles/EcmaScript-y-sus-versiones.mdx", () => import("astro:content-layer-deferred-module?astro%3Acontent-layer-deferred-module=&fileName=src%2Fcontent%2Farticles%2FEcmaScript-y-sus-versiones.mdx&astroContentModuleFlag=true")],
-["src/content/projects/gesccol.mdx", () => import("astro:content-layer-deferred-module?astro%3Acontent-layer-deferred-module=&fileName=src%2Fcontent%2Fprojects%2Fgesccol.mdx&astroContentModuleFlag=true")],
+["src/content/articles/React-19-3-Novedades.mdx", () => import("astro:content-layer-deferred-module?astro%3Acontent-layer-deferred-module=&fileName=src%2Fcontent%2Farticles%2FReact-19-3-Novedades.mdx&astroContentModuleFlag=true")],
 ["src/content/projects/flashgas.mdx", () => import("astro:content-layer-deferred-module?astro%3Acontent-layer-deferred-module=&fileName=src%2Fcontent%2Fprojects%2Fflashgas.mdx&astroContentModuleFlag=true")],
+["src/content/projects/gesccol.mdx", () => import("astro:content-layer-deferred-module?astro%3Acontent-layer-deferred-module=&fileName=src%2Fcontent%2Fprojects%2Fgesccol.mdx&astroContentModuleFlag=true")],
 ["src/content/projects/nutriasoft.mdx", () => import("astro:content-layer-deferred-module?astro%3Acontent-layer-deferred-module=&fileName=src%2Fcontent%2Fprojects%2Fnutriasoft.mdx&astroContentModuleFlag=true")],
+["src/content/projects/recycling-bikes.mdx", () => import("astro:content-layer-deferred-module?astro%3Acontent-layer-deferred-module=&fileName=src%2Fcontent%2Fprojects%2Frecycling-bikes.mdx&astroContentModuleFlag=true")],
+["src/content/articles/JavaScript-2026-Ultimas-Novedades.mdx", () => import("astro:content-layer-deferred-module?astro%3Acontent-layer-deferred-module=&fileName=src%2Fcontent%2Farticles%2FJavaScript-2026-Ultimas-Novedades.mdx&astroContentModuleFlag=true")],
 ["src/content/projects/joyerodigital.mdx", () => import("astro:content-layer-deferred-module?astro%3Acontent-layer-deferred-module=&fileName=src%2Fcontent%2Fprojects%2Fjoyerodigital.mdx&astroContentModuleFlag=true")],
-["src/content/projects/recycling-bikes.mdx", () => import("astro:content-layer-deferred-module?astro%3Acontent-layer-deferred-module=&fileName=src%2Fcontent%2Fprojects%2Frecycling-bikes.mdx&astroContentModuleFlag=true")]]);
+["src/content/articles/EcmaScript-y-sus-versiones.mdx", () => import("astro:content-layer-deferred-module?astro%3Acontent-layer-deferred-module=&fileName=src%2Fcontent%2Farticles%2FEcmaScript-y-sus-versiones.mdx&astroContentModuleFlag=true")]]);
 		
