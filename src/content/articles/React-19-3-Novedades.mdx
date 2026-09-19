@@ -1,0 +1,148 @@
+---
+slug: react-19-3-novedades
+title: "React 19.3: View Transitions, Fragment Refs y Context en Server Components"
+img: /img/articles/react-19-3.png
+author: Danilo A. Macea
+description: React 19.3 llegó con View Transitions estables, refs sobre Fragment, la función browser() para opt-out de SSR y soporte de Context directo en Server Components. Repasamos cada feature con ejemplos.
+date: "__DATE__"
+---
+
+## React sigue moviéndose
+
+El equipo de React [publicó la versión 19.3](https://react.dev/blog/2026/09/09/react-19-3) con un grupo de features que venían cocinándose desde hace rato en canales experimentales, además de mejoras de rendimiento y varios arreglos de bugs. No hay cambios breaking: todo lo nuevo es aditivo y opcional. Vamos directo a lo que trae.
+
+---
+
+### View Transitions (estable)
+
+El componente `<ViewTransition>` llega a estable y permite animar elementos cuando entran, salen, se mueven o cambian de tamaño, apoyándose en la View Transition API nativa del navegador.
+
+```jsx
+import { ViewTransition } from "react";
+
+function Panel({ isShowing }) {
+  return (
+    isShowing && (
+      <ViewTransition>
+        <Component />
+      </ViewTransition>
+    )
+  );
+}
+```
+
+Un punto clave: **solo anima dentro de una `Transition`**. Si el cambio de estado no pasa por `startTransition`, no se dispara ninguna animación. Los tipos disponibles son `enter`, `exit`, `update` y `share`, y se pueden personalizar con clases CSS o directamente con la Web Animations API.
+
+### `addTransitionType`: la misma animación, distinto origen
+
+A veces necesitas que el mismo cambio de estado se anime distinto según qué lo causó. El ejemplo típico es un carrusel: avanzar debería animar de derecha a izquierda, retroceder al revés, aunque en ambos casos solo cambia un índice.
+
+```jsx
+function nextSlide() {
+  startTransition(() => {
+    addTransitionType("next");
+    setCurrentSlide((c) => c + 1);
+  });
+}
+
+<ViewTransition
+  enter={{
+    next: "from-right",
+    previous: "from-left",
+  }}
+>
+  <Page />
+</ViewTransition>;
+```
+
+`addTransitionType` etiqueta la transición para que `ViewTransition` sepa qué animación aplicar, sin necesidad de guardar ese origen en el estado del componente.
+
+### Fragment Refs
+
+Hasta ahora, un `ref` solo se podía colgar de un elemento del DOM. Si tu componente renderizaba varios hermanos sin un contenedor único, no había forma directa de referenciar "el grupo". `Fragment` ahora acepta `ref`:
+
+```jsx
+function Component({ posts }) {
+  const fragmentRef = useRef(null);
+
+  useEffect(() => {
+    fragmentRef.current.focus();
+  }, []);
+
+  return (
+    <Fragment ref={fragmentRef}>
+      {posts.map((post) => (
+        <Heading key={post.id}>{post.title}</Heading>
+      ))}
+    </Fragment>
+  );
+}
+```
+
+El objeto que recibes (`FragmentInstance`) no es un nodo del DOM, sino una interfaz agregada sobre los hijos del fragmento: expone `addEventListener`, `focus`, `focusLast`, `blur`, `observeUsing`/`unobserveUsing` (para conectar un `IntersectionObserver` o `ResizeObserver` a todo el grupo), `getClientRects`, `scrollIntoView`, entre otros.
+
+### `browser()`: opt-out de SSR con Suspense
+
+Algunos componentes dependen de APIs que solo existen en el navegador —`localStorage`, la zona horaria local, `window`— y no tienen forma de renderizarse correctamente en el servidor. `browser()`, expuesto desde `react-dom`, deja que ese componente se suspenda durante el server rendering y se resuelva solo en el cliente:
+
+```jsx
+import { use } from "react";
+import { browser } from "react-dom";
+
+function Component() {
+  use(browser());
+  const timeZone = new Intl.DateTimeFormat().resolvedOptions().timeZone;
+  return <p>{timeZone}</p>;
+}
+```
+
+En el servidor, React muestra el fallback de `Suspense` que envuelva al componente. En el cliente, `browser()` se resuelve de inmediato y el componente se renderiza normal. También sirve para casos condicionales, como decidir si una librería de data-fetching necesita datos iniciales del servidor o puede esperar al cliente:
+
+```jsx
+function useBrowserQuery(query, options) {
+  if (options.initialData === undefined) {
+    use(browser());
+  }
+  return useQuery(query, options);
+}
+```
+
+### Context directo en Server Components
+
+Antes, para pasar un `Context` desde un Server Component a componentes cliente, había que envolver el Provider en un componente `'use client'` separado:
+
+```jsx
+// user-context.js ('use client')
+export function UserProvider({ currentUser, children }) {
+  return <UserContext value={currentUser}>{children}</UserContext>;
+}
+
+// server-component.js
+<UserProvider currentUser={currentUser}>{children}</UserProvider>;
+```
+
+En 19.3, un Server Component puede importar el `Context` directamente desde un módulo `'use client'` y usarlo sin el wrapper intermedio:
+
+```jsx
+// server-component.js
+import { UserContext } from "./user-context";
+
+<UserContext value={currentUser}>{children}</UserContext>;
+```
+
+El patrón anterior sigue funcionando; esto es conveniencia, no un reemplazo obligatorio.
+
+### Otras mejoras que vale la pena mencionar
+
+- **Trusted Types**: React ya no convierte a string los valores `TrustedHTML`/`TrustedScript` antes de insertarlos, así que el navegador puede validarlos correctamente contra su política de Trusted Types (mitigación de XSS).
+- **Transitions independientes**: una Transition lenta ya no bloquea el renderizado de otras Transitions que se disparen mientras tanto.
+- Soporte para los eventos `onFullscreenChange` y `onFullscreenError`, la propiedad SVG `maskType`, y `fetchPriority` en recursos de módulos.
+- Fixes relevantes: `useDeferredValue` que quedaba atascado en un valor viejo, propagación de Context dentro de fallbacks de `Suspense`, un hang al actualizar un `Suspense boundary` deshidratado, y varios bugs de Fast Refresh con `lazy` y `memo`.
+
+---
+
+Ninguna de estas features rompe nada existente: `ViewTransition`, `Fragment` con `ref`, `browser()` y `Context` en Server Components son todas opt-in. Si ya usabas alguna de estas ideas detrás de un flag experimental, este es el momento de migrar a la versión estable.
+
+### Referencias
+
+- [React 19.3 — react.dev/blog](https://react.dev/blog/2026/09/09/react-19-3)
