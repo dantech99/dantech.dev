@@ -1,5 +1,4 @@
 ---
-import Header from '../components/Header.astro';
 import ButtonScrollTop from '@/components/buttonScrollTop.astro';
 import {
   SITE_URL,
@@ -10,6 +9,7 @@ import {
 import '@/styles/tailwind.css';
 import LigthBg from '@/components/DarkBackground.astro';
 import NavBar from '@/components/NavBar.astro';
+import Footer from "@/sections/Footer.astro";
 import { SEO } from 'astro-seo';
 const { title, description } = Astro.props;
 import { ClientRouter } from 'astro:transitions';
@@ -139,5 +139,6 @@ import { ClientRouter } from 'astro:transitions';
         box-sizing: border-box;
       }
     </style>
+    <Footer />
   </body>
 </html>
