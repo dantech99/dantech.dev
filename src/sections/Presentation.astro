@@ -1,111 +1,121 @@
 ---
-import GitHub from "@/icons/GitHub.astro";
-import LinkedIn from "@/icons/LinkedIn.astro";
-import ButtonStatus from "@/components/ButtonStatus.astro";
-import BlogIcon from "@/icons/BlogIcon.astro";
-import Mail from "@/icons/Mail.astro";
+import { ArrowDown, Mail } from "lucide-react";
+import SocialLinks from "@/components/SocialLinks.astro";
+import { mailto } from "@/data/contact";
 ---
 
 <section
-  class="flex md:flex-row flex-col gap-8 md:justify-end justify-between items-center md:gap-12 mt-10"
+  id="inicio"
+  class="relative isolate mx-auto w-full pb-20 pt-4"
 >
-  <main class="flex flex-col gap-3">
-    <!-- section movil  -->
-    <div class="md:hidden flex flex-row items-center gap-6 mb-2">
-      <div class="w-20 bg-white h-20 rounded-full overflow-hidden">
-        <img
-          src="/img/dantech-pixel.jpg"
-          alt="imagen personal para el portafolio"
-          class="w-full"
-          loading="lazy"
-        />
-      </div>
-      <div class="md:hidden">
-        <h1
-          class="text-4xl font-semibold dark:text-white text-[#083EB6] flex justify-start items-center gap-5"
-        >
-          <ButtonStatus />
-        </h1>
-      </div>
-    </div>
+  <div
+    class="dot-field pointer-events-none absolute -right-28 -top-8 -z-10 h-[380px] w-[440px] text-ink opacity-[0.22]"
+    aria-hidden="true"
+  >
+  </div>
 
-    <div>
-      <span class="text-xl dark:text-white text-[#333333]"> Hola/Hi ✋ </span>
-      <h1
-        class="text-4xl font-semibold dark:text-white text-[#083EB6] md:flex justify-start items-center gap-5"
-      >
-        Soy Danilo Macea
-        <span class="hidden md:inline-flex">
-          <ButtonStatus />
-        </span>
-      </h1>
-      <p
-        class="w-auto max-w-[60ch] text-xl dark:text-white text-[#333333] md:text-balance text-pretty"
-      >
-        <span class="dark:text-[#FADB6F] text-[#083EB6]">
-          Desarrollador web,</span
-        >
-        amante de la web y autodidacta, me gusta enfocar mis proyectos en la experiencia
-        de usuario y me encanta trabajar con gente apasionada como yo.
-        <p class="text-xl dark:text-[#FADB6F] text-[#083EB6]">
-          Conecta conmigo 👇👇
-        </p>
-      </p>
-    </div>
+  <!-- fecha y hora local + disponibilidad -->
+  <div class="flex items-start justify-between gap-4 text-xs text-ink">
+    <p class="min-h-8 leading-4" aria-hidden="true">
+      <span data-clock-date></span><br />
+      <span data-clock-time></span>
+    </p>
+    <span
+      class="inline-flex items-center gap-2 rounded-full border border-line bg-surface px-3 py-1.5 shadow-elevated"
+    >
+      <span class="size-1.5 rounded-full bg-[#1E9E55]" aria-hidden="true"></span>
+      Disponible para nuevos proyectos
+    </span>
+  </div>
 
-    <div class="flex justify-start items-center pt-2">
-      <a
-        href="https://github.com/dantech99"
-        class="px-2 py-1 flex flex-row justify-between items-center scale-100 hover:scale-150 transition-transform duration-300 ease-in-out"
-        role="link"
-        target="_blank"
-      >
-        <GitHub
-          class="size-8 fill-white stroke-gray-700 dark:stroke-gray-400 dark:fill-none"
-        />
-      </a>
-
-      <a
-        href="https://www.linkedin.com/in/dantechdev/"
-        class="px-2 py-1 text-[#333333] hover:shadow-lg ml-2 flex flex-row justify-between items-center scale-100 hover:scale-150 transition-transform duration-300 ease-in-out"
-        role="link"
-        target="_blank"
-      >
-        <LinkedIn
-          class="size-8 fill-white stroke-gray-700 dark:stroke-gray-400 dark:fill-none"
-        />
-      </a>
-
-      <a
-        href="/blog"
-        class="px-2 py-1 text-[#333333] hover:shadow-lg ml-2 flex flex-row justify-between items-center scale-100 hover:scale-150 transition-transform duration-300 ease-in-out"
-        role="link"
-      >
-        <BlogIcon
-          class="size-8 fill-white stroke-gray-700 dark:stroke-gray-400 dark:fill-none"
-        />
-      </a>
-
-      <a
-        href="mailto:dandevtech99@gmail.com"
-        class="px-2 py-1 text-[#333333] hover:shadow-lg ml-2 flex flex-row justify-between items-center scale-100 hover:scale-150 transition-transform duration-300 ease-in-out"
-        role="link"
-      >
-        <Mail
-          class="size-8 fill-white stroke-gray-700 dark:stroke-gray-400 dark:fill-none"
-        />
-      </a>
-    </div>
-  </main>
-
-  <div class="md:flex hidden flex-col justify-center items-center">
-    <div class="w-52 bg-white h-52 rounded-full overflow-hidden">
+  <!-- identidad -->
+  <div class="mt-16 flex flex-col gap-6">
+    <div
+      class="size-20 overflow-hidden rounded-2xl border border-line shadow-md"
+    >
       <img
         src="/img/dantech-pixel.jpg"
-        alt="imagen personal para el portafolio"
-        class="w-full"
-        loading="lazy"
+        alt="Foto de Danilo Macea"
+        class="size-full object-cover"
+        width="80"
+        height="80"
       />
     </div>
+    <h1
+      class="max-w-[24ch] text-balance font-serif text-[44px] leading-[1.04] tracking-[-0.02em] text-ink md:text-[64px]"
+    >
+      Software a medida que funciona sin esfuerzo.
+    </h1>
+  </div>
+
+  <!-- redes y bio -->
+  <div
+    class="mt-14 flex flex-col-reverse items-start justify-between gap-8 sm:flex-row"
+  >
+    <SocialLinks />
+    <div class="flex max-w-[240px] flex-col gap-5">
+      <p class="text-sm leading-relaxed text-ink-muted">
+        Soy Danilo, desarrollador web freelance en Colombia. Colaboro con
+        negocios y emprendimientos para crear productos digitales que impulsan
+        sus metas.
+      </p>
+      <a
+        href="#proyectos"
+        class="inline-flex items-center gap-1.5 text-sm text-ink"
+      >
+        Descubre <ArrowDown size={14} aria-hidden="true" />
+      </a>
+    </div>
+  </div>
+
+  <!-- contacto rápido -->
+  <div class="mt-16 flex justify-center">
+    <a
+      href={mailto("Proyecto web")}
+      class="inline-flex items-center gap-2 rounded-full border border-line bg-surface p-1 shadow-elevated transition hover:-translate-y-0.5"
+    >
+      <img
+        src="/img/dantech-pixel.jpg"
+        alt=""
+        class="size-8 rounded-full object-cover"
+        width="32"
+        height="32"
+      />
+      <span
+        class="inline-flex items-center gap-2 rounded-full bg-ink px-4 py-2.5 text-sm font-medium text-on-ink"
+      >
+        <Mail size={14} aria-hidden="true" /> Escríbeme por correo
+      </span>
+    </a>
   </div>
 </section>
+
+<script>
+  let timer: number | undefined;
+
+  function startClock() {
+    const date = document.querySelector<HTMLElement>("[data-clock-date]");
+    const time = document.querySelector<HTMLElement>("[data-clock-time]");
+    if (!date || !time) return;
+    const tick = () => {
+      const now = new Date();
+      date.textContent = now.toLocaleDateString("es-CO", {
+        day: "numeric",
+        month: "short",
+        year: "numeric",
+        timeZone: "America/Bogota",
+      });
+      time.textContent = now.toLocaleTimeString("es-CO", {
+        timeZone: "America/Bogota",
+      });
+    };
+    tick();
+    window.clearInterval(timer);
+    timer = window.setInterval(tick, 1000);
+  }
+
+  document.addEventListener("astro:page-load", startClock);
+  document.addEventListener("astro:before-swap", () =>
+    window.clearInterval(timer)
+  );
+</script>

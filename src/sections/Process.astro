@@ -1,0 +1,83 @@
+---
+import { Search, ListChecks, PencilRuler, Code, Rocket } from "lucide-react";
+import SectionHeading from "@/components/SectionHeading.astro";
+
+const steps = [
+  {
+    icon: Search,
+    title: "Descubrimiento",
+    text: "Entiendo tu negocio, tus objetivos y el alcance del proyecto.",
+    grow: 1,
+  },
+  {
+    icon: ListChecks,
+    title: "Propuesta",
+    text: "Defino alcance, tiempos y costo por escrito antes de empezar.",
+    grow: 1.15,
+  },
+  {
+    icon: PencilRuler,
+    title: "Diseño",
+    text: "Planteo la estructura y la interfaz para validarlas contigo.",
+    grow: 1.15,
+  },
+  {
+    icon: Code,
+    title: "Construcción",
+    text: "Desarrollo por entregas cortas para que puedas ajustar a tiempo.",
+    grow: 1,
+  },
+  {
+    icon: Rocket,
+    title: "Entrega y soporte",
+    text: "Publico, te explico cómo usarlo y sigo disponible después.",
+    grow: 1,
+  },
+];
+
+// filas del bento: 2 · 2 · 1
+const rows = [[0, 1], [2, 3], [4]];
+---
+
+<section
+  id="proceso"
+  class="mx-auto flex w-full scroll-mt-8 flex-col gap-12 py-16"
+>
+  <SectionHeading
+    label="Cómo trabajo"
+    title="Una serie de pasos para lograr los mejores resultados"
+  />
+
+  <div class="flex flex-col gap-3">
+    {
+      rows.map((row) => (
+        <div class="flex flex-col gap-3 sm:flex-row">
+          {row.map((i) => {
+            const { icon: Icon, title, text, grow } = steps[i];
+            return (
+              <article
+                class="relative flex flex-col gap-4 overflow-hidden rounded-2xl border border-line bg-surface p-4 shadow-elevated"
+                style={`flex:${grow} 1 0%`}
+              >
+                <div class="flex items-start justify-between">
+                  <span class="grid size-7 place-items-center rounded-full border border-line bg-soft text-xs font-medium text-ink">
+                    {i + 1}
+                  </span>
+                  <span class="grid size-11 place-items-center rounded-full border border-line bg-surface text-ink shadow-elevated">
+                    <Icon size={18} strokeWidth={1.75} aria-hidden="true" />
+                  </span>
+                </div>
+                <div>
+                  <h3 class="text-sm font-medium text-ink">{title}</h3>
+                  <p class="mt-1 text-sm leading-relaxed text-ink-muted">
+                    {text}
+                  </p>
+                </div>
+              </article>
+            );
+          })}
+        </div>
+      ))
+    }
+  </div>
+</section>

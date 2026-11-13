@@ -1,0 +1,44 @@
+---
+import SectionHeading from "@/components/SectionHeading.astro";
+import { experience } from "@/data/experience";
+---
+
+<section
+  id="experiencia"
+  class="mx-auto flex w-full scroll-mt-8 flex-col gap-12 py-16"
+>
+  <SectionHeading
+    label="Experiencia"
+    title="Mi recorrido en el mundo del desarrollo web."
+  />
+
+  <div
+    class="rounded-[20px] border border-line bg-surface p-5 shadow-elevated sm:p-6"
+  >
+    <ol class="flex flex-col gap-9">
+      {
+        experience.map(({ date, title, description }, i) => (
+          <li class="grid gap-3 sm:grid-cols-[170px_1fr] sm:gap-6">
+            <div class="relative">
+              <time class="inline-block rounded-full bg-soft px-3 py-1.5 text-xs text-ink">
+                {date}
+              </time>
+              {i < experience.length - 1 && (
+                <span
+                  class="absolute -bottom-9 left-4 top-9 hidden w-px bg-line sm:block"
+                  aria-hidden="true"
+                />
+              )}
+            </div>
+            <div>
+              <h3 class="text-sm font-medium text-ink">{title.trim()}</h3>
+              <p class="mt-2 text-sm leading-relaxed text-ink-muted">
+                {description.trim()}
+              </p>
+            </div>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</section>

@@ -1,32 +1,28 @@
 ---
-// impotaciones de componentes
+// importaciones de componentes
 import Layout from "../layouts/Layout.astro";
 import Presentation from "@/sections/Presentation.astro";
-import Experience from "@/sections/Experience.astro";
-import Projects from "@/sections/Projects.astro";
-import Articles from "@/sections/Articles.astro";
+import FeaturedProjects from "@/sections/FeaturedProjects.astro";
+import Benefits from "@/sections/Benefits.astro";
+import ServicesRadial from "@/sections/ServicesRadial.astro";
+import Process from "@/sections/Process.astro";
+import ExperienceTimeline from "@/sections/ExperienceTimeline.astro";
+import Testimonials from "@/sections/Testimonials.astro";
+import FinalCta from "@/sections/FinalCta.astro";
 ---
 
 <!-- seccion principal -->
 <Layout
-  title={"Danilo Macea - Desarrollador Web Frontend | Portafolio Profesional"}
+  title={"Danilo Macea - Desarrollador Web Freelance | Software a medida"}
 >
-  <main class="flex flex-col md:gap-20 gap-10" role="main">
-    <!-- section for presentation and introduction  -->
+  <main class="flex flex-col overflow-x-clip" role="main">
     <Presentation />
-
-    <!-- section for show experience in works -->
-    <Experience />
-
-    <!-- section for show projects  -->
-    <Projects />
-
-    <!-- section for show skills -->
-
-    <!-- <Skills /> -->
-
-    <!-- Section for show articles off blog -->
-
-    <Articles />
+    <FeaturedProjects />
+    <Benefits />
+    <ServicesRadial />
+    <Process />
+    <ExperienceTimeline />
+    <Testimonials />
+    <FinalCta />
   </main>
 </Layout>

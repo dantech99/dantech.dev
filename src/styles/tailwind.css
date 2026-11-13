@@ -43,7 +43,15 @@
     
     /* Estados */
     --ring: #333333;
-    --radius: 0.5rem
+    --radius: 0.5rem;
+
+    /* Rediseño freelance */
+    --ink: #0A0A0A;
+    --ink-muted: #6B6B6B;
+    --on-ink: #FFFFFF;
+    --surface: #FFFFFF;
+    --soft: #F3F3F3;
+    --line: #EAEAEA;
   }
   .dark {
     /* Colores base */
@@ -84,7 +92,15 @@
     --icon-secondary: #7D7B7B;
     
     /* Estados */
-    --ring: #ffffff
+    --ring: #ffffff;
+
+    /* Rediseño freelance */
+    --ink: #FFFFFF;
+    --ink-muted: #A1A1AA;
+    --on-ink: #0A0A0B;
+    --surface: #141416;
+    --soft: #1C1C1F;
+    --line: #28282C;
   }
   .theme {
     --animate-meteor: meteor 5s linear infinite
@@ -97,6 +113,16 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+/* Campo de puntos (halftone) decorativo; el color sale de currentColor */
+@layer components {
+  .dot-field {
+    background-image: radial-gradient(circle, currentColor 1px, transparent 1.5px);
+    background-size: 14px 14px;
+    -webkit-mask-image: radial-gradient(ellipse at center, #000 0%, transparent 70%);
+    mask-image: radial-gradient(ellipse at center, #000 0%, transparent 70%);
   }
 }
 
@@ -140,13 +166,12 @@
     animation: none;
     mix-blend-mode: normal;
 }
+/* Fondo oscuro: grafito con un halo blanco muy tenue arriba */
 .dark .cosmic-background {
   background:
-    radial-gradient(ellipse 110% 70% at 25% 80%, rgba(147, 51, 234, 0.12), transparent 55%),
-    radial-gradient(ellipse 130% 60% at 75% 15%, rgba(59, 130, 246, 0.10), transparent 65%),
-    radial-gradient(ellipse 80% 90% at 20% 30%, rgba(236, 72, 153, 0.14), transparent 50%),
-    radial-gradient(ellipse 100% 40% at 60% 70%, rgba(16, 185, 129, 0.08), transparent 45%),
-    #000000;
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(255, 255, 255, 0.10), transparent 70%),
+    radial-gradient(ellipse 45% 35% at 90% 8%, rgba(255, 255, 255, 0.05), transparent 65%),
+    linear-gradient(180deg, #0C0C0D 0%, #070708 100%);
 }
 
 @theme inline {
