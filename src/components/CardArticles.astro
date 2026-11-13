@@ -1,32 +1,45 @@
 ---
-const { title, description, author, slug } = Astro.props;
+interface Props {
+  title: string;
+  description: string;
+  author: string;
+  slug: string;
+  img?: string;
+}
+
+const { title, description, author, slug, img } = Astro.props;
 ---
 
-<article
-  class="rounded-lg col-span-6 border-[1px] border-gray-600 bg-card text-card-foreground shadow-sm w-full overflow-hidden"
-  data-aos="fade-up"
-  data-v0-t="card"
-  transition:name={`article-${title}`}>
-  <main
-    class="flex justify-between p-5 items-start space-y-0 h-auto flex-col md:flex-row">
-    <div class="space-y-1">
-      <a href={`blog/${slug}`}>
-        <h3
-          class="text-2xl font-semibold whitespace-nowrap leading-none tracking-tight dark:text-white dark:hover:text-[#FADB6F] text-[#333333] hover:text-[#083EB6] text-wrap">
-          {title}
-        </h3>
-      </a>
-
-      <p
-        class="text-sm text-muted-foreground text-balance font-medium text-gray-500 dark:text-gray-400">
-        {description}
-      </p>
-    </div>
-  </main>
-
-  <footer class="py-1 px-6 md:p-6">
-    <div class="flex space-x-4 text-sm text-gray-500 dark:text-gray-400">
-      {author}
-    </div>
-  </footer>
-</article>
+<a
+  href={`/blog/${slug}`}
+  class="group flex h-full flex-col gap-3 rounded-[20px] border border-line bg-surface p-2.5 shadow-elevated transition duration-200 hover:-translate-y-0.5"
+>
+  {
+    img && (
+      <div class="aspect-[16/9] overflow-hidden rounded-xl bg-soft">
+        <img
+          src={img}
+          alt=""
+          class="size-full object-cover transition duration-500 group-hover:scale-105"
+          loading="lazy"
+          onerror="this.parentElement.style.display='none'"
+        />
+      </div>
+    )
+  }
+  <div class="flex flex-col gap-2 px-1.5">
+    <h3
+      class="text-balance text-lg font-medium leading-snug text-ink"
+      transition:name={`article-${title}`}
+    >
+      {title}
+    </h3>
+    <p class="line-clamp-3 text-sm leading-relaxed text-ink-muted">
+      {description}
+    </p>
+  </div>
+  <div class="mt-auto flex flex-wrap items-center gap-2 px-1.5 pb-1.5">
+    <span class="rounded-full bg-soft px-3 py-1 text-xs text-ink">Artículo</span>
+    <span class="text-xs text-ink-muted">{author}</span>
+  </div>
+</a>

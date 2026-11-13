@@ -1,0 +1,133 @@
+---
+import {
+  Globe,
+  ShoppingCart,
+  AppWindow,
+  Bot,
+  Smartphone,
+  LifeBuoy,
+} from "lucide-react";
+import SectionHeading from "@/components/SectionHeading.astro";
+import { mailto } from "@/data/contact";
+
+const services = [
+  {
+    area: "top",
+    icon: Globe,
+    title: "Sitios web y landing pages",
+    text: "Presencia web clara y rápida que explica tu negocio y atrae clientes.",
+  },
+  {
+    area: "l1",
+    icon: ShoppingCart,
+    title: "Tiendas online",
+    text: "Catálogo, pagos y gestión de pedidos para vender en línea.",
+  },
+  {
+    area: "r1",
+    icon: AppWindow,
+    title: "Aplicaciones web a medida",
+    text: "Sistemas y paneles que se adaptan a cómo trabaja tu equipo.",
+  },
+  {
+    area: "l2",
+    icon: Bot,
+    title: "Automatización con IA",
+    text: "Procesos repetitivos convertidos en flujos que se ejecutan solos.",
+  },
+  {
+    area: "r2",
+    icon: Smartphone,
+    title: "Diseño responsive",
+    text: "Interfaces que se ven y funcionan bien en cualquier pantalla.",
+  },
+  {
+    area: "bottom",
+    icon: LifeBuoy,
+    title: "Soporte y mantenimiento",
+    text: "Acompañamiento después de la entrega: mejoras, correcciones y evolución.",
+  },
+];
+---
+
+<section
+  id="servicios"
+  class="relative mx-auto w-full scroll-mt-8 py-16"
+>
+  <div class="radial">
+    <div class="head relative isolate flex flex-col items-center gap-6 py-8 text-center">
+      <div
+        class="dot-field pointer-events-none absolute left-1/2 top-1/2 -z-10 size-[420px] -translate-x-1/2 -translate-y-1/2 text-ink opacity-[0.2]"
+        aria-hidden="true"
+      >
+      </div>
+      <SectionHeading label="Servicios" title="Servicios pensados para ti" />
+      <a
+        href={mailto("Cotización de proyecto")}
+        class="rounded-full bg-ink px-5 py-2.5 text-sm font-medium text-on-ink transition hover:-translate-y-0.5"
+      >
+        Pedir una cotización
+      </a>
+    </div>
+
+    {
+      services.map(({ area, icon: Icon, title, text }) => (
+        <article
+          class={`card ${area} flex flex-col gap-3 rounded-2xl border border-line bg-surface p-4 shadow-elevated`}
+        >
+          <span class="grid size-10 place-items-center rounded-full border border-line bg-soft text-ink">
+            <Icon size={18} strokeWidth={1.75} aria-hidden="true" />
+          </span>
+          <h3 class="text-sm font-medium text-ink">{title}</h3>
+          <p class="text-sm leading-relaxed text-ink-muted">{text}</p>
+        </article>
+      ))
+    }
+  </div>
+</section>
+
+<style>
+  .radial {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .head {
+    order: -1;
+  }
+  @media (min-width: 768px) {
+    .radial {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-areas:
+        ". top ."
+        "l1 head r1"
+        "l2 head r2"
+        ". bottom .";
+      gap: 20px;
+      align-items: start;
+    }
+    .head {
+      grid-area: head;
+      order: 0;
+      align-self: center;
+    }
+    .top {
+      grid-area: top;
+    }
+    .l1 {
+      grid-area: l1;
+    }
+    .r1 {
+      grid-area: r1;
+    }
+    .l2 {
+      grid-area: l2;
+    }
+    .r2 {
+      grid-area: r2;
+    }
+    .bottom {
+      grid-area: bottom;
+    }
+  }
+</style>

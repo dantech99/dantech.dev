@@ -1,5 +1,4 @@
 ---
-import Header from '../components/Header.astro';
 import ButtonScrollTop from '@/components/buttonScrollTop.astro';
 import {
   SITE_URL,
@@ -10,6 +9,7 @@ import {
 import '@/styles/tailwind.css';
 import LigthBg from '@/components/DarkBackground.astro';
 import NavBar from '@/components/NavBar.astro';
+import Footer from "@/sections/Footer.astro";
 import { SEO } from 'astro-seo';
 const { title, description } = Astro.props;
 import { ClientRouter } from 'astro:transitions';
@@ -55,6 +55,20 @@ import { ClientRouter } from 'astro:transitions';
     <meta charset="utf-8" />
     <!-- toolstips -->
     <link rel="stylesheet" href="https://unpkg.com/microtip/microtip.css" />
+    <!-- tipografía de títulos del rediseño -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Satoshi (ITF Free Font License): servida por la API de Fontshare; no se versiona en el repo -->
+    <link rel="preconnect" href="https://api.fontshare.com" />
+    <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin />
+    <link
+      href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap"
+      rel="stylesheet"
+    />
     <ClientRouter />
 
     <!-- JSON-LD Schema -->
@@ -133,11 +147,12 @@ import { ClientRouter } from 'astro:transitions';
         scroll-behavior: smooth;
       } */
       body {
-        font-family: 'Geist', sans-serif;
+        font-family: 'Satoshi', 'Geist', sans-serif;
         padding: 0;
         margin: 0;
         box-sizing: border-box;
       }
     </style>
+    <Footer />
   </body>
 </html>

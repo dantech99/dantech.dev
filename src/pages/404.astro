@@ -1,0 +1,31 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import PageHeader from "@/components/PageHeader.astro";
+---
+
+<Layout
+  title="Danilo Macea - Página no encontrada"
+  description="La página que buscas no existe o cambió de lugar."
+>
+  <main class="flex min-h-[60vh] flex-col items-center justify-center">
+    <PageHeader
+      label="Error 404"
+      title="Esta página no existe"
+      description="Puede que el enlace haya cambiado o que la dirección esté mal escrita. Te dejo un par de caminos para seguir."
+    />
+    <div class="flex flex-wrap justify-center gap-3 pb-16">
+      <a
+        href="/"
+        class="rounded-full bg-ink px-6 py-3 text-sm font-medium text-on-ink transition hover:-translate-y-0.5"
+      >
+        Volver al inicio
+      </a>
+      <a
+        href="/projects"
+        class="rounded-full border border-line bg-surface px-6 py-3 text-sm font-medium text-ink shadow-elevated transition hover:-translate-y-0.5"
+      >
+        Ver proyectos
+      </a>
+    </div>
+  </main>
+</Layout>

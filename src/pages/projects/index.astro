@@ -1,7 +1,7 @@
 ---
 import Layout from '@/layouts/Layout.astro';
 import CardProject from '@/components/CardProject.astro';
-import DividerLine from '@/components/DividerLine.astro';
+import PageHeader from '@/components/PageHeader.astro';
 
 import { getCollection } from 'astro:content';
 
@@ -11,37 +11,31 @@ const projects = (await getCollection('projects')).sort(
 ---
 
 <Layout title="Danilo Macea - Desarrollador Web Frontend | Proyectos">
-  <DividerLine
-    title="Proyectos"
-    class:list={'separator'}
-    customClass={'mt-10'}
+  <PageHeader
+    label="Proyectos"
+    title="Todo lo que he construido"
+    description="Sitios y aplicaciones web que he diseñado y desarrollado, con el stack, el estado y los enlaces de cada uno."
   />
 
-  <section class="grid grid-cols-14 md:grid-cols-12 gap-4 my-10">
-    <!-- Column -->
-    {
-      projects.map((project) => {
-        const { slug, data } = project;
-        const { title, description, img, tags, links, tech, status } = data;
-        return (
-          <CardProject
-            title={title}
-            description={description}
-            img={img}
-            tags={tags}
-            links={links}
-            tech={tech}
-            slug={slug}
-            status={status}
-          />
-        );
-      })
-    }
+  <section class="pb-16">
+    <ul role="list" class="grid gap-4 md:grid-cols-2">
+      {
+        projects.map(({ slug, data }) => (
+          <li>
+            <CardProject
+              title={data.title}
+              description={data.description}
+              img={data.img}
+              tags={data.tags}
+              links={data.links}
+              tech={data.tech}
+              slug={slug}
+              status={data.status}
+              date={data.date}
+            />
+          </li>
+        ))
+      }
+    </ul>
   </section>
 </Layout>
-
-<style is:inline>
-  .separator {
-    margin-top: 3rem;
-  }
-</style>

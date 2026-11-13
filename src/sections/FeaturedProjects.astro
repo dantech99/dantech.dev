@@ -1,0 +1,63 @@
+---
+import { getCollection } from "astro:content";
+import SectionHeading from "@/components/SectionHeading.astro";
+
+const projects = (await getCollection("projects")).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+---
+
+<section
+  id="proyectos"
+  class="mx-auto flex w-full scroll-mt-8 flex-col gap-12 py-16"
+>
+  <SectionHeading
+    label="Proyectos destacados"
+    title="Una selección de mis proyectos recientes"
+  />
+
+  <ul role="list" class="grid gap-4 sm:grid-cols-2">
+    {
+      projects.map(({ slug, data }) => (
+        <li>
+          <a
+            href={`/projects/${slug}`}
+            class="group flex h-full flex-col gap-3 rounded-[20px] border border-line bg-surface p-2.5 shadow-elevated transition duration-200 hover:-translate-y-0.5"
+          >
+            <div class="aspect-[4/3] overflow-hidden rounded-xl bg-soft">
+              <img
+                src={data.img}
+                alt={`Captura de ${data.title}`}
+                class="size-full object-cover object-top transition duration-500 group-hover:scale-105"
+                loading="lazy"
+                onerror="this.style.display='none'"
+              />
+            </div>
+            <div class="flex items-baseline justify-between gap-3 px-1.5">
+              <h3 class="text-sm font-medium text-ink">{data.title}</h3>
+              <span class="text-xs text-ink-muted">
+                {data.date.getFullYear()}
+              </span>
+            </div>
+            <div class="flex flex-wrap gap-2 px-1.5 pb-1.5">
+              {data.tags.slice(0, 2).map((tag: string) => (
+                <span class="rounded-full bg-soft px-3 py-1 text-xs capitalize text-ink">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+
+  <div class="flex justify-center">
+    <a
+      href="/projects"
+      class="rounded-full border border-line bg-surface px-5 py-2.5 text-sm font-medium text-ink shadow-elevated transition hover:-translate-y-0.5"
+    >
+      Ver todos los proyectos
+    </a>
+  </div>
+</section>

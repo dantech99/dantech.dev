@@ -43,13 +43,21 @@
     
     /* Estados */
     --ring: #333333;
-    --radius: 0.5rem
+    --radius: 0.5rem;
+
+    /* Rediseño freelance */
+    --ink: #0A0A0A;
+    --ink-muted: #6B6B6B;
+    --on-ink: #FFFFFF;
+    --surface: #FFFFFF;
+    --soft: #F3F3F3;
+    --line: #EAEAEA;
   }
   .dark {
     /* Colores base */
-    --background: #0B1528;
+    --background: #0A0A0B;
     --foreground: #ffffff;
-    --card: #1E2637;
+    --card: #141416;
     --card-foreground: #ffffff;
     
     /* Colores de marca */
@@ -61,7 +69,7 @@
     --accent-foreground: #ffffff;
     
     /* Colores de texto */
-    --muted: #1E2637;
+    --muted: #1C1C1F;
     --muted-foreground: #7d8590;
     --text-primary: #ffffff;
     --text-secondary: #7d8590;
@@ -69,14 +77,14 @@
     --text-light: #e6edf3;
     
     /* Colores de fondo */
-    --bg-primary: #0B1528;
-    --bg-secondary: #1E2637;
-    --bg-dark-primary: #0B1528;
-    --bg-dark-secondary: #1E2637;
-    
+    --bg-primary: #0A0A0B;
+    --bg-secondary: #141416;
+    --bg-dark-primary: #0A0A0B;
+    --bg-dark-secondary: #141416;
+
     /* Colores de bordes */
-    --border: #30363d;
-    --border-dark: #30363d;
+    --border: #28282C;
+    --border-dark: #28282C;
     --border-secondary: #707070;
     
     /* Colores de iconos */
@@ -84,7 +92,15 @@
     --icon-secondary: #7D7B7B;
     
     /* Estados */
-    --ring: #ffffff
+    --ring: #ffffff;
+
+    /* Rediseño freelance */
+    --ink: #FFFFFF;
+    --ink-muted: #A1A1AA;
+    --on-ink: #0A0A0B;
+    --surface: #141416;
+    --soft: #1C1C1F;
+    --line: #28282C;
   }
   .theme {
     --animate-meteor: meteor 5s linear infinite
@@ -97,6 +113,66 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+/* Campo de puntos (halftone) decorativo; el color sale de currentColor */
+@layer components {
+  .dot-field {
+    background-image: radial-gradient(circle, currentColor 1px, transparent 1.5px);
+    background-size: 14px 14px;
+    -webkit-mask-image: radial-gradient(ellipse at center, #000 0%, transparent 70%);
+    mask-image: radial-gradient(ellipse at center, #000 0%, transparent 70%);
+  }
+}
+
+/* Tema de lectura (artículos y detalle de proyectos): usa los tokens del sitio,
+   por lo que cambia solo entre claro y oscuro (sin prose-invert) */
+@layer components {
+  .prose-site {
+    --tw-prose-body: var(--ink);
+    --tw-prose-headings: var(--ink);
+    --tw-prose-lead: var(--ink-muted);
+    --tw-prose-links: var(--ink);
+    --tw-prose-bold: var(--ink);
+    --tw-prose-counters: var(--ink-muted);
+    --tw-prose-bullets: var(--ink-muted);
+    --tw-prose-hr: var(--line);
+    --tw-prose-quotes: var(--ink);
+    --tw-prose-quote-borders: var(--line);
+    --tw-prose-captions: var(--ink-muted);
+    --tw-prose-code: var(--ink);
+    --tw-prose-pre-code: #e4e4e7;
+    --tw-prose-pre-bg: #111113;
+    --tw-prose-th-borders: var(--line);
+    --tw-prose-td-borders: var(--line);
+  }
+  .prose-site a {
+    text-decoration-color: var(--ink-muted);
+    text-underline-offset: 3px;
+    font-weight: 500;
+  }
+  .prose-site a:hover {
+    text-decoration-color: var(--ink);
+  }
+  .prose-site h1,
+  .prose-site h2,
+  .prose-site h3 {
+    letter-spacing: -0.02em;
+  }
+  .prose-site :not(pre) > code {
+    background: var(--soft);
+    border-radius: 6px;
+    padding: 0.15em 0.4em;
+    font-weight: 500;
+  }
+  .prose-site :not(pre) > code::before,
+  .prose-site :not(pre) > code::after {
+    content: none;
+  }
+  .prose-site img {
+    border-radius: 16px;
+    border: 1px solid var(--line);
   }
 }
 
@@ -140,13 +216,12 @@
     animation: none;
     mix-blend-mode: normal;
 }
+/* Fondo oscuro: grafito con un halo blanco muy tenue arriba */
 .dark .cosmic-background {
   background:
-    radial-gradient(ellipse 110% 70% at 25% 80%, rgba(147, 51, 234, 0.12), transparent 55%),
-    radial-gradient(ellipse 130% 60% at 75% 15%, rgba(59, 130, 246, 0.10), transparent 65%),
-    radial-gradient(ellipse 80% 90% at 20% 30%, rgba(236, 72, 153, 0.14), transparent 50%),
-    radial-gradient(ellipse 100% 40% at 60% 70%, rgba(16, 185, 129, 0.08), transparent 45%),
-    #000000;
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(255, 255, 255, 0.10), transparent 70%),
+    radial-gradient(ellipse 45% 35% at 90% 8%, rgba(255, 255, 255, 0.05), transparent 65%),
+    linear-gradient(180deg, #0C0C0D 0%, #070708 100%);
 }
 
 @theme inline {

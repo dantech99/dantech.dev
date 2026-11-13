@@ -22,6 +22,7 @@ const {
   description,
   img,
   date,
+  status,
   links,
   tags,
   tech,
@@ -32,27 +33,102 @@ const {
 
 const { Content } = await project.render();
 export const prerender = true;
+
+const formattedDate = new Date(date).toLocaleDateString('es-CO', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+const dot =
+  status === 'Completado'
+    ? 'bg-emerald-500'
+    : status === 'En desarrollo'
+      ? 'bg-amber-500'
+      : 'bg-ink-muted';
 ---
 
 <Layout title=`${title}` description={description}>
-  <section class="my-20">
-    <header class="flex flex-col gap-5">
+  <article class="pb-16 pt-12">
+    <header class="flex flex-col items-start gap-5">
+      <a
+        href="/projects"
+        class="text-sm text-ink-muted transition hover:text-ink"
+      >
+        ← Volver a proyectos
+      </a>
+      <span
+        class="inline-flex items-center gap-1.5 rounded-full bg-soft px-3 py-1 text-xs text-ink"
+        aria-label={`Estado del proyecto: ${status}`}
+      >
+        <span class={`size-1.5 rounded-full ${dot}`} aria-hidden="true"></span>
+        {status}
+      </span>
       <h1
-        class="text-4xl font-semibold dark:text-white text-gray-800"
+        class="max-w-[22ch] text-balance font-serif text-[40px] leading-[1.05] tracking-[-0.02em] text-ink md:text-[56px]"
         transition:name={`project-${title}`}
       >
         {title}
       </h1>
-      <p>Por: {author} | Publicado el: {new Date(date).toLocaleDateString()}</p>
-      <img src={img} alt="" class="rounded w-full h-auto object-cover" />
+      <p class="max-w-[60ch] text-pretty text-base leading-relaxed text-ink-muted md:text-lg">
+        {description}
+      </p>
+
+      <div class="flex flex-wrap gap-2 text-xs text-ink">
+        <span class="rounded-full bg-soft px-3 py-1">Por {author}</span>
+        <span class="rounded-full bg-soft px-3 py-1">{formattedDate}</span>
+        {
+          tags.map((tag: string) => (
+            <span class="rounded-full bg-soft px-3 py-1 capitalize">{tag}</span>
+          ))
+        }
+      </div>
+
+      {
+        links.length > 0 && (
+          <div class="flex flex-wrap gap-3">
+            {links.map(({ name, url }: { name: string; url: string }, i: number) => (
+              <a
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class:list={[
+                  "rounded-full px-5 py-2.5 text-sm font-medium transition hover:-translate-y-0.5",
+                  i === 0
+                    ? "bg-ink text-on-ink"
+                    : "border border-line bg-surface text-ink shadow-elevated",
+                ]}
+              >
+                {name}
+              </a>
+            ))}
+          </div>
+        )
+      }
+
+      {
+        tech.length > 0 && (
+          <ul role="list" class="flex flex-wrap gap-2 text-xs text-ink-muted">
+            {tech.map(({ name }: { name: string }) => (
+              <li class="rounded-full border border-line bg-surface px-3 py-1">
+                {name}
+              </li>
+            ))}
+          </ul>
+        )
+      }
     </header>
 
-    <main class="max-w-2xl m-auto my-10 text-pretty">
-      <div
-        class="prose dark:prose-invert dark:prose-a:text-yellow-300 prose-a:text-blue-700 prose-blockquote:border-blue-700"
-      >
+    <img
+      src={img}
+      alt={`Captura de ${title}`}
+      class="mt-10 h-auto w-full rounded-2xl border border-line object-cover"
+      onerror="this.style.display='none'"
+    />
+
+    <div class="mx-auto mt-12 max-w-3xl text-pretty">
+      <div class="prose prose-site max-w-none">
         <Content />
       </div>
-    </main>
-  </section>
+    </div>
+  </article>
 </Layout>

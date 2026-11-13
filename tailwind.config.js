@@ -5,8 +5,12 @@ module.exports = {
   theme: {
   	extend: {
   		fontFamily: {
-  			sans: ['Geist', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+  			sans: ['Satoshi', 'Geist', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+  			serif: ['Instrument Serif', 'ui-serif', 'Georgia', 'serif'],
   			mono: ['Geist Mono', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace']
+  		},
+  		boxShadow: {
+  			elevated: '0 1px 2px rgba(0,0,0,0.06), 0 8px 24px rgba(0,0,0,0.08)'
   		},
   		borderRadius: {
   			lg: 'var(--radius)',
@@ -39,6 +43,14 @@ module.exports = {
   			border: 'var(--border)',
   			ring: 'var(--ring)',
   			// Nuevas variables personalizadas
+  			ink: {
+  				DEFAULT: 'var(--ink)',
+  				muted: 'var(--ink-muted)'
+  			},
+  			'on-ink': 'var(--on-ink)',
+  			surface: 'var(--surface)',
+  			soft: 'var(--soft)',
+  			line: 'var(--line)',
   			'text-primary': 'var(--text-primary)',
   			'text-secondary': 'var(--text-secondary)',
   			'text-tertiary': 'var(--text-tertiary)',
