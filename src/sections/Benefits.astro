@@ -1,0 +1,59 @@
+---
+import { Asterisk, Handshake, PackageCheck } from "lucide-react";
+import SectionHeading from "@/components/SectionHeading.astro";
+
+const benefits = [
+  {
+    icon: Asterisk,
+    title: "Soluciones a la medida",
+    text: "Cada negocio es distinto, y el software también. Diseño cada solución según tus metas y las de tus usuarios.",
+    width: "100%",
+  },
+  {
+    icon: Handshake,
+    title: "Trabajo en conjunto",
+    text: "Los mejores resultados salen de colaborar de cerca. Tu opinión cuenta en cada etapa del proyecto.",
+    width: "93%",
+  },
+  {
+    icon: PackageCheck,
+    title: "Entregas claras",
+    text: "Avances cortos y visibles, con alcance, tiempos y costo definidos por escrito desde el inicio.",
+    width: "86%",
+  },
+];
+---
+
+<section
+  class="relative isolate mx-auto flex w-full flex-col gap-12 py-16"
+>
+  <div
+    class="dot-field pointer-events-none absolute inset-x-0 top-[35%] -z-10 mx-auto h-[320px] w-[560px] max-w-full text-ink opacity-[0.2]"
+    aria-hidden="true"
+  >
+  </div>
+
+  <SectionHeading
+    label="Beneficios"
+    title="Comparte tu idea y obtén todos estos beneficios"
+  />
+
+  <ul role="list" class="flex flex-col gap-3">
+    {
+      benefits.map(({ icon: Icon, title, text, width }) => (
+        <li
+          class="mx-auto flex w-full gap-4 rounded-2xl border border-line bg-surface p-4 shadow-elevated"
+          style={`max-width:${width}`}
+        >
+          <span class="grid size-10 shrink-0 place-items-center rounded-full border border-line bg-soft text-ink">
+            <Icon size={18} strokeWidth={1.75} aria-hidden="true" />
+          </span>
+          <div>
+            <h3 class="text-sm font-medium text-ink">{title}</h3>
+            <p class="mt-1 text-sm leading-relaxed text-ink-muted">{text}</p>
+          </div>
+        </li>
+      ))
+    }
+  </ul>
+</section>

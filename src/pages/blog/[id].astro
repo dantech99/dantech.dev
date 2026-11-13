@@ -1,7 +1,6 @@
 ---
 import { getCollection, type CollectionEntry } from 'astro:content';
 import Layout from '@/layouts/Layout.astro';
-import DividerLine from '@/components/DividerLine.astro';
 import NextArticle from '@/components/NextArticle.astro';
 
 interface Props {
@@ -30,30 +29,44 @@ export const prerender = true;
 ---
 
 <Layout title=`${title}` description={description}>
-  <section class="my-20 px-4 md:px-0">
-    <header class="flex flex-col gap-5">
+  <article class="mx-auto flex w-full flex-col gap-10 pb-16 pt-12">
+    <header class="flex flex-col items-center gap-5 text-center">
+      <span
+        class="rounded-full border border-line bg-surface px-3 py-1 text-xs font-medium text-ink shadow-elevated">
+        Artículo
+      </span>
       <h1
-        class="text-3xl md:text-4xl font-semibold dark:text-white text-gray-800 break-words"
+        class="max-w-[24ch] text-balance break-words font-serif text-[36px] leading-[1.08] tracking-[-0.02em] text-ink md:text-[52px]"
         transition:name={`article-${title}`}>
         {title}
       </h1>
-      <p class="text-sm md:text-base text-gray-600 dark:text-gray-400">
-        Por: {author} | Publicado el: {new Date(date).toLocaleDateString()}
-      </p>
-      <img src={img} alt="" class="rounded w-full h-48 md:h-72 object-cover" />
+      <div class="flex flex-wrap items-center justify-center gap-2 text-xs">
+        <span class="rounded-full bg-soft px-3 py-1 text-ink">Por {author}</span>
+        <span class="rounded-full bg-soft px-3 py-1 text-ink-muted">
+          {new Date(date).toLocaleDateString()}
+        </span>
+      </div>
     </header>
 
-    <main class="max-w-4xl m-auto my-10 text-pretty px-4 md:px-0">
-      <div
-        class="prose prose-sm md:prose-base dark:prose-invert dark:prose-a:text-yellow-300 prose-a:text-blue-700 prose-blockquote:border-blue-700 max-w-none">
+    <img
+      src={img}
+      alt=""
+      class="h-48 w-full rounded-2xl border border-line object-cover md:h-80"
+      onerror="this.style.display='none'"
+    />
+
+    <div class="mx-auto flex w-full max-w-3xl flex-col gap-10">
+      <div class="prose prose-site max-w-none text-pretty">
         <Content />
       </div>
 
-      {data.nextSlug && (
-        <div class="mt-10">
-          <NextArticle slug={data.nextSlug} />
-        </div>
-      )}
-    </main>
-  </section>
+      <a
+        href="/blog"
+        class="w-fit rounded-full border border-line bg-surface px-5 py-2.5 text-sm font-medium text-ink shadow-elevated transition hover:-translate-y-0.5">
+        ← Volver al blog
+      </a>
+
+      {data.nextSlug && <NextArticle slug={data.nextSlug} />}
+    </div>
+  </article>
 </Layout>

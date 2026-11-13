@@ -1,40 +1,36 @@
 ---
 import Layout from '@/layouts/Layout.astro';
-import { getCollection, type CollectionEntry } from 'astro:content';
-import DividerLine from '@/components/DividerLine.astro';
+import { getCollection } from 'astro:content';
+import PageHeader from '@/components/PageHeader.astro';
 import CardArticles from '@/components/CardArticles.astro';
 
 const articles = await getCollection('articles');
-
-interface Props {
-  article: CollectionEntry<'articles'>;
-}
 ---
 
 <Layout title="Dantech.dev | Blog">
-  <main class="flex flex-col">
-    <header class="py-10">
-      <DividerLine title="Articulos 📑" />
-    </header>
+  <main class="mx-auto flex w-full flex-col pb-16">
+    <PageHeader
+      label="Blog"
+      title="Ideas y novedades del desarrollo web"
+      description="Artículos sobre JavaScript, React y el ecosistema web: lo que aprendo y lo que vale la pena conocer."
+    />
 
-    <section aria-label="articulos de mi blog">
-      <div class="grid grid-cols-1 gap-4">
+    <section aria-label="Artículos de mi blog">
+      <ul role="list" class="grid grid-cols-1 gap-4 sm:grid-cols-2">
         {
-          articles.map((article) => {
-            const { slug, data } = article;
-            const { title, description, author } = data;
-
-            return (
+          articles.map(({ slug, data }) => (
+            <li>
               <CardArticles
-                title={title}
-                description={description}
-                author={author}
+                title={data.title}
+                description={data.description}
+                author={data.author}
                 slug={slug}
+                img={data.img}
               />
-            );
-          })
+            </li>
+          ))
         }
-      </div>
+      </ul>
     </section>
   </main>
 </Layout>

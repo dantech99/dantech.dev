@@ -1,0 +1,35 @@
+---
+import { Asterisk } from "lucide-react";
+
+interface Props {
+  label: string;
+  title: string;
+  description?: string;
+  class?: string;
+}
+
+const { label, title, description, class: className = "" } = Astro.props;
+---
+
+<header
+  class:list={["flex flex-col items-center gap-5 pb-12 pt-16 text-center", className]}
+>
+  <span
+    class="inline-flex items-center gap-1.5 rounded-full border border-line bg-surface px-3 py-1 text-xs font-medium text-ink shadow-elevated"
+  >
+    <Asterisk size={12} strokeWidth={2.2} aria-hidden="true" />
+    {label}
+  </span>
+  <h1
+    class="max-w-[22ch] text-balance font-serif text-[40px] leading-[1.05] tracking-[-0.02em] text-ink md:text-[56px]"
+  >
+    {title}
+  </h1>
+  {
+    description && (
+      <p class="max-w-[56ch] text-pretty text-base leading-relaxed text-ink-muted md:text-lg">
+        {description}
+      </p>
+    )
+  }
+</header>

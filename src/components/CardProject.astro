@@ -27,154 +27,130 @@ const iconComponents = {
   Astro
 };
 
+interface LinkItem {
+  name: string;
+  url: string;
+  icon: string;
+}
+interface TechItem {
+  name: string;
+  icon: string;
+}
+
 const {
   title,
   description,
   img,
   tags = [] as string[],
-  links = [] as { name: string; url: string; icon: string }[],
-  tech = [] as { name: string; icon: string }[],
+  links = [] as LinkItem[],
+  tech = [] as TechItem[],
   slug,
   status = 'Completado',
+  date,
 } = Astro.props;
+
+const year = date ? new Date(date).getFullYear() : null;
+const dot =
+  status === 'Completado'
+    ? 'bg-emerald-500'
+    : status === 'En desarrollo'
+      ? 'bg-amber-500'
+      : 'bg-ink-muted';
 ---
 
 <article
-  class="rounded-lg col-span-6 border-[1px] border-gray-600 bg-card text-card-foreground shadow-sm w-full max-w-xl overflow-hidden"
-  data-aos="fade-up"
-  data-v0-t="card">
-  <!-- seccion de la imagen -->
-  <header
-    class="max-h-64 flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip md:group-hover:-translate-y-1 md:group-hover:shadow-2xl">
+  class="flex h-full w-full flex-col gap-3 rounded-[20px] border border-line bg-surface p-2.5 shadow-elevated"
+>
+  <a
+    href={`/projects/${slug}`}
+    class="group block aspect-[4/3] overflow-hidden rounded-xl bg-soft"
+    tabindex="-1"
+    aria-hidden="true"
+  >
     <img
-      class="w-[90%] md:left-14 relative mt-8 object-top transition hover:scale-105 motion-reduce:transition-none motion-reduce:hover:scale-50 ease-in-out duration-500 sm:h-full md:scale-110 md:group-hover:scale-105"
-      alt="Logo"
       src={img}
-      aria-label="imagen del proyecto"
+      alt=""
+      class="size-full object-cover object-top transition duration-500 group-hover:scale-105 motion-reduce:transition-none motion-reduce:group-hover:scale-100"
       loading="lazy"
+      onerror="this.style.display='none'"
     />
-  </header>
+  </a>
 
-  <main
-    class="flex justify-between p-5 items-start space-y-0 md:h-40 h-auto max-h-52 flex-col md:flex-row">
-    <div class="space-y-1">
-      <div class="flex items-center gap-2 mb-2">
-        <h3
-          class="text-2xl font-semibold whitespace-nowrap leading-none tracking-tight dark:text-white text-[#333333]">
-          <a href={`projects/${slug}`}>{title}</a>
-        </h3>
+  <div class="flex flex-1 flex-col gap-3 px-1.5 pb-1.5">
+    <div class="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-2">
+      <h3 class="text-base font-medium text-ink">
+        <a href={`/projects/${slug}`} class="hover:underline">{title}</a>
+      </h3>
+      <div class="flex items-center gap-3">
         <span
-          class={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold ${
-            status === 'Completado'
-              ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300'
-              : status === 'En desarrollo'
-                ? 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300'
-                : 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300'
-          }`}
-          aria-label={`Estado del proyecto: ${status}`}>
+          class="inline-flex items-center gap-1.5 rounded-full bg-soft px-3 py-1 text-xs text-ink"
+          aria-label={`Estado del proyecto: ${status}`}
+        >
+          <span class={`size-1.5 rounded-full ${dot}`} aria-hidden="true"></span>
           {status}
         </span>
+        {year && <span class="text-xs text-ink-muted">{year}</span>}
       </div>
-      <p
-        class="text-sm text-muted-foreground text-balance font-medium text-gray-500 dark:text-gray-400">
-        {description}
-      </p>
-      <div>
-        {
-          tags.map((tag: string) => (
-            <span
-              class="inline-flex items-center rounded-full whitespace-nowrap border px-2.5 py-0.5 w-fit text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2  border-text-secondary   text-secondary-foreground dark:hover:bg-gray-600 hover:bg-gray-800 dark:bg-gray-800 bg-gray-700 mr-1 mt-3 text-white"
-              aria-label="badges de categorias">
+    </div>
+
+    <p class="text-pretty text-sm leading-relaxed text-ink-muted">
+      {description}
+    </p>
+
+    {
+      tags.length > 0 && (
+        <div class="flex flex-wrap gap-2">
+          {tags.map((tag: string) => (
+            <span class="rounded-full bg-soft px-3 py-1 text-xs capitalize text-ink">
               {tag}
             </span>
-          ))
-        }
-      </div>
-    </div>
+          ))}
+        </div>
+      )
+    }
 
-    <div class="hidden md:flex md:flex-col flex-row gap-1">
-      {
-        links.map(
-          ({
-            name,
-            url,
-            icon,
-          }: {
-            name: string;
-            url: string;
-            icon: string;
-          }) => {
+    {
+      tech.length > 0 && (
+        <ul
+          role="list"
+          class="flex flex-wrap gap-x-4 gap-y-2 text-xs text-ink-muted"
+        >
+          {tech.map(({ name, icon }: TechItem) => {
+            const IconComponent =
+              iconComponents[icon as keyof typeof iconComponents];
+            return (
+              <li class="flex items-center gap-1.5">
+                {IconComponent && <IconComponent class="size-4 icon" />}
+                {name}
+              </li>
+            );
+          })}
+        </ul>
+      )
+    }
+
+    {
+      links.length > 0 && (
+        <div class="mt-auto flex flex-wrap gap-2 pt-1">
+          {links.map(({ name, url, icon }: LinkItem) => {
             const IconComponent =
               iconComponents[icon as keyof typeof iconComponents];
             return (
               <a
                 href={url}
-                class="inline-flex rounded-lg  items-center py-1 px-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-200 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-700 gap-3 mt-5 md:mt-1"
                 target="_blank"
-                role="link"
-                aria-label="enlaces">
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 rounded-full border border-line bg-surface px-3.5 py-1.5 text-sm font-medium text-ink transition hover:-translate-y-0.5"
+              >
                 {IconComponent && (
-                  <IconComponent class="size-4 fill-[#333333] dark:fill-white" />
-                )}{' '}
+                  <IconComponent class="size-4 fill-current text-ink" />
+                )}
                 {name}
               </a>
             );
-          },
-        )
-      }
-    </div>
-  </main>
-
-  <footer class="py-1 px-6 md:p-6">
-    <div class="flex space-x-4 text-sm text-gray-500 dark:text-gray-400">
-      {
-        tech.map(({ name, icon }: { name: string; icon: string }) => {
-          const IconComponent =
-            iconComponents[icon as keyof typeof iconComponents];
-          return (
-            <div class="flex items-center gap-2  ">
-              {IconComponent && <IconComponent class="size-4 icon" />}
-              {name}
-            </div>
-          );
-        })
-      }
-    </div>
-  </footer>
-
-  <!-- mobile -->
-  <div
-    class="flex md:hidden justify-between p-5 items-start space-y-0 md:h-40 h-auto max-h-52 flex-col md:flex-row">
-    <div class="flex md:flex-col flex-row gap-1">
-      {
-        links.map(
-          ({
-            name,
-            url,
-            icon,
-          }: {
-            name: string;
-            url: string;
-            icon: string;
-          }) => {
-            const IconComponent =
-              iconComponents[icon as keyof typeof iconComponents];
-            return (
-              <a
-                href={url}
-                class="inline-flex rounded-lg  items-center py-1 px-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-200 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-700 gap-3 mt-5 md:mt-1"
-                target="_blank"
-                role="link"
-                aria-label="enlaces">
-                {IconComponent && (
-                  <IconComponent class="size-4 fill-[#333333] dark:fill-white" />
-                )}{' '}
-                {name}
-              </a>
-            );
-          },
-        )
-      }
-    </div>
+          })}
+        </div>
+      )
+    }
   </div>
 </article>
