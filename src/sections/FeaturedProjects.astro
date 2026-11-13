@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import SectionHeading from "@/components/SectionHeading.astro";
+import SiteCard from "@/components/SiteCard.jsx";
 
 const projects = (await getCollection("projects")).sort(
   (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
@@ -20,9 +21,14 @@ const projects = (await getCollection("projects")).sort(
     {
       projects.map(({ slug, data }) => (
         <li>
+          <SiteCard
+            client:visible
+            padding="0"
+            className="h-full transition duration-200 hover:-translate-y-0.5"
+          >
           <a
             href={`/projects/${slug}`}
-            class="group flex h-full flex-col gap-3 rounded-[20px] border border-line bg-surface p-2.5 shadow-elevated transition duration-200 hover:-translate-y-0.5"
+            class="group flex h-full flex-col gap-3 p-2.5"
           >
             <div class="aspect-[4/3] overflow-hidden rounded-xl bg-soft">
               <img
@@ -47,6 +53,7 @@ const projects = (await getCollection("projects")).sort(
               ))}
             </div>
           </a>
+          </SiteCard>
         </li>
       ))
     }

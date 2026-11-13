@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Lanyard from "./Lanyard";
+import { useDarkMode } from "./useDarkMode";
 
 // Colores de la correa y el herraje por tema (la tarjeta siempre es blanca)
 const THEME = {
@@ -14,20 +15,6 @@ const supportsWebGL = () => {
   } catch {
     return false;
   }
-};
-
-// Sigue la clase `dark` del <html>, que cambia el interruptor de tema
-const useDarkMode = () => {
-  const [dark, setDark] = useState(false);
-  useEffect(() => {
-    const root = document.documentElement;
-    const read = () => setDark(root.classList.contains("dark"));
-    read();
-    const observer = new MutationObserver(read);
-    observer.observe(root, { attributes: true, attributeFilter: ["class"] });
-    return () => observer.disconnect();
-  }, []);
-  return dark;
 };
 
 export default function ProfileLanyard({ frontImage, backImage, label }) {
