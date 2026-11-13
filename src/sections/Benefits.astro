@@ -1,6 +1,7 @@
 ---
 import { Asterisk, Handshake, PackageCheck } from "lucide-react";
 import SectionHeading from "@/components/SectionHeading.astro";
+import SiteCard from "@/components/SiteCard.jsx";
 
 const benefits = [
   {
@@ -41,17 +42,21 @@ const benefits = [
   <ul role="list" class="flex flex-col gap-3">
     {
       benefits.map(({ icon: Icon, title, text, width }) => (
-        <li
-          class="mx-auto flex w-full gap-4 rounded-2xl border border-line bg-surface p-4 shadow-elevated"
-          style={`max-width:${width}`}
-        >
-          <span class="grid size-10 shrink-0 place-items-center rounded-full border border-line bg-soft text-ink">
-            <Icon size={18} strokeWidth={1.75} aria-hidden="true" />
-          </span>
-          <div>
-            <h3 class="text-sm font-medium text-ink">{title}</h3>
-            <p class="mt-1 text-sm leading-relaxed text-ink-muted">{text}</p>
-          </div>
+        <li class="mx-auto w-full" style={`max-width:${width}`}>
+          <SiteCard
+            client:visible
+            radius={16}
+            padding="1rem"
+            className="flex gap-4"
+          >
+            <span class="grid size-10 shrink-0 place-items-center rounded-full border border-line bg-soft text-ink">
+              <Icon size={18} strokeWidth={1.75} aria-hidden="true" />
+            </span>
+            <div>
+              <h3 class="text-sm font-medium text-ink">{title}</h3>
+              <p class="mt-1 text-sm leading-relaxed text-ink-muted">{text}</p>
+            </div>
+          </SiteCard>
         </li>
       ))
     }

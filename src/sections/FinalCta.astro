@@ -1,4 +1,5 @@
 ---
+import SiteCard from "@/components/SiteCard.jsx";
 import { mailto } from "@/data/contact";
 
 const corners = [
@@ -10,8 +11,12 @@ const corners = [
 ---
 
 <section id="contacto" class="mx-auto w-full scroll-mt-8 py-16">
-  <div
-    class="relative isolate overflow-hidden rounded-3xl border border-line bg-surface px-6 py-16 text-center shadow-elevated"
+  <SiteCard
+    client:visible
+    radius={24}
+    padding="4rem 1.5rem"
+    spotlightSize={360}
+    className="text-center"
   >
     <div
       class="dot-field pointer-events-none absolute inset-0 -z-10 text-ink opacity-[0.18]"
@@ -45,7 +50,7 @@ const corners = [
         Hablemos
       </a>
     </div>
-  </div>
+  </SiteCard>
   <div
     class="mx-auto -mt-px h-3 w-[93%] rounded-b-2xl border border-t-0 border-line bg-surface/70"
     aria-hidden="true"

@@ -8,6 +8,7 @@ import {
   LifeBuoy,
 } from "lucide-react";
 import SectionHeading from "@/components/SectionHeading.astro";
+import SiteCard from "@/components/SiteCard.jsx";
 import { mailto } from "@/data/contact";
 
 const services = [
@@ -72,15 +73,19 @@ const services = [
 
     {
       services.map(({ area, icon: Icon, title, text }) => (
-        <article
-          class={`card ${area} flex flex-col gap-3 rounded-2xl border border-line bg-surface p-4 shadow-elevated`}
+        <SiteCard
+          client:visible
+          role="article"
+          radius={16}
+          padding="1rem"
+          className={`svc-${area} flex flex-col gap-3`}
         >
           <span class="grid size-10 place-items-center rounded-full border border-line bg-soft text-ink">
             <Icon size={18} strokeWidth={1.75} aria-hidden="true" />
           </span>
           <h3 class="text-sm font-medium text-ink">{title}</h3>
           <p class="text-sm leading-relaxed text-ink-muted">{text}</p>
-        </article>
+        </SiteCard>
       ))
     }
   </div>
@@ -111,22 +116,22 @@ const services = [
       order: 0;
       align-self: center;
     }
-    .top {
+    :global(.svc-top) {
       grid-area: top;
     }
-    .l1 {
+    :global(.svc-l1) {
       grid-area: l1;
     }
-    .r1 {
+    :global(.svc-r1) {
       grid-area: r1;
     }
-    .l2 {
+    :global(.svc-l2) {
       grid-area: l2;
     }
-    .r2 {
+    :global(.svc-r2) {
       grid-area: r2;
     }
-    .bottom {
+    :global(.svc-bottom) {
       grid-area: bottom;
     }
   }
