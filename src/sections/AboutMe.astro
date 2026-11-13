@@ -3,6 +3,7 @@ import { getCollection } from "astro:content";
 import { Asterisk } from "lucide-react";
 import ArrowLink from "@/components/ArrowLink.astro";
 import ProfileLanyard from "@/components/ProfileLanyard.jsx";
+import SiteCard from "@/components/SiteCard.jsx";
 
 const certificates = (await getCollection("certificates")).sort(
   (a, b) => a.data.date.localeCompare(b.data.date),
@@ -53,8 +54,6 @@ const pillClass =
   "inline-flex w-fit items-center gap-1.5 rounded-full border border-line bg-surface px-3 py-1 text-xs font-medium text-ink shadow-[0_1px_2px_rgba(0,0,0,0.05)]";
 const headingClass =
   "mt-5 max-w-[22ch] text-balance font-serif text-[34px] leading-[1.08] tracking-[-0.02em] text-ink md:text-[44px]";
-const cardClass =
-  "mt-6 overflow-hidden rounded-2xl border border-line bg-surface shadow-elevated";
 const rowClass = "border-b border-line last:border-b-0";
 ---
 
@@ -89,7 +88,8 @@ const rowClass = "border-b border-line last:border-b-0";
       e-commerce con Next.js, Node y PostgreSQL.
     </p>
 
-    <ul class="mt-6 rounded-2xl border border-line bg-surface px-4 shadow-elevated" role="list">
+    <SiteCard client:visible radius={16} padding="0 1rem" spotlightSize={320} className="mt-6">
+    <ul role="list">
       {
         contact.map(({ label, value, href }) => (
           <li class={rowClass}>
@@ -107,6 +107,7 @@ const rowClass = "border-b border-line last:border-b-0";
         ))
       }
     </ul>
+    </SiteCard>
 
     <p
       class="mt-6 inline-flex w-fit items-center gap-2 rounded-full border border-line bg-surface px-3 py-1.5 text-xs text-ink shadow-elevated"
@@ -148,7 +149,8 @@ const rowClass = "border-b border-line last:border-b-0";
         Stack
       </h2>
       <p class={headingClass}>Con qué construyo.</p>
-      <dl class={`${cardClass} px-4`}>
+      <SiteCard client:visible radius={16} padding="0 1rem" spotlightSize={320} className="mt-6">
+      <dl>
         {
           stack.map(({ label, value }) => (
             <div
@@ -160,6 +162,7 @@ const rowClass = "border-b border-line last:border-b-0";
           ))
         }
       </dl>
+      </SiteCard>
     </article>
 
     <!-- Certificados -->
@@ -169,7 +172,8 @@ const rowClass = "border-b border-line last:border-b-0";
         Certificados
       </h2>
       <p class={headingClass}>Aprendizaje continuo.</p>
-      <ul class={`${cardClass} px-4`} role="list">
+      <SiteCard client:visible radius={16} padding="0 1rem" spotlightSize={320} className="mt-6">
+      <ul role="list">
         {
           certificates.map(({ data }) => (
             <li class={rowClass}>
@@ -209,6 +213,7 @@ const rowClass = "border-b border-line last:border-b-0";
           ))
         }
       </ul>
+      </SiteCard>
     </article>
 
     <!-- Formación -->
@@ -218,7 +223,8 @@ const rowClass = "border-b border-line last:border-b-0";
         Formación
       </h2>
       <p class={headingClass}>Mi recorrido académico.</p>
-      <ul class={`${cardClass} px-4`} role="list">
+      <SiteCard client:visible radius={16} padding="0 1rem" spotlightSize={320} className="mt-6">
+      <ul role="list">
         {
           education.map(({ data }) => (
             <li
@@ -235,6 +241,7 @@ const rowClass = "border-b border-line last:border-b-0";
           ))
         }
       </ul>
+      </SiteCard>
     </article>
   </main>
 </section>

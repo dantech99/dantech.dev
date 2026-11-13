@@ -1,6 +1,7 @@
 ---
 import { Search, ListChecks, PencilRuler, Code, Rocket } from "lucide-react";
 import SectionHeading from "@/components/SectionHeading.astro";
+import SiteCard from "@/components/SiteCard.jsx";
 
 const steps = [
   {
@@ -55,9 +56,13 @@ const rows = [[0, 1], [2, 3], [4]];
           {row.map((i) => {
             const { icon: Icon, title, text, grow } = steps[i];
             return (
-              <article
-                class="relative flex flex-col gap-4 overflow-hidden rounded-2xl border border-line bg-surface p-4 shadow-elevated"
-                style={`flex:${grow} 1 0%`}
+              <SiteCard
+                client:visible
+                role="article"
+                radius={16}
+                padding="1rem"
+                className="flex flex-col gap-4"
+                style={{ flex: `${grow} 1 0%` }}
               >
                 <div class="flex items-start justify-between">
                   <span class="grid size-7 place-items-center rounded-full border border-line bg-soft text-xs font-medium text-ink">
@@ -73,7 +78,7 @@ const rows = [[0, 1], [2, 3], [4]];
                     {text}
                   </p>
                 </div>
-              </article>
+              </SiteCard>
             );
           })}
         </div>

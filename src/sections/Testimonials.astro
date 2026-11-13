@@ -1,5 +1,6 @@
 ---
 import SectionHeading from "@/components/SectionHeading.astro";
+import SiteCard from "@/components/SiteCard.jsx";
 import { testimonials } from "@/data/testimonials";
 
 const initials = (name: string) =>
@@ -23,7 +24,13 @@ const initials = (name: string) =>
       />
       <div class="columns-1 gap-4 sm:columns-2 lg:columns-3">
         {testimonials.map(({ name, role, quote, date, avatar }) => (
-          <figure class="mb-4 break-inside-avoid rounded-2xl border border-line bg-surface p-4 shadow-elevated">
+          <SiteCard
+            client:visible
+            role="figure"
+            radius={16}
+            padding="1rem"
+            className="mb-4 break-inside-avoid"
+          >
             <div class="flex items-start justify-between gap-3">
               {avatar ? (
                 <img
@@ -50,7 +57,7 @@ const initials = (name: string) =>
             <blockquote class="mt-4 text-sm leading-relaxed text-ink">
               {quote}
             </blockquote>
-          </figure>
+          </SiteCard>
         ))}
       </div>
     </section>

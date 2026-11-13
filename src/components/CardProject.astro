@@ -1,4 +1,5 @@
 ---
+import SiteCard from '@/components/SiteCard.jsx';
 import Nextjs from '@/icons/Nextjs.astro';
 import Supabase from '@/icons/Supabase.astro';
 import Laravel from '@/icons/Laravel.astro';
@@ -58,8 +59,10 @@ const dot =
       : 'bg-ink-muted';
 ---
 
-<article
-  class="flex h-full w-full flex-col gap-3 rounded-[20px] border border-line bg-surface p-2.5 shadow-elevated"
+<SiteCard
+  client:visible
+  padding="0.625rem"
+  className="flex h-full w-full flex-col gap-3"
 >
   <a
     href={`/projects/${slug}`}
@@ -153,4 +156,4 @@ const dot =
       )
     }
   </div>
-</article>
+</SiteCard>

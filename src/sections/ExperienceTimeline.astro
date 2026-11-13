@@ -1,5 +1,6 @@
 ---
 import SectionHeading from "@/components/SectionHeading.astro";
+import SiteCard from "@/components/SiteCard.jsx";
 import { experience } from "@/data/experience";
 ---
 
@@ -12,8 +13,12 @@ import { experience } from "@/data/experience";
     title="Mi recorrido en el mundo del desarrollo web."
   />
 
-  <div
-    class="rounded-[20px] border border-line bg-surface p-5 shadow-elevated sm:p-6"
+  <SiteCard
+    client:visible
+    radius={20}
+    padding="1.25rem"
+    className="!p-5 sm:!p-6"
+    spotlightSize={360}
   >
     <ol class="flex flex-col gap-9">
       {
@@ -40,5 +45,5 @@ import { experience } from "@/data/experience";
         ))
       }
     </ol>
-  </div>
+  </SiteCard>
 </section>
