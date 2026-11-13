@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content";
 import { Asterisk } from "lucide-react";
 import ArrowLink from "@/components/ArrowLink.astro";
+import ProfileLanyard from "@/components/ProfileLanyard.jsx";
 
 const certificates = (await getCollection("certificates")).sort(
   (a, b) => a.data.date.localeCompare(b.data.date),
@@ -62,16 +63,19 @@ const rowClass = "border-b border-line last:border-b-0";
   class="grid grid-cols-1 gap-12 pb-10 pt-10 md:grid-cols-[minmax(0,5fr)_minmax(0,8fr)] md:gap-x-16 md:pt-16"
 >
   <!-- Sidebar -->
-  <aside class="flex flex-col self-start md:sticky md:top-10">
-    <div class="size-20 overflow-hidden rounded-2xl border border-line shadow-md">
-      <img
-        src="/img/dantech-pixel.jpg"
-        alt="Foto de Danilo Macea"
-        class="size-full object-cover"
-        width="80"
-        height="80"
+  <aside class="flex flex-col self-start">
+    <!-- tarjeta colgante interactiva (Lanyard de React Bits): se carga al ser visible -->
+    <div class="relative -mx-2 h-[420px] md:h-[460px]">
+      <ProfileLanyard
+        client:visible
+        frontImage="/img/perfil-card.jpg"
+        backImage="/img/perfil-card-back.jpg"
+        label="Foto de Danilo Macea en una tarjeta colgante"
       />
     </div>
+    <p class="-mt-2 text-center text-xs text-ink-muted">
+      Arrastra la tarjeta o haz clic para girarla
+    </p>
 
     <h1
       class="mt-8 text-balance font-serif text-[44px] leading-[1.04] tracking-[-0.02em] text-ink"
