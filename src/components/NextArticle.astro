@@ -1,5 +1,6 @@
 ---
 import { getEntry } from 'astro:content';
+import SiteCard from '@/components/SiteCard.jsx';
 
 interface Props {
   slug: string;
@@ -12,9 +13,14 @@ const nextArticle = await getEntry('articles', slug);
 
 {
   nextArticle && (
+    <SiteCard
+      client:visible
+      padding="0"
+      className="transition duration-200 hover:-translate-y-0.5"
+    >
     <a
       href={`/blog/${nextArticle.slug}`}
-      class="group flex items-center justify-between gap-4 rounded-[20px] border border-line bg-surface px-6 py-5 no-underline shadow-elevated transition duration-200 hover:-translate-y-0.5"
+      class="group flex items-center justify-between gap-4 px-6 py-5 no-underline"
     >
       <div class="flex flex-col gap-1">
         <span class="text-xs font-medium text-ink-muted">
@@ -42,5 +48,6 @@ const nextArticle = await getEntry('articles', slug);
         />
       </svg>
     </a>
+    </SiteCard>
   )
 }
